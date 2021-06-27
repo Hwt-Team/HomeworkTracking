@@ -53,8 +53,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\EMarketDemo\Core\Core.csproj">
-      <Project>{8cb7e981-3ce2-47a4-9a63-ed1f1138e159}</Project>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{08f91309-fcba-447f-940a-06b224bcd26e}</Project>
       <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

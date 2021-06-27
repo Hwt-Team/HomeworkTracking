@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{735DBEBD-9D18-4496-BF92-40B07E240C2B}</ProjectGuid>
+    <ProjectGuid>{08F91309-FCBA-447F-940A-06B224BCD26E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Entities</RootNamespace>
-    <AssemblyName>Entities</AssemblyName>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Exercise.cs" />
-    <Compile Include="Concrete\Group.cs" />
-    <Compile Include="Concrete\Student.cs" />
-    <Compile Include="Concrete\StudentExercises.cs" />
+    <Compile Include="Aspects\Postsharp\Caching\CacheAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Caching\CacheRemoveAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Logging\LogAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Transaction\TransactionAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Validation\ValidationAspect.cs" />
+    <Compile Include="CrossCuttingConcerns\Caching\ICacheManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Caching\Microsoft\MemoryCacheManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Layouts\JsonLayout.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\LoggerService.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\DatabaseLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\FileLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\LogDetails.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\LogParameter.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidatorTool.cs" />
+    <Compile Include="DataAccess\Abstract\IEntityRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
+    <Compile Include="Entities\Abstract\IDto.cs" />
+    <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{08f91309-fcba-447f-940a-06b224bcd26e}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
