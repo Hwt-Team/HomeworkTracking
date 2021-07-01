@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entities.Concrete;
+using Entities.Dtos;
 
 namespace Business.Abstract
 {
@@ -10,5 +11,11 @@ namespace Business.Abstract
         void Delete(StudentExercises studentExercises);
         List<StudentExercises> GetAll();
         StudentExercises GetById(int id);
+        List<StudentExercisesDto> GetStudentExercisesDto();
+        List<StudentExercises> GetByStudentId(int id);
+        List<StudentExercises> GetByExerciseId(int id);
+        List<StudentExercisesDto> GetStudentExercisesDtoById(int id);
+        List<StudentExercisesDto> GetStudentExercisesDtoByStudentId(int id);
+        List<StudentExercisesDto> GetStudentExercisesDtoByExerciseId(int id);
     }
 }

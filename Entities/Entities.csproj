@@ -45,6 +45,7 @@
     <Compile Include="Concrete\Group.cs" />
     <Compile Include="Concrete\Student.cs" />
     <Compile Include="Concrete\StudentExercises.cs" />
+    <Compile Include="Dtos\StudentExercisesDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +54,6 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

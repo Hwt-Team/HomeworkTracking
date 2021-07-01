@@ -5,7 +5,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 
-namespace FormsUI
+namespace FormUI
 {
     public partial class Form1 : Form
     {
@@ -22,7 +22,6 @@ namespace FormsUI
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
         }
-
         private void LoadStudentExercisesForUser()
         {
             dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDto();
@@ -119,7 +118,7 @@ namespace FormsUI
             var exerciseId = int.Parse(text);
             if (!String.IsNullOrEmpty(text))
             {
-                dgwStudentExercisesAdmin.DataSource = 
+                dgwStudentExercisesAdmin.DataSource =
                     _studentExercisesService.GetByExerciseId(exerciseId);
                 dgwStudentExercisesUser.DataSource =
                     _studentExercisesService.GetStudentExercisesDtoByExerciseId(exerciseId);

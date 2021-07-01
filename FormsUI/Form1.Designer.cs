@@ -34,26 +34,34 @@ namespace FormsUI
             this.lblUserAppearance = new System.Windows.Forms.Label();
             this.lblAdminAppearance = new System.Windows.Forms.Label();
             this.gbxCrud = new System.Windows.Forms.GroupBox();
-            this.gbxAdd = new System.Windows.Forms.GroupBox();
-            this.gbxUpdate = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lblStudentIdAdd = new System.Windows.Forms.Label();
-            this.lblExerciseIdAdd = new System.Windows.Forms.Label();
-            this.lblActiveAdd = new System.Windows.Forms.Label();
-            this.tbxStudentIdAdd = new System.Windows.Forms.TextBox();
-            this.tbxExerciseIdAdd = new System.Windows.Forms.TextBox();
-            this.tbxActiveAdd = new System.Windows.Forms.TextBox();
-            this.tbxActiveUpdate = new System.Windows.Forms.TextBox();
-            this.lblActiveUpdate = new System.Windows.Forms.Label();
+            this.gbxUpdate = new System.Windows.Forms.GroupBox();
             this.tbxExerciseIdUpdate = new System.Windows.Forms.TextBox();
             this.lblStudentIdUpdate = new System.Windows.Forms.Label();
             this.tbxStudentIdUpdate = new System.Windows.Forms.TextBox();
             this.lblExerciseIdUpdate = new System.Windows.Forms.Label();
+            this.gbxAdd = new System.Windows.Forms.GroupBox();
+            this.tbxExerciseIdAdd = new System.Windows.Forms.TextBox();
+            this.lblStudentIdAdd = new System.Windows.Forms.Label();
+            this.tbxStudentIdAdd = new System.Windows.Forms.TextBox();
+            this.lblExerciseIdAdd = new System.Windows.Forms.Label();
+            this.Search = new System.Windows.Forms.GroupBox();
+            this.chbxActive = new System.Windows.Forms.CheckBox();
+            this.lblIdSearch = new System.Windows.Forms.Label();
+            this.lblStudentIdSearch = new System.Windows.Forms.Label();
+            this.lblExerciseIdSearch = new System.Windows.Forms.Label();
+            this.tbxIdSearch = new System.Windows.Forms.TextBox();
+            this.tbxStudentIdSearch = new System.Windows.Forms.TextBox();
+            this.tbxExerciseIdSearch = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.chbxActiveUpdate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesAdmin)).BeginInit();
             this.gbxCrud.SuspendLayout();
-            this.gbxAdd.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
+            this.gbxAdd.SuspendLayout();
+            this.Search.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgwStudentExercisesUser
@@ -75,6 +83,7 @@ namespace FormsUI
             this.dgwStudentExercisesAdmin.RowTemplate.Height = 24;
             this.dgwStudentExercisesAdmin.Size = new System.Drawing.Size(1046, 247);
             this.dgwStudentExercisesAdmin.TabIndex = 1;
+            this.dgwStudentExercisesAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwStudentExercisesAdmin_CellClick);
             // 
             // lblUserAppearance
             // 
@@ -104,31 +113,26 @@ namespace FormsUI
             this.gbxCrud.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbxCrud.Location = new System.Drawing.Point(22, 621);
             this.gbxCrud.Name = "gbxCrud";
-            this.gbxCrud.Size = new System.Drawing.Size(630, 281);
+            this.gbxCrud.Size = new System.Drawing.Size(630, 304);
             this.gbxCrud.TabIndex = 4;
             this.gbxCrud.TabStop = false;
             this.gbxCrud.Text = "CRUD";
             // 
-            // gbxAdd
+            // btnDelete
             // 
-            this.gbxAdd.Controls.Add(this.tbxActiveAdd);
-            this.gbxAdd.Controls.Add(this.lblActiveAdd);
-            this.gbxAdd.Controls.Add(this.tbxExerciseIdAdd);
-            this.gbxAdd.Controls.Add(this.lblStudentIdAdd);
-            this.gbxAdd.Controls.Add(this.tbxStudentIdAdd);
-            this.gbxAdd.Controls.Add(this.lblExerciseIdAdd);
-            this.gbxAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxAdd.Location = new System.Drawing.Point(26, 38);
-            this.gbxAdd.Name = "gbxAdd";
-            this.gbxAdd.Size = new System.Drawing.Size(232, 167);
-            this.gbxAdd.TabIndex = 0;
-            this.gbxAdd.TabStop = false;
-            this.gbxAdd.Text = "Add";
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.Location = new System.Drawing.Point(439, 252);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(131, 46);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // gbxUpdate
             // 
-            this.gbxUpdate.Controls.Add(this.tbxActiveUpdate);
-            this.gbxUpdate.Controls.Add(this.lblActiveUpdate);
+            this.gbxUpdate.Controls.Add(this.chbxActiveUpdate);
+            this.gbxUpdate.Controls.Add(this.btnUpdate);
             this.gbxUpdate.Controls.Add(this.tbxExerciseIdUpdate);
             this.gbxUpdate.Controls.Add(this.lblStudentIdUpdate);
             this.gbxUpdate.Controls.Add(this.tbxStudentIdUpdate);
@@ -136,92 +140,10 @@ namespace FormsUI
             this.gbxUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbxUpdate.Location = new System.Drawing.Point(346, 38);
             this.gbxUpdate.Name = "gbxUpdate";
-            this.gbxUpdate.Size = new System.Drawing.Size(232, 167);
+            this.gbxUpdate.Size = new System.Drawing.Size(232, 202);
             this.gbxUpdate.TabIndex = 1;
             this.gbxUpdate.TabStop = false;
             this.gbxUpdate.Text = "Update";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.Location = new System.Drawing.Point(425, 229);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(131, 46);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // lblStudentIdAdd
-            // 
-            this.lblStudentIdAdd.AutoSize = true;
-            this.lblStudentIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblStudentIdAdd.Location = new System.Drawing.Point(10, 41);
-            this.lblStudentIdAdd.Name = "lblStudentIdAdd";
-            this.lblStudentIdAdd.Size = new System.Drawing.Size(94, 24);
-            this.lblStudentIdAdd.TabIndex = 5;
-            this.lblStudentIdAdd.Text = "Student Id";
-            // 
-            // lblExerciseIdAdd
-            // 
-            this.lblExerciseIdAdd.AutoSize = true;
-            this.lblExerciseIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblExerciseIdAdd.Location = new System.Drawing.Point(10, 82);
-            this.lblExerciseIdAdd.Name = "lblExerciseIdAdd";
-            this.lblExerciseIdAdd.Size = new System.Drawing.Size(104, 24);
-            this.lblExerciseIdAdd.TabIndex = 6;
-            this.lblExerciseIdAdd.Text = "Exercise Id";
-            // 
-            // lblActiveAdd
-            // 
-            this.lblActiveAdd.AutoSize = true;
-            this.lblActiveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblActiveAdd.Location = new System.Drawing.Point(10, 118);
-            this.lblActiveAdd.Name = "lblActiveAdd";
-            this.lblActiveAdd.Size = new System.Drawing.Size(61, 24);
-            this.lblActiveAdd.TabIndex = 7;
-            this.lblActiveAdd.Text = "Active";
-            // 
-            // tbxStudentIdAdd
-            // 
-            this.tbxStudentIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxStudentIdAdd.Location = new System.Drawing.Point(126, 36);
-            this.tbxStudentIdAdd.Name = "tbxStudentIdAdd";
-            this.tbxStudentIdAdd.Size = new System.Drawing.Size(100, 28);
-            this.tbxStudentIdAdd.TabIndex = 5;
-            // 
-            // tbxExerciseIdAdd
-            // 
-            this.tbxExerciseIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxExerciseIdAdd.Location = new System.Drawing.Point(126, 77);
-            this.tbxExerciseIdAdd.Name = "tbxExerciseIdAdd";
-            this.tbxExerciseIdAdd.Size = new System.Drawing.Size(100, 28);
-            this.tbxExerciseIdAdd.TabIndex = 6;
-            // 
-            // tbxActiveAdd
-            // 
-            this.tbxActiveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxActiveAdd.Location = new System.Drawing.Point(126, 113);
-            this.tbxActiveAdd.Name = "tbxActiveAdd";
-            this.tbxActiveAdd.Size = new System.Drawing.Size(100, 28);
-            this.tbxActiveAdd.TabIndex = 7;
-            // 
-            // tbxActiveUpdate
-            // 
-            this.tbxActiveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxActiveUpdate.Location = new System.Drawing.Point(124, 107);
-            this.tbxActiveUpdate.Name = "tbxActiveUpdate";
-            this.tbxActiveUpdate.Size = new System.Drawing.Size(100, 28);
-            this.tbxActiveUpdate.TabIndex = 12;
-            // 
-            // lblActiveUpdate
-            // 
-            this.lblActiveUpdate.AutoSize = true;
-            this.lblActiveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblActiveUpdate.Location = new System.Drawing.Point(8, 112);
-            this.lblActiveUpdate.Name = "lblActiveUpdate";
-            this.lblActiveUpdate.Size = new System.Drawing.Size(61, 24);
-            this.lblActiveUpdate.TabIndex = 13;
-            this.lblActiveUpdate.Text = "Active";
             // 
             // tbxExerciseIdUpdate
             // 
@@ -259,11 +181,179 @@ namespace FormsUI
             this.lblExerciseIdUpdate.TabIndex = 11;
             this.lblExerciseIdUpdate.Text = "Exercise Id";
             // 
+            // gbxAdd
+            // 
+            this.gbxAdd.Controls.Add(this.btnAdd);
+            this.gbxAdd.Controls.Add(this.tbxExerciseIdAdd);
+            this.gbxAdd.Controls.Add(this.lblStudentIdAdd);
+            this.gbxAdd.Controls.Add(this.tbxStudentIdAdd);
+            this.gbxAdd.Controls.Add(this.lblExerciseIdAdd);
+            this.gbxAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbxAdd.Location = new System.Drawing.Point(26, 38);
+            this.gbxAdd.Name = "gbxAdd";
+            this.gbxAdd.Size = new System.Drawing.Size(232, 202);
+            this.gbxAdd.TabIndex = 0;
+            this.gbxAdd.TabStop = false;
+            this.gbxAdd.Text = "Add";
+            // 
+            // tbxExerciseIdAdd
+            // 
+            this.tbxExerciseIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxExerciseIdAdd.Location = new System.Drawing.Point(126, 77);
+            this.tbxExerciseIdAdd.Name = "tbxExerciseIdAdd";
+            this.tbxExerciseIdAdd.Size = new System.Drawing.Size(100, 28);
+            this.tbxExerciseIdAdd.TabIndex = 6;
+            // 
+            // lblStudentIdAdd
+            // 
+            this.lblStudentIdAdd.AutoSize = true;
+            this.lblStudentIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStudentIdAdd.Location = new System.Drawing.Point(10, 41);
+            this.lblStudentIdAdd.Name = "lblStudentIdAdd";
+            this.lblStudentIdAdd.Size = new System.Drawing.Size(94, 24);
+            this.lblStudentIdAdd.TabIndex = 5;
+            this.lblStudentIdAdd.Text = "Student Id";
+            // 
+            // tbxStudentIdAdd
+            // 
+            this.tbxStudentIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxStudentIdAdd.Location = new System.Drawing.Point(126, 36);
+            this.tbxStudentIdAdd.Name = "tbxStudentIdAdd";
+            this.tbxStudentIdAdd.Size = new System.Drawing.Size(100, 28);
+            this.tbxStudentIdAdd.TabIndex = 5;
+            // 
+            // lblExerciseIdAdd
+            // 
+            this.lblExerciseIdAdd.AutoSize = true;
+            this.lblExerciseIdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblExerciseIdAdd.Location = new System.Drawing.Point(10, 82);
+            this.lblExerciseIdAdd.Name = "lblExerciseIdAdd";
+            this.lblExerciseIdAdd.Size = new System.Drawing.Size(104, 24);
+            this.lblExerciseIdAdd.TabIndex = 6;
+            this.lblExerciseIdAdd.Text = "Exercise Id";
+            // 
+            // Search
+            // 
+            this.Search.Controls.Add(this.tbxExerciseIdSearch);
+            this.Search.Controls.Add(this.tbxStudentIdSearch);
+            this.Search.Controls.Add(this.tbxIdSearch);
+            this.Search.Controls.Add(this.lblExerciseIdSearch);
+            this.Search.Controls.Add(this.lblStudentIdSearch);
+            this.Search.Controls.Add(this.lblIdSearch);
+            this.Search.Controls.Add(this.chbxActive);
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search.Location = new System.Drawing.Point(698, 621);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(330, 281);
+            this.Search.TabIndex = 5;
+            this.Search.TabStop = false;
+            this.Search.Text = "Search";
+            // 
+            // chbxActive
+            // 
+            this.chbxActive.AutoSize = true;
+            this.chbxActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chbxActive.Location = new System.Drawing.Point(222, 211);
+            this.chbxActive.Name = "chbxActive";
+            this.chbxActive.Size = new System.Drawing.Size(88, 29);
+            this.chbxActive.TabIndex = 1;
+            this.chbxActive.Text = "Active";
+            this.chbxActive.UseVisualStyleBackColor = true;
+            // 
+            // lblIdSearch
+            // 
+            this.lblIdSearch.AutoSize = true;
+            this.lblIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblIdSearch.Location = new System.Drawing.Point(31, 58);
+            this.lblIdSearch.Name = "lblIdSearch";
+            this.lblIdSearch.Size = new System.Drawing.Size(28, 25);
+            this.lblIdSearch.TabIndex = 2;
+            this.lblIdSearch.Text = "Id";
+            // 
+            // lblStudentIdSearch
+            // 
+            this.lblStudentIdSearch.AutoSize = true;
+            this.lblStudentIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStudentIdSearch.Location = new System.Drawing.Point(31, 109);
+            this.lblStudentIdSearch.Name = "lblStudentIdSearch";
+            this.lblStudentIdSearch.Size = new System.Drawing.Size(101, 25);
+            this.lblStudentIdSearch.TabIndex = 3;
+            this.lblStudentIdSearch.Text = "Student Id";
+            // 
+            // lblExerciseIdSearch
+            // 
+            this.lblExerciseIdSearch.AutoSize = true;
+            this.lblExerciseIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblExerciseIdSearch.Location = new System.Drawing.Point(31, 154);
+            this.lblExerciseIdSearch.Name = "lblExerciseIdSearch";
+            this.lblExerciseIdSearch.Size = new System.Drawing.Size(108, 25);
+            this.lblExerciseIdSearch.TabIndex = 4;
+            this.lblExerciseIdSearch.Text = "Exercise Id";
+            // 
+            // tbxIdSearch
+            // 
+            this.tbxIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxIdSearch.Location = new System.Drawing.Point(181, 55);
+            this.tbxIdSearch.Name = "tbxIdSearch";
+            this.tbxIdSearch.Size = new System.Drawing.Size(100, 30);
+            this.tbxIdSearch.TabIndex = 5;
+            this.tbxIdSearch.TextChanged += new System.EventHandler(this.tbxIdSearch_TextChanged);
+            // 
+            // tbxStudentIdSearch
+            // 
+            this.tbxStudentIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxStudentIdSearch.Location = new System.Drawing.Point(181, 107);
+            this.tbxStudentIdSearch.Name = "tbxStudentIdSearch";
+            this.tbxStudentIdSearch.Size = new System.Drawing.Size(100, 30);
+            this.tbxStudentIdSearch.TabIndex = 6;
+            this.tbxStudentIdSearch.TextChanged += new System.EventHandler(this.tbxStudentIdSearch_TextChanged);
+            // 
+            // tbxExerciseIdSearch
+            // 
+            this.tbxExerciseIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxExerciseIdSearch.Location = new System.Drawing.Point(181, 149);
+            this.tbxExerciseIdSearch.Name = "tbxExerciseIdSearch";
+            this.tbxExerciseIdSearch.Size = new System.Drawing.Size(100, 30);
+            this.tbxExerciseIdSearch.TabIndex = 7;
+            this.tbxExerciseIdSearch.TextChanged += new System.EventHandler(this.tbxExerciseIdSearch_TextChanged);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(124, 151);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(88, 45);
+            this.btnUpdate.TabIndex = 14;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(126, 151);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(86, 45);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // chbxActiveUpdate
+            // 
+            this.chbxActiveUpdate.AutoSize = true;
+            this.chbxActiveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chbxActiveUpdate.Location = new System.Drawing.Point(129, 117);
+            this.chbxActiveUpdate.Name = "chbxActiveUpdate";
+            this.chbxActiveUpdate.Size = new System.Drawing.Size(83, 28);
+            this.chbxActiveUpdate.TabIndex = 15;
+            this.chbxActiveUpdate.Text = "Active";
+            this.chbxActiveUpdate.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1563, 932);
+            this.ClientSize = new System.Drawing.Size(1111, 937);
+            this.Controls.Add(this.Search);
             this.Controls.Add(this.gbxCrud);
             this.Controls.Add(this.lblAdminAppearance);
             this.Controls.Add(this.lblUserAppearance);
@@ -271,13 +361,16 @@ namespace FormsUI
             this.Controls.Add(this.dgwStudentExercisesUser);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesAdmin)).EndInit();
             this.gbxCrud.ResumeLayout(false);
-            this.gbxAdd.ResumeLayout(false);
-            this.gbxAdd.PerformLayout();
             this.gbxUpdate.ResumeLayout(false);
             this.gbxUpdate.PerformLayout();
+            this.gbxAdd.ResumeLayout(false);
+            this.gbxAdd.PerformLayout();
+            this.Search.ResumeLayout(false);
+            this.Search.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,19 +385,26 @@ namespace FormsUI
         private System.Windows.Forms.GroupBox gbxCrud;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox gbxUpdate;
-        private System.Windows.Forms.TextBox tbxActiveUpdate;
-        private System.Windows.Forms.Label lblActiveUpdate;
         private System.Windows.Forms.TextBox tbxExerciseIdUpdate;
         private System.Windows.Forms.Label lblStudentIdUpdate;
         private System.Windows.Forms.TextBox tbxStudentIdUpdate;
         private System.Windows.Forms.Label lblExerciseIdUpdate;
         private System.Windows.Forms.GroupBox gbxAdd;
-        private System.Windows.Forms.TextBox tbxActiveAdd;
-        private System.Windows.Forms.Label lblActiveAdd;
         private System.Windows.Forms.TextBox tbxExerciseIdAdd;
         private System.Windows.Forms.Label lblStudentIdAdd;
         private System.Windows.Forms.TextBox tbxStudentIdAdd;
         private System.Windows.Forms.Label lblExerciseIdAdd;
+        private System.Windows.Forms.GroupBox Search;
+        private System.Windows.Forms.TextBox tbxExerciseIdSearch;
+        private System.Windows.Forms.TextBox tbxStudentIdSearch;
+        private System.Windows.Forms.TextBox tbxIdSearch;
+        private System.Windows.Forms.Label lblExerciseIdSearch;
+        private System.Windows.Forms.Label lblStudentIdSearch;
+        private System.Windows.Forms.Label lblIdSearch;
+        private System.Windows.Forms.CheckBox chbxActive;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.CheckBox chbxActiveUpdate;
     }
 }
 
