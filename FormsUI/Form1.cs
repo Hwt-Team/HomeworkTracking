@@ -10,27 +10,44 @@ namespace FormsUI
     public partial class Form1 : Form
     {
         private IStudentExercisesService _studentExercisesService;
+        private IStudentService _studentService;
+        private IExerciseService _exerciseService;
         public Form1()
         {
+            this._studentService = InstanceFactory
+                .GetInstance<IStudentService>(new BusinessModule());
             InitializeComponent();
-            _studentExercisesService = InstanceFactory
+            this._studentExercisesService = InstanceFactory
                 .GetInstance<IStudentExercisesService>(new BusinessModule());
+            this._exerciseService = InstanceFactory
+                .GetInstance<IExerciseService>(new BusinessModule());
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
+            LoadStudents();
         }
 
         private void LoadStudentExercisesForUser()
         {
-            dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDto();
+            dgwStudentExercisesUser.DataSource = this._studentExercisesService.GetStudentExercisesDto();
         }
 
         private void LoadStudentExercisesForAdmin()
         {
-            dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetAll();
+            dgwStudentExercisesAdmin.DataSource = this._studentExercisesService.GetAll();
+        }
+
+        private void LoadStudents()
+        {
+            dgwStudents.DataSource = this._studentService.GetAll();
+        }
+
+        private void LoadExercises()
+        {
+            dgwExercises.DataSource = this._exerciseService.GetAll();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -130,5 +147,6 @@ namespace FormsUI
                 LoadStudentExercisesForUser();
             }
         }
+
     }
 }

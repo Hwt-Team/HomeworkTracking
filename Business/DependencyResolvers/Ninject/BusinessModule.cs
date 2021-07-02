@@ -10,15 +10,17 @@ namespace Business.DependencyResolvers.Ninject
     {
         public override void Load()
         {
-            Bind<IExerciseDal>().To<EfExerciseDal>();
-            Bind<IGroupDal>().To<EfGroupDal>();
-            Bind<IStudentDal>().To<EfStudentDal>();
-            Bind<IStudentExercisesDal>().To<EfStudentExercisesDal>();
+            Bind<IExerciseDal>().To<EfExerciseDal>().InSingletonScope();
+            Bind<IGroupDal>().To<EfGroupDal>().InSingletonScope();
+            Bind<IStudentDal>().To<EfStudentDal>().InSingletonScope();
+            Bind<IStudentExercisesDal>().To<EfStudentExercisesDal>().InSingletonScope();
 
-            Bind<IExerciseService>().To<ExerciseManager>();
-            Bind<IGroupService>().To<GroupManager>();
-            Bind<IStudentService>().To<StudentManager>();
-            Bind<IStudentExercisesService>().To<StudentExercisesManager>();
+            Bind<IExerciseService>().To<ExerciseManager>().InSingletonScope();
+            Bind<IGroupService>().To<GroupManager>().InSingletonScope();
+            Bind<IStudentService>().To<StudentManager>().InSingletonScope();
+            Bind<IStudentExercisesService>().To<StudentExercisesManager>().InSingletonScope();
+
+            Bind<NinjectModule>().To<BusinessModule>().InSingletonScope();
         }
     }
 }
