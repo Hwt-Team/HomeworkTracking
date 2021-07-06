@@ -210,9 +210,11 @@ namespace FormsUI
                     dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetStudentExercisesByLastName(text);
                     dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDtoByLastName(text);
                 }
-
-                
-
+            }
+            else
+            {
+                LoadStudentExercisesForAdmin();
+                LoadStudentExercisesForUser();
             }
 
 

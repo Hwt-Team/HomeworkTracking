@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Core.Aspects.Postsharp.Caching;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -14,41 +16,51 @@ namespace Business.Concrete
             _studentDal = studentDal;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        //[ValidationAspect(typeof(StudentValidator))]
         public void Add(Student student)
         {
             _studentDal.Add(student);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        //[ValidationAspect(typeof(StudentValidator))]
         public void Update(Student student)
         {
             _studentDal.Update(student);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(Student student)
         {
             _studentDal.Delete(student);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Student> GetAll()
         {
             return _studentDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public Student GetById(int id)
         {
             return _studentDal.Get(s => s.Id == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Student> GetByFirstName(string name)
         {
             return _studentDal.GetAll(s => s.FirstName.Contains(name));
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Student> GetByLastName(string name)
         {
             return _studentDal.GetAll(s => s.LastName.Contains(name));
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Student> GetByFullName(string name)
         {
             return _studentDal.GetAll(s => (s.FirstName + s.LastName).Contains(name));

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Core.Aspects.Postsharp.Caching;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos;
@@ -19,74 +21,90 @@ namespace Business.Concrete
             _exerciseService = exerciseService;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        //[ValidationAspect(typeof(StudentExercisesValidator))]
         public void Add(StudentExercises studentExercises)
         {
             _studentExercisesDal.Add(studentExercises);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        //[ValidationAspect(typeof(StudentExercisesValidator))]
         public void Update(StudentExercises studentExercises)
         {
             _studentExercisesDal.Update(studentExercises);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(StudentExercises studentExercises)
         {
             _studentExercisesDal.Delete(studentExercises);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetAll()
         {
             return _studentExercisesDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public StudentExercises GetById(int id)
         {
             return _studentExercisesDal.Get(s => s.Id == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDto()
         {
             return _studentExercisesDal.GetStudentExercisesDetails();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetByStudentId(int id, bool isActive)
         {
             return _studentExercisesDal.GetAll(s => s.StudentId == id & s.Active == isActive);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetByExerciseId(int id, bool isActive)
         {
             return _studentExercisesDal.GetAll(s => s.ExerciseId == id & s.Active == isActive);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoById(int id)
         {
             return _studentExercisesDal.GetStudentExercisesDetails
                 (s => s.Id == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoByStudentId(int id, bool isActive)
         {
             return _studentExercisesDal.GetStudentExercisesDetails(s =>
                 s.StudentId == id & s.Active == isActive);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoByExerciseId(int id, bool isActive)
         {
             return _studentExercisesDal.GetStudentExercisesDetails
                 (s => s.ExerciseId == id & s.Active == isActive);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetActive(bool active)
         {
             return _studentExercisesDal.GetAll(s => s.Active == active);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetActiveDto(bool active)
         {
             return _studentExercisesDal.GetStudentExercisesDetails(s => s.Active == active);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetStudentExercisesByFullName(string text)
         {
             var filteredStudentList = _studentService.GetByFullName(text);
@@ -101,6 +119,7 @@ namespace Business.Concrete
             return result;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoByFullName(string text)
         {
             var filteredStudentList = _studentService.GetByFullName(text);
@@ -115,6 +134,7 @@ namespace Business.Concrete
             return result;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetStudentExercisesByFirstName(string text)
         {
             var filteredStudentList = _studentService.GetByFirstName(text);
@@ -129,6 +149,7 @@ namespace Business.Concrete
             return result;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoByFirstName(string text)
         {
             var filteredStudentList = _studentService.GetByFirstName(text);
@@ -143,6 +164,7 @@ namespace Business.Concrete
             return result;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetStudentExercisesByLastName(string text)
         {
             var filteredStudentList = _studentService.GetByLastName(text);
@@ -157,6 +179,7 @@ namespace Business.Concrete
             return result;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercisesDto> GetStudentExercisesDtoByLastName(string text)
         {
             var filteredStudentList = _studentService.GetByLastName(text);
