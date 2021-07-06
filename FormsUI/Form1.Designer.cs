@@ -69,9 +69,9 @@ namespace FormsUI
             this.lblStudents = new System.Windows.Forms.Label();
             this.dgwStudents = new System.Windows.Forms.DataGridView();
             this.gbxOtherControlPanels = new System.Windows.Forms.GroupBox();
-            this.btnStudents = new System.Windows.Forms.Button();
-            this.btnExercises = new System.Windows.Forms.Button();
             this.btnGroups = new System.Windows.Forms.Button();
+            this.btnExercises = new System.Windows.Forms.Button();
+            this.btnStudents = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesAdmin)).BeginInit();
             this.gbxCrud.SuspendLayout();
@@ -370,6 +370,7 @@ namespace FormsUI
             this.chbxActive.TabIndex = 1;
             this.chbxActive.Text = "Active";
             this.chbxActive.UseVisualStyleBackColor = true;
+            this.chbxActive.CheckedChanged += new System.EventHandler(this.chbxActive_CheckedChanged);
             // 
             // gbxOtherSearchOptions
             // 
@@ -412,6 +413,7 @@ namespace FormsUI
             this.tbxStudentName.Name = "tbxStudentName";
             this.tbxStudentName.Size = new System.Drawing.Size(133, 30);
             this.tbxStudentName.TabIndex = 3;
+            this.tbxStudentName.TextChanged += new System.EventHandler(this.tbxStudentName_TextChanged);
             // 
             // chbxLastName
             // 
@@ -451,7 +453,7 @@ namespace FormsUI
             this.gbxHelperGrids.Controls.Add(this.lblExercises);
             this.gbxHelperGrids.Controls.Add(this.lblStudents);
             this.gbxHelperGrids.Controls.Add(this.dgwStudents);
-            this.gbxHelperGrids.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbxHelperGrids.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbxHelperGrids.Location = new System.Drawing.Point(1565, 36);
             this.gbxHelperGrids.Name = "gbxHelperGrids";
             this.gbxHelperGrids.Size = new System.Drawing.Size(319, 883);
@@ -465,10 +467,11 @@ namespace FormsUI
             this.dgwExercises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwExercises.Location = new System.Drawing.Point(6, 488);
             this.dgwExercises.Name = "dgwExercises";
-            this.dgwExercises.RowHeadersWidth = 51;
+            this.dgwExercises.RowHeadersWidth = 10;
             this.dgwExercises.RowTemplate.Height = 24;
             this.dgwExercises.Size = new System.Drawing.Size(307, 389);
             this.dgwExercises.TabIndex = 3;
+            this.dgwExercises.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwExercises_CellClick);
             // 
             // lblExercises
             // 
@@ -492,11 +495,12 @@ namespace FormsUI
             // 
             // dgwStudents
             // 
-            this.dgwStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgwStudents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgwStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwStudents.Location = new System.Drawing.Point(6, 68);
             this.dgwStudents.Name = "dgwStudents";
-            this.dgwStudents.RowHeadersWidth = 51;
+            this.dgwStudents.RowHeadersWidth = 10;
             this.dgwStudents.RowTemplate.Height = 24;
             this.dgwStudents.Size = new System.Drawing.Size(307, 364);
             this.dgwStudents.TabIndex = 0;
@@ -514,15 +518,16 @@ namespace FormsUI
             this.gbxOtherControlPanels.TabStop = false;
             this.gbxOtherControlPanels.Text = "Other control panels";
             // 
-            // btnStudents
+            // btnGroups
             // 
-            this.btnStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStudents.Location = new System.Drawing.Point(46, 58);
-            this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(131, 48);
-            this.btnStudents.TabIndex = 0;
-            this.btnStudents.Text = "Students";
-            this.btnStudents.UseVisualStyleBackColor = true;
+            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGroups.Location = new System.Drawing.Point(46, 141);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Size = new System.Drawing.Size(131, 48);
+            this.btnGroups.TabIndex = 9;
+            this.btnGroups.Text = "Groups";
+            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
             // 
             // btnExercises
             // 
@@ -533,16 +538,19 @@ namespace FormsUI
             this.btnExercises.TabIndex = 1;
             this.btnExercises.Text = "Exercises";
             this.btnExercises.UseVisualStyleBackColor = true;
+            this.btnExercises.Click += new System.EventHandler(this.btnExercises_Click);
             // 
-            // btnGroups
+            // btnStudents
             // 
-            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGroups.Location = new System.Drawing.Point(46, 141);
-            this.btnGroups.Name = "btnGroups";
-            this.btnGroups.Size = new System.Drawing.Size(131, 48);
-            this.btnGroups.TabIndex = 9;
-            this.btnGroups.Text = "Groups";
-            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnStudents.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStudents.Location = new System.Drawing.Point(46, 58);
+            this.btnStudents.Name = "btnStudents";
+            this.btnStudents.Size = new System.Drawing.Size(131, 48);
+            this.btnStudents.TabIndex = 0;
+            this.btnStudents.Text = "Students";
+            this.btnStudents.UseVisualStyleBackColor = true;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // Form1
             // 
@@ -560,6 +568,8 @@ namespace FormsUI
             this.Controls.Add(this.dgwStudentExercisesUser);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesAdmin)).EndInit();

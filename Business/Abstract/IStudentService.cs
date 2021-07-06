@@ -10,5 +10,8 @@ namespace Business.Abstract
         void Delete(Student student);
         List<Student> GetAll();
         Student GetById(int id);
+        List<Student> GetByFirstName(string name);
+        List<Student> GetByLastName(string name);
+        List<Student> GetByFullName(string name);
     }
 }

@@ -49,32 +49,126 @@ namespace Business.Concrete
             return _studentExercisesDal.GetStudentExercisesDetails();
         }
 
-        public List<StudentExercises> GetByStudentId(int id)
+        public List<StudentExercises> GetByStudentId(int id, bool isActive)
         {
-            return _studentExercisesDal.GetAll(s => s.StudentId == id);
+            return _studentExercisesDal.GetAll(s => s.StudentId == id & s.Active == isActive);
         }
 
-        public List<StudentExercises> GetByExerciseId(int id)
+        public List<StudentExercises> GetByExerciseId(int id, bool isActive)
         {
-            return _studentExercisesDal.GetAll(s => s.ExerciseId == id);
+            return _studentExercisesDal.GetAll(s => s.ExerciseId == id & s.Active == isActive);
         }
 
         public List<StudentExercisesDto> GetStudentExercisesDtoById(int id)
         {
-            return _studentExercisesDal.GetStudentExercisesDetails(s => s.Id == id);
+            return _studentExercisesDal.GetStudentExercisesDetails
+                (s => s.Id == id);
         }
 
-        public List<StudentExercisesDto> GetStudentExercisesDtoByStudentId(int id)
+        public List<StudentExercisesDto> GetStudentExercisesDtoByStudentId(int id, bool isActive)
         {
-            var student = _studentService.GetById(id);
             return _studentExercisesDal.GetStudentExercisesDetails(s =>
-                s.Id == id);
+                s.StudentId == id & s.Active == isActive);
         }
 
-        public List<StudentExercisesDto> GetStudentExercisesDtoByExerciseId(int id)
+        public List<StudentExercisesDto> GetStudentExercisesDtoByExerciseId(int id, bool isActive)
         {
-            var exercise = _exerciseService.GetById(id);
-            return _studentExercisesDal.GetStudentExercisesDetails(s => s.ExerciseId == id);
+            return _studentExercisesDal.GetStudentExercisesDetails
+                (s => s.ExerciseId == id & s.Active == isActive);
+        }
+
+        public List<StudentExercises> GetActive(bool active)
+        {
+            return _studentExercisesDal.GetAll(s => s.Active == active);
+        }
+
+        public List<StudentExercisesDto> GetActiveDto(bool active)
+        {
+            return _studentExercisesDal.GetStudentExercisesDetails(s => s.Active == active);
+        }
+
+        public List<StudentExercises> GetStudentExercisesByFullName(string text)
+        {
+            var filteredStudentList = _studentService.GetByFullName(text);
+
+            List<StudentExercises> result = new List<StudentExercises>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.Add(_studentExercisesDal.Get(se=>se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercisesDto> GetStudentExercisesDtoByFullName(string text)
+        {
+            var filteredStudentList = _studentService.GetByFullName(text);
+
+            List<StudentExercisesDto> result = new List<StudentExercisesDto>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.AddRange(_studentExercisesDal.GetStudentExercisesDetails(se=>se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercises> GetStudentExercisesByFirstName(string text)
+        {
+            var filteredStudentList = _studentService.GetByFirstName(text);
+
+            List<StudentExercises> result = new List<StudentExercises>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.Add(_studentExercisesDal.Get(se => se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercisesDto> GetStudentExercisesDtoByFirstName(string text)
+        {
+            var filteredStudentList = _studentService.GetByFirstName(text);
+
+            List<StudentExercisesDto> result = new List<StudentExercisesDto>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.AddRange(_studentExercisesDal.GetStudentExercisesDetails(se => se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercises> GetStudentExercisesByLastName(string text)
+        {
+            var filteredStudentList = _studentService.GetByLastName(text);
+
+            List<StudentExercises> result = new List<StudentExercises>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.Add(_studentExercisesDal.Get(se => se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercisesDto> GetStudentExercisesDtoByLastName(string text)
+        {
+            var filteredStudentList = _studentService.GetByLastName(text);
+
+            List<StudentExercisesDto> result = new List<StudentExercisesDto>();
+
+            foreach (var student in filteredStudentList)
+            {
+                result.AddRange(_studentExercisesDal.GetStudentExercisesDetails(se => se.StudentId == student.Id));
+            }
+
+            return result;
         }
     }
 }

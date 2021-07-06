@@ -38,5 +38,21 @@ namespace Business.Concrete
         {
             return _studentDal.Get(s => s.Id == id);
         }
+
+        public List<Student> GetByFirstName(string name)
+        {
+            return _studentDal.GetAll(s => s.FirstName.Contains(name));
+        }
+
+        public List<Student> GetByLastName(string name)
+        {
+            return _studentDal.GetAll(s => s.LastName.Contains(name));
+        }
+
+        public List<Student> GetByFullName(string name)
+        {
+            return _studentDal.GetAll(s => (s.FirstName + s.LastName).Contains(name));
+        }
+
     }
 }
