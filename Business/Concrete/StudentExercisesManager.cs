@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
+using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -22,14 +24,14 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(StudentExercisesValidator))]
+        [ValidationAspect(typeof(StudentExercisesValidator))]
         public void Add(StudentExercises studentExercises)
         {
             _studentExercisesDal.Add(studentExercises);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(StudentExercisesValidator))]
+        [ValidationAspect(typeof(StudentExercisesValidator))]
         public void Update(StudentExercises studentExercises)
         {
             _studentExercisesDal.Update(studentExercises);
@@ -113,7 +115,7 @@ namespace Business.Concrete
 
             foreach (var student in filteredStudentList)
             {
-                result.Add(_studentExercisesDal.Get(se=>se.StudentId == student.Id));
+                result.AddRange(_studentExercisesDal.GetAll(se=>se.StudentId == student.Id));
             }
 
             return result;
@@ -143,7 +145,7 @@ namespace Business.Concrete
 
             foreach (var student in filteredStudentList)
             {
-                result.Add(_studentExercisesDal.Get(se => se.StudentId == student.Id));
+                result.AddRange(_studentExercisesDal.GetAll(se => se.StudentId == student.Id));
             }
 
             return result;
@@ -173,7 +175,7 @@ namespace Business.Concrete
 
             foreach (var student in filteredStudentList)
             {
-                result.Add(_studentExercisesDal.Get(se => se.StudentId == student.Id));
+                result.AddRange(_studentExercisesDal.GetAll(se => se.StudentId == student.Id));
             }
 
             return result;
@@ -189,6 +191,34 @@ namespace Business.Concrete
             foreach (var student in filteredStudentList)
             {
                 result.AddRange(_studentExercisesDal.GetStudentExercisesDetails(se => se.StudentId == student.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercises> GetStudentExercisesByExerciseTitle(string text)
+        {
+            var filteredList = this._exerciseService.GetByTitle(text);
+
+            var result = new List<StudentExercises>();
+
+            foreach (var exercise in filteredList)
+            {
+                result.AddRange(this._studentExercisesDal.GetAll(s=>s.ExerciseId == exercise.Id));
+            }
+
+            return result;
+        }
+
+        public List<StudentExercisesDto> GetStudentExercisesDtoByExerciseTitle(string text)
+        {
+            var filteredList = this._exerciseService.GetByTitle(text);
+
+            var result = new List<StudentExercisesDto>();
+
+            foreach (var exercise in filteredList)
+            {
+                result.AddRange(this._studentExercisesDal.GetStudentExercisesDetails(s=>s.ExerciseId == exercise.Id));
             }
 
             return result;

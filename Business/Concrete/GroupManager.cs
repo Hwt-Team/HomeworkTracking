@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
+using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,14 +19,14 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(GroupValidator))]
+        [ValidationAspect(typeof(GroupValidator))]
         public void Add(Group group)
         {
             _groupDal.Add(group);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(GroupValidator))]
+        [ValidationAspect(typeof(GroupValidator))]
         public void Update(Group group)
         {
             _groupDal.Update(group);

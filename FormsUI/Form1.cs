@@ -219,5 +219,22 @@ namespace FormsUI
 
 
         }
+
+        private void tbxExercise_TextChanged(object sender, EventArgs e)
+        {
+            var text = tbxExercise.Text;
+            if (!String.IsNullOrEmpty(text))
+            {
+                dgwStudentExercisesAdmin.DataSource =
+                    this._studentExercisesService.GetStudentExercisesByExerciseTitle(text);
+                dgwStudentExercisesUser.DataSource =
+                    this._studentExercisesService.GetStudentExercisesDtoByExerciseTitle(text);
+            }
+            else
+            {
+                LoadStudentExercisesForAdmin();
+                LoadStudentExercisesForUser();
+            }
+        }
     }
 }

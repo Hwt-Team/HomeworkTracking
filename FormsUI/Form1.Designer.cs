@@ -395,6 +395,7 @@ namespace FormsUI
             this.tbxExercise.Name = "tbxExercise";
             this.tbxExercise.Size = new System.Drawing.Size(184, 30);
             this.tbxExercise.TabIndex = 5;
+            this.tbxExercise.TextChanged += new System.EventHandler(this.tbxExercise_TextChanged);
             // 
             // lblExercise
             // 

@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.2.3\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -58,6 +61,10 @@
     <Compile Include="Concrete\GroupManager.cs" />
     <Compile Include="Concrete\StudentExercisesManager.cs" />
     <Compile Include="Concrete\StudentManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\ExerciseValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\GroupValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\StudentExercisesValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\StudentValidator.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +85,7 @@
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -25,5 +25,7 @@ namespace Business.Abstract
         List<StudentExercisesDto> GetStudentExercisesDtoByFirstName(string text);
         List<StudentExercises> GetStudentExercisesByLastName(string text);
         List<StudentExercisesDto> GetStudentExercisesDtoByLastName(string text);
+        List<StudentExercises> GetStudentExercisesByExerciseTitle(string text);
+        List<StudentExercisesDto> GetStudentExercisesDtoByExerciseTitle(string text);
     }
 }

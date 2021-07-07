@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entities.Concrete;
 
 namespace Business.Abstract
@@ -10,5 +11,6 @@ namespace Business.Abstract
         void Delete(Exercise exercise);
         List<Exercise> GetAll();
         Exercise GetById(int id);
+        List<Exercise> GetByTitle(string title);
     }
 }

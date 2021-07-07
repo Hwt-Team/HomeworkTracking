@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -18,14 +19,14 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(ExerciseValidator))]
+        [ValidationAspect(typeof(ExerciseValidator))]
         public void Add(Exercise exercise)
         {
             _exerciseDal.Add(exercise);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[ValidationAspect(typeof(ExerciseValidator))]
+        [ValidationAspect(typeof(ExerciseValidator))]
         public void Update(Exercise exercise)
         {
             _exerciseDal.Update(exercise);
@@ -47,6 +48,11 @@ namespace Business.Concrete
         public Exercise GetById(int id)
         {
             return _exerciseDal.Get(e => e.Id == id);
+        }
+
+        public List<Exercise> GetByTitle(string title)
+        {
+            return this._exerciseDal.GetAll(e => e.Title.Contains(title));
         }
     }
 }
