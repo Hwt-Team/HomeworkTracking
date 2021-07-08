@@ -7,7 +7,6 @@ namespace Business.CrossCuttingConcerns.Validation
     {
         public StudentExercisesValidator()
         {
-            RuleFor(s => s.Id).NotEmpty();
             RuleFor(s => s.StudentId).NotEmpty();
             RuleFor(s => s.StudentId).GreaterThanOrEqualTo(1);
             RuleFor(s => s.ExerciseId).NotEmpty();

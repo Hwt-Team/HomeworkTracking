@@ -34,6 +34,7 @@ namespace FormsUI
         {
             _studentService.Add(new Student
             {
+                Id = this._studentService.GetLastRecord().Id + 1,
                 FirstName = tbxFirstNameAdd.Text,
                 LastName = tbxLastNameAdd.Text,
                 GroupId = int.Parse(tbxGroupIdAdd.Text)

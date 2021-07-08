@@ -9,13 +9,16 @@ using Entities.Dtos;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+
     public class EfStudentExercisesDal : EfEntityRepositoryBase<StudentExercises, HomeworkTrackingContext>, IStudentExercisesDal
     {
         public List<StudentExercisesDto> GetStudentExercisesDetails(Expression<Func<StudentExercises, bool>> filter = null)
         {
             using (HomeworkTrackingContext context = new HomeworkTrackingContext())
             {
-                var result = from se in filter == null ? context.StudentExercises : context.StudentExercises.Where(filter)
+                var result = from se in filter == null 
+                        ? context.StudentExercises 
+                        : context.StudentExercises.Where(filter)
                     join e in context.Exercises on se.ExerciseId equals e.Id
                     join s in context.Students on se.StudentId equals s.Id
                     select new StudentExercisesDto

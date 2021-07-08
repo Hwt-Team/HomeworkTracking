@@ -43,6 +43,12 @@ namespace Business.Concrete
             _studentExercisesDal.Delete(studentExercises);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void DeleteAll()
+        {
+            this._studentExercisesDal.DeleteAll();
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<StudentExercises> GetAll()
         {
@@ -222,6 +228,11 @@ namespace Business.Concrete
             }
 
             return result;
+        }
+
+        public StudentExercises GetLastRecord()
+        {
+            return this._studentExercisesDal.GetLastRecord();
         }
     }
 }

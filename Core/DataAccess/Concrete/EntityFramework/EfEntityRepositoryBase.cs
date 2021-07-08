@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Core.DataAccess.Abstract;
 using Core.Entities.Abstract;
+using Core.Utilities.Extensions;
 
 namespace Core.DataAccess.Concrete.EntityFramework
 {
@@ -42,6 +43,14 @@ namespace Core.DataAccess.Concrete.EntityFramework
             }
         }
 
+        public void DeleteAll()
+        {
+            using (TContext context = new TContext())
+            {
+                context.Set<TEntity>().Clear();
+            }
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
@@ -57,6 +66,14 @@ namespace Core.DataAccess.Concrete.EntityFramework
                 return filter == null
                     ? context.Set<TEntity>().ToList()
                     : context.Set<TEntity>().Where(filter).ToList();
+            }
+        }
+
+        public TEntity GetLastRecord()
+        {
+            using (TContext context = new TContext())
+            {
+                return context.Set<TEntity>().LastOrDefault();
             }
         }
     }

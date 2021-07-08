@@ -8,7 +8,9 @@ namespace Business.Abstract
         void Add(Group group);
         void Update(Group group);
         void Delete(Group group);
+        void DeleteAll();
         List<Group> GetAll();
         Group GetById(int id);
+        Group GetLastRecord();
     }
 }

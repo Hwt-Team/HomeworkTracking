@@ -72,6 +72,7 @@ namespace FormsUI
             this.btnGroups = new System.Windows.Forms.Button();
             this.btnExercises = new System.Windows.Forms.Button();
             this.btnStudents = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudentExercisesAdmin)).BeginInit();
             this.gbxCrud.SuspendLayout();
@@ -130,6 +131,7 @@ namespace FormsUI
             // 
             // gbxCrud
             // 
+            this.gbxCrud.Controls.Add(this.btnDeleteAll);
             this.gbxCrud.Controls.Add(this.btnDelete);
             this.gbxCrud.Controls.Add(this.gbxUpdate);
             this.gbxCrud.Controls.Add(this.gbxAdd);
@@ -144,7 +146,7 @@ namespace FormsUI
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.Location = new System.Drawing.Point(439, 252);
+            this.btnDelete.Location = new System.Drawing.Point(273, 247);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(131, 46);
             this.btnDelete.TabIndex = 2;
@@ -426,6 +428,7 @@ namespace FormsUI
             this.chbxLastName.TabIndex = 2;
             this.chbxLastName.Text = "Lastname";
             this.chbxLastName.UseVisualStyleBackColor = true;
+            this.chbxLastName.CheckedChanged += new System.EventHandler(this.chbxLastName_CheckedChanged);
             // 
             // chbxFirstName
             // 
@@ -437,6 +440,7 @@ namespace FormsUI
             this.chbxFirstName.TabIndex = 1;
             this.chbxFirstName.Text = "Firstname";
             this.chbxFirstName.UseVisualStyleBackColor = true;
+            this.chbxFirstName.CheckedChanged += new System.EventHandler(this.chbxFirstName_CheckedChanged);
             // 
             // label1
             // 
@@ -553,6 +557,16 @@ namespace FormsUI
             this.btnStudents.UseVisualStyleBackColor = true;
             this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Location = new System.Drawing.Point(427, 246);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(131, 46);
+            this.btnDeleteAll.TabIndex = 3;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -638,6 +652,7 @@ namespace FormsUI
         private System.Windows.Forms.Button btnGroups;
         private System.Windows.Forms.Button btnExercises;
         private System.Windows.Forms.Button btnStudents;
+        private System.Windows.Forms.Button btnDeleteAll;
     }
 }
 

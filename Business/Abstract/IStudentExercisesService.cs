@@ -9,6 +9,7 @@ namespace Business.Abstract
         void Add(StudentExercises studentExercises);
         void Update(StudentExercises studentExercises);
         void Delete(StudentExercises studentExercises);
+        void DeleteAll();
         List<StudentExercises> GetAll();
         StudentExercises GetById(int id);
         List<StudentExercisesDto> GetStudentExercisesDto();
@@ -27,5 +28,6 @@ namespace Business.Abstract
         List<StudentExercisesDto> GetStudentExercisesDtoByLastName(string text);
         List<StudentExercises> GetStudentExercisesByExerciseTitle(string text);
         List<StudentExercisesDto> GetStudentExercisesDtoByExerciseTitle(string text);
+        StudentExercises GetLastRecord();
     }
 }

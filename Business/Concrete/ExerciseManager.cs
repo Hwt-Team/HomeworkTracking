@@ -38,6 +38,12 @@ namespace Business.Concrete
             _exerciseDal.Delete(exercise);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void DeleteAll()
+        {
+            this._exerciseDal.DeleteAll();
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Exercise> GetAll()
         {
@@ -53,6 +59,11 @@ namespace Business.Concrete
         public List<Exercise> GetByTitle(string title)
         {
             return this._exerciseDal.GetAll(e => e.Title.Contains(title));
+        }
+
+        public Exercise GetLastRecord()
+        {
+            return this._exerciseDal.GetLastRecord();
         }
     }
 }

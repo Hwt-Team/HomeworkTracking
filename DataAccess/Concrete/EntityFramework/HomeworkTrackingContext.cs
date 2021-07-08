@@ -9,6 +9,24 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Group> Groups { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentExercises> StudentExercises { get; set; }
+        public DbSet<StudyingStudent> StudyingStudents { get; set; }
+        public DbSet<GraduateStudent> GraduateStudents { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<GraduateStudent>()
+                .Map(m =>
+                {
+                    m.MapInheritedProperties();
+                    m.ToTable("GraduateStudents");
+                });
+
+            modelBuilder.Entity<StudyingStudent>()
+                .Map(m =>
+                {
+                    m.MapInheritedProperties();
+                    m.ToTable("StudyingStudents");
+                });
+        }
     }
 }

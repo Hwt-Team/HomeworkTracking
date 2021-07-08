@@ -38,6 +38,7 @@ namespace FormsUI
         {
             this._groupService.Add(new Group
             {
+                Id = this._groupService.GetLastRecord().Id + 1,
                 Name = tbxNameAdd.Text
             });
             LoadGroups();

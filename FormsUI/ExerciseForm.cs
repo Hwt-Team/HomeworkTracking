@@ -51,6 +51,7 @@ namespace FormsUI
         {
             this._exerciseService.Add(new Exercise
             {
+                Id = this._exerciseService.GetLastRecord().Id + 1,
                 Title = tbxTitleAdd.Text,
                 Deadline = dtpDeadlineAdd.CustomFormat == " " 
                     ? (DateTime?)null 

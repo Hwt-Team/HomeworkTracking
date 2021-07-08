@@ -38,6 +38,12 @@ namespace Business.Concrete
             _studentDal.Delete(student);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void DeleteAll()
+        {
+            this._studentDal.DeleteAll();
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Student> GetAll()
         {
@@ -68,5 +74,9 @@ namespace Business.Concrete
             return _studentDal.GetAll(s => (s.FirstName + s.LastName).Contains(name));
         }
 
+        public Student GetLastRecord()
+        {
+            return this._studentDal.GetLastRecord();
+        }
     }
 }

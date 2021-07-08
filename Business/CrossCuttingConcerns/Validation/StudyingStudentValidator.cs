@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Business.CrossCuttingConcerns.Validation
 {
-    public class StudentValidator : AbstractValidator<Student>
+    public class StudyingStudentValidator : AbstractValidator<StudyingStudent>
     {
-        public StudentValidator()
+        public StudyingStudentValidator()
         {
             RuleFor(s => s.FirstName).NotEmpty();
             RuleFor(s => s.FirstName).MinimumLength(3);

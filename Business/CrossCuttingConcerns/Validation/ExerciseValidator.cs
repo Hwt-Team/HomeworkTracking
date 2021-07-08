@@ -7,7 +7,6 @@ namespace Business.CrossCuttingConcerns.Validation
     {
         public ExerciseValidator()
         {
-            RuleFor(e => e.Id).NotEmpty();
             RuleFor(e => e.Title).NotEmpty();
             RuleFor(e => e.Title).MinimumLength(3);
         }

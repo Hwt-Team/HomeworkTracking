@@ -13,6 +13,8 @@ namespace FormsUI
         private IStudentExercisesService _studentExercisesService;
         private IStudentService _studentService;
         private IExerciseService _exerciseService;
+        
+
         public Form1()
         {
             this._studentService = InstanceFactory
@@ -56,6 +58,7 @@ namespace FormsUI
         {
             _studentExercisesService.Add(new StudentExercises
             {
+                Id = this._studentExercisesService.GetLastRecord().Id + 1,
                 StudentId = int.Parse(tbxStudentIdAdd.Text),
                 ExerciseId = int.Parse(tbxExerciseIdAdd.Text),
                 Active = true
@@ -235,6 +238,21 @@ namespace FormsUI
                 LoadStudentExercisesForAdmin();
                 LoadStudentExercisesForUser();
             }
+        }
+
+        private void chbxFirstName_CheckedChanged(object sender, EventArgs e)
+        {
+            this.tbxStudentName_TextChanged(sender, e);
+        }
+
+        private void chbxLastName_CheckedChanged(object sender, EventArgs e)
+        {
+            this.tbxStudentName_TextChanged(sender, e);
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            this._studentExercisesService.DeleteAll();
         }
     }
 }

@@ -38,6 +38,12 @@ namespace Business.Concrete
             _groupDal.Delete(group);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void DeleteAll()
+        {
+            this._groupDal.DeleteAll();
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Group> GetAll()
         {
@@ -48,6 +54,11 @@ namespace Business.Concrete
         public Group GetById(int id)
         {
             return _groupDal.Get(g => g.Id == id);
+        }
+
+        public Group GetLastRecord()
+        {
+            return this._groupDal.GetLastRecord();
         }
     }
 }

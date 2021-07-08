@@ -9,8 +9,10 @@ namespace Business.Abstract
         void Add(Exercise exercise);
         void Update(Exercise exercise);
         void Delete(Exercise exercise);
+        void DeleteAll();
         List<Exercise> GetAll();
         Exercise GetById(int id);
         List<Exercise> GetByTitle(string title);
+        Exercise GetLastRecord();
     }
 }

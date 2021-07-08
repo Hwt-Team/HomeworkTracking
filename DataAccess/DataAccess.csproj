@@ -52,14 +52,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IExerciseDal.cs" />
+    <Compile Include="Abstract\IGraduateStudentDal.cs" />
     <Compile Include="Abstract\IGroupDal.cs" />
     <Compile Include="Abstract\IStudentDal.cs" />
     <Compile Include="Abstract\IStudentExercisesDal.cs" />
+    <Compile Include="Abstract\IStudyingStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfExerciseDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfGraduateStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfGroupDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStudentExercisesDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfStudyingStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\HomeworkTrackingContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\ExerciseMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\GraduateStudentMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\GroupMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\StudentExercisesMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\StudentMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\StudyingStudentMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -7,7 +7,6 @@ namespace Business.CrossCuttingConcerns.Validation
     {
         public GroupValidator()
         {
-            RuleFor(g => g.Id).NotEmpty();
             RuleFor(g => g.Name).NotEmpty();
         }
     }

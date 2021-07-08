@@ -1,0 +1,17 @@
+﻿using System.Data.Entity.ModelConfiguration;
+using Entities.Concrete;
+
+namespace DataAccess.Concrete.EntityFramework.Mappings
+{
+    public class ExerciseMap : EntityTypeConfiguration<Exercise>
+    {
+        public ExerciseMap()
+        {
+            ToTable("Exercises");
+            HasKey(e => e.Id);
+
+            Property(e => e.Title).HasColumnName("Title");
+            Property(e => e.Deadline).HasColumnName("Deadline");
+        }
+    }
+}
