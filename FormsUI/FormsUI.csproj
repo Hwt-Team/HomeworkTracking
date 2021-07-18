@@ -75,6 +75,24 @@
     <Compile Include="Forms\ExerciseForms\ExerciseForm.Designer.cs">
       <DependentUpon>ExerciseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StateForms\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StateForms\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StateForms\StateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StateForms\StateForm.Designer.cs">
+      <DependentUpon>StateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StateForms\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StateForms\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentExerciseForms\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +188,15 @@
     <EmbeddedResource Include="Forms\ExerciseForms\ExerciseForm.resx">
       <DependentUpon>ExerciseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StateForms\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StateForms\StateForm.resx">
+      <DependentUpon>StateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StateForms\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentExerciseForms\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,7 +281,6 @@
     <None Include="Resources\reza-namdari-ZgZsKFnSbEA-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\StateForms\" />
     <Folder Include="Forms\StudentForms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

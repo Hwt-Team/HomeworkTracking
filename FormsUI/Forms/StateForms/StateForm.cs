@@ -7,42 +7,43 @@ using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 
-namespace FormsUI.Forms.GroupForms
+namespace FormsUI.Forms.StateForms
 {
-    public partial class GroupForm : Form
+    public partial class StateForm : Form
     {
-        private IGroupService _groupService;
-        private int _id;
-        public GroupForm()
+        private IStateService _stateService;
+
+        public StateForm()
         {
             InitializeComponent();
-            this._groupService = InstanceFactory.GetInstance<IGroupService>(new BusinessModule());
+            this._stateService = InstanceFactory.GetInstance<IStateService>(new BusinessModule());
         }
 
-        private void GroupForm_Load(object sender, EventArgs e)
+        private void StateForm_Load(object sender, EventArgs e)
         {
-            LoadGroups();
+            LoadStates();
         }
 
-        public void LoadGroups()
+        private void LoadStates()
         {
-            dgwGroups.DataSource = this._groupService.GetAll();
+            dgwStates.DataSource = this._stateService.GetAll();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
             addForm.Show();
-            LoadGroups();
+            LoadStates();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var cells = this.dgwStates.CurrentRow?.Cells;
             var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.GroupName=this.dgwGroups.CurrentRow?.Cells[1].Value.ToString();
-            updateForm.Id = (int) this.dgwGroups.CurrentRow?.Cells[0].Value;
+            updateForm.Id = (int) cells[0].Value;
+            updateForm.StateName = cells[1].Value.ToString();
             updateForm.Show();
-            LoadGroups();
+            LoadStates();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -50,25 +51,21 @@ namespace FormsUI.Forms.GroupForms
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = "System",
-                Title = "Selected group will be deleted.",
-                Ok = DeleteGroup,
+                Title = "Selected state will be deleted.",
+                Ok = DeleteState,
                 Cancel = Cancel
             });
         }
 
-        private void DeleteGroup()
+        private void DeleteState()
         {
-            this._groupService.Delete(new Group
+            this._stateService.Delete(new State
             {
-                Id = _id
+                Id = (int) dgwStates.CurrentRow?.Cells[0].Value
             });
-            LoadGroups();
         }
 
-        private void Cancel()
-        {
-            //...
-        }
+        private void Cancel() { }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
@@ -79,22 +76,17 @@ namespace FormsUI.Forms.GroupForms
                 Ok = DeleteAll,
                 Cancel = Cancel
             });
-            LoadGroups();
+            LoadStates();
         }
 
         private void DeleteAll()
         {
-            this._groupService.DeleteAll();
+            this._stateService.DeleteAll();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            LoadGroups();
-        }
-
-        private void dgwGroups_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this._id = (int) dgwGroups.CurrentRow?.Cells[0].Value;
+            LoadStates();
         }
     }
 }

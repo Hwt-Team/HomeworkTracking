@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IExerciseService.cs" />
     <Compile Include="Abstract\IGraduateStudentService.cs" />
     <Compile Include="Abstract\IGroupService.cs" />
+    <Compile Include="Abstract\IStateService.cs" />
     <Compile Include="Abstract\IStudentExercisesService.cs" />
     <Compile Include="Abstract\IStudentService.cs" />
     <Compile Include="Abstract\IStudyingStudentService.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Concrete\ExerciseManager.cs" />
     <Compile Include="Concrete\GraduateStudentManager.cs" />
     <Compile Include="Concrete\GroupManager.cs" />
+    <Compile Include="Concrete\StateManager.cs" />
     <Compile Include="Concrete\StudentExercisesManager.cs" />
     <Compile Include="Concrete\StudentManager.cs" />
     <Compile Include="Concrete\StudyingStudentManager.cs" />

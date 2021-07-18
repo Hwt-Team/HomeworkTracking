@@ -15,12 +15,14 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IStudentDal>().To<EfStudentDal>().InSingletonScope();
             Bind<IStudentExercisesDal>().To<EfStudentExercisesDal>().InSingletonScope();
             Bind<ITaskDal>().To<EfTaskDal>().InSingletonScope();
+            Bind<IStateDal>().To<EfStateDal>().InSingletonScope();
 
             Bind<IExerciseService>().To<ExerciseManager>().InSingletonScope();
             Bind<IGroupService>().To<GroupManager>().InSingletonScope();
             Bind<IStudentService>().To<StudentManager>().InSingletonScope();
             Bind<IStudentExercisesService>().To<StudentExercisesManager>().InSingletonScope();
             Bind<ITaskService>().To<TaskManager>().InSingletonScope();
+            Bind<IStateService>().To<StateManager>().InSingletonScope();
 
             Bind<NinjectModule>().To<BusinessModule>().InSingletonScope();
         }
