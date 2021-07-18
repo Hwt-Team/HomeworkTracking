@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework.Mappings
@@ -9,6 +10,7 @@ namespace DataAccess.Concrete.EntityFramework.Mappings
         {
             ToTable("StudentExercises");
             HasKey(s => s.Id);
+            Property(s => s.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             Property(s => s.StudentId).HasColumnName("StudentId");
             Property(s => s.ExerciseId).HasColumnName("ExerciseId");

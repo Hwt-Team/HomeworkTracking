@@ -57,9 +57,9 @@ namespace Business.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        public GraduateStudent GetLastRecord()
+        public int GetNextId()
         {
-            return this._graduateStudentDal.GetLastRecord();
+            return this._graduateStudentDal.GetNextId();
         }
     }
 }

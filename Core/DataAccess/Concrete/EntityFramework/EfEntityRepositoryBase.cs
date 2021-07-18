@@ -17,6 +17,8 @@ namespace Core.DataAccess.Concrete.EntityFramework
         {
             using (TContext context = new TContext())
             {
+                int id = this.GetNextId();
+                entity.GetType().GetProperties()[0].SetValue(entity,id);
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
@@ -69,11 +71,15 @@ namespace Core.DataAccess.Concrete.EntityFramework
             }
         }
 
-        public TEntity GetLastRecord()
+        public int GetNextId()
         {
             using (TContext context = new TContext())
             {
-                return context.Set<TEntity>().LastOrDefault();
+                var result = context.Set<TEntity>().ToList()
+                    .Select(t=>t.GetType().GetProperties()[0].GetValue(t)).LastOrDefault() as int?;
+                
+                
+                return result + 1 ?? 1;
             }
         }
     }

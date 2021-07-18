@@ -56,9 +56,9 @@ namespace Business.Concrete
             return _groupDal.Get(g => g.Id == id);
         }
 
-        public Group GetLastRecord()
+        public int GetNextId()
         {
-            return this._groupDal.GetLastRecord();
+            return this._groupDal.GetNextId();
         }
     }
 }

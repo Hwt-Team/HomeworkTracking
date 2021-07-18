@@ -1,4 +1,7 @@
-﻿using Ninject.Modules;
+﻿using FormsUI.Forms.ExerciseForms;
+using FormsUI.Forms.GroupForms;
+using FormsUI.Forms.MessageBox;
+using Ninject.Modules;
 
 namespace FormsUI.DependencyResolvers
 {
@@ -9,6 +12,8 @@ namespace FormsUI.DependencyResolvers
             Bind<StudentForm>().To<StudentForm>();
             Bind<ExerciseForm>().To<ExerciseForm>();
             Bind<GroupForm>().To<GroupForm>();
+            Bind<WarnMessageBox>().To<WarnMessageBox>().InSingletonScope();
+
         }
     }
 }

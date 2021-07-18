@@ -13,6 +13,6 @@ namespace Business.Abstract
         List<Exercise> GetAll();
         Exercise GetById(int id);
         List<Exercise> GetByTitle(string title);
-        Exercise GetLastRecord();
+        int GetNextId();
     }
 }

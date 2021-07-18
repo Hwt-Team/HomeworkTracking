@@ -14,6 +14,6 @@ namespace Business.Abstract
         List<Student> GetByFirstName(string name);
         List<Student> GetByLastName(string name);
         List<Student> GetByFullName(string name);
-        Student GetLastRecord();
+        int GetNextId();
     }
 }

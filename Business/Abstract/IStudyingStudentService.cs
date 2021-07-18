@@ -10,7 +10,7 @@ namespace Business.Abstract
         void Delete(StudyingStudent studyingStudent);
         void DeleteAll();
         List<StudyingStudent> GetAll();
-        StudyingStudent GetLastRecord();
+        int GetNextId();
         StudyingStudent GetById(int id);
     }
 }

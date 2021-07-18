@@ -6,16 +6,16 @@ using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 
-namespace FormsUI
+namespace FormsUI.Forms.StudentExerciseForms
 {
-    public partial class Form1 : Form
+    public partial class StudentExerciseForm : Form
     {
-        private IStudentExercisesService _studentExercisesService;
+        private readonly IStudentExercisesService _studentExercisesService;
         private IStudentService _studentService;
         private IExerciseService _exerciseService;
         
 
-        public Form1()
+        public StudentExerciseForm()
         {
             this._studentService = InstanceFactory
                 .GetInstance<IStudentService>(new BusinessModule());
@@ -26,12 +26,10 @@ namespace FormsUI
                 .GetInstance<IExerciseService>(new BusinessModule());
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void StudentExerciseForm_Load(object sender, EventArgs e)
         {
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
-            LoadStudents();
-            LoadExercises();
         }
 
         private void LoadStudentExercisesForUser()
@@ -44,42 +42,24 @@ namespace FormsUI
             dgwStudentExercisesAdmin.DataSource = this._studentExercisesService.GetAll();
         }
 
-        private void LoadStudents()
-        {
-            dgwStudents.DataSource = this._studentService.GetAll();
-        }
-
-        private void LoadExercises()
-        {
-            dgwExercises.DataSource = this._exerciseService.GetAll();
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            _studentExercisesService.Add(new StudentExercises
-            {
-                Id = this._studentExercisesService.GetLastRecord().Id + 1,
-                StudentId = int.Parse(tbxStudentIdAdd.Text),
-                ExerciseId = int.Parse(tbxExerciseIdAdd.Text),
-                Active = true
-            });
+            var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
+            addForm.Show();
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
-            MessageBox.Show("Added!");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _studentExercisesService.Update(new StudentExercises
-            {
-                Id = (int)dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value,
-                StudentId = int.Parse(tbxStudentIdUpdate.Text),
-                ExerciseId = int.Parse(tbxStudentIdUpdate.Text),
-                Active = chbxActiveUpdate.Checked
-            });
+            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+            updateForm.Id = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value;
+            updateForm.StudentId = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[1].Value;
+            updateForm.ExerciseId = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value;
+            updateForm.Active = this.chbxActive.Checked;
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
-            MessageBox.Show("Updated!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -90,15 +70,6 @@ namespace FormsUI
             });
             LoadStudentExercisesForAdmin();
             LoadStudentExercisesForUser();
-            MessageBox.Show("Deleted!");
-        }
-
-        private void dgwStudentExercisesAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var cells = dgwStudentExercisesAdmin.CurrentRow?.Cells;
-            tbxStudentIdUpdate.Text = cells[1].Value.ToString();
-            tbxExerciseIdUpdate.Text = cells[2].Value.ToString();
-            chbxActiveUpdate.CheckState = (bool)cells[3].Value ? CheckState.Checked : CheckState.Unchecked;
         }
 
         private void tbxIdSearch_TextChanged(object sender, EventArgs e)
@@ -151,37 +122,6 @@ namespace FormsUI
                 LoadStudentExercisesForAdmin();
                 LoadStudentExercisesForUser();
             }
-        }
-
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            var student = InstanceFactory.GetInstance<StudentForm>(new FormModule());
-            student.Show();
-            this.Hide();
-        }
-
-        private void btnExercises_Click(object sender, EventArgs e)
-        {
-            var exercise = InstanceFactory.GetInstance<ExerciseForm>(new FormModule());
-            exercise.Show();
-            this.Hide();
-        }
-
-        private void btnGroups_Click(object sender, EventArgs e)
-        {
-            var group = InstanceFactory.GetInstance<GroupForm>(new FormModule());
-            group.Show();
-            this.Hide();
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void dgwExercises_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show(dgwExercises.CurrentRow?.Cells[1].Value.ToString(), "Title :");
         }
 
         private void chbxActive_CheckedChanged(object sender, EventArgs e)
@@ -253,6 +193,8 @@ namespace FormsUI
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
             this._studentExercisesService.DeleteAll();
+            LoadStudentExercisesForAdmin();
+            LoadStudentExercisesForUser();
         }
     }
 }

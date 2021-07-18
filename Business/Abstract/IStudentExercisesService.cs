@@ -28,6 +28,6 @@ namespace Business.Abstract
         List<StudentExercisesDto> GetStudentExercisesDtoByLastName(string text);
         List<StudentExercises> GetStudentExercisesByExerciseTitle(string text);
         List<StudentExercisesDto> GetStudentExercisesDtoByExerciseTitle(string text);
-        StudentExercises GetLastRecord();
+        int GetNextId();
     }
 }

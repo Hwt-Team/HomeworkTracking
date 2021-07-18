@@ -230,9 +230,9 @@ namespace Business.Concrete
             return result;
         }
 
-        public StudentExercises GetLastRecord()
+        public int GetNextId()
         {
-            return this._studentExercisesDal.GetLastRecord();
+            return this._studentExercisesDal.GetNextId();
         }
     }
 }

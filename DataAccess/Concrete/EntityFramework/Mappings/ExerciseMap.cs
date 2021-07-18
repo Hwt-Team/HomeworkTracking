@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework.Mappings
@@ -12,6 +13,8 @@ namespace DataAccess.Concrete.EntityFramework.Mappings
 
             Property(e => e.Title).HasColumnName("Title");
             Property(e => e.Deadline).HasColumnName("Deadline");
+            Property(e => e.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
         }
     }
 }

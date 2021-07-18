@@ -11,6 +11,6 @@ namespace Business.Abstract
         void DeleteAll();
         List<GraduateStudent> GetAll();
         GraduateStudent GetById(int id);
-        GraduateStudent GetLastRecord();
+        int GetNextId();
     }
 }

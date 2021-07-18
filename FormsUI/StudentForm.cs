@@ -6,13 +6,14 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
+using FormsUI.Forms.StudentExerciseForms;
 
 namespace FormsUI
 {
     public partial class StudentForm : Form
     {
         private IStudentService _studentService;
-        private Form1 _form1;
+        private StudentExerciseForm _form1;
         public StudentForm()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace FormsUI
         {
             _studentService.Add(new Student
             {
-                Id = this._studentService.GetLastRecord().Id + 1,
+                Id = (int)this._studentService.GetNextId(),
                 FirstName = tbxFirstNameAdd.Text,
                 LastName = tbxLastNameAdd.Text,
                 GroupId = int.Parse(tbxGroupIdAdd.Text)
@@ -76,14 +77,16 @@ namespace FormsUI
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            _form1 = InstanceFactory.GetInstance<Form1>(new FormModule());
-            _form1.Show(new Form1());
+            _form1 = InstanceFactory.GetInstance<StudentExerciseForm>(new FormModule());
+            _form1.Show(new StudentExerciseForm());
             this.Hide();
         }
 
-        private void StudentForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this._studentService.DeleteAll();
+            LoadStudents();
+            MessageBox.Show("All deleted!");
         }
     }
 }

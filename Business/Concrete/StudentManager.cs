@@ -74,9 +74,9 @@ namespace Business.Concrete
             return _studentDal.GetAll(s => (s.FirstName + s.LastName).Contains(name));
         }
 
-        public Student GetLastRecord()
+        public int GetNextId()
         {
-            return this._studentDal.GetLastRecord();
+            return this._studentDal.GetNextId();
         }
     }
 }

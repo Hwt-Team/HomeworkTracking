@@ -61,9 +61,9 @@ namespace Business.Concrete
             return this._exerciseDal.GetAll(e => e.Title.Contains(title));
         }
 
-        public Exercise GetLastRecord()
+        public int GetNextId()
         {
-            return this._exerciseDal.GetLastRecord();
+            return this._exerciseDal.GetNextId();
         }
     }
 }

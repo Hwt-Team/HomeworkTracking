@@ -49,6 +49,7 @@ namespace FormsUI
             this.lblLastNameAdd = new System.Windows.Forms.Label();
             this.lblFirstNameAdd = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudents)).BeginInit();
             this.gbxCrud.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
@@ -69,6 +70,7 @@ namespace FormsUI
             // 
             // gbxCrud
             // 
+            this.gbxCrud.Controls.Add(this.btnDeleteAll);
             this.gbxCrud.Controls.Add(this.btnDelete);
             this.gbxCrud.Controls.Add(this.gbxUpdate);
             this.gbxCrud.Controls.Add(this.gbxAdd);
@@ -83,7 +85,7 @@ namespace FormsUI
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.Location = new System.Drawing.Point(467, 318);
+            this.btnDelete.Location = new System.Drawing.Point(375, 312);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(95, 50);
             this.btnDelete.TabIndex = 2;
@@ -258,6 +260,16 @@ namespace FormsUI
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Location = new System.Drawing.Point(503, 312);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(131, 49);
+            this.btnDeleteAll.TabIndex = 3;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,7 +280,6 @@ namespace FormsUI
             this.Controls.Add(this.dgwStudents);
             this.Name = "StudentForm";
             this.Text = "StudentForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentForm_FormClosing);
             this.Load += new System.EventHandler(this.StudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwStudents)).EndInit();
             this.gbxCrud.ResumeLayout(false);
@@ -302,5 +313,6 @@ namespace FormsUI
         private System.Windows.Forms.Label lblFirstNameAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnDeleteAll;
     }
 }

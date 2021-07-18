@@ -45,9 +45,11 @@
     <Compile Include="Concrete\Exercise.cs" />
     <Compile Include="Concrete\GraduateStudent.cs" />
     <Compile Include="Concrete\Group.cs" />
+    <Compile Include="Concrete\State.cs" />
     <Compile Include="Concrete\Student.cs" />
     <Compile Include="Concrete\StudentExercises.cs" />
     <Compile Include="Concrete\StudyingStudent.cs" />
+    <Compile Include="Concrete\Task.cs" />
     <Compile Include="Dtos\GraduateStudentDto.cs" />
     <Compile Include="Dtos\StudentExercisesDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
