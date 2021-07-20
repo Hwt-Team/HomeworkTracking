@@ -10,20 +10,28 @@ namespace Business.DependencyResolvers.Ninject
     {
         public override void Load()
         {
+            #region DataAccess
             Bind<IExerciseDal>().To<EfExerciseDal>().InSingletonScope();
             Bind<IGroupDal>().To<EfGroupDal>().InSingletonScope();
             Bind<IStudentDal>().To<EfStudentDal>().InSingletonScope();
             Bind<IStudentExercisesDal>().To<EfStudentExercisesDal>().InSingletonScope();
             Bind<ITaskDal>().To<EfTaskDal>().InSingletonScope();
             Bind<IStateDal>().To<EfStateDal>().InSingletonScope();
+            Bind<IStudyingStudentDal>().To<EfStudyingStudentDal>().InSingletonScope();
+            Bind<IGraduateStudentDal>().To<EfGraduateStudentDal>().InSingletonScope();
+            #endregion
 
+            #region Business
             Bind<IExerciseService>().To<ExerciseManager>().InSingletonScope();
             Bind<IGroupService>().To<GroupManager>().InSingletonScope();
             Bind<IStudentService>().To<StudentManager>().InSingletonScope();
             Bind<IStudentExercisesService>().To<StudentExercisesManager>().InSingletonScope();
             Bind<ITaskService>().To<TaskManager>().InSingletonScope();
             Bind<IStateService>().To<StateManager>().InSingletonScope();
-
+            Bind<IStudyingStudentService>().To<StudyingStudentManager>().InSingletonScope();
+            Bind<IGraduateStudentService>().To<GraduateStudentManager>().InSingletonScope();
+            #endregion
+            
             Bind<NinjectModule>().To<BusinessModule>().InSingletonScope();
         }
     }

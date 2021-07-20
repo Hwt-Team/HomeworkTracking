@@ -11,7 +11,7 @@ namespace Business.Concrete
 {
     public class StudyingStudentManager : IStudyingStudentService
     {
-        private IStudyingStudentDal _studyingStudentDal;
+        private readonly IStudyingStudentDal _studyingStudentDal;
 
         public StudyingStudentManager(IStudyingStudentDal studyingStudentDal)
         {

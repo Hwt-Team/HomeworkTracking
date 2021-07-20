@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>core.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -62,10 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
+    <Compile Include="Forms\MainMenu\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForm.Designer.cs">
+    <Compile Include="Forms\MainMenu\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DependencyResolvers\FormModule.cs" />
@@ -98,6 +101,12 @@
     </Compile>
     <Compile Include="Forms\StudentExerciseForms\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentExerciseForms\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentExerciseForms\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentExerciseForms\StudentExerciseForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +159,42 @@
     <Compile Include="Forms\StudentExerciseForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\GraduateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\GraduateForm.Designer.cs">
+      <DependentUpon>GraduateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Graduates\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\StudiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\StudiesForm.Designer.cs">
+      <DependentUpon>StudiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\Studies\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TaskForms\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,21 +213,15 @@
     <Compile Include="Forms\TaskForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentForm.cs">
+    <Compile Include="Forms\StudentForms\Both\StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForm.Designer.cs">
+    <Compile Include="Forms\StudentForms\Both\StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BaseForm.resx">
+    <EmbeddedResource Include="Forms\MainMenu\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExerciseForms\ExerciseForm.resx">
@@ -199,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentExerciseForms\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentExerciseForms\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentExerciseForms\StudentExerciseForm.resx">
       <DependentUpon>StudentExerciseForm.cs</DependentUpon>
@@ -224,6 +266,24 @@
     <EmbeddedResource Include="Forms\StudentExerciseForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Graduates\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Graduates\GraduateForm.resx">
+      <DependentUpon>GraduateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Graduates\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Studies\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Studies\StudiesForm.resx">
+      <DependentUpon>StudiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\Studies\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskForms\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,9 +292,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -246,7 +303,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentForm.resx">
+    <EmbeddedResource Include="Forms\StudentForms\Both\StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -280,8 +337,9 @@
   <ItemGroup>
     <None Include="Resources\reza-namdari-ZgZsKFnSbEA-unsplash.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Forms\StudentForms\" />
+    <Content Include="core.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

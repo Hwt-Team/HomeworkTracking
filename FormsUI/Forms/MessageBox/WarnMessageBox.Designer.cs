@@ -62,7 +62,7 @@ namespace FormsUI.Forms.MessageBox
             // 
             // lblTitle
             // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTitle.Location = new System.Drawing.Point(38, 59);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -13,7 +14,7 @@ namespace FormsUI.Forms.StudentExerciseForms
         private readonly IStudentExercisesService _studentExercisesService;
         private IStudentService _studentService;
         private IExerciseService _exerciseService;
-        
+        private bool _isUser = false;
 
         public StudentExerciseForm()
         {
@@ -28,18 +29,38 @@ namespace FormsUI.Forms.StudentExerciseForms
 
         private void StudentExerciseForm_Load(object sender, EventArgs e)
         {
-            LoadStudentExercisesForAdmin();
-            LoadStudentExercisesForUser();
+            CheckDataSourceForLoad();
+            DesignDataGridView(dgwStudentExercises);
         }
+
+        private void SetVisibilityToStudentExercises(bool value)
+        {
+            dgwStudentExercises.Visible = value;
+        }
+
+        private void DesignDataGridView(DataGridView dataGridView)
+        {
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(32, 30, 45);
+            dataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(23, 21, 32);
+            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(11, 7, 17);
+            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
 
         private void LoadStudentExercisesForUser()
         {
-            dgwStudentExercisesUser.DataSource = this._studentExercisesService.GetStudentExercisesDto();
+            dgwStudentExercises.DataSource = this._studentExercisesService.GetStudentExercisesDto();
         }
 
         private void LoadStudentExercisesForAdmin()
         {
-            dgwStudentExercisesAdmin.DataSource = this._studentExercisesService.GetAll();
+            dgwStudentExercises.DataSource = this._studentExercisesService.GetAll();
         }
 
 
@@ -47,154 +68,64 @@ namespace FormsUI.Forms.StudentExerciseForms
         {
             var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
             addForm.Show();
-            LoadStudentExercisesForAdmin();
-            LoadStudentExercisesForUser();
+            CheckDataSourceForLoad();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var cells = dgwStudentExercises.CurrentRow?.Cells;
             var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value;
-            updateForm.StudentId = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[1].Value;
-            updateForm.ExerciseId = (int) this.dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value;
-            updateForm.Active = this.chbxActive.Checked;
-            LoadStudentExercisesForAdmin();
-            LoadStudentExercisesForUser();
+            updateForm.Id = (int)cells[0].Value;
+            updateForm.StudentId = (int)cells[1].Value;
+            updateForm.ExerciseId = (int)cells[2].Value;
+            updateForm.Active = (bool)cells[3].Value;
+            updateForm.Show();
+            CheckDataSourceForLoad();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             _studentExercisesService.Delete(new StudentExercises
             {
-                Id = (int)dgwStudentExercisesAdmin.CurrentRow.Cells[0].Value
+                Id = (int)dgwStudentExercises.CurrentRow?.Cells[0].Value
             });
-            LoadStudentExercisesForAdmin();
-            LoadStudentExercisesForUser();
+            CheckDataSourceForLoad();
         }
 
-        private void tbxIdSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            var text = tbxIdSearch.Text;
-            if (!String.IsNullOrEmpty(text))
-            {
-                var id = int.Parse(text);
-                dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetById(id);
-                dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDtoById(id);
-            }
-            else
-            {
-                LoadStudentExercisesForAdmin();
-                LoadStudentExercisesForUser();
-            }
-        }
-
-        private void tbxStudentIdSearch_TextChanged(object sender, EventArgs e)
-        {
-            var text = tbxStudentIdSearch.Text;
-            if (!String.IsNullOrEmpty(text))
-            {
-                var studentId = int.Parse(text);
-                dgwStudentExercisesAdmin.DataSource =
-                    _studentExercisesService.GetByStudentId(studentId, chbxActive.Checked);
-                dgwStudentExercisesUser.DataSource =
-                    _studentExercisesService.GetStudentExercisesDtoByStudentId(studentId, chbxActive.Checked);
-            }
-            else
-            {
-                LoadStudentExercisesForAdmin();
-                LoadStudentExercisesForUser();
-            }
-        }
-
-        private void tbxExerciseIdSearch_TextChanged(object sender, EventArgs e)
-        {
-            var text = tbxExerciseIdSearch.Text;
-            if (!String.IsNullOrEmpty(text))
-            {
-                var exerciseId = int.Parse(text);
-                dgwStudentExercisesAdmin.DataSource =
-                    _studentExercisesService.GetByExerciseId(exerciseId, chbxActive.Checked);
-                dgwStudentExercisesUser.DataSource =
-                    _studentExercisesService.GetStudentExercisesDtoByExerciseId(exerciseId, chbxActive.Checked);
-            }
-            else
-            {
-                LoadStudentExercisesForAdmin();
-                LoadStudentExercisesForUser();
-            }
-        }
-
-        private void chbxActive_CheckedChanged(object sender, EventArgs e)
-        {
-            dgwStudentExercisesAdmin.DataSource = this._studentExercisesService.GetActive(chbxActive.Checked);
-            dgwStudentExercisesUser.DataSource = this._studentExercisesService.GetActiveDto(chbxActive.Checked);
-        }
-
-        private void tbxStudentName_TextChanged(object sender, EventArgs e)
-        {
-            var text = tbxStudentName.Text;
-            var firstName = chbxFirstName.Checked;
-            var lastName = chbxLastName.Checked;
-
-            if (!String.IsNullOrEmpty(text))
-            {
-                if (firstName & lastName)
-                {
-                    dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetStudentExercisesByFullName(text);
-                    dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDtoByFullName(text);
-                }
-                else if (firstName)
-                {
-                    dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetStudentExercisesByFirstName(text);
-                    dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDtoByFirstName(text);
-                }
-                else
-                {
-                    dgwStudentExercisesAdmin.DataSource = _studentExercisesService.GetStudentExercisesByLastName(text);
-                    dgwStudentExercisesUser.DataSource = _studentExercisesService.GetStudentExercisesDtoByLastName(text);
-                }
-            }
-            else
-            {
-                LoadStudentExercisesForAdmin();
-                LoadStudentExercisesForUser();
-            }
-
-
-        }
-
-        private void tbxExercise_TextChanged(object sender, EventArgs e)
-        {
-            var text = tbxExercise.Text;
-            if (!String.IsNullOrEmpty(text))
-            {
-                dgwStudentExercisesAdmin.DataSource =
-                    this._studentExercisesService.GetStudentExercisesByExerciseTitle(text);
-                dgwStudentExercisesUser.DataSource =
-                    this._studentExercisesService.GetStudentExercisesDtoByExerciseTitle(text);
-            }
-            else
-            {
-                LoadStudentExercisesForAdmin();
-                LoadStudentExercisesForUser();
-            }
-        }
-
-        private void chbxFirstName_CheckedChanged(object sender, EventArgs e)
-        {
-            this.tbxStudentName_TextChanged(sender, e);
-        }
-
-        private void chbxLastName_CheckedChanged(object sender, EventArgs e)
-        {
-            this.tbxStudentName_TextChanged(sender, e);
+            var searchForm = InstanceFactory.GetInstance<Search>(new FormModule());
+            searchForm.Form = this;
+            searchForm.IsUser = this._isUser;
+            searchForm.LoadStudentExercises = this.CheckDataSourceForLoad;
+            searchForm.DgwStudentExercises = this.dgwStudentExercises;
+            searchForm.Show();
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
             this._studentExercisesService.DeleteAll();
-            LoadStudentExercisesForAdmin();
-            LoadStudentExercisesForUser();
+            CheckDataSourceForLoad();
+        }
+
+        private void btnChangeDgw_Click(object sender, EventArgs e)
+        {
+            CheckDataSourceForLoad();
+        }
+
+        private void CheckDataSourceForLoad()
+        {
+            if (this._isUser)
+            {
+                LoadStudentExercisesForUser();
+                btnChangeDgw.Text = @"User";
+            }
+            else
+            {
+                LoadStudentExercisesForAdmin();
+                btnChangeDgw.Text = @"Admin";
+            }
+            this._isUser = !this._isUser;
         }
     }
 }

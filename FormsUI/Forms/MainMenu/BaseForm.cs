@@ -5,10 +5,14 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using FormsUI.Forms.ExerciseForms;
 using FormsUI.Forms.GroupForms;
+using FormsUI.Forms.StateForms;
 using FormsUI.Forms.StudentExerciseForms;
+using FormsUI.Forms.StudentForms.Both;
+using FormsUI.Forms.StudentForms.Graduates;
+using FormsUI.Forms.StudentForms.Studies;
 using FormsUI.Forms.TaskForms;
 
-namespace FormsUI
+namespace FormsUI.Forms.MainMenu
 {
     public partial class BaseForm : Form
     {
@@ -18,8 +22,7 @@ namespace FormsUI
         public BaseForm()
         {
             InitializeComponent();
-            _leftBorderButton = new Panel();
-            _leftBorderButton.Size = new Size(7, 60);
+            _leftBorderButton = new Panel { Size = new Size(7, 60) };
             panelSidebar.Controls.Add(_leftBorderButton);
 
             this.Text = string.Empty;
@@ -43,43 +46,72 @@ namespace FormsUI
         }
         #endregion
 
+        #region Button Activation
+
         private void ActivateButton(object senderButton, Color color)
         {
-            if (senderButton != null)
-            {
-                this.DisableButton();
-                _currentButton = (IconButton)senderButton;
-                _currentButton.BackColor = Color.FromArgb(37, 36, 81);
-                _currentButton.ForeColor = color;
-                _currentButton.TextAlign = ContentAlignment.MiddleCenter;
-                _currentButton.IconColor = color;
-                _currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
-                _currentButton.ImageAlign = ContentAlignment.MiddleRight;
+            if (senderButton == null) return;
+            this.DisableButton(Color.FromArgb(11,7,17));
+            _currentButton = (IconButton)senderButton;
+            _currentButton.BackColor = Color.FromArgb(37, 36, 81);
+            _currentButton.ForeColor = color;
+            _currentButton.TextAlign = ContentAlignment.MiddleCenter;
+            _currentButton.IconColor = color;
+            _currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            _currentButton.ImageAlign = ContentAlignment.MiddleRight;
 
-                _leftBorderButton.BackColor = color;
-                _leftBorderButton.Location = new Point(0, _currentButton.Location.Y);
-                _leftBorderButton.Visible = true;
-                _leftBorderButton.BringToFront();
+            _leftBorderButton.BackColor = color;
+            _leftBorderButton.Location = new Point(0, _currentButton.Location.Y);
+            _leftBorderButton.Visible = true;
+            _leftBorderButton.BringToFront();
 
-                iconCurrentChildFormIcon.IconChar = _currentButton.IconChar;
-                iconCurrentChildFormIcon.IconColor = color;
-            }
+            iconCurrentChildFormIcon.IconChar = _currentButton.IconChar;
+            iconCurrentChildFormIcon.IconColor = color;
+            _locationalButton = (IconButton)senderButton;
         }
 
-        private void DisableButton()
+        private void ActivateSubMenuButton(object senderButton, Color color)
         {
-            if (_currentButton != null)
-            {
-                _currentButton.BackColor = Color.FromArgb(11, 7, 17);
-                _currentButton.ForeColor = Color.Gainsboro;
-                _currentButton.TextAlign = ContentAlignment.MiddleLeft;
-                _currentButton.IconColor = Color.Gainsboro;
-                _currentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-                _currentButton.ImageAlign = ContentAlignment.MiddleLeft;
-            }
+            if (senderButton == null) return;
+            this.SetBackColor(out var tempColor);
+            this.DisableButton(tempColor);
+            _currentButton = (IconButton)senderButton;
+            _currentButton.BackColor = Color.FromArgb(37, 36, 81);
+            _currentButton.ForeColor = color;
+            _currentButton.TextAlign = ContentAlignment.MiddleCenter;
+            _currentButton.IconColor = color;
+            _currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            _currentButton.ImageAlign = ContentAlignment.MiddleRight;
+
+            iconCurrentChildFormIcon.IconChar = _currentButton.IconChar;
+            iconCurrentChildFormIcon.IconColor = color;
         }
 
+        private void SetBackColor(out Color color)
+        {
+            var panel = _currentButton.Parent.Name;
+            if (panel.Substring(panel.Length - 7) == "SubMenu")
+            {
+                color = Color.FromArgb(35, 32, 39);
+                return;
+            }
+            color = Color.FromArgb(11, 7, 17);
 
+        }
+
+        private void DisableButton(Color backColor)
+        {
+            if (_currentButton == null) return;
+            _currentButton.BackColor = backColor;
+            _currentButton.ForeColor = Color.Gainsboro;
+            _currentButton.TextAlign = ContentAlignment.MiddleLeft;
+            _currentButton.IconColor = Color.Gainsboro;
+            _currentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            _currentButton.ImageAlign = ContentAlignment.MiddleLeft;
+        }
+
+        #endregion
+        
         private void OpenChildForm(Form childForm)
         {
             _activeForm?.Close();
@@ -106,52 +138,71 @@ namespace FormsUI
             OpenChildForm(new ExerciseForm());
         }
 
-        private void btnGroups_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new GroupForm());
-        }
-
         private void btnStudentExercises_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new StudentExerciseForm());
         }
 
+        #region Students
         private void btnStudents_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelStudentSubMenu);
             ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new StudentForm());
         }
         private void btnBaseStudents_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateSubMenuButton(sender, RGBColors.color4);
+            OpenChildForm(new StudentForm());
         }
 
         private void btnGraduates_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateSubMenuButton(sender, RGBColors.color4);
+            OpenChildForm(new GraduateForm());
         }
 
         private void btnStudies_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateSubMenuButton(sender, RGBColors.color4);
+            OpenChildForm(new StudiesForm());
+        }
+
+        private void btnGroups_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color2);
+            OpenChildForm(new GroupForm());
+        }
+
+        #endregion
+
+        #region ITask management
+        private void btnITaskSubmenu_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(panelITaskSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnITask_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateSubMenuButton(sender, RGBColors.color5);
             OpenChildForm(new TaskForm());
         }
+
+        private void btnStates_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color5);
+            OpenChildForm(new StateForm());
+        }
+
+        #endregion
 
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            //OpenChildForm(new ExerciseForm());
+            //OpenChildForm(new CalendarForm());
         }
         #endregion
-
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -159,11 +210,13 @@ namespace FormsUI
             Reset();
         }
 
-
         private void Reset()
         {
-            DisableButton();
+            this.SetBackColor(out var color);
+            DisableButton(color);
             _leftBorderButton.Visible = false;
+            this.panelITaskSubMenu.Visible = false;
+            this.panelStudentSubMenu.Visible = false;
             iconCurrentChildFormIcon.IconChar = IconChar.Home;
             iconCurrentChildFormIcon.IconColor = Color.Gainsboro;
             lblTitleChildForm.Text = "Home";
@@ -178,7 +231,7 @@ namespace FormsUI
         private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
 
         #endregion
-        
+
 
         private void panelNavbar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -236,12 +289,12 @@ namespace FormsUI
 
         //}
         #endregion
-        
 
         #region Submenu integration
         private void CustomizeDesign()
         {
             SetVisibilityToPanelStudentsSubMenu(false);
+            SetVisibilityToPanelITaskSubMenu(false);
         }
 
         private void SetVisibilityToPanelStudentsSubMenu(bool value)
@@ -249,11 +302,17 @@ namespace FormsUI
             panelStudentSubMenu.Visible = value;
         }
 
+        private void SetVisibilityToPanelITaskSubMenu(bool value)
+        {
+            panelITaskSubMenu.Visible = value;
+        }
+
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
                 SetVisibilityToPanelStudentsSubMenu(false);
+                SetVisibilityToPanelITaskSubMenu(false);
                 subMenu.Visible = true;
             }
             else subMenu.Visible = false;
@@ -271,18 +330,19 @@ namespace FormsUI
         //        ActivateButton(btnStudentExercises, RGBColors.color3);
         //    if (Application.OpenForms["StudentForm"] is null)
         //        ActivateButton(btnBaseStudents, RGBColors.color3);
-            //if (Application.OpenForms["GraduateForm"] is null)
-            //    ActivateButton(btnGraduates, RGBColors.color3);
-            //if (Application.OpenForms["StudiesForm"] is null)
-            //    ActivateButton(btnBaseStudents, RGBColors.color3);
-            //if (Application.OpenForms["TaskForm"] is null)
-            //    ActivateButton(btnITask, RGBColors.color3);
-            //if (Application.OpenForms["StudentForm"] is null)
-            //    ActivateButton(btnBaseStudents, RGBColors.color3);
+        //if (Application.OpenForms["GraduateForm"] is null)
+        //    ActivateButton(btnGraduates, RGBColors.color3);
+        //if (Application.OpenForms["StudiesForm"] is null)
+        //    ActivateButton(btnBaseStudents, RGBColors.color3);
+        //if (Application.OpenForms["TaskForm"] is null)
+        //    ActivateButton(btnITask, RGBColors.color3);
+        //if (Application.OpenForms["StudentForm"] is null)
+        //    ActivateButton(btnBaseStudents, RGBColors.color3);
         //}
         #endregion
 
         #region Resize Rectangle
+
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
@@ -320,9 +380,6 @@ namespace FormsUI
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
-
-
-
 
         #endregion
 

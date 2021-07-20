@@ -67,7 +67,6 @@ namespace FormsUI.Forms.ExerciseForms
         {
             tbxTitle.Text = this.Title;
             dtpDeadline.Value = this.Deadline ?? DateTime.Now;
-            SetDatetimeValue();
             SetDatetimePickerFormat();
         }
     }

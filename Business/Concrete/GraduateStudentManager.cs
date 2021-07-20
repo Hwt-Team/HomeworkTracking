@@ -11,7 +11,7 @@ namespace Business.Concrete
 {
     public class GraduateStudentManager : IGraduateStudentService
     {
-        private IGraduateStudentDal _graduateStudentDal;
+        private readonly IGraduateStudentDal _graduateStudentDal;
 
         public GraduateStudentManager(IGraduateStudentDal graduateStudentDal)
         {

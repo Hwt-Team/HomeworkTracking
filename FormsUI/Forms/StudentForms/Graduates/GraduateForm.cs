@@ -8,22 +8,22 @@ using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 
-namespace FormsUI.Forms.GroupForms
+namespace FormsUI.Forms.StudentForms.Graduates
 {
-    public partial class GroupForm : Form
+    public partial class GraduateForm : Form
     {
-        private IGroupService _groupService;
-        private int _id;
-        public GroupForm()
+        private readonly IGraduateStudentService _graduateStudentService;
+        public GraduateForm()
         {
             InitializeComponent();
-            this._groupService = InstanceFactory.GetInstance<IGroupService>(new BusinessModule());
+            this._graduateStudentService = InstanceFactory
+                .GetInstance<IGraduateStudentService>(new BusinessModule());
         }
 
-        private void GroupForm_Load(object sender, EventArgs e)
+        private void GraduateForm_Load(object sender, EventArgs e)
         {
-            LoadGroups();
-            DesignDataGridView(dgwGroups);
+            LoadGraduates();
+            DesignDataGridView(dgwGraduates);
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
@@ -40,25 +40,29 @@ namespace FormsUI.Forms.GroupForms
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        public void LoadGroups()
+        private void LoadGraduates()
         {
-            dgwGroups.DataSource = this._groupService.GetAll();
+            this.dgwGraduates.DataSource = this._graduateStudentService.GetAll();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
             addForm.Show();
-            LoadGroups();
+            LoadGraduates();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.GroupName=this.dgwGroups.CurrentRow?.Cells[1].Value.ToString();
-            updateForm.Id = (int) this.dgwGroups.CurrentRow?.Cells[0].Value;
+            var cells = this.dgwGraduates.CurrentRow?.Cells;
+            updateForm.Id = (int) cells[0].Value;
+            updateForm.FirstName = cells[1].Value.ToString();
+            updateForm.LastName = cells[2].Value.ToString();
+            updateForm.GroupId = (int) cells[3].Value;
+            updateForm.GraduateDate = (DateTime) cells[4].Value;
             updateForm.Show();
-            LoadGroups();
+            LoadGraduates();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -66,25 +70,21 @@ namespace FormsUI.Forms.GroupForms
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = "System",
-                Title = "Selected group will be deleted.",
-                Ok = DeleteGroup,
+                Title = "Selected graduate will be deleted.",
+                Ok = DeleteGraduate,
                 Cancel = Cancel
             });
         }
 
-        private void DeleteGroup()
+        private void DeleteGraduate()
         {
-            this._groupService.Delete(new Group
+            this._graduateStudentService.Delete(new GraduateStudent
             {
-                Id = _id
+                Id = (int) dgwGraduates.CurrentRow.Cells[0].Value
             });
-            LoadGroups();
         }
 
-        private void Cancel()
-        {
-            //...
-        }
+        private void Cancel() { }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
@@ -95,22 +95,15 @@ namespace FormsUI.Forms.GroupForms
                 Ok = DeleteAll,
                 Cancel = Cancel
             });
-            LoadGroups();
         }
 
         private void DeleteAll()
         {
-            this._groupService.DeleteAll();
+            this._graduateStudentService.DeleteAll();
         }
-
         private void btnReload_Click(object sender, EventArgs e)
         {
-            LoadGroups();
-        }
-
-        private void dgwGroups_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this._id = (int) dgwGroups.CurrentRow?.Cells[0].Value;
+            this.LoadGraduates();
         }
     }
 }

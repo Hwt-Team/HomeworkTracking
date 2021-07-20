@@ -1,5 +1,5 @@
 ﻿
-namespace FormsUI
+namespace FormsUI.Forms.MainMenu
 {
     partial class BaseForm
     {
@@ -33,37 +33,41 @@ namespace FormsUI
             this.panelBase = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelNavbar = new System.Windows.Forms.Panel();
+            this.lblTitleChildForm = new System.Windows.Forms.Label();
+            this.panelSidebar = new System.Windows.Forms.Panel();
+            this.panelITaskSubMenu = new System.Windows.Forms.Panel();
+            this.panelStudentSubMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.btnMaximize = new FontAwesome.Sharp.IconPictureBox();
             this.btnClose = new FontAwesome.Sharp.IconPictureBox();
-            this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildFormIcon = new FontAwesome.Sharp.IconPictureBox();
-            this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnCalendar = new FontAwesome.Sharp.IconButton();
+            this.btnStates = new FontAwesome.Sharp.IconButton();
             this.btnITask = new FontAwesome.Sharp.IconButton();
-            this.panelStudentSubMenu = new System.Windows.Forms.Panel();
+            this.btnITaskSubmenu = new FontAwesome.Sharp.IconButton();
+            this.btnGroups = new FontAwesome.Sharp.IconButton();
             this.btnStudies = new FontAwesome.Sharp.IconButton();
             this.btnGraduates = new FontAwesome.Sharp.IconButton();
             this.btnBaseStudents = new FontAwesome.Sharp.IconButton();
             this.btnStudents = new FontAwesome.Sharp.IconButton();
             this.btnStudentExercises = new FontAwesome.Sharp.IconButton();
-            this.btnGroups = new FontAwesome.Sharp.IconButton();
             this.btnExercises = new FontAwesome.Sharp.IconButton();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.panelBase.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.panelNavbar.SuspendLayout();
+            this.panelSidebar.SuspendLayout();
+            this.panelITaskSubMenu.SuspendLayout();
+            this.panelStudentSubMenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).BeginInit();
-            this.panelSidebar.SuspendLayout();
-            this.panelStudentSubMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBase
@@ -74,7 +78,7 @@ namespace FormsUI
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBase.Location = new System.Drawing.Point(0, 0);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(900, 600);
+            this.panelBase.Size = new System.Drawing.Size(900, 633);
             this.panelBase.TabIndex = 0;
             // 
             // panelContainer
@@ -84,7 +88,7 @@ namespace FormsUI
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(231, 64);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(669, 536);
+            this.panelContainer.Size = new System.Drawing.Size(669, 569);
             this.panelContainer.TabIndex = 2;
             // 
             // panelNavbar
@@ -101,6 +105,79 @@ namespace FormsUI
             this.panelNavbar.Size = new System.Drawing.Size(669, 64);
             this.panelNavbar.TabIndex = 0;
             this.panelNavbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelNavbar_MouseDown);
+            // 
+            // lblTitleChildForm
+            // 
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(60, 27);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(54, 20);
+            this.lblTitleChildForm.TabIndex = 1;
+            this.lblTitleChildForm.Text = "Home";
+            // 
+            // panelSidebar
+            // 
+            this.panelSidebar.AutoScroll = true;
+            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSidebar.Controls.Add(this.btnCalendar);
+            this.panelSidebar.Controls.Add(this.panelITaskSubMenu);
+            this.panelSidebar.Controls.Add(this.btnITaskSubmenu);
+            this.panelSidebar.Controls.Add(this.panelStudentSubMenu);
+            this.panelSidebar.Controls.Add(this.btnStudents);
+            this.panelSidebar.Controls.Add(this.btnStudentExercises);
+            this.panelSidebar.Controls.Add(this.btnExercises);
+            this.panelSidebar.Controls.Add(this.panelLogo);
+            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebar.Name = "panelSidebar";
+            this.panelSidebar.Size = new System.Drawing.Size(231, 633);
+            this.panelSidebar.TabIndex = 1;
+            // 
+            // panelITaskSubMenu
+            // 
+            this.panelITaskSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelITaskSubMenu.Controls.Add(this.btnStates);
+            this.panelITaskSubMenu.Controls.Add(this.btnITask);
+            this.panelITaskSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelITaskSubMenu.Location = new System.Drawing.Point(0, 457);
+            this.panelITaskSubMenu.Name = "panelITaskSubMenu";
+            this.panelITaskSubMenu.Size = new System.Drawing.Size(231, 80);
+            this.panelITaskSubMenu.TabIndex = 7;
+            // 
+            // panelStudentSubMenu
+            // 
+            this.panelStudentSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelStudentSubMenu.Controls.Add(this.btnGroups);
+            this.panelStudentSubMenu.Controls.Add(this.btnStudies);
+            this.panelStudentSubMenu.Controls.Add(this.btnGraduates);
+            this.panelStudentSubMenu.Controls.Add(this.btnBaseStudents);
+            this.panelStudentSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStudentSubMenu.Location = new System.Drawing.Point(0, 252);
+            this.panelStudentSubMenu.Name = "panelStudentSubMenu";
+            this.panelStudentSubMenu.Size = new System.Drawing.Size(231, 160);
+            this.panelStudentSubMenu.TabIndex = 5;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.btnHome);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(231, 117);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(109, 81);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(473, 377);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
             // 
             // btnMinimize
             // 
@@ -150,17 +227,6 @@ namespace FormsUI
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // lblTitleChildForm
-            // 
-            this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(60, 27);
-            this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(54, 20);
-            this.lblTitleChildForm.TabIndex = 1;
-            this.lblTitleChildForm.Text = "Home";
-            // 
             // iconCurrentChildFormIcon
             // 
             this.iconCurrentChildFormIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
@@ -173,24 +239,6 @@ namespace FormsUI
             this.iconCurrentChildFormIcon.Size = new System.Drawing.Size(32, 32);
             this.iconCurrentChildFormIcon.TabIndex = 0;
             this.iconCurrentChildFormIcon.TabStop = false;
-            // 
-            // panelSidebar
-            // 
-            this.panelSidebar.AutoScroll = true;
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.panelSidebar.Controls.Add(this.btnCalendar);
-            this.panelSidebar.Controls.Add(this.btnITask);
-            this.panelSidebar.Controls.Add(this.panelStudentSubMenu);
-            this.panelSidebar.Controls.Add(this.btnStudents);
-            this.panelSidebar.Controls.Add(this.btnStudentExercises);
-            this.panelSidebar.Controls.Add(this.btnGroups);
-            this.panelSidebar.Controls.Add(this.btnExercises);
-            this.panelSidebar.Controls.Add(this.panelLogo);
-            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(231, 600);
-            this.panelSidebar.TabIndex = 1;
             // 
             // btnCalendar
             // 
@@ -206,7 +254,7 @@ namespace FormsUI
             this.btnCalendar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalendar.IconSize = 32;
             this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.Location = new System.Drawing.Point(0, 477);
+            this.btnCalendar.Location = new System.Drawing.Point(0, 537);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnCalendar.Size = new System.Drawing.Size(231, 45);
@@ -217,6 +265,31 @@ namespace FormsUI
             this.btnCalendar.UseVisualStyleBackColor = true;
             this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
+            // btnStates
+            // 
+            this.btnStates.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStates.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStates.FlatAppearance.BorderSize = 0;
+            this.btnStates.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnStates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStates.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnStates.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
+            this.btnStates.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnStates.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStates.IconSize = 32;
+            this.btnStates.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStates.Location = new System.Drawing.Point(0, 40);
+            this.btnStates.Name = "btnStates";
+            this.btnStates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnStates.Size = new System.Drawing.Size(231, 40);
+            this.btnStates.TabIndex = 7;
+            this.btnStates.Text = "States";
+            this.btnStates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStates.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStates.UseVisualStyleBackColor = true;
+            this.btnStates.Click += new System.EventHandler(this.btnStates_Click);
+            // 
             // btnITask
             // 
             this.btnITask.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -226,33 +299,71 @@ namespace FormsUI
             this.btnITask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnITask.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnITask.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnITask.IconChar = FontAwesome.Sharp.IconChar.Briefcase;
+            this.btnITask.IconChar = FontAwesome.Sharp.IconChar.CheckDouble;
             this.btnITask.IconColor = System.Drawing.Color.Gainsboro;
             this.btnITask.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnITask.IconSize = 32;
             this.btnITask.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnITask.Location = new System.Drawing.Point(0, 432);
+            this.btnITask.Location = new System.Drawing.Point(0, 0);
             this.btnITask.Name = "btnITask";
-            this.btnITask.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnITask.Size = new System.Drawing.Size(231, 45);
+            this.btnITask.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnITask.Size = new System.Drawing.Size(231, 40);
             this.btnITask.TabIndex = 6;
-            this.btnITask.Text = "ITask";
+            this.btnITask.Text = "ITask management";
             this.btnITask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnITask.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnITask.UseVisualStyleBackColor = true;
             this.btnITask.Click += new System.EventHandler(this.btnITask_Click);
             // 
-            // panelStudentSubMenu
+            // btnITaskSubmenu
             // 
-            this.panelStudentSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelStudentSubMenu.Controls.Add(this.btnStudies);
-            this.panelStudentSubMenu.Controls.Add(this.btnGraduates);
-            this.panelStudentSubMenu.Controls.Add(this.btnBaseStudents);
-            this.panelStudentSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStudentSubMenu.Location = new System.Drawing.Point(0, 297);
-            this.panelStudentSubMenu.Name = "panelStudentSubMenu";
-            this.panelStudentSubMenu.Size = new System.Drawing.Size(231, 135);
-            this.panelStudentSubMenu.TabIndex = 5;
+            this.btnITaskSubmenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnITaskSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnITaskSubmenu.FlatAppearance.BorderSize = 0;
+            this.btnITaskSubmenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnITaskSubmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnITaskSubmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnITaskSubmenu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnITaskSubmenu.IconChar = FontAwesome.Sharp.IconChar.Briefcase;
+            this.btnITaskSubmenu.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnITaskSubmenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnITaskSubmenu.IconSize = 32;
+            this.btnITaskSubmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnITaskSubmenu.Location = new System.Drawing.Point(0, 412);
+            this.btnITaskSubmenu.Name = "btnITaskSubmenu";
+            this.btnITaskSubmenu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnITaskSubmenu.Size = new System.Drawing.Size(231, 45);
+            this.btnITaskSubmenu.TabIndex = 6;
+            this.btnITaskSubmenu.Text = "ITask";
+            this.btnITaskSubmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnITaskSubmenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnITaskSubmenu.UseVisualStyleBackColor = true;
+            this.btnITaskSubmenu.Click += new System.EventHandler(this.btnITaskSubmenu_Click);
+            // 
+            // btnGroups
+            // 
+            this.btnGroups.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGroups.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGroups.FlatAppearance.BorderSize = 0;
+            this.btnGroups.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGroups.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnGroups.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
+            this.btnGroups.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnGroups.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGroups.IconSize = 32;
+            this.btnGroups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGroups.Location = new System.Drawing.Point(0, 120);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnGroups.Size = new System.Drawing.Size(231, 40);
+            this.btnGroups.TabIndex = 8;
+            this.btnGroups.Text = "Groups";
+            this.btnGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGroups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
             // 
             // btnStudies
             // 
@@ -268,10 +379,10 @@ namespace FormsUI
             this.btnStudies.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStudies.IconSize = 32;
             this.btnStudies.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudies.Location = new System.Drawing.Point(0, 90);
+            this.btnStudies.Location = new System.Drawing.Point(0, 80);
             this.btnStudies.Name = "btnStudies";
             this.btnStudies.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnStudies.Size = new System.Drawing.Size(231, 45);
+            this.btnStudies.Size = new System.Drawing.Size(231, 40);
             this.btnStudies.TabIndex = 7;
             this.btnStudies.Text = "Studies";
             this.btnStudies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,10 +404,10 @@ namespace FormsUI
             this.btnGraduates.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGraduates.IconSize = 32;
             this.btnGraduates.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGraduates.Location = new System.Drawing.Point(0, 45);
+            this.btnGraduates.Location = new System.Drawing.Point(0, 40);
             this.btnGraduates.Name = "btnGraduates";
             this.btnGraduates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnGraduates.Size = new System.Drawing.Size(231, 45);
+            this.btnGraduates.Size = new System.Drawing.Size(231, 40);
             this.btnGraduates.TabIndex = 6;
             this.btnGraduates.Text = "Graduates";
             this.btnGraduates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,7 +432,7 @@ namespace FormsUI
             this.btnBaseStudents.Location = new System.Drawing.Point(0, 0);
             this.btnBaseStudents.Name = "btnBaseStudents";
             this.btnBaseStudents.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnBaseStudents.Size = new System.Drawing.Size(231, 45);
+            this.btnBaseStudents.Size = new System.Drawing.Size(231, 40);
             this.btnBaseStudents.TabIndex = 5;
             this.btnBaseStudents.Text = "Base students";
             this.btnBaseStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -343,7 +454,7 @@ namespace FormsUI
             this.btnStudents.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStudents.IconSize = 32;
             this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudents.Location = new System.Drawing.Point(0, 252);
+            this.btnStudents.Location = new System.Drawing.Point(0, 207);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnStudents.Size = new System.Drawing.Size(231, 45);
@@ -368,7 +479,7 @@ namespace FormsUI
             this.btnStudentExercises.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStudentExercises.IconSize = 32;
             this.btnStudentExercises.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudentExercises.Location = new System.Drawing.Point(0, 207);
+            this.btnStudentExercises.Location = new System.Drawing.Point(0, 162);
             this.btnStudentExercises.Name = "btnStudentExercises";
             this.btnStudentExercises.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnStudentExercises.Size = new System.Drawing.Size(231, 45);
@@ -378,31 +489,6 @@ namespace FormsUI
             this.btnStudentExercises.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStudentExercises.UseVisualStyleBackColor = true;
             this.btnStudentExercises.Click += new System.EventHandler(this.btnStudentExercises_Click);
-            // 
-            // btnGroups
-            // 
-            this.btnGroups.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGroups.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGroups.FlatAppearance.BorderSize = 0;
-            this.btnGroups.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGroups.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGroups.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
-            this.btnGroups.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnGroups.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGroups.IconSize = 32;
-            this.btnGroups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGroups.Location = new System.Drawing.Point(0, 162);
-            this.btnGroups.Name = "btnGroups";
-            this.btnGroups.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnGroups.Size = new System.Drawing.Size(231, 45);
-            this.btnGroups.TabIndex = 2;
-            this.btnGroups.Text = "Groups";
-            this.btnGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGroups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGroups.UseVisualStyleBackColor = true;
-            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
             // 
             // btnExercises
             // 
@@ -429,19 +515,11 @@ namespace FormsUI
             this.btnExercises.UseVisualStyleBackColor = true;
             this.btnExercises.Click += new System.EventHandler(this.btnExercises_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.btnHome);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(231, 117);
-            this.panelLogo.TabIndex = 0;
-            // 
             // btnHome
             // 
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(39, 12);
+            this.btnHome.Location = new System.Drawing.Point(39, 18);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(146, 81);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -449,25 +527,15 @@ namespace FormsUI
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(109, 65);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(473, 377);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
-            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(900, 633);
             this.Controls.Add(this.panelBase);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -476,15 +544,16 @@ namespace FormsUI
             this.panelContainer.ResumeLayout(false);
             this.panelNavbar.ResumeLayout(false);
             this.panelNavbar.PerformLayout();
+            this.panelSidebar.ResumeLayout(false);
+            this.panelITaskSubMenu.ResumeLayout(false);
+            this.panelStudentSubMenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).EndInit();
-            this.panelSidebar.ResumeLayout(false);
-            this.panelStudentSubMenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,14 +567,13 @@ namespace FormsUI
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton btnExercises;
         private FontAwesome.Sharp.IconButton btnStudentExercises;
-        private FontAwesome.Sharp.IconButton btnGroups;
         private FontAwesome.Sharp.IconButton btnStudents;
         private System.Windows.Forms.Panel panelStudentSubMenu;
         private FontAwesome.Sharp.IconButton btnStudies;
         private FontAwesome.Sharp.IconButton btnGraduates;
         private FontAwesome.Sharp.IconButton btnBaseStudents;
         private FontAwesome.Sharp.IconButton btnCalendar;
-        private FontAwesome.Sharp.IconButton btnITask;
+        private FontAwesome.Sharp.IconButton btnITaskSubmenu;
         private System.Windows.Forms.PictureBox btnHome;
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildFormIcon;
         private System.Windows.Forms.Label lblTitleChildForm;
@@ -513,5 +581,9 @@ namespace FormsUI
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnClose;
         private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Panel panelITaskSubMenu;
+        private FontAwesome.Sharp.IconButton btnStates;
+        private FontAwesome.Sharp.IconButton btnITask;
+        private FontAwesome.Sharp.IconButton btnGroups;
     }
 }

@@ -99,6 +99,7 @@ namespace FormsUI.Forms.StateForms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(475, 283);
             this.Name = "Add";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
             this.ResumeLayout(false);
             this.PerformLayout();

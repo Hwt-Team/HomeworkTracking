@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -11,7 +12,7 @@ namespace FormsUI.Forms.StateForms
 {
     public partial class StateForm : Form
     {
-        private IStateService _stateService;
+        private readonly IStateService _stateService;
 
         public StateForm()
         {
@@ -22,6 +23,21 @@ namespace FormsUI.Forms.StateForms
         private void StateForm_Load(object sender, EventArgs e)
         {
             LoadStates();
+            DesignDataGridView(dgwStates);
+        }
+
+        private void DesignDataGridView(DataGridView dataGridView)
+        {
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(32, 30, 45);
+            dataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(23, 21, 32);
+            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(11, 7, 17);
+            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void LoadStates()

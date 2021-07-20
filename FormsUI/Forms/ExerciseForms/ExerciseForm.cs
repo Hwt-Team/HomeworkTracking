@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -11,7 +12,7 @@ namespace FormsUI.Forms.ExerciseForms
 {
     public partial class ExerciseForm : Form
     {
-        private IExerciseService _exerciseService;
+        private readonly IExerciseService _exerciseService;
         public ExerciseForm()
         {
             InitializeComponent();
@@ -22,8 +23,22 @@ namespace FormsUI.Forms.ExerciseForms
         private void ExerciseForm_Load(object sender, EventArgs e)
         {
             LoadExercises();
+            DesignDataGridView(dgwExercises);
         }
 
+        private void DesignDataGridView(DataGridView dataGridView)
+        {
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(32, 30, 45);
+            dataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(23, 21, 32);
+            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(11, 7, 17);
+            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
 
         private void LoadExercises()
         {
@@ -100,5 +115,6 @@ namespace FormsUI.Forms.ExerciseForms
         {
             LoadExercises();
         }
+
     }
 }
