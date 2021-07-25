@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
+using FormsUI.Forms.MessageBox;
 
 namespace FormsUI.Forms.StudentExerciseForms
 {
@@ -85,12 +86,25 @@ namespace FormsUI.Forms.StudentExerciseForms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            {
+                Caption = "System",
+                Title = "Selected student&exercise will be deleted.",
+                Ok = DeleteStudentExercise,
+                Cancel = Cancel
+            });
+            CheckDataSourceForLoad();
+        }
+
+        private void DeleteStudentExercise()
+        {
             _studentExercisesService.Delete(new StudentExercises
             {
                 Id = (int)dgwStudentExercises.CurrentRow?.Cells[0].Value
             });
-            CheckDataSourceForLoad();
         }
+
+        private void Cancel() { }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {

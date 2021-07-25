@@ -16,6 +16,9 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<GraduateStudent> GraduateStudents { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<Claim> Claims { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
+        public DbSet<User> Users { get; set; }
 
         #endregion
 
@@ -36,7 +39,12 @@ namespace DataAccess.Concrete.EntityFramework
                     m.MapInheritedProperties();
                     m.ToTable("StudyingStudents");
                 });
-
+            modelBuilder.Entity<Student>()
+                .Map(m =>
+                {
+                    m.MapInheritedProperties();
+                    m.ToTable("Students");
+                });
 
             #endregion
 
@@ -50,10 +58,11 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Configurations.Add(new StudyingStudentMap());
             modelBuilder.Configurations.Add(new TaskMap());
             modelBuilder.Configurations.Add(new StateMap());
+            modelBuilder.Configurations.Add(new ClaimMap());
+            modelBuilder.Configurations.Add(new UserClaimMap());
+            modelBuilder.Configurations.Add(new UserMap());
 
             #endregion
-
-
         }
     }
 }

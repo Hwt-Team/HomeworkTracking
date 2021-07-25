@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Claim.cs" />
     <Compile Include="Concrete\Exercise.cs" />
     <Compile Include="Concrete\GraduateStudent.cs" />
     <Compile Include="Concrete\Group.cs" />
@@ -50,8 +51,12 @@
     <Compile Include="Concrete\StudentExercises.cs" />
     <Compile Include="Concrete\StudyingStudent.cs" />
     <Compile Include="Concrete\Task.cs" />
+    <Compile Include="Concrete\User.cs" />
+    <Compile Include="Concrete\UserClaim.cs" />
     <Compile Include="Dtos\GraduateStudentDto.cs" />
     <Compile Include="Dtos\StudentExercisesDto.cs" />
+    <Compile Include="Dtos\UserLoginDto.cs" />
+    <Compile Include="Dtos\UserRegisterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

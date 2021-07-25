@@ -19,6 +19,7 @@ namespace FormsUI.Forms.MainMenu
         private IconButton _currentButton;
         private readonly Panel _leftBorderButton;
         private Form _activeForm = null;
+        private IconButton _locationalButton;
         public BaseForm()
         {
             InitializeComponent();

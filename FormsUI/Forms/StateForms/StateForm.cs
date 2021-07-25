@@ -24,6 +24,8 @@ namespace FormsUI.Forms.StateForms
         {
             LoadStates();
             DesignDataGridView(dgwStates);
+            //this.dgwStates.BackColor = Color.Transparent;
+            //this.dgwStates.BackgroundColor = Color.Transparent;
         }
 
         private void DesignDataGridView(DataGridView dataGridView)

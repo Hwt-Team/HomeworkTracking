@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IClaimService.cs" />
     <Compile Include="Abstract\IExerciseService.cs" />
     <Compile Include="Abstract\IGraduateStudentService.cs" />
     <Compile Include="Abstract\IGroupService.cs" />
@@ -61,6 +62,9 @@
     <Compile Include="Abstract\IStudentService.cs" />
     <Compile Include="Abstract\IStudyingStudentService.cs" />
     <Compile Include="Abstract\ITaskService.cs" />
+    <Compile Include="Abstract\IUserClaimService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\ClaimManager.cs" />
     <Compile Include="Concrete\ExerciseManager.cs" />
     <Compile Include="Concrete\GraduateStudentManager.cs" />
     <Compile Include="Concrete\GroupManager.cs" />
@@ -69,6 +73,9 @@
     <Compile Include="Concrete\StudentManager.cs" />
     <Compile Include="Concrete\StudyingStudentManager.cs" />
     <Compile Include="Concrete\TaskManager.cs" />
+    <Compile Include="Concrete\UserClaimManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\ClaimValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\ExerciseValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\GraduateStudentValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\GroupValidator.cs" />
@@ -76,6 +83,8 @@
     <Compile Include="CrossCuttingConcerns\Validation\StudentValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\StudyingStudentValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\TaskValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\UserClaimValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\UserValidator.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

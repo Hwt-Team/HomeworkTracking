@@ -56,11 +56,13 @@ namespace Business.Concrete
             return _exerciseDal.Get(e => e.Id == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Exercise> GetByTitle(string title)
         {
             return this._exerciseDal.GetAll(e => e.Title.Contains(title));
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public int GetNextId()
         {
             return this._exerciseDal.GetNextId();

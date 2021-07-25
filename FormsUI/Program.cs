@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using FormsUI.Forms.LoginForms;
 using FormsUI.Forms.MainMenu;
 
 namespace FormsUI
@@ -14,7 +15,7 @@ namespace FormsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BaseForm());
+            Application.Run(new Login());
         }
     }
 }
