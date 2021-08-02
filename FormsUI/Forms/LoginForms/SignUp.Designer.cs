@@ -35,6 +35,7 @@ namespace FormsUI.Forms.LoginForms
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.lblSignIn = new System.Windows.Forms.Label();
             this.tbxUserName = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@ namespace FormsUI.Forms.LoginForms
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lblErrorMessage = new System.Windows.Forms.Label();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -117,6 +117,24 @@ namespace FormsUI.Forms.LoginForms
             this.panelTitle.Size = new System.Drawing.Size(541, 124);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
+            this.btnBack.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 35;
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(40, 35);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
+            this.btnBack.MouseHover += new System.EventHandler(this.btnBack_MouseHover);
             // 
             // lblSignIn
             // 
@@ -255,24 +273,6 @@ namespace FormsUI.Forms.LoginForms
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblErrorMessage.Visible = false;
             // 
-            // btnBack
-            // 
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
-            this.btnBack.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(40, 35);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
-            this.btnBack.MouseHover += new System.EventHandler(this.btnBack_MouseHover);
-            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,6 +296,7 @@ namespace FormsUI.Forms.LoginForms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignIn";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SignUp_FormClosed);
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTitle.ResumeLayout(false);

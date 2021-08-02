@@ -101,6 +101,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [ValidationAspect(typeof(UserLoginValidator))]
         public User Login(UserLoginDto userLoginDto)
         {
             if (!IsUserAlreadyExists(userLoginDto.EmailOrUsername))
@@ -110,7 +111,7 @@ namespace Business.Concrete
 
             var user = this.GetByEmailOrUserName(userLoginDto.EmailOrUsername);
 
-            if (!HashingHelper.VerifyPassword(userLoginDto.Password, user.Password))
+            if (!HashingHelper.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt))
             {
                 throw new Exception("Incorrect password.");
             }
@@ -125,7 +126,8 @@ namespace Business.Concrete
         public bool IsUserNameAlreadyExists(string username) => this._userDal.Get(u => u.UserName == username) != null;
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        public User Register(UserRegisterDto userRegisterDto)
+        [ValidationAspect(typeof(UserRegisterValidator))]
+        public void Register(UserRegisterDto userRegisterDto)
         {
             if (IsEmailAlreadyExists(userRegisterDto.Email))
             {
@@ -137,20 +139,21 @@ namespace Business.Concrete
                 throw new Exception("Username already exists.");
             }
 
-            HashingHelper.ComputeHash(userRegisterDto.Password, out var hash);
+            HashingHelper.ComputeHash(64, userRegisterDto.Password, out var passwordHash, out var passwordSalt);
 
             var user = new User
             {
                 Id = this._userDal.GetNextId(),
                 UserName = userRegisterDto.UserName,
-                Password = hash,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
                 Email = userRegisterDto.Email,
                 FirstName = userRegisterDto.FirstName,
                 LastName = userRegisterDto.LastName,
                 Status = true
             };
 
-            return user;
+            this.Add(user);
         }
 
     }

@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Abstract;
+using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
+using Entities.Dtos;
 using FormsUI.DependencyResolvers;
+using FormsUI.Forms.MessageBox;
 
 namespace FormsUI.Forms.LoginForms
 {
     public partial class SignUp : Form
     {
+        private readonly IUserService _userService;
         public SignUp()
         {
             InitializeComponent();
+            this._userService = InstanceFactory.GetInstance<IUserService>(new BusinessModule());
         }
 
         #region Window
@@ -185,56 +185,124 @@ namespace FormsUI.Forms.LoginForms
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            var message = "Please, enter ";
-            if (this.tbxUserName.Text != "Username")
-            {
-                if (this.tbxPassword.Text != "Password")
-                {
-                    if (this.tbxPasswordRepeat.Text != "Password Repeat")
-                    {
-                        if (this.tbxEmail.Text != "Email")
-                        {
-                            if (this.tbxFirstName.Text != "Firstname")
-                            {
-                                if (this.tbxLastName.Text != "Lastname")
-                                {
-                                    this.lblErrorMessage.Visible = false;
-                                }
-                                else
-                                {
-                                    SetErrorMessage(message + "lastname.");
-                                }
-                            }
-                            else
-                            {
-                                SetErrorMessage(message + "firstname.");
-                            }
-                        }
-                        else
-                        {
-                            SetErrorMessage(message + "email");
-                        }
-                    }
-                    else
-                    {
-                        SetErrorMessage(message + "duplicate password.");
-                    }
-                }
-                else
-                {
-                    SetErrorMessage(message + "password.");
-                }
-            }
-            else
-            {
-                SetErrorMessage(message + "username.");
-            }
-        }
+            //var message = "Please, enter ";
+            //if (this.tbxUserName.Text != "Username")
+            //{
+            //    if (this.tbxPassword.Text != "Password")
+            //    {
+            //        if (this.tbxPasswordRepeat.Text != "Password Repeat")
+            //        {
+            //            if (this.tbxEmail.Text != "Email")
+            //            {
+            //                if (this.tbxFirstName.Text != "Firstname")
+            //                {
+            //                    if (this.tbxLastName.Text != "Lastname")
+            //                    {
+            //                        this.lblErrorMessage.Visible = false;
+            //                        this._userService.Register(new UserRegisterDto
+            //                        {
+            //                            UserName = this.tbxUserName.Text,
+            //                            Password = this.tbxPassword.Text,
+            //                            PasswordRepeat = this.tbxPasswordRepeat.Text,
+            //                            FirstName = this.tbxFirstName.Text,
+            //                            LastName = this.tbxLastName.Text,
+            //                            Email = this.tbxEmail.Text
+            //                        });
 
-        private void SetErrorMessage(string message)
-        {
-            this.lblErrorMessage.Text = "       " + message;
-            this.lblErrorMessage.Visible = true;
+            //                        WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+            //                        {
+            //                            Caption = "System",
+            //                            Title = "Register successfully!"
+            //                        });
+            //                    }
+            //                    else
+            //                    {
+            //                        SetErrorMessage(message + "lastname.");
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    SetErrorMessage(message + "firstname.");
+            //                }
+            //            }
+            //            else
+            //            {
+            //                SetErrorMessage(message + "email");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            SetErrorMessage(message + "password repeat.");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        SetErrorMessage(message + "password.");
+            //    }
+            //}
+            //else
+            //{
+            //    SetErrorMessage(message + "username.");
+            //}
+
+            var validation = ValidateHelper.ChangedValidation(
+                this.lblErrorMessage,
+                new ValidationModel
+                {
+                    CurrentText = this.tbxUserName.Text,
+                    PreviousText = "Username",
+                    Message = "username"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxPassword.Text,
+                    PreviousText = "Password",
+                    Message = "password"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxPasswordRepeat.Text,
+                    PreviousText = "Password Repeat",
+                    Message = "password repeat"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxEmail.Text,
+                    PreviousText = "Email",
+                    Message = "email"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxFirstName.Text,
+                    PreviousText = "Firstname",
+                    Message = "firstname"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxLastName.Text,
+                    PreviousText = "Lastname",
+                    Message = "lastname"
+                });
+
+            if (validation)
+            {
+                this._userService.Register(new UserRegisterDto
+                {
+                    UserName = this.tbxUserName.Text,
+                    Password = this.tbxPassword.Text,
+                    PasswordRepeat = this.tbxPasswordRepeat.Text,
+                    FirstName = this.tbxFirstName.Text,
+                    LastName = this.tbxLastName.Text,
+                    Email = this.tbxEmail.Text
+                });
+
+                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                {
+                    Caption = "System",
+                    Title = "Register successfully!"
+                });
+
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -246,17 +314,24 @@ namespace FormsUI.Forms.LoginForms
 
         private void SignUp_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void btnBack_MouseHover(object sender, EventArgs e)
         {
-            this.btnBack.IconColor =Color.DarkGray;
+            this.btnBack.IconColor = Color.DarkGray;
         }
 
         private void btnBack_MouseLeave(object sender, EventArgs e)
         {
             this.btnBack.IconColor = Color.Gainsboro;
         }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

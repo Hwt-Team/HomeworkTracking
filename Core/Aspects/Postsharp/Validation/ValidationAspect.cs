@@ -19,7 +19,7 @@ namespace Core.Aspects.Postsharp.Validation
         public override void OnEntry(MethodExecutionArgs args)
         {
             var validatorInstance = (IValidator)Activator.CreateInstance(_validatorType);
-            var entityType = _validatorType.BaseType.GetGenericArguments()[0];
+            var entityType = _validatorType.BaseType?.GetGenericArguments()[0];
             var entities = args.Arguments.Where(t => t.GetType() == entityType);
 
             foreach (var entity in entities)

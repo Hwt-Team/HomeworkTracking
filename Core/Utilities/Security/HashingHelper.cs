@@ -1,32 +1,48 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Core.Utilities.Security
 {
     public class HashingHelper
     {
-        public static void ComputeHash(string password, out byte[] passwordHash)
+        /// <summary>
+        /// Compute hash in Rfc2898 schema.
+        /// </summary>
+        /// <param name="size">Salt size</param>
+        /// <param name="password">Entered password</param>
+        /// <param name="passwordHash">Parameter to hash. Needs out keyword</param>
+        /// <param name="passwordSalt">Parameter to salt. Needs out keyword</param>
+        public static void ComputeHash(int size, string password, out string passwordHash, out string passwordSalt)
         {
-            using (var hmac = new HMACSHA512())
+            using (var provider = new RNGCryptoServiceProvider())
             {
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                var saltBytes = new byte[size];
+                provider.GetNonZeroBytes(saltBytes);
+                var salt = Convert.ToBase64String(saltBytes);
+
+                using (var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, 10000))
+                {
+                    var hashPassword = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
+                    passwordSalt = salt;
+                    passwordHash = hashPassword;
+                }
             }
         }
 
-        public static bool VerifyPassword(string password, byte[] passwordHash)
+        /// <summary>
+        /// Verify password came from the user.
+        /// </summary>
+        /// <param name="password">Entered password</param>
+        /// <param name="passwordHash">Current user`s hashed password from db</param>
+        /// <param name="passwordSalt">Current user`s salted password from db</param>
+        /// <returns>Login is valid returns true, otherwise false</returns>
+        public static bool VerifyPassword(string password, string passwordHash, string passwordSalt)
         {
-            using (var hmac = new HMACSHA512())
+            var saltBytes = Convert.FromBase64String(passwordSalt);
+            using (var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, 10000))
             {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < hash.Length; i++)
-                {
-                    if (hash[i] != passwordHash[i])
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
+                return Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256)) == passwordHash;
             }
         }
 

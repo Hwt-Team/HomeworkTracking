@@ -21,7 +21,8 @@ namespace Business.CrossCuttingConcerns.Validation
             RuleFor(u => u.Email).MinimumLength(10);
             RuleFor(u => u.Email).EmailAddress();
 
-            RuleFor(u => u.Password).NotEmpty();
+            RuleFor(u => u.PasswordHash).NotEmpty();
+            RuleFor(u => u.PasswordSalt).NotEmpty();
 
             RuleFor(u => u.UserName).NotEmpty();
             RuleFor(u => u.UserName).MinimumLength(3);

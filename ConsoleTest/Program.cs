@@ -12,17 +12,17 @@ namespace ConsoleTest
         {
             UserManager userManager = new UserManager(new EfUserDal());
 
-            var userRegister = userManager.Register(new UserRegisterDto
-            {
-                UserName = "Asim",
-                Password = "Asim555",
-                PasswordRepeat = "Asim555",
-                FirstName = "Asim",
-                LastName = "Alizade",
-                Email = "asimelizade01@gmail.com"
-            });
+            //var userRegister = userManager.Register(new UserRegisterDto
+            //{
+            //    UserName = "Asim",
+            //    Password = "Asim555",
+            //    PasswordRepeat = "Asim555",
+            //    FirstName = "Asim",
+            //    LastName = "Alizade",
+            //    Email = "asimelizade01@gmail.com"
+            //});
 
-            userManager.Add(userRegister);
+            //userManager.Add(userRegister);
 
             var userLogin = userManager.Login(new UserLoginDto
             {
@@ -32,7 +32,8 @@ namespace ConsoleTest
 
             Console.WriteLine(userLogin.Id);
             Console.WriteLine(userLogin.UserName);
-            Console.WriteLine(userLogin.Password);
+            Console.WriteLine(userLogin.PasswordHash);
+            Console.WriteLine(userLogin.PasswordSalt);
             Console.WriteLine(userLogin.FirstName);
             Console.WriteLine(userLogin.LastName);
             Console.WriteLine(userLogin.Email);
@@ -43,6 +44,7 @@ namespace ConsoleTest
             //    Id = 1
             //});
 
+            Console.ReadLine();
         }
     }
 }
