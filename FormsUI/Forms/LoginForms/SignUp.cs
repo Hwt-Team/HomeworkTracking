@@ -6,8 +6,11 @@ using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Dtos;
+using FontAwesome.Sharp;
 using FormsUI.DependencyResolvers;
+using FormsUI.Forms.MainMenu;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.LoginForms
 {
@@ -29,7 +32,7 @@ namespace FormsUI.Forms.LoginForms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         #endregion
@@ -245,7 +248,10 @@ namespace FormsUI.Forms.LoginForms
             //    SetErrorMessage(message + "username.");
             //}
 
-            var validation = ValidateHelper.ChangedValidation(
+            var validation = ValidateHelper.ValidateAll(
+                this.tbxPassword.Text,
+                this.tbxPasswordRepeat.Text,
+                "Password and repeat are not the same.",
                 this.lblErrorMessage,
                 new ValidationModel
                 {
@@ -286,23 +292,34 @@ namespace FormsUI.Forms.LoginForms
 
             if (validation)
             {
-                this._userService.Register(new UserRegisterDto
+                ExceptionHandler.Handle(() =>
                 {
-                    UserName = this.tbxUserName.Text,
-                    Password = this.tbxPassword.Text,
-                    PasswordRepeat = this.tbxPasswordRepeat.Text,
-                    FirstName = this.tbxFirstName.Text,
-                    LastName = this.tbxLastName.Text,
-                    Email = this.tbxEmail.Text
-                });
+                    this._userService.Register(new UserRegisterDto
+                    {
+                        UserName = this.tbxUserName.Text,
+                        Password = this.tbxPassword.Text,
+                        PasswordRepeat = this.tbxPasswordRepeat.Text,
+                        FirstName = this.tbxFirstName.Text,
+                        LastName = this.tbxLastName.Text,
+                        Email = this.tbxEmail.Text
+                    });
+                    WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                    {
+                        Caption = "System",
+                        Title = "Register successfully!"
+                    });
 
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
-                {
-                    Caption = "System",
-                    Title = "Register successfully!"
+                    this.OpenBaseForm();
                 });
-
+                                
             }
+        }
+
+        private void OpenBaseForm()
+        {
+            var form = InstanceFactory.GetInstance<BaseForm>(new FormModule());
+            this.Close();
+            form.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -332,6 +349,32 @@ namespace FormsUI.Forms.LoginForms
 
         }
 
-        
+        private void btnPassVisibility_Click(object sender, EventArgs e)
+        {
+            if (this.tbxPassword.Text == "Password" | this.tbxPassword.Text == "") return;
+            this.tbxPassword.UseSystemPasswordChar = !this.tbxPassword.UseSystemPasswordChar;
+            SetPasswordChar(this.tbxPassword, !this.tbxPassword.UseSystemPasswordChar);
+            SetIcon(this.btnPassVisibility, !this.tbxPassword.UseSystemPasswordChar);
+        }
+
+        private void btnPassRepeatVisibility_Click(object sender, EventArgs e)
+        {
+            if (this.tbxPasswordRepeat.Text == "Password Repeat" | this.tbxPasswordRepeat.Text == "") return;
+            this.tbxPasswordRepeat.UseSystemPasswordChar = !this.tbxPasswordRepeat.UseSystemPasswordChar;
+            SetPasswordChar(this.tbxPasswordRepeat, !this.tbxPasswordRepeat.UseSystemPasswordChar);
+            SetIcon(this.btnPassRepeatVisibility, !this.tbxPasswordRepeat.UseSystemPasswordChar);
+        }
+
+        private void SetPasswordChar(TextBox textBox, bool spChar)
+        {
+            if (spChar) textBox.UseSystemPasswordChar = false;
+            else textBox.UseSystemPasswordChar = true;
+        }
+
+        private void SetIcon(IconButton button, bool spChar)
+        {
+            if (spChar) button.IconChar = IconChar.Eye;
+            else button.IconChar = IconChar.EyeSlash;
+        }
     }
 }

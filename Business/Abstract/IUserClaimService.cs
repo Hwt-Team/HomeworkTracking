@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 
 namespace Business.Abstract
 {
@@ -12,5 +12,6 @@ namespace Business.Abstract
         List<UserClaim> GetAll();
         UserClaim GetById(int id);
         int GetNextId();
+        List<UserClaim> GetUserClaims(int userId);
     }
 }

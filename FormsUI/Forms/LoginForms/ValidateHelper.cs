@@ -38,5 +38,27 @@ namespace FormsUI.Forms.LoginForms
             textBox.Visible = false;
             return true;
         }
+
+        public static bool CheckPass(string pass, string repeat, string message, Control textBox)
+        {
+            if (!(pass == repeat))
+            {
+                SetErrorMessage(message, textBox);
+                return false;
+            }
+
+            textBox.Visible = false;
+            return true;
+        }
+
+        public static bool ValidateAll(string pass, string repeat, string message, Control textBox, params ValidationModel[] models)
+        {
+            bool result = true;
+            if (!ChangedValidation(textBox, models)) result = false;
+
+            if (!CheckPass(pass, repeat, message, textBox)) result = false;
+
+            return result;
+        }
     }
 }

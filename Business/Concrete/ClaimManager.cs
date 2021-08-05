@@ -4,8 +4,8 @@ using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
-using Entities.Concrete;
 
 namespace Business.Concrete
 {

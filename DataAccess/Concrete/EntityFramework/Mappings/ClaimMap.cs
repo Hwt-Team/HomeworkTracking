@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework.Mappings
 {

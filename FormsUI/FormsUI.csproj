@@ -250,6 +250,7 @@
     <Compile Include="UserControls\HwtComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Utilities\ExceptionHandler.cs" />
     <EmbeddedResource Include="Forms\LoginForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

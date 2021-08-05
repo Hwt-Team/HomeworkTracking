@@ -45,6 +45,8 @@ namespace FormsUI.Forms.LoginForms
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lblErrorMessage = new System.Windows.Forms.Label();
+            this.btnPassVisibility = new FontAwesome.Sharp.IconButton();
+            this.btnPassRepeatVisibility = new FontAwesome.Sharp.IconButton();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -273,12 +275,46 @@ namespace FormsUI.Forms.LoginForms
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblErrorMessage.Visible = false;
             // 
+            // btnPassVisibility
+            // 
+            this.btnPassVisibility.FlatAppearance.BorderSize = 0;
+            this.btnPassVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPassVisibility.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnPassVisibility.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnPassVisibility.IconColor = System.Drawing.Color.DarkGray;
+            this.btnPassVisibility.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPassVisibility.IconSize = 30;
+            this.btnPassVisibility.Location = new System.Drawing.Point(488, 192);
+            this.btnPassVisibility.Name = "btnPassVisibility";
+            this.btnPassVisibility.Size = new System.Drawing.Size(37, 29);
+            this.btnPassVisibility.TabIndex = 11;
+            this.btnPassVisibility.UseVisualStyleBackColor = true;
+            this.btnPassVisibility.Click += new System.EventHandler(this.btnPassVisibility_Click);
+            // 
+            // btnPassRepeatVisibility
+            // 
+            this.btnPassRepeatVisibility.FlatAppearance.BorderSize = 0;
+            this.btnPassRepeatVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPassRepeatVisibility.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnPassRepeatVisibility.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnPassRepeatVisibility.IconColor = System.Drawing.Color.DarkGray;
+            this.btnPassRepeatVisibility.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPassRepeatVisibility.IconSize = 30;
+            this.btnPassRepeatVisibility.Location = new System.Drawing.Point(488, 240);
+            this.btnPassRepeatVisibility.Name = "btnPassRepeatVisibility";
+            this.btnPassRepeatVisibility.Size = new System.Drawing.Size(37, 29);
+            this.btnPassRepeatVisibility.TabIndex = 12;
+            this.btnPassRepeatVisibility.UseVisualStyleBackColor = true;
+            this.btnPassRepeatVisibility.Click += new System.EventHandler(this.btnPassRepeatVisibility_Click);
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(866, 536);
+            this.Controls.Add(this.btnPassRepeatVisibility);
+            this.Controls.Add(this.btnPassVisibility);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.tbxEmail);
@@ -322,5 +358,7 @@ namespace FormsUI.Forms.LoginForms
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Label lblErrorMessage;
         private FontAwesome.Sharp.IconButton btnBack;
+        private FontAwesome.Sharp.IconButton btnPassVisibility;
+        private FontAwesome.Sharp.IconButton btnPassRepeatVisibility;
     }
 }

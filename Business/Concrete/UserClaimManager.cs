@@ -4,8 +4,8 @@ using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
-using Entities.Concrete;
 
 namespace Business.Concrete
 {
@@ -60,6 +60,12 @@ namespace Business.Concrete
         public int GetNextId()
         {
             return this._userClaimDal.GetNextId();
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<UserClaim> GetUserClaims(int userId)
+        {
+            return this._userClaimDal.GetAll(u => u.UserId == userId);
         }
     }
 }

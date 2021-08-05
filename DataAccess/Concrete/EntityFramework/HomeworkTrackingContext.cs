@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework.Mappings;
 using Entities.Concrete;
 
