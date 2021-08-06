@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace Core.DataAccess.Concrete.EntityFramework
 {
-    public class EfMainClaimDal : EfEntityRepositoryBase<MainClaim, Context>, IMainClaimDal
+    public class EfMainClaimDal : EfEntityRepositoryBase<MainClaim, CoreContext>, IMainClaimDal
     {
     }
 }

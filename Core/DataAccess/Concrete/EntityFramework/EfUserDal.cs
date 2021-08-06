@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace Core.DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User, HomeworkTrackingContext>, IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, CoreContext>, IUserDal
     {
     }
 }

@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace Core.DataAccess.Concrete.EntityFramework
 {
-    public class EfSubsidiaryClaimDal : EfEntityRepositoryBase<SubsidiaryClaim, Context>, ISubsidiaryClaimDal
+    public class EfSubsidiaryClaimDal : EfEntityRepositoryBase<SubsidiaryClaim, CoreContext>, ISubsidiaryClaimDal
     {
     }
 }
