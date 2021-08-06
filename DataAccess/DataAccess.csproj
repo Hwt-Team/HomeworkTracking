@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IClaimDal.cs" />
     <Compile Include="Abstract\IExerciseDal.cs" />
     <Compile Include="Abstract\IGraduateStudentDal.cs" />
     <Compile Include="Abstract\IGroupDal.cs" />
@@ -60,9 +59,6 @@
     <Compile Include="Abstract\IStudentExercisesDal.cs" />
     <Compile Include="Abstract\IStudyingStudentDal.cs" />
     <Compile Include="Abstract\ITaskDal.cs" />
-    <Compile Include="Abstract\IUserClaimDal.cs" />
-    <Compile Include="Abstract\IUserDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfClaimDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfExerciseDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfGraduateStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfGroupDal.cs" />
@@ -71,10 +67,7 @@
     <Compile Include="Concrete\EntityFramework\EfStudentExercisesDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStudyingStudentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfTaskDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfUserClaimDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfUserDal.cs" />
     <Compile Include="Concrete\EntityFramework\HomeworkTrackingContext.cs" />
-    <Compile Include="Concrete\EntityFramework\Mappings\ClaimMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\ExerciseMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\GraduateStudentMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\GroupMap.cs" />
@@ -83,8 +76,6 @@
     <Compile Include="Concrete\EntityFramework\Mappings\StudentMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\StudyingStudentMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\TaskMap.cs" />
-    <Compile Include="Concrete\EntityFramework\Mappings\UserClaimMap.cs" />
-    <Compile Include="Concrete\EntityFramework\Mappings\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

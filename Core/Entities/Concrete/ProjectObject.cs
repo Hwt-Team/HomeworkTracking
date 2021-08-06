@@ -1,7 +1,8 @@
-﻿
+﻿using Core.Entities.Abstract;
+
 namespace Core.Entities.Concrete
 {
-    public class ProjectObject
+    public class ProjectObject : IEntity
     {
         public int Id { get; set; }
         public string NameSpace { get; set; }

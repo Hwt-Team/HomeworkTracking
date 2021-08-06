@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using Core.Entities.Concrete;
 
-namespace DataAccess.Concrete.EntityFramework.Mappings
+namespace Core.DataAccess.Concrete.EntityFramework.Mappings
 {
     public class UserMap : EntityTypeConfiguration<User>
     {

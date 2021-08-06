@@ -5,6 +5,7 @@ using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
 using Core.Utilities.Security;
 using DataAccess.Abstract;

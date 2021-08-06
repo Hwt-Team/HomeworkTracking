@@ -1,8 +1,7 @@
-﻿using Core.DataAccess.Concrete.EntityFramework;
+﻿using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
-using DataAccess.Abstract;
 
-namespace DataAccess.Concrete.EntityFramework
+namespace Core.DataAccess.Concrete.EntityFramework
 {
     public class EfUserClaimDal : EfEntityRepositoryBase<UserClaim, HomeworkTrackingContext>, IUserClaimDal
     {

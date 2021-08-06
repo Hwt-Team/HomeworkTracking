@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Core.DataAccess.Abstract;
+using Core.DataAccess.Concrete.EntityFramework;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Ninject.Modules;
