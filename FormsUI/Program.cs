@@ -17,7 +17,7 @@ namespace FormsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new BaseForm());
         }
     }
 }

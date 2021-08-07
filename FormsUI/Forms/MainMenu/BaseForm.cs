@@ -218,6 +218,7 @@ namespace FormsUI.Forms.MainMenu
             _leftBorderButton.Visible = false;
             this.panelITaskSubMenu.Visible = false;
             this.panelStudentSubMenu.Visible = false;
+            this.panelUserManagement.Visible = false;
             iconCurrentChildFormIcon.IconChar = IconChar.Home;
             iconCurrentChildFormIcon.IconColor = Color.Gainsboro;
             lblTitleChildForm.Text = "Home";
@@ -239,6 +240,22 @@ namespace FormsUI.Forms.MainMenu
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        #region User management
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(this.panelUserManagement);
+            ActivateButton(sender, RGBColors.color2);
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color1);
+            //OpenChildForm(new UserForm());
+        }
+
+        #endregion
 
         //private void panelNavbar_MouseMove(object sender, MouseEventArgs e)
         //{
@@ -296,6 +313,7 @@ namespace FormsUI.Forms.MainMenu
         {
             SetVisibilityToPanelStudentsSubMenu(false);
             SetVisibilityToPanelITaskSubMenu(false);
+            SetVisibilityToPanelUserManagement(false);
         }
 
         private void SetVisibilityToPanelStudentsSubMenu(bool value)
@@ -308,12 +326,18 @@ namespace FormsUI.Forms.MainMenu
             panelITaskSubMenu.Visible = value;
         }
 
+        private void SetVisibilityToPanelUserManagement(bool value)
+        {
+            panelUserManagement.Visible = false;
+        }
+
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
                 SetVisibilityToPanelStudentsSubMenu(false);
                 SetVisibilityToPanelITaskSubMenu(false);
+                SetVisibilityToPanelUserManagement(false);
                 subMenu.Visible = true;
             }
             else subMenu.Visible = false;
@@ -382,7 +406,9 @@ namespace FormsUI.Forms.MainMenu
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
 
+
         #endregion
 
+       
     }
 }
