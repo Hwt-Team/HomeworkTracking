@@ -21,5 +21,6 @@ namespace Business.Abstract
         bool IsEmailAlreadyExists(string email);
         bool IsUserNameAlreadyExists(string username);
         void Register(UserRegisterDto userRegisterDto);
+        User HashPassword(string pass);
     }
 }

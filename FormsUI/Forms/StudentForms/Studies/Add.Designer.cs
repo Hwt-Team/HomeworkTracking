@@ -29,6 +29,7 @@ namespace FormsUI.Forms.StudentForms.Studies
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
@@ -143,6 +144,7 @@ namespace FormsUI.Forms.StudentForms.Studies
             this.Controls.Add(this.tbxFirstName);
             this.Controls.Add(this.lblFirstName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(475, 283);
             this.Name = "Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -157,5 +157,15 @@ namespace Business.Concrete
             this.Add(user);
         }
 
+        public User HashPassword(string pass)
+        {
+            HashingHelper.ComputeHash(64, pass, out var passwordHash, out var passwordSalt);
+
+            return new User
+            {
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
+        }
     }
 }

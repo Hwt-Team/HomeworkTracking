@@ -110,6 +110,7 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\SubsidiaryClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserMap.cs" />
+    <Compile Include="DependencyResolvers\Ninject\CoreModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
     <Compile Include="Entities\Abstract\IDto.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
