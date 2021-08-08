@@ -74,6 +74,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnReload.Text = "Reload";
             this.btnReload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnDeleteAll
             // 
@@ -91,6 +92,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnDeleteAll.Text = "Delete All";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // btnUpdate
             // 
@@ -108,6 +110,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnUpdate.Text = "Update";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -125,6 +128,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -142,6 +146,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnAdd.Text = "Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // UserForm
             // 
@@ -160,6 +165,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.MinimumSize = new System.Drawing.Size(669, 536);
             this.Name = "UserForm";
             this.Text = "UserForm";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).EndInit();
             this.ResumeLayout(false);
 
