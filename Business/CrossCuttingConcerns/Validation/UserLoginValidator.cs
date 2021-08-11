@@ -1,4 +1,4 @@
-﻿using Entities.Dtos;
+﻿using Core.Entities.Dtos;
 using FluentValidation;
 
 namespace Business.CrossCuttingConcerns.Validation

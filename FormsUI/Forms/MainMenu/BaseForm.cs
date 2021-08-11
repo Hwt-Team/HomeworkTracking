@@ -11,6 +11,7 @@ using FormsUI.Forms.StudentForms.Both;
 using FormsUI.Forms.StudentForms.Graduates;
 using FormsUI.Forms.StudentForms.Studies;
 using FormsUI.Forms.TaskForms;
+using FormsUI.Forms.UserForms.Users;
 
 namespace FormsUI.Forms.MainMenu
 {
@@ -203,6 +204,65 @@ namespace FormsUI.Forms.MainMenu
             ActivateButton(sender, RGBColors.color6);
             //OpenChildForm(new CalendarForm());
         }
+
+        #region User management
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(this.panelUserManagement);
+            ActivateButton(sender, RGBColors.color2);
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color1);
+            OpenChildForm(new UserForm());
+        }
+
+        private void btnUserClaims_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color2);
+            //OpenChildForm(new UserClaimForm());
+        }
+
+        private void btnProjectObjects_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color3);
+            //OpenChildForm(new ProjectObjectForm());
+        }
+
+        private void btnClaims_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(this.panelClaimsSubMenu);
+            ActivateSubMenuButton(sender, RGBColors.color4);
+        }
+
+        private void btnBaseClaims_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color5);
+            //OpenChildForm(new BaseClaimForm());
+        }
+
+        private void btnMainClaims_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color6);
+            //OpenChildForm(new MainClaimForm());
+        }
+
+        private void btnSubsidiaryClaims_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color1);
+            //OpenChildForm(new SubsidiaryClaimForm());
+        }
+
+        private void btnProjectObjectClaims_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color2);
+            //OpenChildForm(new ProjectObjectClaimForm());
+        }
+
+
+        #endregion
         #endregion
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -240,22 +300,6 @@ namespace FormsUI.Forms.MainMenu
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-        #region User management
-
-        private void btnUserManagement_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(this.panelUserManagement);
-            ActivateButton(sender, RGBColors.color2);
-        }
-
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            ActivateSubMenuButton(sender, RGBColors.color1);
-            //OpenChildForm(new UserForm());
-        }
-
-        #endregion
 
         //private void panelNavbar_MouseMove(object sender, MouseEventArgs e)
         //{
@@ -314,6 +358,7 @@ namespace FormsUI.Forms.MainMenu
             SetVisibilityToPanelStudentsSubMenu(false);
             SetVisibilityToPanelITaskSubMenu(false);
             SetVisibilityToPanelUserManagement(false);
+            SetVisibilityToPanelClaims(false);
         }
 
         private void SetVisibilityToPanelStudentsSubMenu(bool value)
@@ -331,6 +376,11 @@ namespace FormsUI.Forms.MainMenu
             panelUserManagement.Visible = false;
         }
 
+        private void SetVisibilityToPanelClaims(bool value)
+        {
+            panelClaimsSubMenu.Visible = value;
+        }
+
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -338,6 +388,7 @@ namespace FormsUI.Forms.MainMenu
                 SetVisibilityToPanelStudentsSubMenu(false);
                 SetVisibilityToPanelITaskSubMenu(false);
                 SetVisibilityToPanelUserManagement(false);
+                SetVisibilityToPanelClaims(false);
                 subMenu.Visible = true;
             }
             else subMenu.Visible = false;
@@ -407,8 +458,8 @@ namespace FormsUI.Forms.MainMenu
         }
 
 
+
         #endregion
 
-       
     }
 }

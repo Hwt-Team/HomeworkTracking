@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
+using Core.Entities.Dtos;
 using Entities.Dtos;
 using FontAwesome.Sharp;
 using FormsUI.DependencyResolvers;

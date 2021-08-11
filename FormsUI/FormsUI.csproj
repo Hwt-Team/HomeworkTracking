@@ -239,11 +239,23 @@
     <Compile Include="Forms\TaskForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.Designer.cs">
+      <DependentUpon>ProjectObjectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForms\Users\Add.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\UserForms\Users\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Users\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Users\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserForms\Users\UserForm.cs">
       <SubType>Form</SubType>
@@ -341,8 +353,14 @@
     <EmbeddedResource Include="Forms\TaskForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.resx">
+      <DependentUpon>ProjectObjectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\Users\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Users\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\Users\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -392,7 +410,11 @@
   <ItemGroup>
     <None Include="Resources\reza-namdari-ZgZsKFnSbEA-unsplash.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\UserForms\Claims\" />
+    <Folder Include="Forms\UserForms\ProjectObjectClaims\" />
+    <Folder Include="Forms\UserForms\UserClaims\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="core.ico" />
   </ItemGroup>

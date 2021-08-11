@@ -40,6 +40,12 @@ namespace FormsUI.Forms.MainMenu
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildFormIcon = new FontAwesome.Sharp.IconPictureBox();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.panelUserManagement = new System.Windows.Forms.Panel();
+            this.btnClaims = new FontAwesome.Sharp.IconButton();
+            this.btnProjectObjects = new FontAwesome.Sharp.IconButton();
+            this.btnUserClaims = new FontAwesome.Sharp.IconButton();
+            this.btnUsers = new FontAwesome.Sharp.IconButton();
+            this.btnUserManagement = new FontAwesome.Sharp.IconButton();
             this.btnCalendar = new FontAwesome.Sharp.IconButton();
             this.panelITaskSubMenu = new System.Windows.Forms.Panel();
             this.btnStates = new FontAwesome.Sharp.IconButton();
@@ -55,12 +61,11 @@ namespace FormsUI.Forms.MainMenu
             this.btnExercises = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
-            this.btnUserManagement = new FontAwesome.Sharp.IconButton();
-            this.panelUserManagement = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.btnUsers = new FontAwesome.Sharp.IconButton();
+            this.panelClaimsSubMenu = new System.Windows.Forms.Panel();
+            this.btnBaseClaims = new FontAwesome.Sharp.IconButton();
+            this.btnMainClaims = new FontAwesome.Sharp.IconButton();
+            this.btnSubsidiaryClaims = new FontAwesome.Sharp.IconButton();
+            this.btnProjectObjectClaims = new FontAwesome.Sharp.IconButton();
             this.panelBase.SuspendLayout();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -70,11 +75,12 @@ namespace FormsUI.Forms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).BeginInit();
             this.panelSidebar.SuspendLayout();
+            this.panelUserManagement.SuspendLayout();
             this.panelITaskSubMenu.SuspendLayout();
             this.panelStudentSubMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
-            this.panelUserManagement.SuspendLayout();
+            this.panelClaimsSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBase
@@ -85,7 +91,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBase.Location = new System.Drawing.Point(0, 0);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(949, 839);
+            this.panelBase.Size = new System.Drawing.Size(1049, 939);
             this.panelBase.TabIndex = 0;
             // 
             // panelContainer
@@ -93,16 +99,16 @@ namespace FormsUI.Forms.MainMenu
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panelContainer.Controls.Add(this.pbLogo);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(231, 64);
+            this.panelContainer.Location = new System.Drawing.Point(261, 64);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(718, 775);
+            this.panelContainer.Size = new System.Drawing.Size(788, 875);
             this.panelContainer.TabIndex = 2;
             // 
             // pbLogo
             // 
             this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(133, 184);
+            this.pbLogo.Location = new System.Drawing.Point(168, 234);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(473, 377);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -118,9 +124,9 @@ namespace FormsUI.Forms.MainMenu
             this.panelNavbar.Controls.Add(this.lblTitleChildForm);
             this.panelNavbar.Controls.Add(this.iconCurrentChildFormIcon);
             this.panelNavbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNavbar.Location = new System.Drawing.Point(231, 0);
+            this.panelNavbar.Location = new System.Drawing.Point(261, 0);
             this.panelNavbar.Name = "panelNavbar";
-            this.panelNavbar.Size = new System.Drawing.Size(718, 64);
+            this.panelNavbar.Size = new System.Drawing.Size(788, 64);
             this.panelNavbar.TabIndex = 0;
             this.panelNavbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelNavbar_MouseDown);
             // 
@@ -133,7 +139,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnMinimize.IconColor = System.Drawing.Color.DimGray;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimize.IconSize = 20;
-            this.btnMinimize.Location = new System.Drawing.Point(639, 5);
+            this.btnMinimize.Location = new System.Drawing.Point(709, 5);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(20, 20);
             this.btnMinimize.TabIndex = 4;
@@ -149,7 +155,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnMaximize.IconColor = System.Drawing.Color.DimGray;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximize.IconSize = 20;
-            this.btnMaximize.Location = new System.Drawing.Point(665, 5);
+            this.btnMaximize.Location = new System.Drawing.Point(735, 5);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(20, 20);
             this.btnMaximize.TabIndex = 3;
@@ -165,7 +171,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnClose.IconColor = System.Drawing.Color.DimGray;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(691, 5);
+            this.btnClose.Location = new System.Drawing.Point(761, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(20, 20);
             this.btnClose.TabIndex = 2;
@@ -213,8 +219,148 @@ namespace FormsUI.Forms.MainMenu
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(231, 839);
+            this.panelSidebar.Size = new System.Drawing.Size(261, 939);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // panelUserManagement
+            // 
+            this.panelUserManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelUserManagement.Controls.Add(this.btnProjectObjectClaims);
+            this.panelUserManagement.Controls.Add(this.panelClaimsSubMenu);
+            this.panelUserManagement.Controls.Add(this.btnClaims);
+            this.panelUserManagement.Controls.Add(this.btnProjectObjects);
+            this.panelUserManagement.Controls.Add(this.btnUserClaims);
+            this.panelUserManagement.Controls.Add(this.btnUsers);
+            this.panelUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUserManagement.Location = new System.Drawing.Point(0, 627);
+            this.panelUserManagement.Name = "panelUserManagement";
+            this.panelUserManagement.Size = new System.Drawing.Size(261, 305);
+            this.panelUserManagement.TabIndex = 9;
+            // 
+            // btnClaims
+            // 
+            this.btnClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClaims.FlatAppearance.BorderSize = 0;
+            this.btnClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnClaims.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.btnClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClaims.IconSize = 32;
+            this.btnClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClaims.Location = new System.Drawing.Point(0, 120);
+            this.btnClaims.Name = "btnClaims";
+            this.btnClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnClaims.TabIndex = 8;
+            this.btnClaims.Text = "Claims";
+            this.btnClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClaims.UseVisualStyleBackColor = true;
+            this.btnClaims.Click += new System.EventHandler(this.btnClaims_Click);
+            // 
+            // btnProjectObjects
+            // 
+            this.btnProjectObjects.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProjectObjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProjectObjects.FlatAppearance.BorderSize = 0;
+            this.btnProjectObjects.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnProjectObjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProjectObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProjectObjects.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjects.IconChar = FontAwesome.Sharp.IconChar.ProjectDiagram;
+            this.btnProjectObjects.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjects.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProjectObjects.IconSize = 32;
+            this.btnProjectObjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjects.Location = new System.Drawing.Point(0, 80);
+            this.btnProjectObjects.Name = "btnProjectObjects";
+            this.btnProjectObjects.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnProjectObjects.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjects.TabIndex = 7;
+            this.btnProjectObjects.Text = "Project objects";
+            this.btnProjectObjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjects.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProjectObjects.UseVisualStyleBackColor = true;
+            this.btnProjectObjects.Click += new System.EventHandler(this.btnProjectObjects_Click);
+            // 
+            // btnUserClaims
+            // 
+            this.btnUserClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserClaims.FlatAppearance.BorderSize = 0;
+            this.btnUserClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnUserClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUserClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUserClaims.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.btnUserClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnUserClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUserClaims.IconSize = 32;
+            this.btnUserClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserClaims.Location = new System.Drawing.Point(0, 40);
+            this.btnUserClaims.Name = "btnUserClaims";
+            this.btnUserClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnUserClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnUserClaims.TabIndex = 6;
+            this.btnUserClaims.Text = "User claims";
+            this.btnUserClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserClaims.UseVisualStyleBackColor = true;
+            this.btnUserClaims.Click += new System.EventHandler(this.btnUserClaims_Click);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUsers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUsers.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnUsers.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsers.IconSize = 32;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(0, 0);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnUsers.Size = new System.Drawing.Size(261, 40);
+            this.btnUsers.TabIndex = 5;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
+            // btnUserManagement
+            // 
+            this.btnUserManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserManagement.FlatAppearance.BorderSize = 0;
+            this.btnUserManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUserManagement.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUserManagement.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnUserManagement.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnUserManagement.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUserManagement.IconSize = 32;
+            this.btnUserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserManagement.Location = new System.Drawing.Point(0, 582);
+            this.btnUserManagement.Name = "btnUserManagement";
+            this.btnUserManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnUserManagement.Size = new System.Drawing.Size(261, 45);
+            this.btnUserManagement.TabIndex = 8;
+            this.btnUserManagement.Text = "User management";
+            this.btnUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserManagement.UseVisualStyleBackColor = true;
+            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // btnCalendar
             // 
@@ -233,7 +379,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnCalendar.Location = new System.Drawing.Point(0, 537);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCalendar.Size = new System.Drawing.Size(231, 45);
+            this.btnCalendar.Size = new System.Drawing.Size(261, 45);
             this.btnCalendar.TabIndex = 7;
             this.btnCalendar.Text = "Calendar";
             this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,7 +395,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelITaskSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelITaskSubMenu.Location = new System.Drawing.Point(0, 457);
             this.panelITaskSubMenu.Name = "panelITaskSubMenu";
-            this.panelITaskSubMenu.Size = new System.Drawing.Size(231, 80);
+            this.panelITaskSubMenu.Size = new System.Drawing.Size(261, 80);
             this.panelITaskSubMenu.TabIndex = 7;
             // 
             // btnStates
@@ -269,7 +415,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStates.Location = new System.Drawing.Point(0, 40);
             this.btnStates.Name = "btnStates";
             this.btnStates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnStates.Size = new System.Drawing.Size(231, 40);
+            this.btnStates.Size = new System.Drawing.Size(261, 40);
             this.btnStates.TabIndex = 7;
             this.btnStates.Text = "States";
             this.btnStates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -294,7 +440,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnITask.Location = new System.Drawing.Point(0, 0);
             this.btnITask.Name = "btnITask";
             this.btnITask.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnITask.Size = new System.Drawing.Size(231, 40);
+            this.btnITask.Size = new System.Drawing.Size(261, 40);
             this.btnITask.TabIndex = 6;
             this.btnITask.Text = "ITask management";
             this.btnITask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,7 +465,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnITaskSubmenu.Location = new System.Drawing.Point(0, 412);
             this.btnITaskSubmenu.Name = "btnITaskSubmenu";
             this.btnITaskSubmenu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnITaskSubmenu.Size = new System.Drawing.Size(231, 45);
+            this.btnITaskSubmenu.Size = new System.Drawing.Size(261, 45);
             this.btnITaskSubmenu.TabIndex = 6;
             this.btnITaskSubmenu.Text = "ITask";
             this.btnITaskSubmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,7 +483,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelStudentSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStudentSubMenu.Location = new System.Drawing.Point(0, 252);
             this.panelStudentSubMenu.Name = "panelStudentSubMenu";
-            this.panelStudentSubMenu.Size = new System.Drawing.Size(231, 160);
+            this.panelStudentSubMenu.Size = new System.Drawing.Size(261, 160);
             this.panelStudentSubMenu.TabIndex = 5;
             // 
             // btnGroups
@@ -357,7 +503,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnGroups.Location = new System.Drawing.Point(0, 120);
             this.btnGroups.Name = "btnGroups";
             this.btnGroups.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnGroups.Size = new System.Drawing.Size(231, 40);
+            this.btnGroups.Size = new System.Drawing.Size(261, 40);
             this.btnGroups.TabIndex = 8;
             this.btnGroups.Text = "Groups";
             this.btnGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -382,7 +528,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudies.Location = new System.Drawing.Point(0, 80);
             this.btnStudies.Name = "btnStudies";
             this.btnStudies.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnStudies.Size = new System.Drawing.Size(231, 40);
+            this.btnStudies.Size = new System.Drawing.Size(261, 40);
             this.btnStudies.TabIndex = 7;
             this.btnStudies.Text = "Studies";
             this.btnStudies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -407,7 +553,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnGraduates.Location = new System.Drawing.Point(0, 40);
             this.btnGraduates.Name = "btnGraduates";
             this.btnGraduates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnGraduates.Size = new System.Drawing.Size(231, 40);
+            this.btnGraduates.Size = new System.Drawing.Size(261, 40);
             this.btnGraduates.TabIndex = 6;
             this.btnGraduates.Text = "Graduates";
             this.btnGraduates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -432,7 +578,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnBaseStudents.Location = new System.Drawing.Point(0, 0);
             this.btnBaseStudents.Name = "btnBaseStudents";
             this.btnBaseStudents.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnBaseStudents.Size = new System.Drawing.Size(231, 40);
+            this.btnBaseStudents.Size = new System.Drawing.Size(261, 40);
             this.btnBaseStudents.TabIndex = 5;
             this.btnBaseStudents.Text = "Base students";
             this.btnBaseStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -457,7 +603,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudents.Location = new System.Drawing.Point(0, 207);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnStudents.Size = new System.Drawing.Size(231, 45);
+            this.btnStudents.Size = new System.Drawing.Size(261, 45);
             this.btnStudents.TabIndex = 4;
             this.btnStudents.Text = "Students";
             this.btnStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -482,7 +628,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudentExercises.Location = new System.Drawing.Point(0, 162);
             this.btnStudentExercises.Name = "btnStudentExercises";
             this.btnStudentExercises.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnStudentExercises.Size = new System.Drawing.Size(231, 45);
+            this.btnStudentExercises.Size = new System.Drawing.Size(261, 45);
             this.btnStudentExercises.TabIndex = 3;
             this.btnStudentExercises.Text = "Student exercises";
             this.btnStudentExercises.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -507,7 +653,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnExercises.Location = new System.Drawing.Point(0, 117);
             this.btnExercises.Name = "btnExercises";
             this.btnExercises.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnExercises.Size = new System.Drawing.Size(231, 45);
+            this.btnExercises.Size = new System.Drawing.Size(261, 45);
             this.btnExercises.TabIndex = 1;
             this.btnExercises.Text = "Exercises";
             this.btnExercises.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -521,7 +667,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(231, 117);
+            this.panelLogo.Size = new System.Drawing.Size(261, 117);
             this.panelLogo.TabIndex = 0;
             // 
             // btnHome
@@ -536,145 +682,117 @@ namespace FormsUI.Forms.MainMenu
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnUserManagement
+            // panelClaimsSubMenu
             // 
-            this.btnUserManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUserManagement.FlatAppearance.BorderSize = 0;
-            this.btnUserManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnUserManagement.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUserManagement.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnUserManagement.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnUserManagement.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUserManagement.IconSize = 32;
-            this.btnUserManagement.Location = new System.Drawing.Point(0, 582);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnUserManagement.Size = new System.Drawing.Size(231, 46);
-            this.btnUserManagement.TabIndex = 8;
-            this.btnUserManagement.Text = "User management";
-            this.btnUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUserManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
+            this.panelClaimsSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(43)))), ((int)(((byte)(51)))));
+            this.panelClaimsSubMenu.Controls.Add(this.btnSubsidiaryClaims);
+            this.panelClaimsSubMenu.Controls.Add(this.btnMainClaims);
+            this.panelClaimsSubMenu.Controls.Add(this.btnBaseClaims);
+            this.panelClaimsSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelClaimsSubMenu.Location = new System.Drawing.Point(0, 160);
+            this.panelClaimsSubMenu.Name = "panelClaimsSubMenu";
+            this.panelClaimsSubMenu.Size = new System.Drawing.Size(261, 105);
+            this.panelClaimsSubMenu.TabIndex = 1;
             // 
-            // panelUserManagement
+            // btnBaseClaims
             // 
-            this.panelUserManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelUserManagement.Controls.Add(this.iconButton1);
-            this.panelUserManagement.Controls.Add(this.iconButton2);
-            this.panelUserManagement.Controls.Add(this.iconButton3);
-            this.panelUserManagement.Controls.Add(this.btnUsers);
-            this.panelUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUserManagement.Location = new System.Drawing.Point(0, 628);
-            this.panelUserManagement.Name = "panelUserManagement";
-            this.panelUserManagement.Size = new System.Drawing.Size(231, 160);
-            this.panelUserManagement.TabIndex = 9;
+            this.btnBaseClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBaseClaims.FlatAppearance.BorderSize = 0;
+            this.btnBaseClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaseClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBaseClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBaseClaims.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            this.btnBaseClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnBaseClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBaseClaims.IconSize = 32;
+            this.btnBaseClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaseClaims.Location = new System.Drawing.Point(0, 0);
+            this.btnBaseClaims.Name = "btnBaseClaims";
+            this.btnBaseClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnBaseClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnBaseClaims.TabIndex = 1;
+            this.btnBaseClaims.Text = "Base claims";
+            this.btnBaseClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaseClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBaseClaims.UseVisualStyleBackColor = true;
+            this.btnBaseClaims.Click += new System.EventHandler(this.btnBaseClaims_Click);
             // 
-            // iconButton1
+            // btnMainClaims
             // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 120);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(231, 40);
-            this.iconButton1.TabIndex = 8;
-            this.iconButton1.Text = "Groups";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.btnMainClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMainClaims.FlatAppearance.BorderSize = 0;
+            this.btnMainClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMainClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMainClaims.IconChar = FontAwesome.Sharp.IconChar.CircleNotch;
+            this.btnMainClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnMainClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMainClaims.IconSize = 32;
+            this.btnMainClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainClaims.Location = new System.Drawing.Point(0, 35);
+            this.btnMainClaims.Name = "btnMainClaims";
+            this.btnMainClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnMainClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnMainClaims.TabIndex = 2;
+            this.btnMainClaims.Text = "Main claims";
+            this.btnMainClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMainClaims.UseVisualStyleBackColor = true;
+            this.btnMainClaims.Click += new System.EventHandler(this.btnMainClaims_Click);
             // 
-            // iconButton2
+            // btnSubsidiaryClaims
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 80);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(231, 40);
-            this.iconButton2.TabIndex = 7;
-            this.iconButton2.Text = "Studies";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btnSubsidiaryClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubsidiaryClaims.FlatAppearance.BorderSize = 0;
+            this.btnSubsidiaryClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubsidiaryClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSubsidiaryClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSubsidiaryClaims.IconChar = FontAwesome.Sharp.IconChar.HandsHelping;
+            this.btnSubsidiaryClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSubsidiaryClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSubsidiaryClaims.IconSize = 32;
+            this.btnSubsidiaryClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubsidiaryClaims.Location = new System.Drawing.Point(0, 70);
+            this.btnSubsidiaryClaims.Name = "btnSubsidiaryClaims";
+            this.btnSubsidiaryClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnSubsidiaryClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnSubsidiaryClaims.TabIndex = 3;
+            this.btnSubsidiaryClaims.Text = "Subsidiary claims";
+            this.btnSubsidiaryClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubsidiaryClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSubsidiaryClaims.UseVisualStyleBackColor = true;
+            this.btnSubsidiaryClaims.Click += new System.EventHandler(this.btnSubsidiaryClaims_Click);
             // 
-            // iconButton3
+            // btnProjectObjectClaims
             // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
-            this.iconButton3.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 40);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(231, 40);
-            this.iconButton3.TabIndex = 6;
-            this.iconButton3.Text = "Graduates";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsers.FlatAppearance.BorderSize = 0;
-            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnUsers.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUsers.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnUsers.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsers.IconSize = 32;
-            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(0, 0);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnUsers.Size = new System.Drawing.Size(231, 40);
-            this.btnUsers.TabIndex = 5;
-            this.btnUsers.Text = "Users";
-            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            this.btnProjectObjectClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProjectObjectClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProjectObjectClaims.FlatAppearance.BorderSize = 0;
+            this.btnProjectObjectClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnProjectObjectClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProjectObjectClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProjectObjectClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjectClaims.IconChar = FontAwesome.Sharp.IconChar.Th;
+            this.btnProjectObjectClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjectClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProjectObjectClaims.IconSize = 32;
+            this.btnProjectObjectClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjectClaims.Location = new System.Drawing.Point(0, 265);
+            this.btnProjectObjectClaims.Name = "btnProjectObjectClaims";
+            this.btnProjectObjectClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnProjectObjectClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjectClaims.TabIndex = 9;
+            this.btnProjectObjectClaims.Text = "Project object claims";
+            this.btnProjectObjectClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjectClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProjectObjectClaims.UseVisualStyleBackColor = true;
+            this.btnProjectObjectClaims.Click += new System.EventHandler(this.btnProjectObjectClaims_Click);
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 839);
+            this.ClientSize = new System.Drawing.Size(1049, 939);
             this.Controls.Add(this.panelBase);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -693,11 +811,12 @@ namespace FormsUI.Forms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).EndInit();
             this.panelSidebar.ResumeLayout(false);
+            this.panelUserManagement.ResumeLayout(false);
             this.panelITaskSubMenu.ResumeLayout(false);
             this.panelStudentSubMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
-            this.panelUserManagement.ResumeLayout(false);
+            this.panelClaimsSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -730,10 +849,15 @@ namespace FormsUI.Forms.MainMenu
         private FontAwesome.Sharp.IconButton btnITask;
         private FontAwesome.Sharp.IconButton btnGroups;
         private System.Windows.Forms.Panel panelUserManagement;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton btnClaims;
+        private FontAwesome.Sharp.IconButton btnProjectObjects;
+        private FontAwesome.Sharp.IconButton btnUserClaims;
         private FontAwesome.Sharp.IconButton btnUsers;
         private FontAwesome.Sharp.IconButton btnUserManagement;
+        private System.Windows.Forms.Panel panelClaimsSubMenu;
+        private FontAwesome.Sharp.IconButton btnBaseClaims;
+        private FontAwesome.Sharp.IconButton btnSubsidiaryClaims;
+        private FontAwesome.Sharp.IconButton btnMainClaims;
+        private FontAwesome.Sharp.IconButton btnProjectObjectClaims;
     }
 }

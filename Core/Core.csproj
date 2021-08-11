@@ -121,6 +121,9 @@
     <Compile Include="Entities\Concrete\SubsidiaryClaim.cs" />
     <Compile Include="Entities\Concrete\User.cs" />
     <Compile Include="Entities\Concrete\UserClaim.cs" />
+    <Compile Include="Entities\Dtos\PasswordDetails.cs" />
+    <Compile Include="Entities\Dtos\UserLoginDto.cs" />
+    <Compile Include="Entities\Dtos\UserRegisterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Extensions\DbSetExtension.cs" />
     <Compile Include="Utilities\Extensions\StringExtensions.cs" />
