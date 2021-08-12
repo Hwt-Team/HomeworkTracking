@@ -41,9 +41,9 @@ namespace FormsUI.Forms.MainMenu
             this.iconCurrentChildFormIcon = new FontAwesome.Sharp.IconPictureBox();
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelUserManagement = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.btnClaims = new FontAwesome.Sharp.IconButton();
+            this.btnProjectObjects = new FontAwesome.Sharp.IconButton();
+            this.btnUserClaims = new FontAwesome.Sharp.IconButton();
             this.btnUsers = new FontAwesome.Sharp.IconButton();
             this.btnUserManagement = new FontAwesome.Sharp.IconButton();
             this.btnCalendar = new FontAwesome.Sharp.IconButton();
@@ -61,6 +61,11 @@ namespace FormsUI.Forms.MainMenu
             this.btnExercises = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
+            this.panelClaimsSubMenu = new System.Windows.Forms.Panel();
+            this.btnBaseClaims = new FontAwesome.Sharp.IconButton();
+            this.btnMainClaims = new FontAwesome.Sharp.IconButton();
+            this.btnSubsidiaryClaims = new FontAwesome.Sharp.IconButton();
+            this.btnProjectObjectClaims = new FontAwesome.Sharp.IconButton();
             this.panelBase.SuspendLayout();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -75,6 +80,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelStudentSubMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
+            this.panelClaimsSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBase
@@ -219,87 +225,92 @@ namespace FormsUI.Forms.MainMenu
             // panelUserManagement
             // 
             this.panelUserManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelUserManagement.Controls.Add(this.iconButton1);
-            this.panelUserManagement.Controls.Add(this.iconButton2);
-            this.panelUserManagement.Controls.Add(this.iconButton3);
+            this.panelUserManagement.Controls.Add(this.btnProjectObjectClaims);
+            this.panelUserManagement.Controls.Add(this.panelClaimsSubMenu);
+            this.panelUserManagement.Controls.Add(this.btnClaims);
+            this.panelUserManagement.Controls.Add(this.btnProjectObjects);
+            this.panelUserManagement.Controls.Add(this.btnUserClaims);
             this.panelUserManagement.Controls.Add(this.btnUsers);
             this.panelUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUserManagement.Location = new System.Drawing.Point(0, 628);
+            this.panelUserManagement.Location = new System.Drawing.Point(0, 627);
             this.panelUserManagement.Name = "panelUserManagement";
-            this.panelUserManagement.Size = new System.Drawing.Size(231, 160);
+            this.panelUserManagement.Size = new System.Drawing.Size(261, 305);
             this.panelUserManagement.TabIndex = 9;
+            //
+            // btnClaims
             // 
-            // iconButton1
+            this.btnClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClaims.FlatAppearance.BorderSize = 0;
+            this.btnClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnClaims.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.btnClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClaims.IconSize = 32;
+            this.btnClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClaims.Location = new System.Drawing.Point(0, 120);
+            this.btnClaims.Name = "btnClaims";
+            this.btnClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnClaims.TabIndex = 8;
+            this.btnClaims.Text = "Claims";
+            this.btnClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClaims.UseVisualStyleBackColor = true;
+            this.btnClaims.Click += new System.EventHandler(this.btnClaims_Click);
             // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 120);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(231, 40);
-            this.iconButton1.TabIndex = 8;
-            this.iconButton1.Text = "Groups";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            // btnProjectObjects
             // 
-            // iconButton2
+            this.btnProjectObjects.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProjectObjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProjectObjects.FlatAppearance.BorderSize = 0;
+            this.btnProjectObjects.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnProjectObjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProjectObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProjectObjects.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjects.IconChar = FontAwesome.Sharp.IconChar.ProjectDiagram;
+            this.btnProjectObjects.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjects.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProjectObjects.IconSize = 32;
+            this.btnProjectObjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjects.Location = new System.Drawing.Point(0, 80);
+            this.btnProjectObjects.Name = "btnProjectObjects";
+            this.btnProjectObjects.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnProjectObjects.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjects.TabIndex = 7;
+            this.btnProjectObjects.Text = "Project objects";
+            this.btnProjectObjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjects.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProjectObjects.UseVisualStyleBackColor = true;
+            this.btnProjectObjects.Click += new System.EventHandler(this.btnProjectObjects_Click);
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 80);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(231, 40);
-            this.iconButton2.TabIndex = 7;
-            this.iconButton2.Text = "Studies";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            // btnUserClaims
             // 
-            // iconButton3
-            // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.iconButton3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
-            this.iconButton3.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 40);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(231, 40);
-            this.iconButton3.TabIndex = 6;
-            this.iconButton3.Text = "Graduates";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.btnUserClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserClaims.FlatAppearance.BorderSize = 0;
+            this.btnUserClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnUserClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUserClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUserClaims.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.btnUserClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnUserClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUserClaims.IconSize = 32;
+            this.btnUserClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserClaims.Location = new System.Drawing.Point(0, 40);
+            this.btnUserClaims.Name = "btnUserClaims";
+            this.btnUserClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnUserClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnUserClaims.TabIndex = 6;
+            this.btnUserClaims.Text = "User claims";
+            this.btnUserClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserClaims.UseVisualStyleBackColor = true;
+            this.btnUserClaims.Click += new System.EventHandler(this.btnUserClaims_Click);
             // 
             // btnUsers
             // 
@@ -318,7 +329,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnUsers.Location = new System.Drawing.Point(0, 0);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnUsers.Size = new System.Drawing.Size(231, 40);
+            this.btnUsers.Size = new System.Drawing.Size(261, 40);
             this.btnUsers.TabIndex = 5;
             this.btnUsers.Text = "Users";
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -342,7 +353,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnUserManagement.Location = new System.Drawing.Point(0, 582);
             this.btnUserManagement.Name = "btnUserManagement";
             this.btnUserManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnUserManagement.Size = new System.Drawing.Size(231, 46);
+            this.btnUserManagement.Size = new System.Drawing.Size(261, 46);
             this.btnUserManagement.TabIndex = 8;
             this.btnUserManagement.Text = "User management";
             this.btnUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -669,6 +680,112 @@ namespace FormsUI.Forms.MainMenu
             this.btnHome.TabIndex = 1;
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // panelClaimsSubMenu
+            // 
+            this.panelClaimsSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(43)))), ((int)(((byte)(51)))));
+            this.panelClaimsSubMenu.Controls.Add(this.btnSubsidiaryClaims);
+            this.panelClaimsSubMenu.Controls.Add(this.btnMainClaims);
+            this.panelClaimsSubMenu.Controls.Add(this.btnBaseClaims);
+            this.panelClaimsSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelClaimsSubMenu.Location = new System.Drawing.Point(0, 160);
+            this.panelClaimsSubMenu.Name = "panelClaimsSubMenu";
+            this.panelClaimsSubMenu.Size = new System.Drawing.Size(261, 105);
+            this.panelClaimsSubMenu.TabIndex = 1;
+            // 
+            // btnBaseClaims
+            // 
+            this.btnBaseClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBaseClaims.FlatAppearance.BorderSize = 0;
+            this.btnBaseClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaseClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBaseClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBaseClaims.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            this.btnBaseClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnBaseClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBaseClaims.IconSize = 32;
+            this.btnBaseClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaseClaims.Location = new System.Drawing.Point(0, 0);
+            this.btnBaseClaims.Name = "btnBaseClaims";
+            this.btnBaseClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnBaseClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnBaseClaims.TabIndex = 1;
+            this.btnBaseClaims.Text = "Base claims";
+            this.btnBaseClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaseClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBaseClaims.UseVisualStyleBackColor = true;
+            this.btnBaseClaims.Click += new System.EventHandler(this.btnBaseClaims_Click);
+            // 
+            // btnMainClaims
+            // 
+            this.btnMainClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMainClaims.FlatAppearance.BorderSize = 0;
+            this.btnMainClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMainClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMainClaims.IconChar = FontAwesome.Sharp.IconChar.CircleNotch;
+            this.btnMainClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnMainClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMainClaims.IconSize = 32;
+            this.btnMainClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainClaims.Location = new System.Drawing.Point(0, 35);
+            this.btnMainClaims.Name = "btnMainClaims";
+            this.btnMainClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnMainClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnMainClaims.TabIndex = 2;
+            this.btnMainClaims.Text = "Main claims";
+            this.btnMainClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMainClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMainClaims.UseVisualStyleBackColor = true;
+            this.btnMainClaims.Click += new System.EventHandler(this.btnMainClaims_Click);
+            // 
+            // btnSubsidiaryClaims
+            // 
+            this.btnSubsidiaryClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubsidiaryClaims.FlatAppearance.BorderSize = 0;
+            this.btnSubsidiaryClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubsidiaryClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSubsidiaryClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSubsidiaryClaims.IconChar = FontAwesome.Sharp.IconChar.HandsHelping;
+            this.btnSubsidiaryClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSubsidiaryClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSubsidiaryClaims.IconSize = 32;
+            this.btnSubsidiaryClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubsidiaryClaims.Location = new System.Drawing.Point(0, 70);
+            this.btnSubsidiaryClaims.Name = "btnSubsidiaryClaims";
+            this.btnSubsidiaryClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnSubsidiaryClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnSubsidiaryClaims.TabIndex = 3;
+            this.btnSubsidiaryClaims.Text = "Subsidiary claims";
+            this.btnSubsidiaryClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubsidiaryClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSubsidiaryClaims.UseVisualStyleBackColor = true;
+            this.btnSubsidiaryClaims.Click += new System.EventHandler(this.btnSubsidiaryClaims_Click);
+            // 
+            // btnProjectObjectClaims
+            // 
+            this.btnProjectObjectClaims.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProjectObjectClaims.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProjectObjectClaims.FlatAppearance.BorderSize = 0;
+            this.btnProjectObjectClaims.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnProjectObjectClaims.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProjectObjectClaims.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProjectObjectClaims.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjectClaims.IconChar = FontAwesome.Sharp.IconChar.Th;
+            this.btnProjectObjectClaims.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnProjectObjectClaims.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProjectObjectClaims.IconSize = 32;
+            this.btnProjectObjectClaims.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjectClaims.Location = new System.Drawing.Point(0, 265);
+            this.btnProjectObjectClaims.Name = "btnProjectObjectClaims";
+            this.btnProjectObjectClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnProjectObjectClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjectClaims.TabIndex = 9;
+            this.btnProjectObjectClaims.Text = "Project object claims";
+            this.btnProjectObjectClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProjectObjectClaims.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProjectObjectClaims.UseVisualStyleBackColor = true;
+            this.btnProjectObjectClaims.Click += new System.EventHandler(this.btnProjectObjectClaims_Click);
             // 
             // BaseForm
             // 
