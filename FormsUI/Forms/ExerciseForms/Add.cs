@@ -44,7 +44,7 @@ namespace FormsUI.Forms.ExerciseForms
                 Title = "A new exercise will be added.",
                 Ok = AddExercise,
                 Cancel = Cancel
-            });
+            }) ;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

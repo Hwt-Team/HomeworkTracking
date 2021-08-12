@@ -57,11 +57,17 @@
     <Compile Include="Abstract\IExerciseService.cs" />
     <Compile Include="Abstract\IGraduateStudentService.cs" />
     <Compile Include="Abstract\IGroupService.cs" />
+
+    <Compile Include="Abstract\IMainClaimService.cs" />
+    <Compile Include="Abstract\IProjectObjectClaimService.cs" />
+
     <Compile Include="Abstract\IProjectObjectService.cs" />
+
     <Compile Include="Abstract\IStateService.cs" />
     <Compile Include="Abstract\IStudentExercisesService.cs" />
     <Compile Include="Abstract\IStudentService.cs" />
     <Compile Include="Abstract\IStudyingStudentService.cs" />
+    <Compile Include="Abstract\ISubsidiaryClaimService.cs" />
     <Compile Include="Abstract\ITaskService.cs" />
     <Compile Include="Abstract\IUserClaimService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
@@ -69,11 +75,17 @@
     <Compile Include="Concrete\ExerciseManager.cs" />
     <Compile Include="Concrete\GraduateStudentManager.cs" />
     <Compile Include="Concrete\GroupManager.cs" />
+
+    <Compile Include="Concrete\MainClaimManager.cs" />
+    <Compile Include="Concrete\ProjectObjectClaimManager.cs" />
+
     <Compile Include="Concrete\ProjectObjectManager.cs" />
+
     <Compile Include="Concrete\StateManager.cs" />
     <Compile Include="Concrete\StudentExercisesManager.cs" />
     <Compile Include="Concrete\StudentManager.cs" />
     <Compile Include="Concrete\StudyingStudentManager.cs" />
+    <Compile Include="Concrete\SubsidiaryClaimManager.cs" />
     <Compile Include="Concrete\TaskManager.cs" />
     <Compile Include="Concrete\UserClaimManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
@@ -81,10 +93,16 @@
     <Compile Include="CrossCuttingConcerns\Validation\ExerciseValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\GraduateStudentValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\GroupValidator.cs" />
+
+    <Compile Include="CrossCuttingConcerns\Validation\MainClaimValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\ProjectObjectClaimValidator.cs" />
+
     <Compile Include="CrossCuttingConcerns\Validation\ProjectObjectValidator.cs" />
+
     <Compile Include="CrossCuttingConcerns\Validation\StudentExercisesValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\StudentValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\StudyingStudentValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\SubsidiaryClaimValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\TaskValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\UserClaimValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\UserLoginValidator.cs" />
