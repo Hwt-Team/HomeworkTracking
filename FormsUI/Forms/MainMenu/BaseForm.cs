@@ -374,7 +374,7 @@ namespace FormsUI.Forms.MainMenu
 
         private void SetVisibilityToPanelUserManagement(bool value)
         {
-            panelUserManagement.Visible = false;
+            panelUserManagement.Visible = value;
         }
 
         private void SetVisibilityToPanelClaims(bool value)
