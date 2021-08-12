@@ -8,6 +8,7 @@ namespace Core.Utilities.Constants
 {
     public static class Messages
     {
+
         public static string Caption = "System";
 
 
@@ -50,6 +51,9 @@ namespace Core.Utilities.Constants
         public static string UserAdd = "A new user will be added.";
         public static string UserDelete = "Selected user will be deleted.";
         public static string UserDeleteAll = "All data will be deleted.";
+
+        public static string t ;
+
 
     }
 }

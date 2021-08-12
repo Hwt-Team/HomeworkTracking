@@ -6,25 +6,31 @@ using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 using Ninject.Modules;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FormsUI.Forms.UserForms.Users
+namespace FormsUI.Forms.UserForms.ProjectObjects
 {
-    public partial class UserForm : Form
+    public partial class ProjectObjectForm : Form
     {
-        private readonly IUserService _userService; 
-        public UserForm()
+        private readonly IProjectObjectService _projectObjectService;
+        public ProjectObjectForm()
         {
             InitializeComponent();
-            this._userService = InstanceFactory
-                .GetInstance<IUserService>(new INinjectModule[] { new CoreModule(), new BusinessModule()});
+            this._projectObjectService = InstanceFactory
+                .GetInstance<IProjectObjectService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        private void ProjectObjectForm_Load(object sender, EventArgs e)
         {
-            this.LoadUsers();
-            this.DesignDataGridView(dgwUsers);
+            this.LoadProjectObjects();
+            this.DesignDataGridView(this.dgwProjectObjects);
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
@@ -41,16 +47,16 @@ namespace FormsUI.Forms.UserForms.Users
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void LoadUsers()
+        private void LoadProjectObjects()
         {
-            this.dgwUsers.DataSource = this._userService.GetAll();
+            this.dgwProjectObjects.DataSource = this._projectObjectService.GetAll();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
             addForm.Show();
-            LoadUsers();
+            this.LoadProjectObjects();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -65,17 +71,12 @@ namespace FormsUI.Forms.UserForms.Users
                 return;
             }
 
-            var cells = this.dgwUsers.CurrentRow?.Cells;
-            var passDetails = this._userService.GetPassDetailsById((int)cells[0].Value);
+            var cells = this.dgwProjectObjects.CurrentRow?.Cells;
             var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
             updateForm.Id = (int)cells[0].Value;
-            updateForm.FirstName = cells[1].Value.ToString();
-            updateForm.LastName = cells[2].Value.ToString();
-            updateForm.Email = cells[3].Value.ToString();
-            updateForm.PasswordHash = passDetails.PasswordHash;
-            updateForm.UserName = cells[5].Value.ToString();
-            updateForm.Status = (bool) cells[6].Value;
-            updateForm.PasswordSalt = passDetails.PasswordSalt;
+            updateForm.Namespace = cells[1].Value.ToString();
+            updateForm.ClassName = cells[2].Value.ToString();
+            updateForm.ObjectName = cells[3].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -93,17 +94,17 @@ namespace FormsUI.Forms.UserForms.Users
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = "System",
-                Title = "Selected user will be deleted",
-                Ok = DeleteUser,
+                Title = "Selected project object will be deleted",
+                Ok = DeleteProjectObject,
                 Cancel = Cancel
             });
         }
 
-        private void DeleteUser()
+        private void DeleteProjectObject()
         {
-            this._userService.Delete(new User
+            this._projectObjectService.Delete(new ProjectObject
             {
-                Id = (int)this.dgwUsers.CurrentRow.Cells[0].Value
+                Id = (int)this.dgwProjectObjects.CurrentRow.Cells[0].Value
             });
         }
 
@@ -111,7 +112,6 @@ namespace FormsUI.Forms.UserForms.Users
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-
             if (!this.GetExistenceCurrentRow())
             {
                 WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
@@ -133,17 +133,17 @@ namespace FormsUI.Forms.UserForms.Users
 
         private void DeleteAll()
         {
-            this._userService.DeleteAll();
+            this._projectObjectService.DeleteAll();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            this.LoadUsers();
+            this.LoadProjectObjects();
         }
 
         private bool GetExistenceCurrentRow()
         {
-            return this.dgwUsers.CurrentRow != null;
+            return this.dgwProjectObjects.CurrentRow != null;
         }
     }
 }

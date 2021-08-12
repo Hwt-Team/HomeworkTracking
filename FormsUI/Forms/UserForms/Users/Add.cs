@@ -1,7 +1,10 @@
 ﻿using Business.Abstract;
+using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
+using Core.Entities.Dtos;
 using FormsUI.Forms.MessageBox;
+using Ninject.Modules;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +17,7 @@ namespace FormsUI.Forms.UserForms.Users
         {
             InitializeComponent();
             this._userService = InstanceFactory
-                .GetInstance<IUserService>(new CoreModule());
+                .GetInstance<IUserService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
         private void Add_Load(object sender, EventArgs e)
@@ -35,6 +38,8 @@ namespace FormsUI.Forms.UserForms.Users
 
         private void AddUser()
         {
+            var result = this._userService.HashPassword(this.tbxPassword.Text);
+            
             this._userService.Add(new User
             {
                 Id = this._userService.GetNextId(),
@@ -43,6 +48,8 @@ namespace FormsUI.Forms.UserForms.Users
                 FirstName = this.tbxFirstName.Text,
                 LastName = this.tbxLastName.Text,
                 Status = this.cbxStatus.Checked,
+                PasswordHash = result.PasswordHash,
+                PasswordSalt = result.PasswordSalt
             });
         }
 

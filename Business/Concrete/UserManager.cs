@@ -7,9 +7,9 @@ using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
+using Core.Entities.Dtos;
 using Core.Utilities.Security;
 using DataAccess.Abstract;
-using Entities.Dtos;
 
 namespace Business.Concrete
 {
@@ -157,14 +157,24 @@ namespace Business.Concrete
             this.Add(user);
         }
 
-        public User HashPassword(string pass)
+        public PasswordDetails HashPassword(string pass)
         {
             HashingHelper.ComputeHash(64, pass, out var passwordHash, out var passwordSalt);
 
-            return new User
+            return new PasswordDetails
             {
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
+            };
+        }
+
+        public PasswordDetails GetPassDetailsById(int userId)
+        {
+            var user = this._userDal.Get(u => u.Id == userId);
+            return new PasswordDetails
+            {
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt
             };
         }
     }

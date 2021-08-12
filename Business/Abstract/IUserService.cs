@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Entities.Concrete;
-using Entities.Dtos;
+using Core.Entities.Dtos;
 
 namespace Business.Abstract
 {
@@ -21,6 +21,7 @@ namespace Business.Abstract
         bool IsEmailAlreadyExists(string email);
         bool IsUserNameAlreadyExists(string username);
         void Register(UserRegisterDto userRegisterDto);
-        User HashPassword(string pass);
+        PasswordDetails HashPassword(string pass);
+        PasswordDetails GetPassDetailsById(int userId);
     }
 }
