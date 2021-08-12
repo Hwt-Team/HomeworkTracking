@@ -241,11 +241,23 @@
     <Compile Include="Forms\TaskForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.Designer.cs">
       <DependentUpon>ProjectObjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjects\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserForms\Users\Add.cs">
       <SubType>Form</SubType>
@@ -355,8 +367,14 @@
     <EmbeddedResource Include="Forms\TaskForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\ProjectObjects\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\ProjectObjects\ProjectObjectForm.resx">
       <DependentUpon>ProjectObjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\ProjectObjects\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\Users\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>

@@ -10,6 +10,7 @@ namespace Business.Abstract
         void Update(ProjectObject projectObject);
         void Delete(ProjectObject projectObject);
         void DeleteAll();
-
+        List<ProjectObject> GetAll();
+        int GetNextId();
     }
 }
