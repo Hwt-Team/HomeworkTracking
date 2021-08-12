@@ -67,7 +67,7 @@ namespace FormsUI.Forms.TaskForms
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = "System",
-                Title = "Changed task will be updated",
+                Title = "Changed task will be updated.",
                 Ok = UpdateTask,
                 Cancel = Cancel
             });

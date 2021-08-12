@@ -11,6 +11,10 @@ namespace Core.DataAccess.Concrete.EntityFramework
         public DbSet<Claim> Claims { get; set; }
         public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<MainClaim> MainClaims { get; set; }
+        public DbSet<ProjectObjectClaim> ProjectObjectClaims { get; set; }
+        public DbSet<ProjectObject> ProjectObjects { get; set; }
+        public DbSet<SubsidiaryClaim> SubsidiaryClaims { get; set; }
 
         #endregion
 

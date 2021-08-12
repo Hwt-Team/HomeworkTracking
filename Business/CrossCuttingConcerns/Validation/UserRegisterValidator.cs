@@ -1,5 +1,5 @@
-﻿using Core.Utilities.Extensions;
-using Entities.Dtos;
+﻿using Core.Entities.Dtos;
+using Core.Utilities.Extensions;
 using FluentValidation;
 
 namespace Business.CrossCuttingConcerns.Validation

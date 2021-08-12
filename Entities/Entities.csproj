@@ -52,8 +52,6 @@
     <Compile Include="Concrete\Task.cs" />
     <Compile Include="Dtos\GraduateStudentDto.cs" />
     <Compile Include="Dtos\StudentExercisesDto.cs" />
-    <Compile Include="Dtos\UserLoginDto.cs" />
-    <Compile Include="Dtos\UserRegisterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
