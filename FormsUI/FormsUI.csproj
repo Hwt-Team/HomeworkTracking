@@ -259,6 +259,30 @@
     <Compile Include="Forms\UserForms\ProjectObjects\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\UserClaimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\UserClaims\UserClaimForm.Designer.cs">
+      <DependentUpon>UserClaimForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForms\Users\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +400,18 @@
     <EmbeddedResource Include="Forms\UserForms\ProjectObjects\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\UserClaims\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\UserClaims\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\UserClaims\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\UserClaims\UserClaimForm.resx">
+      <DependentUpon>UserClaimForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\Users\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,11 +466,7 @@
   <ItemGroup>
     <None Include="Resources\reza-namdari-ZgZsKFnSbEA-unsplash.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\UserForms\Claims\" />
-    <Folder Include="Forms\UserForms\ProjectObjectClaims\" />
-    <Folder Include="Forms\UserForms\UserClaims\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="core.ico" />
   </ItemGroup>

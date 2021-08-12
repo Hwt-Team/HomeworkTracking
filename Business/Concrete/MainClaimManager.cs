@@ -1,13 +1,11 @@
 ﻿using Business.Abstract;
 using Business.CrossCuttingConcerns.Validation;
+using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -21,37 +19,44 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(MainClaimValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(MainClaim mainClaim)
         {
             this._mainClaimDal.Add(mainClaim);
         }
 
         [ValidationAspect(typeof(MainClaimValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(MainClaim mainClaim)
         {
             this._mainClaimDal.Update(mainClaim);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(MainClaim mainClaim)
         {
             this._mainClaimDal.Delete(mainClaim);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void DeleteAll()
         {
             this._mainClaimDal.DeleteAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<MainClaim> GetAll()
         {
             return this._mainClaimDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public MainClaim GetById(int id)
         {
             return this._mainClaimDal.Get(c => c.Id == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public int GetNextId()
         {
             return this._mainClaimDal.GetNextId();

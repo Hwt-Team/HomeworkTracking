@@ -141,5 +141,10 @@ namespace FormsUI.Forms.StudentExerciseForms
             }
             this._isUser = !this._isUser;
         }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,11 +39,11 @@ namespace Core.Utilities.Constants
         public static string GraduateUpdate = "Changed graduate will be updated.";
 
         public static string StudiesAdd = "A new studying will be added.";
-        public static string StudiesDelete = "Selected graduate will be deleted.";
+        public static string StudiesDelete = "Selected studying will be deleted.";
         public static string StudiesDeleteAll = "All data will be deleted.";
         public static string StudiesUpdate = "Changed studying will be updated.";
 
-        public static string TaskAdd = "A new exercise will be added.";
+        public static string TaskAdd = "A new task will be added.";
         public static string TaskDelete = "Selected task will be deleted.";
         public static string TaskDeleteAll = "All data will be deleted.";
         public static string TaskUpdate = "Changed task will be updated.";
@@ -52,8 +52,10 @@ namespace Core.Utilities.Constants
         public static string UserDelete = "Selected user will be deleted.";
         public static string UserDeleteAll = "All data will be deleted.";
 
-        public static string t ;
-
+        public static string UserClaimAdd = "A new user & claim will be added.";
+        public static string UserClaimDelete = "Selected user & claim will be deleted.";
+        public static string UserClaimDeleteAll = "All data will be deleted.";
+        public static string UserClaimUpdate = "Changed user & claim will be updated.";
 
     }
 }
