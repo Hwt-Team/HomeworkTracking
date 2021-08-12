@@ -11,6 +11,7 @@ using FormsUI.Forms.StudentForms.Both;
 using FormsUI.Forms.StudentForms.Graduates;
 using FormsUI.Forms.StudentForms.Studies;
 using FormsUI.Forms.TaskForms;
+using FormsUI.Forms.UserForms.ProjectObjects;
 using FormsUI.Forms.UserForms.Users;
 
 namespace FormsUI.Forms.MainMenu
@@ -228,7 +229,7 @@ namespace FormsUI.Forms.MainMenu
         private void btnProjectObjects_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color3);
-            //OpenChildForm(new ProjectObjectForm());
+            OpenChildForm(new ProjectObjectForm());
         }
 
         private void btnClaims_Click(object sender, EventArgs e)
