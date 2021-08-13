@@ -24,6 +24,7 @@ namespace Business.DependencyResolvers.Ninject
             #endregion
 
             #region Business
+            Bind<IProjectObjectService>().To<ProjectObjectManager>().InSingletonScope();
             Bind<IExerciseService>().To<ExerciseManager>().InSingletonScope();
             Bind<IGroupService>().To<GroupManager>().InSingletonScope();
             Bind<IStudentService>().To<StudentManager>().InSingletonScope();
