@@ -36,6 +36,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.lblClaimId = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panelUserClaimUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // tbxClaimId
@@ -108,12 +109,23 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // panelUserClaimUpdate
+            // 
+            this.panelUserClaimUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelUserClaimUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUserClaimUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelUserClaimUpdate.Name = "panelUserClaimUpdate";
+            this.panelUserClaimUpdate.Size = new System.Drawing.Size(475, 23);
+            this.panelUserClaimUpdate.TabIndex = 37;
+            this.panelUserClaimUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelUserClaimUpdate_MouseDown);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 292);
+            this.Controls.Add(this.panelUserClaimUpdate);
             this.Controls.Add(this.tbxClaimId);
             this.Controls.Add(this.tbxUserId);
             this.Controls.Add(this.lblUserId);
@@ -139,5 +151,6 @@ namespace FormsUI.Forms.UserForms.UserClaims
         private System.Windows.Forms.Label lblClaimId;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Panel panelUserClaimUpdate;
     }
 }

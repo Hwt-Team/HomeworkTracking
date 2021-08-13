@@ -33,6 +33,7 @@ namespace FormsUI.Forms.StateForms
             this.btnOk = new System.Windows.Forms.Button();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.panelStateAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -86,12 +87,23 @@ namespace FormsUI.Forms.StateForms
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Name";
             // 
+            // panelStateAdd
+            // 
+            this.panelStateAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelStateAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStateAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelStateAdd.Name = "panelStateAdd";
+            this.panelStateAdd.Size = new System.Drawing.Size(475, 23);
+            this.panelStateAdd.TabIndex = 8;
+            this.panelStateAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStateAdd_MouseDown);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 283);
+            this.Controls.Add(this.panelStateAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
@@ -112,5 +124,6 @@ namespace FormsUI.Forms.StateForms
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panelStateAdd;
     }
 }

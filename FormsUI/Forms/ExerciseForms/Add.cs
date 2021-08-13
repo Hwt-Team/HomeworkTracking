@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -17,6 +18,18 @@ namespace FormsUI.Forms.ExerciseForms
             InitializeComponent();
             this._exerciseService = InstanceFactory.GetInstance<IExerciseService>(new BusinessModule());
         }
+
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
+
+
 
         private void SetDatetimeValue()
         {
@@ -64,6 +77,12 @@ namespace FormsUI.Forms.ExerciseForms
                     ? (DateTime?) null
                     : dtpDeadline.Value
             });
+        }
+
+        private void panelExerciseAdd_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

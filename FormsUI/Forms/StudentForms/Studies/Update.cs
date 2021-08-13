@@ -58,5 +58,10 @@ namespace FormsUI.Forms.StudentForms.Studies
             tbxLastName.Text = this.LastName;
             tbxGroupId.Text = this.GroupId.ToString();
         }
+
+        private void panelStudiesAdd_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

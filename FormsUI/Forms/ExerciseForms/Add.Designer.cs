@@ -35,6 +35,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDeadline = new System.Windows.Forms.Label();
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
+            this.panelExerciseAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -57,7 +58,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.tbxTitle.Location = new System.Drawing.Point(168, 73);
             this.tbxTitle.Multiline = true;
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(271, 101);
+            this.tbxTitle.Size = new System.Drawing.Size(445, 136);
             this.tbxTitle.TabIndex = 1;
             // 
             // btnOk
@@ -68,7 +69,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(186, 200);
+            this.btnOk.Location = new System.Drawing.Point(360, 235);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(107, 47);
             this.btnOk.TabIndex = 2;
@@ -84,7 +85,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(329, 200);
+            this.btnCancel.Location = new System.Drawing.Point(503, 235);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 47);
             this.btnCancel.TabIndex = 3;
@@ -110,15 +111,26 @@ namespace FormsUI.Forms.ExerciseForms
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDeadline.Location = new System.Drawing.Point(168, 25);
             this.dtpDeadline.Name = "dtpDeadline";
-            this.dtpDeadline.Size = new System.Drawing.Size(271, 26);
+            this.dtpDeadline.Size = new System.Drawing.Size(445, 26);
             this.dtpDeadline.TabIndex = 5;
+            // 
+            // panelExerciseAdd
+            // 
+            this.panelExerciseAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelExerciseAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelExerciseAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelExerciseAdd.Name = "panelExerciseAdd";
+            this.panelExerciseAdd.Size = new System.Drawing.Size(649, 23);
+            this.panelExerciseAdd.TabIndex = 6;
+            this.panelExerciseAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelExerciseAdd_MouseDown);
             // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(475, 292);
+            this.ClientSize = new System.Drawing.Size(649, 327);
+            this.Controls.Add(this.panelExerciseAdd);
             this.Controls.Add(this.dtpDeadline);
             this.Controls.Add(this.lblDeadline);
             this.Controls.Add(this.btnCancel);
@@ -144,5 +156,6 @@ namespace FormsUI.Forms.ExerciseForms
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDeadline;
         private System.Windows.Forms.DateTimePicker dtpDeadline;
+        private System.Windows.Forms.Panel panelExerciseAdd;
     }
 }

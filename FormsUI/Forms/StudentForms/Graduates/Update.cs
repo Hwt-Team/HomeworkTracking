@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -16,6 +17,15 @@ namespace FormsUI.Forms.StudentForms.Graduates
         public string LastName { get; set; }
         public int GroupId { get; set; }
         public DateTime GraduateDate { get; set; }
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
 
         public Update()
         {
@@ -68,6 +78,13 @@ namespace FormsUI.Forms.StudentForms.Graduates
             dtpGraduateDate.Format = DateTimePickerFormat.Custom;
             dtpGraduateDate.ShowUpDown = true;
             dtpGraduateDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
+        }
+
+        private void panelGraduateUpdate_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

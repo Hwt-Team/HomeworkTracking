@@ -39,6 +39,7 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblGroupId = new System.Windows.Forms.Label();
             this.lblGraduateDate = new System.Windows.Forms.Label();
             this.dtpGraduateDate = new System.Windows.Forms.DateTimePicker();
+            this.panelGraduateAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -149,12 +150,23 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.dtpGraduateDate.Size = new System.Drawing.Size(213, 32);
             this.dtpGraduateDate.TabIndex = 13;
             // 
+            // panelGraduateAdd
+            // 
+            this.panelGraduateAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelGraduateAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelGraduateAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelGraduateAdd.Name = "panelGraduateAdd";
+            this.panelGraduateAdd.Size = new System.Drawing.Size(475, 23);
+            this.panelGraduateAdd.TabIndex = 18;
+            this.panelGraduateAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelGraduateAdd_MouseDown);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 364);
+            this.Controls.Add(this.panelGraduateAdd);
             this.Controls.Add(this.dtpGraduateDate);
             this.Controls.Add(this.lblGraduateDate);
             this.Controls.Add(this.tbxGroupId);
@@ -188,5 +200,6 @@ namespace FormsUI.Forms.StudentForms.Graduates
         private System.Windows.Forms.Label lblGroupId;
         private System.Windows.Forms.Label lblGraduateDate;
         private System.Windows.Forms.DateTimePicker dtpGraduateDate;
+        private System.Windows.Forms.Panel panelGraduateAdd;
     }
 }

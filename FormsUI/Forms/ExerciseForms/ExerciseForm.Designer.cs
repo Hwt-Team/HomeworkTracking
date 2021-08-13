@@ -78,7 +78,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.dgwExercises.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.dgwExercises.RowTemplate.Height = 40;
             this.dgwExercises.RowTemplate.ReadOnly = true;
-            this.dgwExercises.Size = new System.Drawing.Size(470, 512);
+            this.dgwExercises.Size = new System.Drawing.Size(470, 486);
             this.dgwExercises.TabIndex = 0;
             this.dgwExercises.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwExercises_CellClick);
             // 
@@ -91,7 +91,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDeleteAll.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDeleteAll.Location = new System.Drawing.Point(533, 150);
+            this.btnDeleteAll.Location = new System.Drawing.Point(519, 159);
             this.btnDeleteAll.MinimumSize = new System.Drawing.Size(70, 40);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(124, 40);
@@ -110,7 +110,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDelete.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.Location = new System.Drawing.Point(533, 104);
+            this.btnDelete.Location = new System.Drawing.Point(519, 113);
             this.btnDelete.MinimumSize = new System.Drawing.Size(70, 40);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 40);
@@ -128,7 +128,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdate.Location = new System.Drawing.Point(533, 58);
+            this.btnUpdate.Location = new System.Drawing.Point(519, 58);
             this.btnUpdate.MinimumSize = new System.Drawing.Size(50, 40);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(97, 40);
@@ -146,7 +146,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAdd.Location = new System.Drawing.Point(533, 12);
+            this.btnAdd.Location = new System.Drawing.Point(519, 12);
             this.btnAdd.MinimumSize = new System.Drawing.Size(50, 40);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(97, 40);

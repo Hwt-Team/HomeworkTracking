@@ -38,6 +38,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
             this.lblObjectName = new System.Windows.Forms.Label();
             this.tbxNamespace = new System.Windows.Forms.TextBox();
             this.lblNamespace = new System.Windows.Forms.Label();
+            this.panelProjectObjectUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -129,12 +130,23 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
             this.lblNamespace.TabIndex = 28;
             this.lblNamespace.Text = "Namespace";
             // 
+            // panelProjectObjectUpdate
+            // 
+            this.panelProjectObjectUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelProjectObjectUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProjectObjectUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelProjectObjectUpdate.Name = "panelProjectObjectUpdate";
+            this.panelProjectObjectUpdate.Size = new System.Drawing.Size(455, 23);
+            this.panelProjectObjectUpdate.TabIndex = 36;
+            this.panelProjectObjectUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelProjectObjectUpdate_MouseDown);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(455, 309);
+            this.Controls.Add(this.panelProjectObjectUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxClassName);
@@ -164,5 +176,6 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
         private System.Windows.Forms.Label lblObjectName;
         private System.Windows.Forms.TextBox tbxNamespace;
         private System.Windows.Forms.Label lblNamespace;
+        private System.Windows.Forms.Panel panelProjectObjectUpdate;
     }
 }

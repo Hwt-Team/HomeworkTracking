@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -11,6 +12,15 @@ namespace FormsUI.Forms.TaskForms
     public partial class Add : Form
     {
         private ITaskService _taskService;
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
 
         public Add()
         {
@@ -65,6 +75,12 @@ namespace FormsUI.Forms.TaskForms
                     : dtpDeadline.Value,
                 StateId = int.Parse(tbxStateId.Text)
             });
+        }
+
+        private void panelTaskAdd_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
