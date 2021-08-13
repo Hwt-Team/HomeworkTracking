@@ -12,6 +12,7 @@ using FormsUI.Forms.StudentForms.Graduates;
 using FormsUI.Forms.StudentForms.Studies;
 using FormsUI.Forms.TaskForms;
 using FormsUI.Forms.UserForms.ProjectObjects;
+using FormsUI.Forms.UserForms.UserClaims;
 using FormsUI.Forms.UserForms.Users;
 
 namespace FormsUI.Forms.MainMenu
@@ -22,6 +23,7 @@ namespace FormsUI.Forms.MainMenu
         private readonly Panel _leftBorderButton;
         private Form _activeForm = null;
         private IconButton _locationalButton;
+
         public BaseForm()
         {
             InitializeComponent();
@@ -223,7 +225,7 @@ namespace FormsUI.Forms.MainMenu
         private void btnUserClaims_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color2);
-            //OpenChildForm(new UserClaimForm());
+            OpenChildForm(new UserClaimForm());
         }
 
         private void btnProjectObjects_Click(object sender, EventArgs e)
