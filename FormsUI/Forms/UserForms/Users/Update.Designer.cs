@@ -43,12 +43,13 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panelUserUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // cbxStatus
             // 
             this.cbxStatus.AutoSize = true;
-            this.cbxStatus.Location = new System.Drawing.Point(246, 250);
+            this.cbxStatus.Location = new System.Drawing.Point(245, 256);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(18, 17);
             this.cbxStatus.TabIndex = 35;
@@ -57,7 +58,7 @@ namespace FormsUI.Forms.UserForms.Users
             // tbxLastName
             // 
             this.tbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxLastName.Location = new System.Drawing.Point(246, 204);
+            this.tbxLastName.Location = new System.Drawing.Point(245, 210);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(164, 32);
             this.tbxLastName.TabIndex = 34;
@@ -65,7 +66,7 @@ namespace FormsUI.Forms.UserForms.Users
             // tbxEmail
             // 
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxEmail.Location = new System.Drawing.Point(246, 75);
+            this.tbxEmail.Location = new System.Drawing.Point(245, 81);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(164, 32);
             this.tbxEmail.TabIndex = 33;
@@ -73,7 +74,7 @@ namespace FormsUI.Forms.UserForms.Users
             // tbxPassword
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxPassword.Location = new System.Drawing.Point(246, 118);
+            this.tbxPassword.Location = new System.Drawing.Point(245, 124);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(164, 32);
             this.tbxPassword.TabIndex = 32;
@@ -81,7 +82,7 @@ namespace FormsUI.Forms.UserForms.Users
             // tbxFirstName
             // 
             this.tbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxFirstName.Location = new System.Drawing.Point(246, 161);
+            this.tbxFirstName.Location = new System.Drawing.Point(245, 167);
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(164, 32);
             this.tbxFirstName.TabIndex = 31;
@@ -91,7 +92,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblStatus.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblStatus.Location = new System.Drawing.Point(75, 250);
+            this.lblStatus.Location = new System.Drawing.Point(74, 256);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(74, 26);
             this.lblStatus.TabIndex = 30;
@@ -102,7 +103,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblLastName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblLastName.Location = new System.Drawing.Point(75, 207);
+            this.lblLastName.Location = new System.Drawing.Point(74, 213);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(108, 26);
             this.lblLastName.TabIndex = 29;
@@ -113,7 +114,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFirstName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFirstName.Location = new System.Drawing.Point(75, 164);
+            this.lblFirstName.Location = new System.Drawing.Point(74, 170);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(109, 26);
             this.lblFirstName.TabIndex = 28;
@@ -124,7 +125,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblEmail.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblEmail.Location = new System.Drawing.Point(75, 78);
+            this.lblEmail.Location = new System.Drawing.Point(74, 84);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(68, 26);
             this.lblEmail.TabIndex = 27;
@@ -135,7 +136,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPassword.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblPassword.Location = new System.Drawing.Point(75, 121);
+            this.lblPassword.Location = new System.Drawing.Point(74, 127);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(108, 26);
             this.lblPassword.TabIndex = 26;
@@ -144,7 +145,7 @@ namespace FormsUI.Forms.UserForms.Users
             // tbxUserName
             // 
             this.tbxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxUserName.Location = new System.Drawing.Point(246, 32);
+            this.tbxUserName.Location = new System.Drawing.Point(245, 38);
             this.tbxUserName.Name = "tbxUserName";
             this.tbxUserName.Size = new System.Drawing.Size(164, 32);
             this.tbxUserName.TabIndex = 25;
@@ -154,7 +155,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblUserName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserName.Location = new System.Drawing.Point(75, 35);
+            this.lblUserName.Location = new System.Drawing.Point(74, 41);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(113, 26);
             this.lblUserName.TabIndex = 24;
@@ -192,12 +193,23 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // panelUserUpdate
+            // 
+            this.panelUserUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelUserUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUserUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelUserUpdate.Name = "panelUserUpdate";
+            this.panelUserUpdate.Size = new System.Drawing.Size(514, 23);
+            this.panelUserUpdate.TabIndex = 37;
+            this.panelUserUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelUserUpdate_MouseDown);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(514, 391);
+            this.Controls.Add(this.panelUserUpdate);
             this.Controls.Add(this.cbxStatus);
             this.Controls.Add(this.tbxLastName);
             this.Controls.Add(this.tbxEmail);
@@ -238,5 +250,6 @@ namespace FormsUI.Forms.UserForms.Users
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Panel panelUserUpdate;
     }
 }

@@ -39,6 +39,7 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.panelGraduateUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -149,12 +150,23 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblFirstName.TabIndex = 14;
             this.lblFirstName.Text = "Firstname";
             // 
+            // panelGraduateUpdate
+            // 
+            this.panelGraduateUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelGraduateUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelGraduateUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelGraduateUpdate.Name = "panelGraduateUpdate";
+            this.panelGraduateUpdate.Size = new System.Drawing.Size(475, 23);
+            this.panelGraduateUpdate.TabIndex = 22;
+            this.panelGraduateUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelGraduateUpdate_MouseDown);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 364);
+            this.Controls.Add(this.panelGraduateUpdate);
             this.Controls.Add(this.dtpGraduateDate);
             this.Controls.Add(this.lblGraduateDate);
             this.Controls.Add(this.tbxGroupId);
@@ -187,5 +199,6 @@ namespace FormsUI.Forms.StudentForms.Graduates
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Panel panelGraduateUpdate;
     }
 }

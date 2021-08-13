@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -15,6 +16,17 @@ namespace FormsUI.Forms.StudentExerciseForms
         public int StudentId { get; set; }
         public int ExerciseId { get; set; }
         public bool Active { get; set; }
+
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
+
 
         public Update()
         {
@@ -58,6 +70,13 @@ namespace FormsUI.Forms.StudentExerciseForms
                 ExerciseId = int.Parse(tbxStudentId.Text),
                 Active = chbxActive.Checked
             });
+        }
+
+        private void panelStudentExerciseUpdate_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

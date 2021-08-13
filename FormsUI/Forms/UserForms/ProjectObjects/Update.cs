@@ -5,6 +5,7 @@ using Core.Entities.Concrete;
 using FormsUI.Forms.MessageBox;
 using Ninject.Modules;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace FormsUI.Forms.UserForms.ProjectObjects
@@ -17,6 +18,15 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
         public string Namespace { get; set; }
         public string ClassName { get; set; }
         public string ObjectName { get; set; }
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
 
         public Update()
         {
@@ -59,6 +69,12 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panelProjectObjectUpdate_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

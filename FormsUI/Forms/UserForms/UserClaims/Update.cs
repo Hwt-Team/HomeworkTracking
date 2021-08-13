@@ -6,6 +6,7 @@ using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 using Ninject.Modules;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace FormsUI.Forms.UserForms.UserClaims
@@ -17,6 +18,15 @@ namespace FormsUI.Forms.UserForms.UserClaims
         public int Id { get; set; }
         public int UserId { get; set; }
         public int ClaimId { get; set; }
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
 
         public Update()
         {
@@ -57,6 +67,12 @@ namespace FormsUI.Forms.UserForms.UserClaims
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panelUserClaimUpdate_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

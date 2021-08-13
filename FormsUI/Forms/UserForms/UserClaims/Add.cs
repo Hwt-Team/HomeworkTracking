@@ -6,6 +6,7 @@ using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 using Ninject.Modules;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace FormsUI.Forms.UserForms.UserClaims
@@ -13,6 +14,15 @@ namespace FormsUI.Forms.UserForms.UserClaims
     public partial class Add : Form
     {
         private readonly IUserClaimService _userClaimService;
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
 
         public Add()
         {
@@ -54,5 +64,10 @@ namespace FormsUI.Forms.UserForms.UserClaims
             });
         }
 
+        private void panelUserClaimAdd_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

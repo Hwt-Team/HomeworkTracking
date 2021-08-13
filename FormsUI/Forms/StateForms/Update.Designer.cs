@@ -33,6 +33,7 @@ namespace FormsUI.Forms.StateForms
             this.btnOk = new System.Windows.Forms.Button();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.panelStateUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -70,7 +71,7 @@ namespace FormsUI.Forms.StateForms
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxName.Location = new System.Drawing.Point(158, 24);
+            this.tbxName.Location = new System.Drawing.Point(158, 48);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(213, 32);
             this.tbxName.TabIndex = 9;
@@ -80,11 +81,21 @@ namespace FormsUI.Forms.StateForms
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblName.Location = new System.Drawing.Point(51, 27);
+            this.lblName.Location = new System.Drawing.Point(51, 51);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(71, 26);
             this.lblName.TabIndex = 8;
             this.lblName.Text = "Name";
+            // 
+            // panelStateUpdate
+            // 
+            this.panelStateUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelStateUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStateUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelStateUpdate.Name = "panelStateUpdate";
+            this.panelStateUpdate.Size = new System.Drawing.Size(457, 23);
+            this.panelStateUpdate.TabIndex = 12;
+            this.panelStateUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStateUpdate_MouseDown);
             // 
             // Update
             // 
@@ -92,6 +103,7 @@ namespace FormsUI.Forms.StateForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(457, 236);
+            this.Controls.Add(this.panelStateUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
@@ -112,5 +124,6 @@ namespace FormsUI.Forms.StateForms
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panelStateUpdate;
     }
 }
