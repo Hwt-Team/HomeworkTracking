@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
@@ -11,6 +12,16 @@ namespace FormsUI.Forms.StudentForms.Studies
     public partial class Add : Form
     {
         private readonly IStudyingStudentService _studyingStudentService;
+        #region Dll import
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
+
+        #endregion
+
         public Add()
         {
             InitializeComponent();
@@ -52,5 +63,10 @@ namespace FormsUI.Forms.StudentForms.Studies
             this.Close();
         }
 
+        private void panelStudiesAdd_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

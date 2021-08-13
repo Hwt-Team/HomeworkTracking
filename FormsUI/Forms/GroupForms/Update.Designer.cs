@@ -33,6 +33,7 @@ namespace FormsUI.Forms.GroupForms
             this.btnOk = new System.Windows.Forms.Button();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.panelExerciseUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -70,7 +71,7 @@ namespace FormsUI.Forms.GroupForms
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxName.Location = new System.Drawing.Point(158, 24);
+            this.tbxName.Location = new System.Drawing.Point(158, 42);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(213, 32);
             this.tbxName.TabIndex = 5;
@@ -80,11 +81,21 @@ namespace FormsUI.Forms.GroupForms
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblName.Location = new System.Drawing.Point(51, 27);
+            this.lblName.Location = new System.Drawing.Point(51, 42);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(71, 26);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Name";
+            // 
+            // panelExerciseUpdate
+            // 
+            this.panelExerciseUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelExerciseUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelExerciseUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelExerciseUpdate.Name = "panelExerciseUpdate";
+            this.panelExerciseUpdate.Size = new System.Drawing.Size(457, 23);
+            this.panelExerciseUpdate.TabIndex = 8;
+            this.panelExerciseUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelExerciseUpdate_MouseDown);
             // 
             // Update
             // 
@@ -92,6 +103,7 @@ namespace FormsUI.Forms.GroupForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(457, 236);
+            this.Controls.Add(this.panelExerciseUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
@@ -113,5 +125,6 @@ namespace FormsUI.Forms.GroupForms
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panelExerciseUpdate;
     }
 }

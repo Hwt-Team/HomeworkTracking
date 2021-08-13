@@ -35,6 +35,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.lblExerciseId = new System.Windows.Forms.Label();
             this.tbxStudentId = new System.Windows.Forms.TextBox();
             this.tbxExerciseId = new System.Windows.Forms.TextBox();
+            this.panelStudentExerciseAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -107,12 +108,23 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.tbxExerciseId.Size = new System.Drawing.Size(151, 32);
             this.tbxExerciseId.TabIndex = 9;
             // 
+            // panelStudentExerciseAdd
+            // 
+            this.panelStudentExerciseAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelStudentExerciseAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStudentExerciseAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelStudentExerciseAdd.Name = "panelStudentExerciseAdd";
+            this.panelStudentExerciseAdd.Size = new System.Drawing.Size(475, 23);
+            this.panelStudentExerciseAdd.TabIndex = 10;
+            this.panelStudentExerciseAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStudentExerciseAdd_MouseDown);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 292);
+            this.Controls.Add(this.panelStudentExerciseAdd);
             this.Controls.Add(this.tbxExerciseId);
             this.Controls.Add(this.tbxStudentId);
             this.Controls.Add(this.lblStudentId);
@@ -137,5 +149,6 @@ namespace FormsUI.Forms.StudentExerciseForms
         private System.Windows.Forms.Label lblExerciseId;
         private System.Windows.Forms.TextBox tbxStudentId;
         private System.Windows.Forms.TextBox tbxExerciseId;
+        private System.Windows.Forms.Panel panelStudentExerciseAdd;
     }
 }

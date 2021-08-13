@@ -37,6 +37,7 @@ namespace FormsUI.Forms.StudentForms.Studies
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.panelStudiesAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -128,12 +129,23 @@ namespace FormsUI.Forms.StudentForms.Studies
             this.lblFirstName.TabIndex = 14;
             this.lblFirstName.Text = "Firstname";
             // 
+            // panelStudiesAdd
+            // 
+            this.panelStudiesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelStudiesAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStudiesAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelStudiesAdd.Name = "panelStudiesAdd";
+            this.panelStudiesAdd.Size = new System.Drawing.Size(475, 23);
+            this.panelStudiesAdd.TabIndex = 20;
+            this.panelStudiesAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStudiesAdd_MouseDown);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 300);
+            this.Controls.Add(this.panelStudiesAdd);
             this.Controls.Add(this.tbxGroupId);
             this.Controls.Add(this.lblGroupId);
             this.Controls.Add(this.tbxLastName);
@@ -162,5 +174,6 @@ namespace FormsUI.Forms.StudentForms.Studies
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Panel panelStudiesAdd;
     }
 }

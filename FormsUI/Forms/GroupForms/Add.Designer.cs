@@ -33,6 +33,7 @@ namespace FormsUI.Forms.GroupForms
             this.tbxName = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.panelGroupAdd = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lblName
@@ -62,7 +63,7 @@ namespace FormsUI.Forms.GroupForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(181, 192);
+            this.btnOk.Location = new System.Drawing.Point(158, 168);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(108, 47);
             this.btnOk.TabIndex = 2;
@@ -78,7 +79,7 @@ namespace FormsUI.Forms.GroupForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(320, 192);
+            this.btnCancel.Location = new System.Drawing.Point(297, 168);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 47);
             this.btnCancel.TabIndex = 3;
@@ -86,12 +87,23 @@ namespace FormsUI.Forms.GroupForms
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // panelGroupAdd
+            // 
+            this.panelGroupAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelGroupAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelGroupAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelGroupAdd.Name = "panelGroupAdd";
+            this.panelGroupAdd.Size = new System.Drawing.Size(452, 23);
+            this.panelGroupAdd.TabIndex = 7;
+            this.panelGroupAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelGroupAdd_MouseDown);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(475, 283);
+            this.ClientSize = new System.Drawing.Size(452, 259);
+            this.Controls.Add(this.panelGroupAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
@@ -100,6 +112,7 @@ namespace FormsUI.Forms.GroupForms
             this.Name = "Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Add_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +124,6 @@ namespace FormsUI.Forms.GroupForms
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel panelGroupAdd;
     }
 }
