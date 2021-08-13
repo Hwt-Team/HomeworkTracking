@@ -46,7 +46,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void LoadUserClaimsForUser()
         {
-            this.dgwUserClaims.DataSource = this._userClaimService
+            this.dgwUserClaims.DataSource = this._userClaimService;
         }
 
         private void LoadUserClaimsForAdmin()
@@ -90,8 +90,8 @@ namespace FormsUI.Forms.UserForms.UserClaims
         {
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
-                Caption = Messages.Caption,
-                Title = Messages.UserClaimAdd,
+                Caption = CoreMessages.Caption,
+                Title = CoreMessages.UserClaimAdd,
                 Ok = DeleteUserClaim,
                 Cancel = Cancel
             });

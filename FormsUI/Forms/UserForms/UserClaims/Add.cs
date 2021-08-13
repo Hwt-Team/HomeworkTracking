@@ -30,8 +30,8 @@ namespace FormsUI.Forms.UserForms.UserClaims
         {
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
-                Caption = Messages.Caption,
-                Title = Messages.UserClaimAdd,
+                Caption = CoreMessages.Caption,
+                Title = CoreMessages.UserClaimAdd,
                 Ok = this.AddUserClaim,
                 Cancel = this.Cancel
             });
