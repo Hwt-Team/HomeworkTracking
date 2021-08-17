@@ -40,6 +40,7 @@ namespace FormsUI.Forms.TaskForms
             this.lblStateId = new System.Windows.Forms.Label();
             this.tbxStateId = new System.Windows.Forms.TextBox();
             this.panelTaskAdd = new System.Windows.Forms.Panel();
+            this.cbxTaskAdd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -62,7 +63,7 @@ namespace FormsUI.Forms.TaskForms
             this.tbxTitle.Location = new System.Drawing.Point(170, 39);
             this.tbxTitle.Multiline = true;
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(322, 51);
+            this.tbxTitle.Size = new System.Drawing.Size(344, 51);
             this.tbxTitle.TabIndex = 1;
             // 
             // btnOk
@@ -73,7 +74,7 @@ namespace FormsUI.Forms.TaskForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(239, 337);
+            this.btnOk.Location = new System.Drawing.Point(261, 337);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(107, 47);
             this.btnOk.TabIndex = 2;
@@ -89,7 +90,7 @@ namespace FormsUI.Forms.TaskForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(382, 337);
+            this.btnCancel.Location = new System.Drawing.Point(404, 337);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 47);
             this.btnCancel.TabIndex = 3;
@@ -101,7 +102,7 @@ namespace FormsUI.Forms.TaskForms
             // 
             this.lblDeadline.AutoSize = true;
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
             this.lblDeadline.Location = new System.Drawing.Point(45, 220);
             this.lblDeadline.Name = "lblDeadline";
             this.lblDeadline.Size = new System.Drawing.Size(98, 26);
@@ -112,10 +113,11 @@ namespace FormsUI.Forms.TaskForms
             // 
             this.dtpDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDeadline.Location = new System.Drawing.Point(170, 220);
             this.dtpDeadline.Name = "dtpDeadline";
-            this.dtpDeadline.Size = new System.Drawing.Size(322, 26);
+            this.dtpDeadline.Size = new System.Drawing.Size(344, 26);
             this.dtpDeadline.TabIndex = 5;
             // 
             // lblDetail
@@ -138,7 +140,7 @@ namespace FormsUI.Forms.TaskForms
             this.tbxDetail.Location = new System.Drawing.Point(170, 121);
             this.tbxDetail.Multiline = true;
             this.tbxDetail.Name = "tbxDetail";
-            this.tbxDetail.Size = new System.Drawing.Size(322, 86);
+            this.tbxDetail.Size = new System.Drawing.Size(344, 86);
             this.tbxDetail.TabIndex = 7;
             // 
             // lblStateId
@@ -158,7 +160,7 @@ namespace FormsUI.Forms.TaskForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxStateId.Location = new System.Drawing.Point(170, 277);
             this.tbxStateId.Name = "tbxStateId";
-            this.tbxStateId.Size = new System.Drawing.Size(322, 22);
+            this.tbxStateId.Size = new System.Drawing.Size(344, 22);
             this.tbxStateId.TabIndex = 9;
             // 
             // panelTaskAdd
@@ -167,16 +169,29 @@ namespace FormsUI.Forms.TaskForms
             this.panelTaskAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTaskAdd.Location = new System.Drawing.Point(0, 0);
             this.panelTaskAdd.Name = "panelTaskAdd";
-            this.panelTaskAdd.Size = new System.Drawing.Size(526, 23);
+            this.panelTaskAdd.Size = new System.Drawing.Size(548, 23);
             this.panelTaskAdd.TabIndex = 21;
             this.panelTaskAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTaskAdd_MouseDown);
+            // 
+            // cbxTaskAdd
+            // 
+            this.cbxTaskAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxTaskAdd.AutoSize = true;
+            this.cbxTaskAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTaskAdd.Location = new System.Drawing.Point(520, 229);
+            this.cbxTaskAdd.Name = "cbxTaskAdd";
+            this.cbxTaskAdd.Size = new System.Drawing.Size(18, 17);
+            this.cbxTaskAdd.TabIndex = 22;
+            this.cbxTaskAdd.UseVisualStyleBackColor = true;
+            this.cbxTaskAdd.CheckedChanged += new System.EventHandler(this.cbxTaskAdd_CheckedChanged);
             // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(526, 390);
+            this.ClientSize = new System.Drawing.Size(548, 390);
+            this.Controls.Add(this.cbxTaskAdd);
             this.Controls.Add(this.panelTaskAdd);
             this.Controls.Add(this.tbxStateId);
             this.Controls.Add(this.lblStateId);
@@ -212,5 +227,6 @@ namespace FormsUI.Forms.TaskForms
         private System.Windows.Forms.Label lblStateId;
         private System.Windows.Forms.TextBox tbxStateId;
         private System.Windows.Forms.Panel panelTaskAdd;
+        private System.Windows.Forms.CheckBox cbxTaskAdd;
     }
 }

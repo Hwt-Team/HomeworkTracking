@@ -36,12 +36,14 @@ namespace FormsUI.Forms.ExerciseForms
             this.tbxTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelExerciseUpdate = new System.Windows.Forms.Panel();
+            this.cbxExerciseUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // dtpDeadline
             // 
             this.dtpDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDeadline.Location = new System.Drawing.Point(155, 34);
             this.dtpDeadline.Name = "dtpDeadline";
@@ -52,7 +54,7 @@ namespace FormsUI.Forms.ExerciseForms
             // 
             this.lblDeadline.AutoSize = true;
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
             this.lblDeadline.Location = new System.Drawing.Point(30, 34);
             this.lblDeadline.Name = "lblDeadline";
             this.lblDeadline.Size = new System.Drawing.Size(98, 26);
@@ -124,12 +126,25 @@ namespace FormsUI.Forms.ExerciseForms
             this.panelExerciseUpdate.TabIndex = 12;
             this.panelExerciseUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelExerciseUpdate_MouseDown);
             // 
+            // cbxExerciseUpdate
+            // 
+            this.cbxExerciseUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxExerciseUpdate.AutoSize = true;
+            this.cbxExerciseUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxExerciseUpdate.Location = new System.Drawing.Point(633, 40);
+            this.cbxExerciseUpdate.Name = "cbxExerciseUpdate";
+            this.cbxExerciseUpdate.Size = new System.Drawing.Size(18, 17);
+            this.cbxExerciseUpdate.TabIndex = 13;
+            this.cbxExerciseUpdate.UseVisualStyleBackColor = true;
+            this.cbxExerciseUpdate.CheckedChanged += new System.EventHandler(this.cbxExerciseAdd_CheckedChanged);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(658, 424);
+            this.Controls.Add(this.cbxExerciseUpdate);
             this.Controls.Add(this.panelExerciseUpdate);
             this.Controls.Add(this.dtpDeadline);
             this.Controls.Add(this.lblDeadline);
@@ -157,5 +172,6 @@ namespace FormsUI.Forms.ExerciseForms
         private System.Windows.Forms.TextBox tbxTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelExerciseUpdate;
+        private System.Windows.Forms.CheckBox cbxExerciseUpdate;
     }
 }
