@@ -8,6 +8,7 @@ namespace Business.Constants
 {
     public static class Messages
     {
+        public static string Exit = "Want to close the program ?";
 
         #region Exercise
         public static string ExerciseAdd = "A new exercise will be added.";
@@ -54,8 +55,8 @@ namespace Business.Constants
         public static string TaskAdd = "A new task will be added.";
         public static string TaskDelete = "Selected task will be deleted.";
         public static string TaskDeleteAll = "All data will be deleted.";
-        public static string TaskUpdate = "Changed task will be updated.";
+        public static string TaskUpdate = "Changed task will be updated.";    
         #endregion
-      
+
     }
 }
