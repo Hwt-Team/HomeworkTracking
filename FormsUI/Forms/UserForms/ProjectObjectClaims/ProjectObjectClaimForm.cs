@@ -1,33 +1,31 @@
 ﻿using Business.Abstract;
+using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using Core.Utilities.Constants;
-using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 using Ninject.Modules;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace FormsUI.Forms.UserForms.UserClaims
+namespace FormsUI.Forms.UserForms.ProjectObjectClaims
 {
-    public partial class UserClaimForm : Form
+    public partial class ProjectObjectClaimForm : Form
     {
-        private readonly IUserClaimService _userClaimService;
+        private readonly IProjectObjectClaimService _projectObjectClaimService;
         private bool _isUser = false;
 
-        public UserClaimForm()
+        public ProjectObjectClaimForm()
         {
             InitializeComponent();
-            this._userClaimService = InstanceFactory
-                .GetInstance<IUserClaimService>(new INinjectModule[] { new CoreModule(), new FormModule() });
+            this._projectObjectClaimService = InstanceFactory
+                .GetInstance<IProjectObjectClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
-        private void UserClaimForm_Load(object sender, EventArgs e)
+        private void ProjectObjectClaimForm_Load(object sender, EventArgs e)
         {
-            this.CheckDataSourceForLoad();
-            this.DesignDataGridView(this.dgwUserClaims);
+            this.DesignDataGridView(this.dgwProjectObjectClaims);
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
@@ -46,12 +44,12 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void LoadUserClaimsForUser()
         {
-            this.dgwUserClaims.DataSource = this._userClaimService.GetUserClaims();
+            this.dgwProjectObjectClaims.DataSource = this._projectObjectClaimService;
         }
 
         private void LoadUserClaimsForAdmin()
         {
-            this.dgwUserClaims.DataSource = this._userClaimService.GetAll();
+            this.dgwProjectObjectClaims.DataSource = this._projectObjectClaimService.GetAll();
         }
 
         private void CheckDataSourceForLoad()
@@ -71,20 +69,12 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
-            addForm.Show();
-            this.CheckDataSourceForLoad();
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var cells = this.dgwUserClaims.CurrentRow?.Cells;
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.UserId = (int)cells[1].Value;
-            updateForm.ClaimId = (int)cells[2].Value;
-            updateForm.Show();
-            this.CheckDataSourceForLoad();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -92,18 +82,18 @@ namespace FormsUI.Forms.UserForms.UserClaims
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = CoreMessages.Caption,
-                Title = CoreMessages.UserClaimAdd,
-                Ok = this.DeleteUserClaim,
+                Title = CoreMessages.ProjectObjectClaimDelete,
+                Ok = this.DeleteProjectObjectClaim,
                 Cancel = this.Cancel
             });
             this.CheckDataSourceForLoad();
         }
 
-        private void DeleteUserClaim()
+        private void DeleteProjectObjectClaim()
         {
-            this._userClaimService.Delete(new UserClaim
+            this._projectObjectClaimService.Delete(new ProjectObjectClaim
             {
-                Id = (int)this.dgwUserClaims.CurrentRow?.Cells[0].Value
+                Id = (int)this.dgwProjectObjectClaims.CurrentRow?.Cells[0].Value
             });
         }
 
@@ -114,7 +104,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = CoreMessages.Caption,
-                Title = CoreMessages.UserClaimDeleteAll,
+                Title = CoreMessages.ProjectObjectClaimDeleteAll,
                 Ok = this.DeleteAll,
                 Cancel = this.Cancel
             });
@@ -123,7 +113,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void DeleteAll()
         {
-            this._userClaimService.DeleteAll();
+            this._projectObjectClaimService.DeleteAll();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

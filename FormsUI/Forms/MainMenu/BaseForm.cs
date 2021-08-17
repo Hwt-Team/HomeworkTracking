@@ -388,10 +388,10 @@ namespace FormsUI.Forms.MainMenu
         {
             if (subMenu.Visible == false)
             {
-                SetVisibilityToPanelStudentsSubMenu(false);
-                SetVisibilityToPanelITaskSubMenu(false);
-                SetVisibilityToPanelUserManagement(false);
-                SetVisibilityToPanelClaims(false);
+                //SetVisibilityToPanelStudentsSubMenu(false);
+                //SetVisibilityToPanelITaskSubMenu(false);
+                //SetVisibilityToPanelUserManagement(false);
+                //SetVisibilityToPanelClaims(false);
                 subMenu.Visible = true;
             }
             else subMenu.Visible = false;
