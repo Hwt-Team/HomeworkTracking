@@ -2,9 +2,12 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Business.Constants;
+using Core.Utilities.Constants;
 using FontAwesome.Sharp;
 using FormsUI.Forms.ExerciseForms;
 using FormsUI.Forms.GroupForms;
+using FormsUI.Forms.MessageBox;
 using FormsUI.Forms.StateForms;
 using FormsUI.Forms.StudentExerciseForms;
 using FormsUI.Forms.StudentForms.Both;
@@ -312,9 +315,22 @@ namespace FormsUI.Forms.MainMenu
 
         #region WindowState
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void Cancel() { }
+
+        private void Ok() 
         {
             Application.Exit();
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            {
+                Caption = CoreMessages.Caption,
+                Title = Messages.Exit,
+                Ok=Ok,
+                Cancel=Cancel
+            });
+            
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -388,10 +404,10 @@ namespace FormsUI.Forms.MainMenu
         {
             if (subMenu.Visible == false)
             {
-                SetVisibilityToPanelStudentsSubMenu(false);
-                SetVisibilityToPanelITaskSubMenu(false);
-                SetVisibilityToPanelUserManagement(false);
-                SetVisibilityToPanelClaims(false);
+                //SetVisibilityToPanelStudentsSubMenu(false);
+                //SetVisibilityToPanelITaskSubMenu(false);
+                //SetVisibilityToPanelUserManagement(false);
+                //SetVisibilityToPanelClaims(false);
                 subMenu.Visible = true;
             }
             else subMenu.Visible = false;

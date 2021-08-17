@@ -42,7 +42,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             // tbxClaimId
             // 
             this.tbxClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxClaimId.Location = new System.Drawing.Point(218, 102);
+            this.tbxClaimId.Location = new System.Drawing.Point(226, 118);
             this.tbxClaimId.Name = "tbxClaimId";
             this.tbxClaimId.Size = new System.Drawing.Size(151, 32);
             this.tbxClaimId.TabIndex = 15;
@@ -50,7 +50,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             // tbxUserId
             // 
             this.tbxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxUserId.Location = new System.Drawing.Point(218, 35);
+            this.tbxUserId.Location = new System.Drawing.Point(226, 51);
             this.tbxUserId.Name = "tbxUserId";
             this.tbxUserId.Size = new System.Drawing.Size(151, 32);
             this.tbxUserId.TabIndex = 14;
@@ -60,7 +60,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.lblUserId.AutoSize = true;
             this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblUserId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserId.Location = new System.Drawing.Point(41, 38);
+            this.lblUserId.Location = new System.Drawing.Point(49, 54);
             this.lblUserId.Name = "lblUserId";
             this.lblUserId.Size = new System.Drawing.Size(81, 26);
             this.lblUserId.TabIndex = 13;
@@ -71,7 +71,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.lblClaimId.AutoSize = true;
             this.lblClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblClaimId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblClaimId.Location = new System.Drawing.Point(41, 105);
+            this.lblClaimId.Location = new System.Drawing.Point(49, 121);
             this.lblClaimId.Name = "lblClaimId";
             this.lblClaimId.Size = new System.Drawing.Size(92, 26);
             this.lblClaimId.TabIndex = 12;

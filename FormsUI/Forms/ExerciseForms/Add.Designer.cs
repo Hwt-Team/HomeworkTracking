@@ -44,7 +44,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitle.Location = new System.Drawing.Point(43, 76);
+            this.lblTitle.Location = new System.Drawing.Point(36, 120);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(52, 26);
             this.lblTitle.TabIndex = 0;
@@ -56,10 +56,10 @@ namespace FormsUI.Forms.ExerciseForms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxTitle.Location = new System.Drawing.Point(168, 73);
+            this.tbxTitle.Location = new System.Drawing.Point(161, 117);
             this.tbxTitle.Multiline = true;
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(445, 136);
+            this.tbxTitle.Size = new System.Drawing.Size(291, 160);
             this.tbxTitle.TabIndex = 1;
             // 
             // btnOk
@@ -70,7 +70,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(360, 235);
+            this.btnOk.Location = new System.Drawing.Point(199, 303);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(107, 47);
             this.btnOk.TabIndex = 2;
@@ -86,7 +86,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(503, 235);
+            this.btnCancel.Location = new System.Drawing.Point(342, 303);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 47);
             this.btnCancel.TabIndex = 3;
@@ -100,6 +100,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
             this.lblDeadline.Location = new System.Drawing.Point(43, 25);
+
             this.lblDeadline.Name = "lblDeadline";
             this.lblDeadline.Size = new System.Drawing.Size(98, 26);
             this.lblDeadline.TabIndex = 4;
@@ -111,9 +112,9 @@ namespace FormsUI.Forms.ExerciseForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtpDeadline.Location = new System.Drawing.Point(168, 25);
+            this.dtpDeadline.Location = new System.Drawing.Point(161, 69);
             this.dtpDeadline.Name = "dtpDeadline";
-            this.dtpDeadline.Size = new System.Drawing.Size(445, 26);
+            this.dtpDeadline.Size = new System.Drawing.Size(291, 26);
             this.dtpDeadline.TabIndex = 5;
             // 
             // panelExerciseAdd
@@ -122,7 +123,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.panelExerciseAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelExerciseAdd.Location = new System.Drawing.Point(0, 0);
             this.panelExerciseAdd.Name = "panelExerciseAdd";
-            this.panelExerciseAdd.Size = new System.Drawing.Size(649, 23);
+            this.panelExerciseAdd.Size = new System.Drawing.Size(495, 40);
             this.panelExerciseAdd.TabIndex = 6;
             this.panelExerciseAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelExerciseAdd_MouseDown);
             // 
@@ -137,6 +138,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.cbxExerciseAdd.TabIndex = 7;
             this.cbxExerciseAdd.UseVisualStyleBackColor = true;
             this.cbxExerciseAdd.CheckedChanged += new System.EventHandler(this.cbxExerciseAdd_CheckedChanged);
+
             // 
             // Add
             // 
@@ -145,6 +147,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(649, 327);
             this.Controls.Add(this.cbxExerciseAdd);
+
             this.Controls.Add(this.panelExerciseAdd);
             this.Controls.Add(this.dtpDeadline);
             this.Controls.Add(this.lblDeadline);
@@ -173,5 +176,6 @@ namespace FormsUI.Forms.ExerciseForms
         private System.Windows.Forms.DateTimePicker dtpDeadline;
         private System.Windows.Forms.Panel panelExerciseAdd;
         private System.Windows.Forms.CheckBox cbxExerciseAdd;
+
     }
 }
