@@ -62,9 +62,9 @@ namespace FormsUI.Forms.ExerciseForms
             {
                 Id = this.Id,
                 Title = tbxTitle.Text,
-                Deadline = dtpDeadline.Value == DateTime.Now 
-                    ? (DateTime?) null
-                    : dtpDeadline.Value
+                Deadline = cbxExerciseUpdate.Checked 
+                ? dtpDeadline.Value
+                : (DateTime?)null
 
             });
         }
@@ -86,6 +86,21 @@ namespace FormsUI.Forms.ExerciseForms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void cbxExerciseAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxExerciseUpdate.Checked)
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+                dtpDeadline.Enabled = true;
+            }
+            else
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gray;
+                dtpDeadline.Enabled = false;
+
+            }
         }
     }
 }

@@ -73,16 +73,31 @@ namespace FormsUI.Forms.ExerciseForms
             {
                 Id = this._exerciseService.GetNextId(),
                 Title = tbxTitle.Text,
-                Deadline = dtpDeadline.Value == DateTime.Now 
-                    ? (DateTime?) null
-                    : dtpDeadline.Value
-            });
+                Deadline = cbxExerciseAdd.Checked
+                ? dtpDeadline.Value 
+                : (DateTime?)null
+            }) ;
+           
         }
-
         private void panelExerciseAdd_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void cbxExerciseAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxExerciseAdd.Checked)
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+                dtpDeadline.Enabled = true;
+            }
+            else
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gray;
+                dtpDeadline.Enabled = false;
+
+            }
         }
     }
 }

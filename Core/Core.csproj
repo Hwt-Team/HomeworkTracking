@@ -122,6 +122,7 @@
     <Compile Include="Entities\Concrete\User.cs" />
     <Compile Include="Entities\Concrete\UserClaim.cs" />
     <Compile Include="Entities\Dtos\PasswordDetails.cs" />
+    <Compile Include="Entities\Dtos\ProjectObjectClaimDto.cs" />
     <Compile Include="Entities\Dtos\UserLoginDto.cs" />
     <Compile Include="Entities\Dtos\UserRegisterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -40,6 +40,7 @@ namespace FormsUI.Forms.TaskForms
             this.tbxTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelTaskUpdate = new System.Windows.Forms.Panel();
+            this.cbxTaskUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbxStateId
@@ -89,6 +90,7 @@ namespace FormsUI.Forms.TaskForms
             // 
             this.dtpDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDeadline.Location = new System.Drawing.Point(164, 210);
             this.dtpDeadline.Name = "dtpDeadline";
@@ -99,7 +101,7 @@ namespace FormsUI.Forms.TaskForms
             // 
             this.lblDeadline.AutoSize = true;
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
             this.lblDeadline.Location = new System.Drawing.Point(39, 210);
             this.lblDeadline.Name = "lblDeadline";
             this.lblDeadline.Size = new System.Drawing.Size(98, 26);
@@ -171,12 +173,25 @@ namespace FormsUI.Forms.TaskForms
             this.panelTaskUpdate.TabIndex = 22;
             this.panelTaskUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTaskUpdate_MouseDown);
             // 
+            // cbxTaskUpdate
+            // 
+            this.cbxTaskUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxTaskUpdate.AutoSize = true;
+            this.cbxTaskUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTaskUpdate.Location = new System.Drawing.Point(492, 219);
+            this.cbxTaskUpdate.Name = "cbxTaskUpdate";
+            this.cbxTaskUpdate.Size = new System.Drawing.Size(18, 17);
+            this.cbxTaskUpdate.TabIndex = 23;
+            this.cbxTaskUpdate.UseVisualStyleBackColor = true;
+            this.cbxTaskUpdate.CheckedChanged += new System.EventHandler(this.cbxTaskUpdate_CheckedChanged);
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(526, 390);
+            this.Controls.Add(this.cbxTaskUpdate);
             this.Controls.Add(this.panelTaskUpdate);
             this.Controls.Add(this.tbxStateId);
             this.Controls.Add(this.lblStateId);
@@ -212,5 +227,6 @@ namespace FormsUI.Forms.TaskForms
         private System.Windows.Forms.TextBox tbxTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelTaskUpdate;
+        private System.Windows.Forms.CheckBox cbxTaskUpdate;
     }
 }

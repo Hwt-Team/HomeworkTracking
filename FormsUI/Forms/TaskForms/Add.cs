@@ -70,9 +70,9 @@ namespace FormsUI.Forms.TaskForms
                 Id = this._taskService.GetNextId(),
                 Title = tbxTitle.Text,
                 Detail = tbxDetail.Text,
-                Deadline = dtpDeadline.Value == DateTime.Now
-                    ? (DateTime?) null
-                    : dtpDeadline.Value,
+                Deadline = cbxTaskAdd.Checked
+                ? dtpDeadline.Value
+                : (DateTime?)null,
                 StateId = int.Parse(tbxStateId.Text)
             });
         }
@@ -81,6 +81,21 @@ namespace FormsUI.Forms.TaskForms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void cbxTaskAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxTaskAdd.Checked)
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
+                dtpDeadline.Enabled = true;
+            }
+            else
+            {
+                lblDeadline.ForeColor = System.Drawing.Color.Gray;
+                dtpDeadline.Enabled = false;
+
+            }
         }
     }
 }
