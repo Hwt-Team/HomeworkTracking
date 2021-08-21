@@ -12,45 +12,13 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            UserManager userManager = new UserManager(new EfUserDal());
+            string name = "Student Exercises Search";
 
-            //var userRegister = userManager.Register(new UserRegisterDto
+            //for (int i = 0; i < name.Length - 1; i++)
             //{
-            //    UserName = "Asim",
-            //    Password = "Asim555",
-            //    PasswordRepeat = "Asim555",
-            //    FirstName = "Asim",
-            //    LastName = "Alizade",
-            //    Email = "asimelizade01@gmail.com"
-            //});
-
-            //userManager.Add(userRegister);
-
-            var userLogin = userManager.Login(new UserLoginDto
-            {
-                EmailOrUsername = "Asim",
-                Password = "Asim555"
-            });
-
-            Console.WriteLine(userLogin.Id);
-            Console.WriteLine(userLogin.UserName);
-            Console.WriteLine(userLogin.PasswordHash);
-            Console.WriteLine(userLogin.PasswordSalt);
-            Console.WriteLine(userLogin.FirstName);
-            Console.WriteLine(userLogin.LastName);
-            Console.WriteLine(userLogin.Email);
-            Console.WriteLine(userLogin.Status);
-
-            //userManager.Delete(new User
-            //{
-            //    Id = 1
-            //});
-
-
-            // This is Test1 branch
-
-
-            // Here is test branch.
+            //    result += name[i];
+            //    if (char.IsUpper(name[i + 1])) result += " ";
+            //}
 
 
 

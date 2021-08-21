@@ -3,35 +3,29 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using Core.Utilities.Constants;
-using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 using Ninject.Modules;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace FormsUI.Forms.UserForms.UserClaims
+namespace FormsUI.Forms.UserForms.Claims.Main
 {
-    public partial class Update : Form
+    public partial class Add : Form
     {
-        private readonly IUserClaimService _userClaimService;
+        private readonly IMainClaimService _mainClaimService;
 
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public int ClaimId { get; set; }
-
-
-        public Update()
+        public Add()
         {
             InitializeComponent();
-            this._userClaimService = InstanceFactory
-                .GetInstance<IUserClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
+            this._mainClaimService = InstanceFactory
+                .GetInstance<IMainClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
-        private void Update_Load(object sender, EventArgs e)
+        private void Add_Load(object sender, EventArgs e)
         {
-            this.tbxUserId.Text = this.UserId.ToString();
-            this.tbxClaimId.Text = this.ClaimId.ToString();
+            MainHelper.SetHelperFormName(this.panelMainClaimAdd, this.label);
         }
 
         #region Dll import
@@ -49,30 +43,29 @@ namespace FormsUI.Forms.UserForms.UserClaims
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
                 Caption = CoreMessages.Caption,
-                Title = CoreMessages.UserClaimUpdate,
-                Ok = this.UpdateUserClaim,
+                Title = CoreMessages.MainClaimAdd,
+                Ok = this.AddMainClaim,
                 Cancel = this.Cancel
             });
         }
 
-        private void UpdateUserClaim()
+        private void Cancel() { }
+
+        private void AddMainClaim()
         {
-            this._userClaimService.Update(new UserClaim
+            this._mainClaimService.Add(new MainClaim
             {
-                Id = this.Id,
-                UserId = int.Parse(this.tbxUserId.Text),
-                ClaimId = int.Parse(this.tbxClaimId.Text)
+                Id = this._mainClaimService.GetNextId(),
+                Name = this.tbxName.Text
             });
         }
-
-        private void Cancel() { }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panelProjectObjectClaimsUpdate_MouseDown(object sender, MouseEventArgs e)
+        private void panelMainClaimAdd_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);

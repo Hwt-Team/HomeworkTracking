@@ -6,6 +6,7 @@ using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
+using Core.Entities.Dtos;
 using DataAccess.Abstract;
 
 namespace Business.Concrete
@@ -67,6 +68,12 @@ namespace Business.Concrete
         public List<UserClaim> GetUserClaims(int userId)
         {
             return this._userClaimDal.GetAll(u => u.UserId == userId);
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<UserClaimDto> GetUserClaimDto()
+        {
+            return this._userClaimDal.GetAllUserClaimDetails();
         }
     }
 }

@@ -46,7 +46,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void LoadUserClaimsForUser()
         {
-            this.dgwUserClaims.DataSource = this._userClaimService.GetUserClaims();
+            this.dgwUserClaims.DataSource = this._userClaimService.GetUserClaimDto();
         }
 
         private void LoadUserClaimsForAdmin()

@@ -1,5 +1,5 @@
 ﻿
-namespace FormsUI.Forms.UserForms.UserClaims
+namespace FormsUI.Forms.UserForms.Claims.Subsidiaries
 {
     partial class Update
     {
@@ -30,54 +30,14 @@ namespace FormsUI.Forms.UserForms.UserClaims
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Update));
-            this.tbxClaimId = new System.Windows.Forms.TextBox();
-            this.tbxUserId = new System.Windows.Forms.TextBox();
-            this.lblUserId = new System.Windows.Forms.Label();
-            this.lblClaimId = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.panelProjectObjectClaimsUpdate = new System.Windows.Forms.Panel();
+            this.tbxName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.panelSubsidiaryClaimUpdate = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
-            this.panelProjectObjectClaimsUpdate.SuspendLayout();
+            this.panelSubsidiaryClaimUpdate.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbxClaimId
-            // 
-            this.tbxClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxClaimId.Location = new System.Drawing.Point(240, 138);
-            this.tbxClaimId.Name = "tbxClaimId";
-            this.tbxClaimId.Size = new System.Drawing.Size(151, 32);
-            this.tbxClaimId.TabIndex = 21;
-            // 
-            // tbxUserId
-            // 
-            this.tbxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxUserId.Location = new System.Drawing.Point(240, 71);
-            this.tbxUserId.Name = "tbxUserId";
-            this.tbxUserId.Size = new System.Drawing.Size(151, 32);
-            this.tbxUserId.TabIndex = 20;
-            // 
-            // lblUserId
-            // 
-            this.lblUserId.AutoSize = true;
-            this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblUserId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserId.Location = new System.Drawing.Point(63, 74);
-            this.lblUserId.Name = "lblUserId";
-            this.lblUserId.Size = new System.Drawing.Size(81, 26);
-            this.lblUserId.TabIndex = 19;
-            this.lblUserId.Text = "User id";
-            // 
-            // lblClaimId
-            // 
-            this.lblClaimId.AutoSize = true;
-            this.lblClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblClaimId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblClaimId.Location = new System.Drawing.Point(63, 141);
-            this.lblClaimId.Name = "lblClaimId";
-            this.lblClaimId.Size = new System.Drawing.Size(92, 26);
-            this.lblClaimId.TabIndex = 18;
-            this.lblClaimId.Text = "Claim id";
             // 
             // btnCancel
             // 
@@ -87,10 +47,10 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(323, 231);
+            this.btnCancel.Location = new System.Drawing.Point(305, 190);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 47);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Size = new System.Drawing.Size(108, 47);
+            this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -103,34 +63,53 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(180, 231);
+            this.btnOk.Location = new System.Drawing.Point(166, 190);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(107, 47);
-            this.btnOk.TabIndex = 16;
+            this.btnOk.Size = new System.Drawing.Size(108, 47);
+            this.btnOk.TabIndex = 19;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // panelProjectObjectClaimsUpdate
+            // tbxName
             // 
-            this.panelProjectObjectClaimsUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panelProjectObjectClaimsUpdate.Controls.Add(this.label);
-            this.panelProjectObjectClaimsUpdate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProjectObjectClaimsUpdate.Location = new System.Drawing.Point(0, 0);
-            this.panelProjectObjectClaimsUpdate.Name = "panelProjectObjectClaimsUpdate";
-            this.panelProjectObjectClaimsUpdate.Size = new System.Drawing.Size(475, 44);
-            this.panelProjectObjectClaimsUpdate.TabIndex = 51;
-            this.panelProjectObjectClaimsUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelProjectObjectClaimsUpdate_MouseDown);
+            this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxName.Location = new System.Drawing.Point(195, 93);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(196, 32);
+            this.tbxName.TabIndex = 18;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblName.Location = new System.Drawing.Point(48, 96);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(71, 26);
+            this.lblName.TabIndex = 17;
+            this.lblName.Text = "Name";
+            // 
+            // panelSubsidiaryClaimUpdate
+            // 
+            this.panelSubsidiaryClaimUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelSubsidiaryClaimUpdate.Controls.Add(this.label);
+            this.panelSubsidiaryClaimUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubsidiaryClaimUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelSubsidiaryClaimUpdate.Name = "panelSubsidiaryClaimUpdate";
+            this.panelSubsidiaryClaimUpdate.Size = new System.Drawing.Size(435, 45);
+            this.panelSubsidiaryClaimUpdate.TabIndex = 16;
+            this.panelSubsidiaryClaimUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSubsidiaryClaimUpdate_MouseDown);
             // 
             // label
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label.Location = new System.Drawing.Point(26, 12);
+            this.label.Location = new System.Drawing.Point(25, 9);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(50, 24);
-            this.label.TabIndex = 23;
+            this.label.TabIndex = 16;
             this.label.Text = "label";
             // 
             // Update
@@ -138,22 +117,21 @@ namespace FormsUI.Forms.UserForms.UserClaims
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(475, 312);
-            this.Controls.Add(this.panelProjectObjectClaimsUpdate);
-            this.Controls.Add(this.tbxClaimId);
-            this.Controls.Add(this.tbxUserId);
-            this.Controls.Add(this.lblUserId);
-            this.Controls.Add(this.lblClaimId);
+            this.ClientSize = new System.Drawing.Size(435, 276);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.tbxName);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.panelSubsidiaryClaimUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(475, 292);
+            this.MinimumSize = new System.Drawing.Size(435, 276);
             this.Name = "Update";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update";
             this.Load += new System.EventHandler(this.Update_Load);
-            this.panelProjectObjectClaimsUpdate.ResumeLayout(false);
-            this.panelProjectObjectClaimsUpdate.PerformLayout();
+            this.panelSubsidiaryClaimUpdate.ResumeLayout(false);
+            this.panelSubsidiaryClaimUpdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,13 +139,11 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbxClaimId;
-        private System.Windows.Forms.TextBox tbxUserId;
-        private System.Windows.Forms.Label lblUserId;
-        private System.Windows.Forms.Label lblClaimId;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Panel panelProjectObjectClaimsUpdate;
+        private System.Windows.Forms.TextBox tbxName;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panelSubsidiaryClaimUpdate;
         private System.Windows.Forms.Label label;
     }
 }

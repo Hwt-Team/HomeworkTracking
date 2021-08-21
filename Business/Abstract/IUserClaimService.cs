@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Entities.Concrete;
+using Core.Entities.Dtos;
 
 namespace Business.Abstract
 {
@@ -13,5 +14,6 @@ namespace Business.Abstract
         UserClaim GetById(int id);
         int GetNextId();
         List<UserClaim> GetUserClaims(int userId);
+        List<UserClaimDto> GetUserClaimDto();
     }
 }

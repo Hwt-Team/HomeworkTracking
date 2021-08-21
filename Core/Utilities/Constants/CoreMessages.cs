@@ -24,5 +24,19 @@
         public static string ProjectObjectClaimDelete = "Selected project object & claim will be deleted.";
         public static string ProjectObjectClaimUpdate = "Changed project object & claim will be updated.";
         #endregion
+
+        #region Claims
+
+        public static string MainClaimAdd = "A new main claim will be added.";
+        public static string MainClaimUpdate = "Changed main claim will be updated.";
+        public static string MainClaimDelete = "Selected main claim will be deleted.";
+        public static string MainClaimDeleteAll = "All data will be deleted.";
+
+        public static string SubsidiaryClaimAdd = "A new subsidiary claim will be added.";
+        public static string SubsidiaryClaimUpdate = "Changed subsidiary claim will be updated.";
+        public static string SubsidiaryClaimDelete = "Selected subsidiary claim will be deleted.";
+        public static string SubsidiaryClaimDeleteAll = "All data will be deleted.";
+
+        #endregion
     }
 }

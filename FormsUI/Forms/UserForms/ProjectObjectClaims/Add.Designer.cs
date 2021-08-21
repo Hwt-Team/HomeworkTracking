@@ -30,28 +30,21 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
-            this.panelProjectObjectClaimAdd = new System.Windows.Forms.Panel();
             this.tbxProjectObjectId = new System.Windows.Forms.TextBox();
             this.tbxSubsidiaryClaimId = new System.Windows.Forms.TextBox();
             this.lblSubsidiaryClaimId = new System.Windows.Forms.Label();
             this.lblProjectObjectId = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panelProjectObjectClaimsAdd = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
+            this.panelProjectObjectClaimsAdd.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelProjectObjectClaimAdd
-            // 
-            this.panelProjectObjectClaimAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panelProjectObjectClaimAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProjectObjectClaimAdd.Location = new System.Drawing.Point(0, 0);
-            this.panelProjectObjectClaimAdd.Name = "panelProjectObjectClaimAdd";
-            this.panelProjectObjectClaimAdd.Size = new System.Drawing.Size(475, 23);
-            this.panelProjectObjectClaimAdd.TabIndex = 44;
             // 
             // tbxProjectObjectId
             // 
             this.tbxProjectObjectId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProjectObjectId.Location = new System.Drawing.Point(283, 126);
+            this.tbxProjectObjectId.Location = new System.Drawing.Point(283, 140);
             this.tbxProjectObjectId.Name = "tbxProjectObjectId";
             this.tbxProjectObjectId.Size = new System.Drawing.Size(151, 32);
             this.tbxProjectObjectId.TabIndex = 43;
@@ -59,7 +52,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             // tbxSubsidiaryClaimId
             // 
             this.tbxSubsidiaryClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxSubsidiaryClaimId.Location = new System.Drawing.Point(283, 59);
+            this.tbxSubsidiaryClaimId.Location = new System.Drawing.Point(283, 73);
             this.tbxSubsidiaryClaimId.Name = "tbxSubsidiaryClaimId";
             this.tbxSubsidiaryClaimId.Size = new System.Drawing.Size(151, 32);
             this.tbxSubsidiaryClaimId.TabIndex = 42;
@@ -69,7 +62,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.lblSubsidiaryClaimId.AutoSize = true;
             this.lblSubsidiaryClaimId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblSubsidiaryClaimId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblSubsidiaryClaimId.Location = new System.Drawing.Point(50, 62);
+            this.lblSubsidiaryClaimId.Location = new System.Drawing.Point(50, 76);
             this.lblSubsidiaryClaimId.Name = "lblSubsidiaryClaimId";
             this.lblSubsidiaryClaimId.Size = new System.Drawing.Size(195, 26);
             this.lblSubsidiaryClaimId.TabIndex = 41;
@@ -80,7 +73,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.lblProjectObjectId.AutoSize = true;
             this.lblProjectObjectId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblProjectObjectId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblProjectObjectId.Location = new System.Drawing.Point(50, 129);
+            this.lblProjectObjectId.Location = new System.Drawing.Point(50, 143);
             this.lblProjectObjectId.Name = "lblProjectObjectId";
             this.lblProjectObjectId.Size = new System.Drawing.Size(167, 26);
             this.lblProjectObjectId.TabIndex = 40;
@@ -100,6 +93,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.btnCancel.TabIndex = 39;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
@@ -115,6 +109,29 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.btnOk.TabIndex = 38;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // panelProjectObjectClaimsAdd
+            // 
+            this.panelProjectObjectClaimsAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelProjectObjectClaimsAdd.Controls.Add(this.label);
+            this.panelProjectObjectClaimsAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProjectObjectClaimsAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelProjectObjectClaimsAdd.Name = "panelProjectObjectClaimsAdd";
+            this.panelProjectObjectClaimsAdd.Size = new System.Drawing.Size(475, 44);
+            this.panelProjectObjectClaimsAdd.TabIndex = 44;
+            this.panelProjectObjectClaimsAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelProjectObjectClaimsAdd_MouseDown);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(26, 12);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(50, 24);
+            this.label.TabIndex = 23;
+            this.label.Text = "label";
             // 
             // Add
             // 
@@ -122,7 +139,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(475, 292);
-            this.Controls.Add(this.panelProjectObjectClaimAdd);
+            this.Controls.Add(this.panelProjectObjectClaimsAdd);
             this.Controls.Add(this.tbxProjectObjectId);
             this.Controls.Add(this.tbxSubsidiaryClaimId);
             this.Controls.Add(this.lblSubsidiaryClaimId);
@@ -131,22 +148,25 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(475, 292);
             this.Name = "Add";
             this.Text = "Add";
             this.Load += new System.EventHandler(this.Add_Load);
+            this.panelProjectObjectClaimsAdd.ResumeLayout(false);
+            this.panelProjectObjectClaimsAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelProjectObjectClaimAdd;
         private System.Windows.Forms.TextBox tbxProjectObjectId;
         private System.Windows.Forms.TextBox tbxSubsidiaryClaimId;
         private System.Windows.Forms.Label lblSubsidiaryClaimId;
         private System.Windows.Forms.Label lblProjectObjectId;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Panel panelProjectObjectClaimsAdd;
+        private System.Windows.Forms.Label label;
     }
 }

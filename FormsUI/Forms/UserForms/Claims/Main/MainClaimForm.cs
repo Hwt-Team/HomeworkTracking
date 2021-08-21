@@ -1,29 +1,32 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Business.Abstract;
+﻿using Business.Abstract;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
-using Entities.Concrete;
+using Core.Entities.Concrete;
+using Core.Utilities.Constants;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using Ninject.Modules;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
-namespace FormsUI.Forms.StudentForms.Graduates
+namespace FormsUI.Forms.UserForms.Claims.Main
 {
-    public partial class GraduateForm : Form
+    public partial class MainClaimForm : Form
     {
-        private readonly IGraduateStudentService _graduateStudentService;
-        public GraduateForm()
+        private readonly IMainClaimService _mainClaimService;
+
+        public MainClaimForm()
         {
             InitializeComponent();
-            this._graduateStudentService = InstanceFactory
-                .GetInstance<IGraduateStudentService>(new BusinessModule());
+            this._mainClaimService = InstanceFactory
+                .GetInstance<IMainClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
-        private void GraduateForm_Load(object sender, EventArgs e)
+        private void MainClaimForm_Load(object sender, EventArgs e)
         {
-            LoadGraduates();
-            DesignDataGridView(dgwGraduates);
+            this.LoadMainClaims();
+            this.DesignDataGridView(this.dgwMainClaims);
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
@@ -40,47 +43,44 @@ namespace FormsUI.Forms.StudentForms.Graduates
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void LoadGraduates()
+        private void LoadMainClaims()
         {
-            this.dgwGraduates.DataSource = this._graduateStudentService.GetAll();
+            this.dgwMainClaims.DataSource = this._mainClaimService.GetAll();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addForm = InstanceFactory.GetInstance<Add>(new FormModule());
             addForm.Show();
-            LoadGraduates();
+            this.LoadMainClaims();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwGraduates.CurrentRow?.Cells;
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.FirstName = cells[1].Value.ToString();
-            updateForm.LastName = cells[2].Value.ToString();
-            updateForm.GroupId = (int) cells[3].Value;
-            updateForm.GraduateDate = (DateTime) cells[4].Value;
+            var cells = this.dgwMainClaims.CurrentRow?.Cells;
+            updateForm.Id = (int)cells[0].Value;
+            updateForm.Name = cells[1].Value.ToString();
             updateForm.Show();
-            LoadGraduates();
+            this.LoadMainClaims();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
-                Caption = "System",
-                Title = "Selected graduate will be deleted.",
-                Ok = DeleteGraduate,
-                Cancel = Cancel
+                Caption = CoreMessages.Caption,
+                Title = CoreMessages.MainClaimDelete,
+                Ok = this.DeleteMainClaim,
+                Cancel = this.Cancel
             });
         }
 
-        private void DeleteGraduate()
+        private void DeleteMainClaim()
         {
-            this._graduateStudentService.Delete(new GraduateStudent
+            this._mainClaimService.Delete(new MainClaim
             {
-                Id = (int) dgwGraduates.CurrentRow?.Cells[0].Value
+                Id = (int)this.dgwMainClaims.CurrentRow?.Cells[0].Value
             });
         }
 
@@ -90,20 +90,21 @@ namespace FormsUI.Forms.StudentForms.Graduates
         {
             WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
+                Caption = CoreMessages.Caption,
+                Title = CoreMessages.MainClaimDeleteAll,
+                Ok = this.DeleteAll,
+                Cancel = this.Cancel
             });
         }
 
         private void DeleteAll()
         {
-            this._graduateStudentService.DeleteAll();
+            this._mainClaimService.DeleteAll();
         }
+
         private void btnReload_Click(object sender, EventArgs e)
         {
-            this.LoadGraduates();
+            this.LoadMainClaims();
         }
     }
 }

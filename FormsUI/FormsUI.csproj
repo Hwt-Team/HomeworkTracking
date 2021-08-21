@@ -241,6 +241,48 @@
     <Compile Include="Forms\TaskForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForms\Claims\Both\ClaimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Both\ClaimForm.Designer.cs">
+      <DependentUpon>ClaimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\MainClaimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\MainClaimForm.Designer.cs">
+      <DependentUpon>MainClaimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Main\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\SubsidiaryClaimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\SubsidiaryClaimForm.Designer.cs">
+      <DependentUpon>SubsidiaryClaimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Claims\Subsidiaries\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForms\ProjectObjectClaims\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +294,12 @@
     </Compile>
     <Compile Include="Forms\UserForms\ProjectObjectClaims\ProjectObjectClaimForm.Designer.cs">
       <DependentUpon>ProjectObjectClaimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjectClaims\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\ProjectObjectClaims\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserForms\ProjectObjects\Add.cs">
       <SubType>Form</SubType>
@@ -325,6 +373,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Utilities\ExceptionHandler.cs" />
+    <Compile Include="Utilities\MainHelper.cs" />
     <EmbeddedResource Include="Forms\LoginForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,11 +452,35 @@
     <EmbeddedResource Include="Forms\TaskForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Both\ClaimForm.resx">
+      <DependentUpon>ClaimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Main\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Main\MainClaimForm.resx">
+      <DependentUpon>MainClaimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Main\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Subsidiaries\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Subsidiaries\SubsidiaryClaimForm.resx">
+      <DependentUpon>SubsidiaryClaimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Claims\Subsidiaries\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\ProjectObjectClaims\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\ProjectObjectClaims\ProjectObjectClaimForm.resx">
       <DependentUpon>ProjectObjectClaimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\ProjectObjectClaims\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\ProjectObjects\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>

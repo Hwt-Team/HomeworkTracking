@@ -14,6 +14,10 @@ using FormsUI.Forms.StudentForms.Both;
 using FormsUI.Forms.StudentForms.Graduates;
 using FormsUI.Forms.StudentForms.Studies;
 using FormsUI.Forms.TaskForms;
+using FormsUI.Forms.UserForms.Claims.Both;
+using FormsUI.Forms.UserForms.Claims.Main;
+using FormsUI.Forms.UserForms.Claims.Subsidiaries;
+using FormsUI.Forms.UserForms.ProjectObjectClaims;
 using FormsUI.Forms.UserForms.ProjectObjects;
 using FormsUI.Forms.UserForms.UserClaims;
 using FormsUI.Forms.UserForms.Users;
@@ -40,6 +44,7 @@ namespace FormsUI.Forms.MainMenu
 
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             CustomizeDesign();
+            this.SetHeightToUserManagement(200);
         }
 
         #region Colors
@@ -132,6 +137,16 @@ namespace FormsUI.Forms.MainMenu
             childForm.BringToFront();
             childForm.Show();
             lblTitleChildForm.Text = this.FixChildFormName(childForm.Text);
+        }
+
+        private void SetHeightToUserManagement(int value)
+        {
+            this.panelUserManagement.Height = value;
+        }
+
+        private bool CheckClaimsSubMenuVisibility()
+        {
+            return this.panelClaimsSubMenu.Visible;
         }
 
         private string FixChildFormName(string childFormName)
@@ -237,38 +252,44 @@ namespace FormsUI.Forms.MainMenu
             OpenChildForm(new ProjectObjectForm());
         }
 
+        #region Claims
+
         private void btnClaims_Click(object sender, EventArgs e)
         {
             ShowSubMenu(this.panelClaimsSubMenu);
             ActivateSubMenuButton(sender, RGBColors.color4);
+            if(this.CheckClaimsSubMenuVisibility()) this.SetHeightToUserManagement(305);
+            else this.SetHeightToUserManagement(200);
         }
 
         private void btnBaseClaims_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color5);
-            //OpenChildForm(new BaseClaimForm());
+            OpenChildForm(new ClaimForm());
         }
 
         private void btnMainClaims_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color6);
-            //OpenChildForm(new MainClaimForm());
+            OpenChildForm(new MainClaimForm());
         }
 
         private void btnSubsidiaryClaims_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color1);
-            //OpenChildForm(new SubsidiaryClaimForm());
+            OpenChildForm(new SubsidiaryClaimForm());
         }
+
+        #endregion
 
         private void btnProjectObjectClaims_Click(object sender, EventArgs e)
         {
             ActivateSubMenuButton(sender, RGBColors.color2);
-            //OpenChildForm(new ProjectObjectClaimForm());
+            OpenChildForm(new ProjectObjectClaimForm());
         }
 
-
         #endregion
+
         #endregion
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -285,6 +306,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelITaskSubMenu.Visible = false;
             this.panelStudentSubMenu.Visible = false;
             this.panelUserManagement.Visible = false;
+            this.panelClaimsSubMenu.Visible = false;
             iconCurrentChildFormIcon.IconChar = IconChar.Home;
             iconCurrentChildFormIcon.IconColor = Color.Gainsboro;
             lblTitleChildForm.Text = "Home";
@@ -334,8 +356,17 @@ namespace FormsUI.Forms.MainMenu
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
+        {  
+            if(WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+                this.btnMaximize.IconChar = IconChar.WindowRestore;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+                this.btnMaximize.IconChar = IconChar.WindowMaximize;
+            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

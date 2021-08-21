@@ -36,7 +36,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.chbxLastName = new System.Windows.Forms.CheckBox();
             this.chbxFirstName = new System.Windows.Forms.CheckBox();
             this.tbxStudentIdSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStudentName = new System.Windows.Forms.Label();
             this.tbxIdSearch = new System.Windows.Forms.TextBox();
             this.lblExerciseIdSearch = new System.Windows.Forms.Label();
             this.lblStudentIdSearch = new System.Windows.Forms.Label();
@@ -44,15 +44,18 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.chbxActive = new System.Windows.Forms.CheckBox();
             this.btnMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.btnClose = new FontAwesome.Sharp.IconPictureBox();
+            this.panelStudentExerciseSearch = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            this.panelStudentExerciseSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxExercise
             // 
             this.tbxExercise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxExercise.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxExercise.Location = new System.Drawing.Point(210, 254);
+            this.tbxExercise.Location = new System.Drawing.Point(212, 277);
             this.tbxExercise.Multiline = true;
             this.tbxExercise.Name = "tbxExercise";
             this.tbxExercise.Size = new System.Drawing.Size(198, 106);
@@ -64,7 +67,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.lblExercise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExercise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblExercise.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblExercise.Location = new System.Drawing.Point(68, 254);
+            this.lblExercise.Location = new System.Drawing.Point(70, 277);
             this.lblExercise.Name = "lblExercise";
             this.lblExercise.Size = new System.Drawing.Size(93, 35);
             this.lblExercise.TabIndex = 15;
@@ -74,7 +77,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             // 
             this.tbxExerciseIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxExerciseIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxExerciseIdSearch.Location = new System.Drawing.Point(210, 151);
+            this.tbxExerciseIdSearch.Location = new System.Drawing.Point(212, 174);
             this.tbxExerciseIdSearch.Name = "tbxExerciseIdSearch";
             this.tbxExerciseIdSearch.Size = new System.Drawing.Size(100, 30);
             this.tbxExerciseIdSearch.TabIndex = 20;
@@ -84,7 +87,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             // 
             this.tbxStudentName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxStudentName.Location = new System.Drawing.Point(210, 200);
+            this.tbxStudentName.Location = new System.Drawing.Point(212, 223);
             this.tbxStudentName.Name = "tbxStudentName";
             this.tbxStudentName.Size = new System.Drawing.Size(121, 30);
             this.tbxStudentName.TabIndex = 13;
@@ -95,7 +98,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.chbxLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chbxLastName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.chbxLastName.Location = new System.Drawing.Point(344, 214);
+            this.chbxLastName.Location = new System.Drawing.Point(346, 237);
             this.chbxLastName.Name = "chbxLastName";
             this.chbxLastName.Size = new System.Drawing.Size(111, 25);
             this.chbxLastName.TabIndex = 11;
@@ -108,7 +111,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.chbxFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chbxFirstName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.chbxFirstName.Location = new System.Drawing.Point(344, 191);
+            this.chbxFirstName.Location = new System.Drawing.Point(346, 214);
             this.chbxFirstName.Name = "chbxFirstName";
             this.chbxFirstName.Size = new System.Drawing.Size(111, 25);
             this.chbxFirstName.TabIndex = 9;
@@ -120,28 +123,28 @@ namespace FormsUI.Forms.StudentExerciseForms
             // 
             this.tbxStudentIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxStudentIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxStudentIdSearch.Location = new System.Drawing.Point(210, 102);
+            this.tbxStudentIdSearch.Location = new System.Drawing.Point(212, 125);
             this.tbxStudentIdSearch.Name = "tbxStudentIdSearch";
             this.tbxStudentIdSearch.Size = new System.Drawing.Size(100, 30);
             this.tbxStudentIdSearch.TabIndex = 19;
             this.tbxStudentIdSearch.TextChanged += new System.EventHandler(this.tbxStudentIdSearch_TextChanged);
             // 
-            // label1
+            // lblStudentName
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(68, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Student Name";
+            this.lblStudentName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStudentName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblStudentName.Location = new System.Drawing.Point(70, 226);
+            this.lblStudentName.Name = "lblStudentName";
+            this.lblStudentName.Size = new System.Drawing.Size(140, 24);
+            this.lblStudentName.TabIndex = 8;
+            this.lblStudentName.Text = "Student Name";
             // 
             // tbxIdSearch
             // 
             this.tbxIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxIdSearch.Location = new System.Drawing.Point(210, 53);
+            this.tbxIdSearch.Location = new System.Drawing.Point(212, 76);
             this.tbxIdSearch.Name = "tbxIdSearch";
             this.tbxIdSearch.Size = new System.Drawing.Size(100, 30);
             this.tbxIdSearch.TabIndex = 18;
@@ -152,7 +155,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.lblExerciseIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExerciseIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblExerciseIdSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblExerciseIdSearch.Location = new System.Drawing.Point(68, 154);
+            this.lblExerciseIdSearch.Location = new System.Drawing.Point(70, 177);
             this.lblExerciseIdSearch.Name = "lblExerciseIdSearch";
             this.lblExerciseIdSearch.Size = new System.Drawing.Size(110, 26);
             this.lblExerciseIdSearch.TabIndex = 16;
@@ -163,7 +166,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.lblStudentIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStudentIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblStudentIdSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblStudentIdSearch.Location = new System.Drawing.Point(68, 105);
+            this.lblStudentIdSearch.Location = new System.Drawing.Point(70, 128);
             this.lblStudentIdSearch.Name = "lblStudentIdSearch";
             this.lblStudentIdSearch.Size = new System.Drawing.Size(110, 26);
             this.lblStudentIdSearch.TabIndex = 14;
@@ -174,7 +177,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.lblIdSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIdSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblIdSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblIdSearch.Location = new System.Drawing.Point(68, 56);
+            this.lblIdSearch.Location = new System.Drawing.Point(70, 79);
             this.lblIdSearch.Name = "lblIdSearch";
             this.lblIdSearch.Size = new System.Drawing.Size(41, 26);
             this.lblIdSearch.TabIndex = 12;
@@ -185,7 +188,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.chbxActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chbxActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chbxActive.ForeColor = System.Drawing.Color.Gainsboro;
-            this.chbxActive.Location = new System.Drawing.Point(349, 105);
+            this.chbxActive.Location = new System.Drawing.Point(351, 128);
             this.chbxActive.Name = "chbxActive";
             this.chbxActive.Size = new System.Drawing.Size(86, 29);
             this.chbxActive.TabIndex = 10;
@@ -196,7 +199,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             // btnMinimize
             // 
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnMinimize.ForeColor = System.Drawing.Color.DimGray;
             this.btnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.btnMinimize.IconColor = System.Drawing.Color.DimGray;
@@ -212,7 +215,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnClose.ForeColor = System.Drawing.Color.DimGray;
             this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnClose.IconColor = System.Drawing.Color.DimGray;
@@ -225,14 +228,37 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panelStudentExerciseSearch
+            // 
+            this.panelStudentExerciseSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelStudentExerciseSearch.Controls.Add(this.label);
+            this.panelStudentExerciseSearch.Controls.Add(this.btnClose);
+            this.panelStudentExerciseSearch.Controls.Add(this.btnMinimize);
+            this.panelStudentExerciseSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStudentExerciseSearch.Location = new System.Drawing.Point(0, 0);
+            this.panelStudentExerciseSearch.Name = "panelStudentExerciseSearch";
+            this.panelStudentExerciseSearch.Size = new System.Drawing.Size(514, 44);
+            this.panelStudentExerciseSearch.TabIndex = 23;
+            this.panelStudentExerciseSearch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStudentExerciseSearch_MouseDown);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(26, 12);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(50, 24);
+            this.label.TabIndex = 23;
+            this.label.Text = "label";
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(514, 441);
-            this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.panelStudentExerciseSearch);
             this.Controls.Add(this.tbxExercise);
             this.Controls.Add(this.lblExercise);
             this.Controls.Add(this.tbxExerciseIdSearch);
@@ -240,7 +266,7 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.Controls.Add(this.chbxLastName);
             this.Controls.Add(this.chbxFirstName);
             this.Controls.Add(this.tbxStudentIdSearch);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblStudentName);
             this.Controls.Add(this.tbxIdSearch);
             this.Controls.Add(this.lblExerciseIdSearch);
             this.Controls.Add(this.lblStudentIdSearch);
@@ -252,6 +278,8 @@ namespace FormsUI.Forms.StudentExerciseForms
             this.Text = "Search";
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            this.panelStudentExerciseSearch.ResumeLayout(false);
+            this.panelStudentExerciseSearch.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +294,7 @@ namespace FormsUI.Forms.StudentExerciseForms
         private System.Windows.Forms.CheckBox chbxLastName;
         private System.Windows.Forms.CheckBox chbxFirstName;
         private System.Windows.Forms.TextBox tbxStudentIdSearch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStudentName;
         private System.Windows.Forms.TextBox tbxIdSearch;
         private System.Windows.Forms.Label lblExerciseIdSearch;
         private System.Windows.Forms.Label lblStudentIdSearch;
@@ -274,5 +302,7 @@ namespace FormsUI.Forms.StudentExerciseForms
         private System.Windows.Forms.CheckBox chbxActive;
         private FontAwesome.Sharp.IconPictureBox btnMinimize;
         private FontAwesome.Sharp.IconPictureBox btnClose;
+        private System.Windows.Forms.Panel panelStudentExerciseSearch;
+        private System.Windows.Forms.Label label;
     }
 }
