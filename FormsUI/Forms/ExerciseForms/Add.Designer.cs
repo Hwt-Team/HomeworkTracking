@@ -36,7 +36,7 @@ namespace FormsUI.Forms.ExerciseForms
             this.lblDeadline = new System.Windows.Forms.Label();
             this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.panelExerciseAdd = new System.Windows.Forms.Panel();
-            this.cbxDeadline = new System.Windows.Forms.CheckBox();
+            this.cbxExerciseAdd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -98,8 +98,9 @@ namespace FormsUI.Forms.ExerciseForms
             // 
             this.lblDeadline.AutoSize = true;
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDeadline.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDeadline.Location = new System.Drawing.Point(36, 69);
+            this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
+            this.lblDeadline.Location = new System.Drawing.Point(43, 25);
+
             this.lblDeadline.Name = "lblDeadline";
             this.lblDeadline.Size = new System.Drawing.Size(98, 26);
             this.lblDeadline.TabIndex = 4;
@@ -109,6 +110,7 @@ namespace FormsUI.Forms.ExerciseForms
             // 
             this.dtpDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpDeadline.Location = new System.Drawing.Point(161, 69);
             this.dtpDeadline.Name = "dtpDeadline";
@@ -125,23 +127,27 @@ namespace FormsUI.Forms.ExerciseForms
             this.panelExerciseAdd.TabIndex = 6;
             this.panelExerciseAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelExerciseAdd_MouseDown);
             // 
-            // cbxDeadline
+            // cbxExerciseAdd
             // 
-            this.cbxDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxDeadline.AutoSize = true;
-            this.cbxDeadline.Location = new System.Drawing.Point(463, 73);
-            this.cbxDeadline.Name = "cbxDeadline";
-            this.cbxDeadline.Size = new System.Drawing.Size(18, 17);
-            this.cbxDeadline.TabIndex = 7;
-            this.cbxDeadline.UseVisualStyleBackColor = true;
+            this.cbxExerciseAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxExerciseAdd.AutoSize = true;
+            this.cbxExerciseAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxExerciseAdd.Location = new System.Drawing.Point(619, 34);
+            this.cbxExerciseAdd.Name = "cbxExerciseAdd";
+            this.cbxExerciseAdd.Size = new System.Drawing.Size(18, 17);
+            this.cbxExerciseAdd.TabIndex = 7;
+            this.cbxExerciseAdd.UseVisualStyleBackColor = true;
+            this.cbxExerciseAdd.CheckedChanged += new System.EventHandler(this.cbxExerciseAdd_CheckedChanged);
+
             // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(495, 379);
-            this.Controls.Add(this.cbxDeadline);
+            this.ClientSize = new System.Drawing.Size(649, 327);
+            this.Controls.Add(this.cbxExerciseAdd);
+
             this.Controls.Add(this.panelExerciseAdd);
             this.Controls.Add(this.dtpDeadline);
             this.Controls.Add(this.lblDeadline);
@@ -169,6 +175,7 @@ namespace FormsUI.Forms.ExerciseForms
         private System.Windows.Forms.Label lblDeadline;
         private System.Windows.Forms.DateTimePicker dtpDeadline;
         private System.Windows.Forms.Panel panelExerciseAdd;
-        private System.Windows.Forms.CheckBox cbxDeadline;
+        private System.Windows.Forms.CheckBox cbxExerciseAdd;
+
     }
 }
