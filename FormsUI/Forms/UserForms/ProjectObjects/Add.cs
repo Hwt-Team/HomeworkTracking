@@ -3,6 +3,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 using Ninject.Modules;
 using System;
 using System.Runtime.InteropServices;
@@ -28,6 +29,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
             InitializeComponent();
             this._projectObjectService = InstanceFactory
                 .GetInstance<IProjectObjectService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
+            MainHelper.SetHelperFormName(panelProjectObjectAdd, label);
         }
 
         private void Add_Load(object sender, EventArgs e)

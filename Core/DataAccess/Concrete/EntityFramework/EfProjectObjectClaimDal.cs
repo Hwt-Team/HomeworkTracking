@@ -16,8 +16,8 @@ namespace Core.DataAccess.Concrete.EntityFramework
             {
                 var result = from poc in filter == null ? context.ProjectObjectClaims
                              : context.ProjectObjectClaims.Where(filter)
-                             join po in context.ProjectObjects on poc.Id equals po.Id
-                             join sc in context.SubsidiaryClaims on poc.Id equals sc.Id
+                             join po in context.ProjectObjects on poc.ProjectObjectId equals po.Id
+                             join sc in context.SubsidiaryClaims on poc.SubsidiaryClaimId equals sc.Id
                              select new ProjectObjectClaimDto
                              { 
                                  ProjectObjectClaimId = poc.Id,

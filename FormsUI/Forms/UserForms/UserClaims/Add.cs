@@ -5,6 +5,7 @@ using Core.Entities.Concrete;
 using Core.Utilities.Constants;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 using Ninject.Modules;
 using System;
 using System.Runtime.InteropServices;
@@ -30,6 +31,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
             InitializeComponent();
             this._userClaimService = InstanceFactory
                 .GetInstance<IUserClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
+            MainHelper.SetHelperFormName(panelUserClaimAdd, label);
         }
 
         private void Add_Load(object sender, EventArgs e)

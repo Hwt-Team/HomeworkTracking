@@ -34,6 +34,8 @@ namespace FormsUI.Forms.StateForms
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.panelStateUpdate = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
+            this.panelStateUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -44,9 +46,10 @@ namespace FormsUI.Forms.StateForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(297, 165);
+            this.btnCancel.Location = new System.Drawing.Point(223, 134);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 47);
+            this.btnCancel.Size = new System.Drawing.Size(81, 38);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -60,9 +63,10 @@ namespace FormsUI.Forms.StateForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(158, 165);
+            this.btnOk.Location = new System.Drawing.Point(118, 134);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(108, 47);
+            this.btnOk.Size = new System.Drawing.Size(81, 38);
             this.btnOk.TabIndex = 10;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -71,9 +75,10 @@ namespace FormsUI.Forms.StateForms
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxName.Location = new System.Drawing.Point(158, 48);
+            this.tbxName.Location = new System.Drawing.Point(118, 49);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(213, 32);
+            this.tbxName.Size = new System.Drawing.Size(161, 27);
             this.tbxName.TabIndex = 9;
             // 
             // lblName
@@ -81,38 +86,56 @@ namespace FormsUI.Forms.StateForms
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblName.Location = new System.Drawing.Point(51, 51);
+            this.lblName.Location = new System.Drawing.Point(38, 51);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(71, 26);
+            this.lblName.Size = new System.Drawing.Size(57, 22);
             this.lblName.TabIndex = 8;
             this.lblName.Text = "Name";
             // 
             // panelStateUpdate
             // 
             this.panelStateUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelStateUpdate.Controls.Add(this.label);
             this.panelStateUpdate.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStateUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelStateUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelStateUpdate.Name = "panelStateUpdate";
-            this.panelStateUpdate.Size = new System.Drawing.Size(457, 23);
+            this.panelStateUpdate.Size = new System.Drawing.Size(343, 30);
             this.panelStateUpdate.TabIndex = 12;
             this.panelStateUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelStateUpdate_MouseDown);
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(11, 9);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(38, 18);
+            this.label.TabIndex = 25;
+            this.label.Text = "label";
+            // 
             // Update
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(457, 236);
+            this.ClientSize = new System.Drawing.Size(343, 192);
             this.Controls.Add(this.panelStateUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(457, 236);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(343, 192);
             this.Name = "Update";
             this.Text = "Update";
             this.Load += new System.EventHandler(this.Update_Load);
+            this.panelStateUpdate.ResumeLayout(false);
+            this.panelStateUpdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +148,6 @@ namespace FormsUI.Forms.StateForms
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panelStateUpdate;
+        private System.Windows.Forms.Label label;
     }
 }

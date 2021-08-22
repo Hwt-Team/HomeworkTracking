@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.GroupForms
 {
@@ -26,6 +27,7 @@ namespace FormsUI.Forms.GroupForms
         {
             InitializeComponent();
             this._groupService = InstanceFactory.GetInstance<IGroupService>(new BusinessModule());
+            MainHelper.SetHelperFormName(panelGroupAdd, label);
         }
 
         private void btnOk_Click(object sender, EventArgs e)

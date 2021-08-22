@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StudentForms.Graduates
 {
@@ -32,6 +33,7 @@ namespace FormsUI.Forms.StudentForms.Graduates
             InitializeComponent();
             this._graduateStudentService = InstanceFactory
                 .GetInstance<IGraduateStudentService>(new BusinessModule());
+            MainHelper.SetHelperFormName(panelGraduateUpdate, label);
         }
 
         private void btnOk_Click(object sender, EventArgs e)

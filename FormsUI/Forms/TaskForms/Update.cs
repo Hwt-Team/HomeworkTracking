@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.TaskForms
 {
@@ -31,6 +32,7 @@ namespace FormsUI.Forms.TaskForms
         {
             InitializeComponent();
             this._taskService = InstanceFactory.GetInstance<ITaskService>(new BusinessModule());
+            MainHelper.SetHelperFormName(panelTaskUpdate, label);
         }
 
         private void SetDatetimeValue()
