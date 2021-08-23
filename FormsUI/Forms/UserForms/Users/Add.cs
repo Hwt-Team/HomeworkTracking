@@ -4,6 +4,7 @@ using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using Core.Entities.Dtos;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 using Ninject.Modules;
 using System;
 using System.Runtime.InteropServices;
@@ -28,6 +29,7 @@ namespace FormsUI.Forms.UserForms.Users
             InitializeComponent();
             this._userService = InstanceFactory
                 .GetInstance<IUserService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
+            MainHelper.SetHelperFormName(panelUserAdd, label);
         }
 
         private void Add_Load(object sender, EventArgs e)

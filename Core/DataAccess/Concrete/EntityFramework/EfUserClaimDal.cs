@@ -17,8 +17,8 @@ namespace Core.DataAccess.Concrete.EntityFramework
                 var result = from uc in filter == null
                              ? context.UserClaims
                              : context.UserClaims.Where(filter)
-                             join c in context.Claims on uc.Id equals c.Id
-                             join u in context.Users on uc.Id equals u.Id
+                             join c in context.Claims on uc.ClaimId equals c.Id
+                             join u in context.Users on uc.UserId equals u.Id
                              select new UserClaimDto
                              {
                                   UserClaimId=uc.Id,
