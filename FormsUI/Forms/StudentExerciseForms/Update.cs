@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StudentExerciseForms
 {
@@ -32,6 +33,7 @@ namespace FormsUI.Forms.StudentExerciseForms
         {
             InitializeComponent();
             this._studentExercisesService = InstanceFactory.GetInstance<IStudentExercisesService>(new BusinessModule());
+            MainHelper.SetHelperFormName(panelStudentExerciseUpdate, label);
         }
 
         private void btnOk_Click(object sender, EventArgs e)

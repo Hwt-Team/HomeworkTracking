@@ -40,6 +40,8 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.panelGraduateUpdate = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
+            this.panelGraduateUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -50,9 +52,10 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(315, 293);
+            this.btnCancel.Location = new System.Drawing.Point(236, 238);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 47);
+            this.btnCancel.Size = new System.Drawing.Size(81, 38);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(176, 293);
+            this.btnOk.Location = new System.Drawing.Point(132, 238);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(108, 47);
+            this.btnOk.Size = new System.Drawing.Size(81, 38);
             this.btnOk.TabIndex = 10;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@ namespace FormsUI.Forms.StudentForms.Graduates
             // dtpGraduateDate
             // 
             this.dtpGraduateDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtpGraduateDate.Location = new System.Drawing.Point(222, 198);
+            this.dtpGraduateDate.Location = new System.Drawing.Point(166, 179);
+            this.dtpGraduateDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpGraduateDate.Name = "dtpGraduateDate";
-            this.dtpGraduateDate.Size = new System.Drawing.Size(213, 32);
+            this.dtpGraduateDate.Size = new System.Drawing.Size(161, 27);
             this.dtpGraduateDate.TabIndex = 21;
             // 
             // lblGraduateDate
@@ -87,18 +92,20 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblGraduateDate.AutoSize = true;
             this.lblGraduateDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblGraduateDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGraduateDate.Location = new System.Drawing.Point(53, 203);
+            this.lblGraduateDate.Location = new System.Drawing.Point(40, 183);
+            this.lblGraduateDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGraduateDate.Name = "lblGraduateDate";
-            this.lblGraduateDate.Size = new System.Drawing.Size(150, 26);
+            this.lblGraduateDate.Size = new System.Drawing.Size(125, 22);
             this.lblGraduateDate.TabIndex = 20;
             this.lblGraduateDate.Text = "Graduate date";
             // 
             // tbxGroupId
             // 
             this.tbxGroupId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxGroupId.Location = new System.Drawing.Point(222, 143);
+            this.tbxGroupId.Location = new System.Drawing.Point(166, 134);
+            this.tbxGroupId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxGroupId.Name = "tbxGroupId";
-            this.tbxGroupId.Size = new System.Drawing.Size(213, 32);
+            this.tbxGroupId.Size = new System.Drawing.Size(161, 27);
             this.tbxGroupId.TabIndex = 19;
             // 
             // lblGroupId
@@ -106,18 +113,20 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblGroupId.AutoSize = true;
             this.lblGroupId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblGroupId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGroupId.Location = new System.Drawing.Point(53, 146);
+            this.lblGroupId.Location = new System.Drawing.Point(40, 137);
+            this.lblGroupId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGroupId.Name = "lblGroupId";
-            this.lblGroupId.Size = new System.Drawing.Size(95, 26);
+            this.lblGroupId.Size = new System.Drawing.Size(79, 22);
             this.lblGroupId.TabIndex = 18;
             this.lblGroupId.Text = "Group id";
             // 
             // tbxLastName
             // 
             this.tbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxLastName.Location = new System.Drawing.Point(222, 91);
+            this.tbxLastName.Location = new System.Drawing.Point(166, 92);
+            this.tbxLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(213, 32);
+            this.tbxLastName.Size = new System.Drawing.Size(161, 27);
             this.tbxLastName.TabIndex = 17;
             // 
             // lblLastName
@@ -125,18 +134,20 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblLastName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblLastName.Location = new System.Drawing.Point(53, 94);
+            this.lblLastName.Location = new System.Drawing.Point(40, 94);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(108, 26);
+            this.lblLastName.Size = new System.Drawing.Size(88, 22);
             this.lblLastName.TabIndex = 16;
             this.lblLastName.Text = "Lastname";
             // 
             // tbxFirstName
             // 
             this.tbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxFirstName.Location = new System.Drawing.Point(222, 39);
+            this.tbxFirstName.Location = new System.Drawing.Point(166, 50);
+            this.tbxFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(213, 32);
+            this.tbxFirstName.Size = new System.Drawing.Size(161, 27);
             this.tbxFirstName.TabIndex = 15;
             // 
             // lblFirstName
@@ -144,28 +155,43 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFirstName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFirstName.Location = new System.Drawing.Point(53, 42);
+            this.lblFirstName.Location = new System.Drawing.Point(40, 52);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(109, 26);
+            this.lblFirstName.Size = new System.Drawing.Size(89, 22);
             this.lblFirstName.TabIndex = 14;
             this.lblFirstName.Text = "Firstname";
             // 
             // panelGraduateUpdate
             // 
             this.panelGraduateUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelGraduateUpdate.Controls.Add(this.label);
             this.panelGraduateUpdate.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelGraduateUpdate.Location = new System.Drawing.Point(0, 0);
+            this.panelGraduateUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelGraduateUpdate.Name = "panelGraduateUpdate";
-            this.panelGraduateUpdate.Size = new System.Drawing.Size(475, 23);
+            this.panelGraduateUpdate.Size = new System.Drawing.Size(356, 32);
             this.panelGraduateUpdate.TabIndex = 22;
             this.panelGraduateUpdate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelGraduateUpdate_MouseDown);
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(11, 9);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(38, 18);
+            this.label.TabIndex = 25;
+            this.label.Text = "label";
+            // 
             // Update
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(475, 364);
+            this.ClientSize = new System.Drawing.Size(356, 296);
             this.Controls.Add(this.panelGraduateUpdate);
             this.Controls.Add(this.dtpGraduateDate);
             this.Controls.Add(this.lblGraduateDate);
@@ -178,10 +204,13 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(475, 364);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(356, 296);
             this.Name = "Update";
             this.Text = "Update";
             this.Load += new System.EventHandler(this.Update_Load);
+            this.panelGraduateUpdate.ResumeLayout(false);
+            this.panelGraduateUpdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +229,6 @@ namespace FormsUI.Forms.StudentForms.Graduates
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Panel panelGraduateUpdate;
+        private System.Windows.Forms.Label label;
     }
 }

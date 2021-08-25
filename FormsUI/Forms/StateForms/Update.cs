@@ -6,6 +6,7 @@ using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StateForms
 {
@@ -27,6 +28,7 @@ namespace FormsUI.Forms.StateForms
         {
             InitializeComponent();
             this._stateService = InstanceFactory.GetInstance<IStateService>(new BusinessModule());
+            MainHelper.SetHelperFormName(panelStateUpdate, label);
         }
 
         private void btnOk_Click(object sender, EventArgs e)

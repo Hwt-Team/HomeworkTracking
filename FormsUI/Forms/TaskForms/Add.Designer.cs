@@ -41,6 +41,8 @@ namespace FormsUI.Forms.TaskForms
             this.tbxStateId = new System.Windows.Forms.TextBox();
             this.panelTaskAdd = new System.Windows.Forms.Panel();
             this.cbxTaskAdd = new System.Windows.Forms.CheckBox();
+            this.label = new System.Windows.Forms.Label();
+            this.panelTaskAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -48,9 +50,10 @@ namespace FormsUI.Forms.TaskForms
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitle.Location = new System.Drawing.Point(45, 42);
+            this.lblTitle.Location = new System.Drawing.Point(32, 51);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(52, 26);
+            this.lblTitle.Size = new System.Drawing.Size(45, 22);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             // 
@@ -60,10 +63,11 @@ namespace FormsUI.Forms.TaskForms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxTitle.Location = new System.Drawing.Point(170, 39);
+            this.tbxTitle.Location = new System.Drawing.Point(126, 49);
+            this.tbxTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxTitle.Multiline = true;
             this.tbxTitle.Name = "tbxTitle";
-            this.tbxTitle.Size = new System.Drawing.Size(344, 51);
+            this.tbxTitle.Size = new System.Drawing.Size(259, 42);
             this.tbxTitle.TabIndex = 1;
             // 
             // btnOk
@@ -74,9 +78,10 @@ namespace FormsUI.Forms.TaskForms
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(261, 337);
+            this.btnOk.Location = new System.Drawing.Point(196, 274);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(107, 47);
+            this.btnOk.Size = new System.Drawing.Size(80, 38);
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -90,9 +95,10 @@ namespace FormsUI.Forms.TaskForms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(404, 337);
+            this.btnCancel.Location = new System.Drawing.Point(303, 274);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 47);
+            this.btnCancel.Size = new System.Drawing.Size(82, 38);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@ namespace FormsUI.Forms.TaskForms
             this.lblDeadline.AutoSize = true;
             this.lblDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblDeadline.ForeColor = System.Drawing.Color.Gray;
-            this.lblDeadline.Location = new System.Drawing.Point(45, 220);
+            this.lblDeadline.Location = new System.Drawing.Point(32, 196);
+            this.lblDeadline.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadline.Name = "lblDeadline";
-            this.lblDeadline.Size = new System.Drawing.Size(98, 26);
+            this.lblDeadline.Size = new System.Drawing.Size(81, 22);
             this.lblDeadline.TabIndex = 4;
             this.lblDeadline.Text = "Deadline";
             // 
@@ -115,9 +122,10 @@ namespace FormsUI.Forms.TaskForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDeadline.Enabled = false;
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtpDeadline.Location = new System.Drawing.Point(170, 220);
+            this.dtpDeadline.Location = new System.Drawing.Point(126, 196);
+            this.dtpDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpDeadline.Name = "dtpDeadline";
-            this.dtpDeadline.Size = new System.Drawing.Size(344, 26);
+            this.dtpDeadline.Size = new System.Drawing.Size(259, 23);
             this.dtpDeadline.TabIndex = 5;
             // 
             // lblDetail
@@ -125,9 +133,10 @@ namespace FormsUI.Forms.TaskForms
             this.lblDetail.AutoSize = true;
             this.lblDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblDetail.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDetail.Location = new System.Drawing.Point(45, 124);
+            this.lblDetail.Location = new System.Drawing.Point(32, 118);
+            this.lblDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDetail.Name = "lblDetail";
-            this.lblDetail.Size = new System.Drawing.Size(68, 26);
+            this.lblDetail.Size = new System.Drawing.Size(56, 22);
             this.lblDetail.TabIndex = 6;
             this.lblDetail.Text = "Detail";
             // 
@@ -137,10 +146,11 @@ namespace FormsUI.Forms.TaskForms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxDetail.Location = new System.Drawing.Point(170, 121);
+            this.tbxDetail.Location = new System.Drawing.Point(126, 115);
+            this.tbxDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxDetail.Multiline = true;
             this.tbxDetail.Name = "tbxDetail";
-            this.tbxDetail.Size = new System.Drawing.Size(344, 86);
+            this.tbxDetail.Size = new System.Drawing.Size(259, 71);
             this.tbxDetail.TabIndex = 7;
             // 
             // lblStateId
@@ -148,9 +158,10 @@ namespace FormsUI.Forms.TaskForms
             this.lblStateId.AutoSize = true;
             this.lblStateId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblStateId.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblStateId.Location = new System.Drawing.Point(45, 272);
+            this.lblStateId.Location = new System.Drawing.Point(32, 238);
+            this.lblStateId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStateId.Name = "lblStateId";
-            this.lblStateId.Size = new System.Drawing.Size(87, 26);
+            this.lblStateId.Size = new System.Drawing.Size(71, 22);
             this.lblStateId.TabIndex = 8;
             this.lblStateId.Text = "State Id";
             // 
@@ -158,18 +169,21 @@ namespace FormsUI.Forms.TaskForms
             // 
             this.tbxStateId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxStateId.Location = new System.Drawing.Point(170, 277);
+            this.tbxStateId.Location = new System.Drawing.Point(126, 242);
+            this.tbxStateId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxStateId.Name = "tbxStateId";
-            this.tbxStateId.Size = new System.Drawing.Size(344, 22);
+            this.tbxStateId.Size = new System.Drawing.Size(259, 20);
             this.tbxStateId.TabIndex = 9;
             // 
             // panelTaskAdd
             // 
             this.panelTaskAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelTaskAdd.Controls.Add(this.label);
             this.panelTaskAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTaskAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelTaskAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTaskAdd.Name = "panelTaskAdd";
-            this.panelTaskAdd.Size = new System.Drawing.Size(548, 23);
+            this.panelTaskAdd.Size = new System.Drawing.Size(411, 31);
             this.panelTaskAdd.TabIndex = 21;
             this.panelTaskAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTaskAdd_MouseDown);
             // 
@@ -178,19 +192,32 @@ namespace FormsUI.Forms.TaskForms
             this.cbxTaskAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxTaskAdd.AutoSize = true;
             this.cbxTaskAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTaskAdd.Location = new System.Drawing.Point(520, 229);
+            this.cbxTaskAdd.Location = new System.Drawing.Point(387, 203);
+            this.cbxTaskAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTaskAdd.Name = "cbxTaskAdd";
-            this.cbxTaskAdd.Size = new System.Drawing.Size(18, 17);
+            this.cbxTaskAdd.Size = new System.Drawing.Size(15, 14);
             this.cbxTaskAdd.TabIndex = 22;
             this.cbxTaskAdd.UseVisualStyleBackColor = true;
             this.cbxTaskAdd.CheckedChanged += new System.EventHandler(this.cbxTaskAdd_CheckedChanged);
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(11, 9);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(38, 18);
+            this.label.TabIndex = 25;
+            this.label.Text = "label";
+            // 
             // Add
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(548, 390);
+            this.ClientSize = new System.Drawing.Size(411, 317);
             this.Controls.Add(this.cbxTaskAdd);
             this.Controls.Add(this.panelTaskAdd);
             this.Controls.Add(this.tbxStateId);
@@ -204,11 +231,14 @@ namespace FormsUI.Forms.TaskForms
             this.Controls.Add(this.tbxTitle);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(526, 390);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(394, 317);
             this.Name = "Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
             this.Load += new System.EventHandler(this.Add_Load);
+            this.panelTaskAdd.ResumeLayout(false);
+            this.panelTaskAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +258,6 @@ namespace FormsUI.Forms.TaskForms
         private System.Windows.Forms.TextBox tbxStateId;
         private System.Windows.Forms.Panel panelTaskAdd;
         private System.Windows.Forms.CheckBox cbxTaskAdd;
+        private System.Windows.Forms.Label label;
     }
 }
