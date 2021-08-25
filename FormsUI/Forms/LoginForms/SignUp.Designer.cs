@@ -280,7 +280,7 @@ namespace FormsUI.Forms.LoginForms
             this.btnPassVisibility.FlatAppearance.BorderSize = 0;
             this.btnPassVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPassVisibility.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnPassVisibility.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnPassVisibility.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.btnPassVisibility.IconColor = System.Drawing.Color.DarkGray;
             this.btnPassVisibility.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPassVisibility.IconSize = 30;
@@ -296,7 +296,7 @@ namespace FormsUI.Forms.LoginForms
             this.btnPassRepeatVisibility.FlatAppearance.BorderSize = 0;
             this.btnPassRepeatVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPassRepeatVisibility.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnPassRepeatVisibility.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnPassRepeatVisibility.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.btnPassRepeatVisibility.IconColor = System.Drawing.Color.DarkGray;
             this.btnPassRepeatVisibility.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPassRepeatVisibility.IconSize = 30;

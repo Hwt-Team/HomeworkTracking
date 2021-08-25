@@ -91,5 +91,24 @@ namespace FormsUI.Forms.MessageBox
             _ok = parameter.Ok;
             _cancel = parameter.Cancel;
         }
+
+        public void ExecuteAsDialog(MessageBoxParameter parameter)
+        {
+            this.SetVisibility(false);
+            this.SetCaption(parameter.Caption);
+            this.SetTitle(parameter.Title);
+            this.ShowDialog();
+        }
+
+        public void ExecuteOptionAsDialog(MessageBoxOptionParameter parameter)
+        {
+            this.SetVisibility(true);
+            this.SetCaption(parameter.Caption);
+            this.SetTitle(parameter.Title);
+            this.ShowDialog();
+            _ok = parameter.Ok;
+            _cancel = parameter.Cancel;
+        }
+
     }
 }

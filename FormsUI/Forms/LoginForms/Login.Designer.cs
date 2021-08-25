@@ -41,6 +41,7 @@ namespace FormsUI.Forms.LoginForms
             this.btnSignIn = new System.Windows.Forms.Button();
             this.linkLblCreateAcc = new System.Windows.Forms.LinkLabel();
             this.lblErrorMessage = new System.Windows.Forms.Label();
+            this.btnPassVisibility = new FontAwesome.Sharp.IconButton();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -178,6 +179,7 @@ namespace FormsUI.Forms.LoginForms
             this.linkLblCreateAcc.ActiveLinkColor = System.Drawing.Color.White;
             this.linkLblCreateAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLblCreateAcc.AutoSize = true;
+            this.linkLblCreateAcc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLblCreateAcc.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLblCreateAcc.LinkColor = System.Drawing.Color.DarkGray;
             this.linkLblCreateAcc.Location = new System.Drawing.Point(167, 491);
@@ -203,12 +205,29 @@ namespace FormsUI.Forms.LoginForms
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblErrorMessage.Visible = false;
             // 
+            // btnPassVisibility
+            // 
+            this.btnPassVisibility.FlatAppearance.BorderSize = 0;
+            this.btnPassVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPassVisibility.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnPassVisibility.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnPassVisibility.IconColor = System.Drawing.Color.DarkGray;
+            this.btnPassVisibility.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPassVisibility.IconSize = 35;
+            this.btnPassVisibility.Location = new System.Drawing.Point(493, 286);
+            this.btnPassVisibility.Name = "btnPassVisibility";
+            this.btnPassVisibility.Size = new System.Drawing.Size(37, 29);
+            this.btnPassVisibility.TabIndex = 12;
+            this.btnPassVisibility.UseVisualStyleBackColor = true;
+            this.btnPassVisibility.Click += new System.EventHandler(this.btnPassVisibility_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(866, 536);
+            this.Controls.Add(this.btnPassVisibility);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.linkLblCreateAcc);
             this.Controls.Add(this.btnSignIn);
@@ -245,5 +264,6 @@ namespace FormsUI.Forms.LoginForms
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.LinkLabel linkLblCreateAcc;
         private System.Windows.Forms.Label lblErrorMessage;
+        private FontAwesome.Sharp.IconButton btnPassVisibility;
     }
 }

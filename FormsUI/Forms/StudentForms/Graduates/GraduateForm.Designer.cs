@@ -68,6 +68,7 @@ namespace FormsUI.Forms.StudentForms.Graduates
             this.dgwGraduates.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgwGraduates.Location = new System.Drawing.Point(16, 12);
             this.dgwGraduates.Name = "dgwGraduates";
+            this.dgwGraduates.ReadOnly = true;
             this.dgwGraduates.RowHeadersWidth = 51;
             this.dgwGraduates.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.dgwGraduates.RowTemplate.Height = 40;

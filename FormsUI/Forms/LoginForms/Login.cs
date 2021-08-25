@@ -2,16 +2,38 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Business.Abstract;
+using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
+using Core.Entities.Concrete;
+using Core.Entities.Dtos;
+using Core.Utilities.Constants;
+using FontAwesome.Sharp;
 using FormsUI.DependencyResolvers;
+using FormsUI.Forms.MainMenu;
+using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
+using Ninject.Modules;
 
 namespace FormsUI.Forms.LoginForms
 {
     public partial class Login : Form
     {
+        private readonly IUserService _userService;
+
+        public User User { get; set; }
+        public string Pass { get; set; }
+
         public Login()
         {
             InitializeComponent();
+            this._userService = InstanceFactory.GetInstance<IUserService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
+
+            if (this.User != null)
+            {
+                this.tbxUserName.Text = this.User.UserName;
+                this.tbxPassword.Text = this.Pass;
+            }
         }
 
         #region Dll import
@@ -107,28 +129,48 @@ namespace FormsUI.Forms.LoginForms
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (this.tbxUserName.Text != "Username or Email")
-            {
-                if (this.tbxPassword.Text != "Password")
+            var validation = ValidateHelper.ChangedValidation(
+                this.lblErrorMessage,
+                new ValidationModel
                 {
-                    this.lblErrorMessage.Visible = false;
+                    CurrentText = this.tbxUserName.Text,
+                    PreviousText = "Username or Email",
+                    Message = "username or email"
+                },
+                new ValidationModel
+                {
+                    CurrentText = this.tbxPassword.Text,
+                    PreviousText = "Password",
+                    Message = "password"
+                });
 
-                }
-                else
-                {
-                    SetErrorMessage("Please, enter password.");
-                }
-            }
-            else
+            if (validation)
             {
-                SetErrorMessage("Please, enter username.");
+                ExceptionHandler.Handle(() =>
+                {
+                    this._userService.Login(new UserLoginDto
+                    {
+                        EmailOrUsername = this.tbxUserName.Text,
+                        Password = this.tbxPassword.Text
+                    });
+
+                    WarnMessageBox.MessageBox.ExecuteAsDialog(new MessageBoxParameter
+                    {
+                        Caption = CoreMessages.Caption,
+                        Title = CoreMessages.LoginSuccess
+                    });
+
+                    this.OpenBaseForm(this.tbxUserName.Text);
+                });
             }
         }
 
-        private void SetErrorMessage(string message)
+        private void OpenBaseForm(string email)
         {
-            this.lblErrorMessage.Text = "       " + message;
-            this.lblErrorMessage.Visible = true;
+            var form = InstanceFactory.GetInstance<BaseForm>(new FormModule());
+            this.Hide();
+            form.User = this._userService.GetByEmailOrUserName(email);
+            form.Show();
         }
 
         private void linkLblCreateAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -141,6 +183,26 @@ namespace FormsUI.Forms.LoginForms
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnPassVisibility_Click(object sender, EventArgs e)
+        {
+            if (this.tbxPassword.Text == "Password" | this.tbxPassword.Text == "") return;
+            this.tbxPassword.UseSystemPasswordChar = !this.tbxPassword.UseSystemPasswordChar;
+            SetPasswordChar(this.tbxPassword, !this.tbxPassword.UseSystemPasswordChar);
+            SetIcon(this.btnPassVisibility, !this.tbxPassword.UseSystemPasswordChar);
+        }
+
+        private void SetPasswordChar(TextBox textBox, bool spChar)
+        {
+            if (spChar) textBox.UseSystemPasswordChar = false;
+            else textBox.UseSystemPasswordChar = true;
+        }
+
+        private void SetIcon(IconButton button, bool spChar)
+        {
+            if (spChar) button.IconChar = IconChar.Eye;
+            else button.IconChar = IconChar.EyeSlash;
         }
     }
 }

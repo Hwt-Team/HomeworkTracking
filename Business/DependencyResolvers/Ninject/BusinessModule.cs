@@ -13,6 +13,7 @@ namespace Business.DependencyResolvers.Ninject
         public override void Load()
         {
             #region DataAccess
+
             Bind<IExerciseDal>().To<EfExerciseDal>().InSingletonScope();
             Bind<IGroupDal>().To<EfGroupDal>().InSingletonScope();
             Bind<IStudentDal>().To<EfStudentDal>().InSingletonScope();
@@ -21,9 +22,11 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IStateDal>().To<EfStateDal>().InSingletonScope();
             Bind<IStudyingStudentDal>().To<EfStudyingStudentDal>().InSingletonScope();
             Bind<IGraduateStudentDal>().To<EfGraduateStudentDal>().InSingletonScope();
+
             #endregion
 
             #region Business
+
             Bind<IProjectObjectService>().To<ProjectObjectManager>().InSingletonScope();
             Bind<IExerciseService>().To<ExerciseManager>().InSingletonScope();
             Bind<IGroupService>().To<GroupManager>().InSingletonScope();
@@ -36,6 +39,10 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IClaimService>().To<ClaimManager>().InSingletonScope();
             Bind<IUserClaimService>().To<UserClaimManager>().InSingletonScope();
             Bind<IUserService>().To<UserManager>().InSingletonScope();
+            Bind<IProjectObjectClaimService>().To<ProjectObjectClaimManager>().InSingletonScope();
+            Bind<IMainClaimService>().To<MainClaimManager>().InSingletonScope();
+            Bind<ISubsidiaryClaimService>().To<SubsidiaryClaimManager>().InSingletonScope();
+
             #endregion
             
             Bind<NinjectModule>().To<BusinessModule>().InSingletonScope();

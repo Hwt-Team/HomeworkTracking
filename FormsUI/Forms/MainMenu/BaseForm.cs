@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Constants;
 using FontAwesome.Sharp;
 using FormsUI.Forms.ExerciseForms;
@@ -31,6 +32,8 @@ namespace FormsUI.Forms.MainMenu
         private Form _activeForm = null;
         private IconButton _locationalButton;
 
+        public User User { get; set; }
+
         public BaseForm()
         {
             InitializeComponent();
@@ -45,6 +48,13 @@ namespace FormsUI.Forms.MainMenu
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             CustomizeDesign();
             this.SetHeightToUserManagement(200);
+
+        }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+            this.lblUserName.Text = this.User?.UserName;
+            this.lblName.Text = this.User?.FirstName + " " + this.User?.LastName;
         }
 
         #region Colors
@@ -64,7 +74,7 @@ namespace FormsUI.Forms.MainMenu
         private void ActivateButton(object senderButton, Color color)
         {
             if (senderButton == null) return;
-            this.DisableButton(Color.FromArgb(11,7,17));
+            if(!(this._currentButton is null)) this.DisableButton(this.GetColorOfButton((IconButton) _currentButton));
             _currentButton = (IconButton)senderButton;
             _currentButton.BackColor = Color.FromArgb(37, 36, 81);
             _currentButton.ForeColor = color;
@@ -83,11 +93,19 @@ namespace FormsUI.Forms.MainMenu
             _locationalButton = (IconButton)senderButton;
         }
 
+        private Color GetColorOfButton(IconButton button)
+        {
+            var name = button.Parent.Name;
+            if (name.Contains("SubMenu")) return Color.FromArgb(35, 32, 39);
+            else if (name.Contains("Submenu")) return Color.FromArgb(46, 43, 51);
+            else return Color.FromArgb(11, 7, 17);
+        }
+
         private void ActivateSubMenuButton(object senderButton, Color color)
         {
             if (senderButton == null) return;
-            this.SetBackColor(out var tempColor);
-            this.DisableButton(tempColor);
+            //this.SetBackColor(out var tempColor);
+            this.DisableButton(this.GetColorOfButton((IconButton) _currentButton));
             _currentButton = (IconButton)senderButton;
             _currentButton.BackColor = Color.FromArgb(37, 36, 81);
             _currentButton.ForeColor = color;
@@ -124,7 +142,7 @@ namespace FormsUI.Forms.MainMenu
         }
 
         #endregion
-        
+
         private void OpenChildForm(Form childForm)
         {
             _activeForm?.Close();
@@ -146,7 +164,7 @@ namespace FormsUI.Forms.MainMenu
 
         private bool CheckClaimsSubMenuVisibility()
         {
-            return this.panelClaimsSubMenu.Visible;
+            return this.panelClaimsSubmenu.Visible;
         }
 
         private string FixChildFormName(string childFormName)
@@ -256,9 +274,9 @@ namespace FormsUI.Forms.MainMenu
 
         private void btnClaims_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(this.panelClaimsSubMenu);
+            ShowSubMenu(this.panelClaimsSubmenu);
             ActivateSubMenuButton(sender, RGBColors.color4);
-            if(this.CheckClaimsSubMenuVisibility()) this.SetHeightToUserManagement(305);
+            if (this.CheckClaimsSubMenuVisibility()) this.SetHeightToUserManagement(305);
             else this.SetHeightToUserManagement(200);
         }
 
@@ -300,13 +318,13 @@ namespace FormsUI.Forms.MainMenu
 
         private void Reset()
         {
-            this.SetBackColor(out var color);
-            DisableButton(color);
+            //this.SetBackColor(out var color);
+            DisableButton(this.GetColorOfButton(this._currentButton));
             _leftBorderButton.Visible = false;
             this.panelITaskSubMenu.Visible = false;
             this.panelStudentSubMenu.Visible = false;
             this.panelUserManagement.Visible = false;
-            this.panelClaimsSubMenu.Visible = false;
+            this.panelClaimsSubmenu.Visible = false;
             iconCurrentChildFormIcon.IconChar = IconChar.Home;
             iconCurrentChildFormIcon.IconColor = Color.Gainsboro;
             lblTitleChildForm.Text = "Home";
@@ -339,7 +357,7 @@ namespace FormsUI.Forms.MainMenu
 
         private void Cancel() { }
 
-        private void Ok() 
+        private void Ok()
         {
             Application.Exit();
         }
@@ -349,15 +367,15 @@ namespace FormsUI.Forms.MainMenu
             {
                 Caption = CoreMessages.Caption,
                 Title = Messages.Exit,
-                Ok=Ok,
-                Cancel=Cancel
+                Ok = Ok,
+                Cancel = Cancel
             });
-            
+
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
-        {  
-            if(WindowState == FormWindowState.Normal)
+        {
+            if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
                 this.btnMaximize.IconChar = IconChar.WindowRestore;
@@ -428,7 +446,7 @@ namespace FormsUI.Forms.MainMenu
 
         private void SetVisibilityToPanelClaims(bool value)
         {
-            panelClaimsSubMenu.Visible = value;
+            panelClaimsSubmenu.Visible = value;
         }
 
         private void ShowSubMenu(Panel subMenu)
@@ -510,8 +528,8 @@ namespace FormsUI.Forms.MainMenu
 
 
 
+
         #endregion
 
-        
     }
 }

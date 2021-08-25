@@ -12,6 +12,7 @@ using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MainMenu;
 using FormsUI.Forms.MessageBox;
 using FormsUI.Utilities;
+using Ninject.Modules;
 
 namespace FormsUI.Forms.LoginForms
 {
@@ -21,7 +22,7 @@ namespace FormsUI.Forms.LoginForms
         public SignUp()
         {
             InitializeComponent();
-            this._userService = InstanceFactory.GetInstance<IUserService>(new BusinessModule());
+            this._userService = InstanceFactory.GetInstance<IUserService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
         #region Window
@@ -304,22 +305,24 @@ namespace FormsUI.Forms.LoginForms
                         LastName = this.tbxLastName.Text,
                         Email = this.tbxEmail.Text
                     });
-                    WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                    WarnMessageBox.MessageBox.ExecuteAsDialog(new MessageBoxParameter
                     {
                         Caption = "System",
                         Title = "Register successfully!"
                     });
 
-                    this.OpenBaseForm();
+                    this.OpenLoginForm(this.tbxEmail.Text);
                 });
                                 
             }
         }
 
-        private void OpenBaseForm()
+        private void OpenLoginForm(string email)
         {
-            var form = InstanceFactory.GetInstance<BaseForm>(new FormModule());
+            var form = InstanceFactory.GetInstance<Login>(new FormModule());
             this.Close();
+            form.User = this._userService.GetByEmailOrUserName(email);
+            form.Pass = this.tbxPassword.Text;
             form.Show();
         }
 

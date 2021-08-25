@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using Core.Utilities.Constants;
@@ -21,7 +22,7 @@ namespace FormsUI.Forms.UserForms.UserClaims
         {
             InitializeComponent();
             this._userClaimService = InstanceFactory
-                .GetInstance<IUserClaimService>(new INinjectModule[] { new CoreModule(), new FormModule() });
+                .GetInstance<IUserClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         }
 
         private void UserClaimForm_Load(object sender, EventArgs e)

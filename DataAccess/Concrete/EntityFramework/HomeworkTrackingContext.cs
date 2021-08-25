@@ -17,12 +17,20 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<GraduateStudent> GraduateStudents { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Claim> Claims { get; set; }
+        public DbSet<MainClaim> MainClaims { get; set; }
+        public DbSet<ProjectObject> ProjectObjects { get; set; }
+        public DbSet<ProjectObjectClaim> ProjectObjectClaims { get; set; }
+        public DbSet<SubsidiaryClaim> SubsidiaryClaims { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
 
         #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             #region Inherited Property Option
+
             modelBuilder.Entity<GraduateStudent>()
                 .Map(m =>
                 {
@@ -42,6 +50,18 @@ namespace DataAccess.Concrete.EntityFramework
                     m.MapInheritedProperties();
                     m.ToTable("Students");
                 });
+            modelBuilder.Entity<MainClaim>()
+                .Map(m =>
+                {
+                    m.MapInheritedProperties();
+                    m.ToTable("MainClaims");
+                });
+            modelBuilder.Entity<SubsidiaryClaim>()
+               .Map(m =>
+               {
+                   m.MapInheritedProperties();
+                   m.ToTable("SubsidiaryClaims");
+               });
 
             #endregion
 

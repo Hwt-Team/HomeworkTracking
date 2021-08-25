@@ -42,7 +42,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelUserManagement = new System.Windows.Forms.Panel();
             this.btnProjectObjectClaims = new FontAwesome.Sharp.IconButton();
-            this.panelClaimsSubMenu = new System.Windows.Forms.Panel();
+            this.panelClaimsSubmenu = new System.Windows.Forms.Panel();
             this.btnSubsidiaryClaims = new FontAwesome.Sharp.IconButton();
             this.btnMainClaims = new FontAwesome.Sharp.IconButton();
             this.btnBaseClaims = new FontAwesome.Sharp.IconButton();
@@ -65,7 +65,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudentExercises = new FontAwesome.Sharp.IconButton();
             this.btnExercises = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.PictureBox();
+            this.btnUserDetail = new System.Windows.Forms.PictureBox();
             this.panelBase.SuspendLayout();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -76,11 +79,12 @@ namespace FormsUI.Forms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).BeginInit();
             this.panelSidebar.SuspendLayout();
             this.panelUserManagement.SuspendLayout();
-            this.panelClaimsSubMenu.SuspendLayout();
+            this.panelClaimsSubmenu.SuspendLayout();
             this.panelITaskSubMenu.SuspendLayout();
             this.panelStudentSubMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUserDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBase
@@ -91,7 +95,7 @@ namespace FormsUI.Forms.MainMenu
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBase.Location = new System.Drawing.Point(0, 0);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(1049, 939);
+            this.panelBase.Size = new System.Drawing.Size(1130, 1044);
             this.panelBase.TabIndex = 0;
             // 
             // panelContainer
@@ -99,16 +103,16 @@ namespace FormsUI.Forms.MainMenu
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panelContainer.Controls.Add(this.pbLogo);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(261, 64);
+            this.panelContainer.Location = new System.Drawing.Point(303, 64);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(788, 875);
+            this.panelContainer.Size = new System.Drawing.Size(827, 980);
             this.panelContainer.TabIndex = 2;
             // 
             // pbLogo
             // 
             this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(168, 234);
+            this.pbLogo.Location = new System.Drawing.Point(187, 287);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(473, 377);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -124,9 +128,9 @@ namespace FormsUI.Forms.MainMenu
             this.panelNavbar.Controls.Add(this.lblTitleChildForm);
             this.panelNavbar.Controls.Add(this.iconCurrentChildFormIcon);
             this.panelNavbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNavbar.Location = new System.Drawing.Point(261, 0);
+            this.panelNavbar.Location = new System.Drawing.Point(303, 0);
             this.panelNavbar.Name = "panelNavbar";
-            this.panelNavbar.Size = new System.Drawing.Size(788, 64);
+            this.panelNavbar.Size = new System.Drawing.Size(827, 64);
             this.panelNavbar.TabIndex = 0;
             this.panelNavbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelNavbar_MouseDown);
             // 
@@ -139,7 +143,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnMinimize.IconColor = System.Drawing.Color.DimGray;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimize.IconSize = 20;
-            this.btnMinimize.Location = new System.Drawing.Point(709, 5);
+            this.btnMinimize.Location = new System.Drawing.Point(748, 5);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(20, 20);
             this.btnMinimize.TabIndex = 4;
@@ -155,7 +159,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnMaximize.IconColor = System.Drawing.Color.DimGray;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximize.IconSize = 20;
-            this.btnMaximize.Location = new System.Drawing.Point(735, 5);
+            this.btnMaximize.Location = new System.Drawing.Point(774, 5);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(20, 20);
             this.btnMaximize.TabIndex = 3;
@@ -171,7 +175,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnClose.IconColor = System.Drawing.Color.DimGray;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(761, 5);
+            this.btnClose.Location = new System.Drawing.Point(800, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(20, 20);
             this.btnClose.TabIndex = 2;
@@ -219,22 +223,22 @@ namespace FormsUI.Forms.MainMenu
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(261, 939);
+            this.panelSidebar.Size = new System.Drawing.Size(303, 1044);
             this.panelSidebar.TabIndex = 1;
             // 
             // panelUserManagement
             // 
             this.panelUserManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelUserManagement.Controls.Add(this.btnProjectObjectClaims);
-            this.panelUserManagement.Controls.Add(this.panelClaimsSubMenu);
+            this.panelUserManagement.Controls.Add(this.panelClaimsSubmenu);
             this.panelUserManagement.Controls.Add(this.btnClaims);
             this.panelUserManagement.Controls.Add(this.btnProjectObjects);
             this.panelUserManagement.Controls.Add(this.btnUserClaims);
             this.panelUserManagement.Controls.Add(this.btnUsers);
             this.panelUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUserManagement.Location = new System.Drawing.Point(0, 628);
+            this.panelUserManagement.Location = new System.Drawing.Point(0, 730);
             this.panelUserManagement.Name = "panelUserManagement";
-            this.panelUserManagement.Size = new System.Drawing.Size(261, 305);
+            this.panelUserManagement.Size = new System.Drawing.Size(303, 305);
             this.panelUserManagement.TabIndex = 9;
             // 
             // btnProjectObjectClaims
@@ -254,7 +258,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnProjectObjectClaims.Location = new System.Drawing.Point(0, 265);
             this.btnProjectObjectClaims.Name = "btnProjectObjectClaims";
             this.btnProjectObjectClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnProjectObjectClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjectClaims.Size = new System.Drawing.Size(303, 40);
             this.btnProjectObjectClaims.TabIndex = 9;
             this.btnProjectObjectClaims.Text = "Project object claims";
             this.btnProjectObjectClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,17 +266,17 @@ namespace FormsUI.Forms.MainMenu
             this.btnProjectObjectClaims.UseVisualStyleBackColor = true;
             this.btnProjectObjectClaims.Click += new System.EventHandler(this.btnProjectObjectClaims_Click);
             // 
-            // panelClaimsSubMenu
+            // panelClaimsSubmenu
             // 
-            this.panelClaimsSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(43)))), ((int)(((byte)(51)))));
-            this.panelClaimsSubMenu.Controls.Add(this.btnSubsidiaryClaims);
-            this.panelClaimsSubMenu.Controls.Add(this.btnMainClaims);
-            this.panelClaimsSubMenu.Controls.Add(this.btnBaseClaims);
-            this.panelClaimsSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClaimsSubMenu.Location = new System.Drawing.Point(0, 160);
-            this.panelClaimsSubMenu.Name = "panelClaimsSubMenu";
-            this.panelClaimsSubMenu.Size = new System.Drawing.Size(261, 105);
-            this.panelClaimsSubMenu.TabIndex = 1;
+            this.panelClaimsSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(43)))), ((int)(((byte)(51)))));
+            this.panelClaimsSubmenu.Controls.Add(this.btnSubsidiaryClaims);
+            this.panelClaimsSubmenu.Controls.Add(this.btnMainClaims);
+            this.panelClaimsSubmenu.Controls.Add(this.btnBaseClaims);
+            this.panelClaimsSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelClaimsSubmenu.Location = new System.Drawing.Point(0, 160);
+            this.panelClaimsSubmenu.Name = "panelClaimsSubmenu";
+            this.panelClaimsSubmenu.Size = new System.Drawing.Size(303, 105);
+            this.panelClaimsSubmenu.TabIndex = 1;
             // 
             // btnSubsidiaryClaims
             // 
@@ -289,7 +293,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnSubsidiaryClaims.Location = new System.Drawing.Point(0, 70);
             this.btnSubsidiaryClaims.Name = "btnSubsidiaryClaims";
             this.btnSubsidiaryClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnSubsidiaryClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnSubsidiaryClaims.Size = new System.Drawing.Size(303, 35);
             this.btnSubsidiaryClaims.TabIndex = 3;
             this.btnSubsidiaryClaims.Text = "Subsidiary claims";
             this.btnSubsidiaryClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,7 +316,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnMainClaims.Location = new System.Drawing.Point(0, 35);
             this.btnMainClaims.Name = "btnMainClaims";
             this.btnMainClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnMainClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnMainClaims.Size = new System.Drawing.Size(303, 35);
             this.btnMainClaims.TabIndex = 2;
             this.btnMainClaims.Text = "Main claims";
             this.btnMainClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,7 +339,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnBaseClaims.Location = new System.Drawing.Point(0, 0);
             this.btnBaseClaims.Name = "btnBaseClaims";
             this.btnBaseClaims.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnBaseClaims.Size = new System.Drawing.Size(261, 35);
+            this.btnBaseClaims.Size = new System.Drawing.Size(303, 35);
             this.btnBaseClaims.TabIndex = 1;
             this.btnBaseClaims.Text = "Base claims";
             this.btnBaseClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -360,7 +364,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnClaims.Location = new System.Drawing.Point(0, 120);
             this.btnClaims.Name = "btnClaims";
             this.btnClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnClaims.Size = new System.Drawing.Size(303, 40);
             this.btnClaims.TabIndex = 8;
             this.btnClaims.Text = "Claims";
             this.btnClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -385,7 +389,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnProjectObjects.Location = new System.Drawing.Point(0, 80);
             this.btnProjectObjects.Name = "btnProjectObjects";
             this.btnProjectObjects.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnProjectObjects.Size = new System.Drawing.Size(261, 40);
+            this.btnProjectObjects.Size = new System.Drawing.Size(303, 40);
             this.btnProjectObjects.TabIndex = 7;
             this.btnProjectObjects.Text = "Project objects";
             this.btnProjectObjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -410,7 +414,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnUserClaims.Location = new System.Drawing.Point(0, 40);
             this.btnUserClaims.Name = "btnUserClaims";
             this.btnUserClaims.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnUserClaims.Size = new System.Drawing.Size(261, 40);
+            this.btnUserClaims.Size = new System.Drawing.Size(303, 40);
             this.btnUserClaims.TabIndex = 6;
             this.btnUserClaims.Text = "User claims";
             this.btnUserClaims.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -435,7 +439,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnUsers.Location = new System.Drawing.Point(0, 0);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnUsers.Size = new System.Drawing.Size(261, 40);
+            this.btnUsers.Size = new System.Drawing.Size(303, 40);
             this.btnUsers.TabIndex = 5;
             this.btnUsers.Text = "Users";
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -456,10 +460,11 @@ namespace FormsUI.Forms.MainMenu
             this.btnUserManagement.IconColor = System.Drawing.Color.Gainsboro;
             this.btnUserManagement.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUserManagement.IconSize = 32;
-            this.btnUserManagement.Location = new System.Drawing.Point(0, 582);
+            this.btnUserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserManagement.Location = new System.Drawing.Point(0, 684);
             this.btnUserManagement.Name = "btnUserManagement";
             this.btnUserManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnUserManagement.Size = new System.Drawing.Size(261, 46);
+            this.btnUserManagement.Size = new System.Drawing.Size(303, 46);
             this.btnUserManagement.TabIndex = 8;
             this.btnUserManagement.Text = "User management";
             this.btnUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -481,10 +486,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnCalendar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalendar.IconSize = 32;
             this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.Location = new System.Drawing.Point(0, 537);
+            this.btnCalendar.Location = new System.Drawing.Point(0, 639);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCalendar.Size = new System.Drawing.Size(261, 45);
+            this.btnCalendar.Size = new System.Drawing.Size(303, 45);
             this.btnCalendar.TabIndex = 7;
             this.btnCalendar.Text = "Calendar";
             this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -498,9 +503,9 @@ namespace FormsUI.Forms.MainMenu
             this.panelITaskSubMenu.Controls.Add(this.btnStates);
             this.panelITaskSubMenu.Controls.Add(this.btnITask);
             this.panelITaskSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelITaskSubMenu.Location = new System.Drawing.Point(0, 457);
+            this.panelITaskSubMenu.Location = new System.Drawing.Point(0, 559);
             this.panelITaskSubMenu.Name = "panelITaskSubMenu";
-            this.panelITaskSubMenu.Size = new System.Drawing.Size(261, 80);
+            this.panelITaskSubMenu.Size = new System.Drawing.Size(303, 80);
             this.panelITaskSubMenu.TabIndex = 7;
             // 
             // btnStates
@@ -520,7 +525,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStates.Location = new System.Drawing.Point(0, 40);
             this.btnStates.Name = "btnStates";
             this.btnStates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnStates.Size = new System.Drawing.Size(261, 40);
+            this.btnStates.Size = new System.Drawing.Size(303, 40);
             this.btnStates.TabIndex = 7;
             this.btnStates.Text = "States";
             this.btnStates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -545,7 +550,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnITask.Location = new System.Drawing.Point(0, 0);
             this.btnITask.Name = "btnITask";
             this.btnITask.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnITask.Size = new System.Drawing.Size(261, 40);
+            this.btnITask.Size = new System.Drawing.Size(303, 40);
             this.btnITask.TabIndex = 6;
             this.btnITask.Text = "ITask management";
             this.btnITask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -567,10 +572,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnITaskSubmenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnITaskSubmenu.IconSize = 32;
             this.btnITaskSubmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnITaskSubmenu.Location = new System.Drawing.Point(0, 412);
+            this.btnITaskSubmenu.Location = new System.Drawing.Point(0, 514);
             this.btnITaskSubmenu.Name = "btnITaskSubmenu";
             this.btnITaskSubmenu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnITaskSubmenu.Size = new System.Drawing.Size(261, 45);
+            this.btnITaskSubmenu.Size = new System.Drawing.Size(303, 45);
             this.btnITaskSubmenu.TabIndex = 6;
             this.btnITaskSubmenu.Text = "ITask";
             this.btnITaskSubmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -586,9 +591,9 @@ namespace FormsUI.Forms.MainMenu
             this.panelStudentSubMenu.Controls.Add(this.btnGraduates);
             this.panelStudentSubMenu.Controls.Add(this.btnBaseStudents);
             this.panelStudentSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStudentSubMenu.Location = new System.Drawing.Point(0, 252);
+            this.panelStudentSubMenu.Location = new System.Drawing.Point(0, 354);
             this.panelStudentSubMenu.Name = "panelStudentSubMenu";
-            this.panelStudentSubMenu.Size = new System.Drawing.Size(261, 160);
+            this.panelStudentSubMenu.Size = new System.Drawing.Size(303, 160);
             this.panelStudentSubMenu.TabIndex = 5;
             // 
             // btnGroups
@@ -608,7 +613,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnGroups.Location = new System.Drawing.Point(0, 120);
             this.btnGroups.Name = "btnGroups";
             this.btnGroups.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnGroups.Size = new System.Drawing.Size(261, 40);
+            this.btnGroups.Size = new System.Drawing.Size(303, 40);
             this.btnGroups.TabIndex = 8;
             this.btnGroups.Text = "Groups";
             this.btnGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -633,7 +638,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudies.Location = new System.Drawing.Point(0, 80);
             this.btnStudies.Name = "btnStudies";
             this.btnStudies.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnStudies.Size = new System.Drawing.Size(261, 40);
+            this.btnStudies.Size = new System.Drawing.Size(303, 40);
             this.btnStudies.TabIndex = 7;
             this.btnStudies.Text = "Studies";
             this.btnStudies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -658,7 +663,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnGraduates.Location = new System.Drawing.Point(0, 40);
             this.btnGraduates.Name = "btnGraduates";
             this.btnGraduates.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnGraduates.Size = new System.Drawing.Size(261, 40);
+            this.btnGraduates.Size = new System.Drawing.Size(303, 40);
             this.btnGraduates.TabIndex = 6;
             this.btnGraduates.Text = "Graduates";
             this.btnGraduates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -683,7 +688,7 @@ namespace FormsUI.Forms.MainMenu
             this.btnBaseStudents.Location = new System.Drawing.Point(0, 0);
             this.btnBaseStudents.Name = "btnBaseStudents";
             this.btnBaseStudents.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnBaseStudents.Size = new System.Drawing.Size(261, 40);
+            this.btnBaseStudents.Size = new System.Drawing.Size(303, 40);
             this.btnBaseStudents.TabIndex = 5;
             this.btnBaseStudents.Text = "Base students";
             this.btnBaseStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -705,10 +710,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudents.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStudents.IconSize = 32;
             this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudents.Location = new System.Drawing.Point(0, 207);
+            this.btnStudents.Location = new System.Drawing.Point(0, 309);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnStudents.Size = new System.Drawing.Size(261, 45);
+            this.btnStudents.Size = new System.Drawing.Size(303, 45);
             this.btnStudents.TabIndex = 4;
             this.btnStudents.Text = "Students";
             this.btnStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -730,10 +735,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnStudentExercises.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStudentExercises.IconSize = 32;
             this.btnStudentExercises.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudentExercises.Location = new System.Drawing.Point(0, 162);
+            this.btnStudentExercises.Location = new System.Drawing.Point(0, 264);
             this.btnStudentExercises.Name = "btnStudentExercises";
             this.btnStudentExercises.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnStudentExercises.Size = new System.Drawing.Size(261, 45);
+            this.btnStudentExercises.Size = new System.Drawing.Size(303, 45);
             this.btnStudentExercises.TabIndex = 3;
             this.btnStudentExercises.Text = "Student exercises";
             this.btnStudentExercises.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -755,10 +760,10 @@ namespace FormsUI.Forms.MainMenu
             this.btnExercises.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExercises.IconSize = 32;
             this.btnExercises.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExercises.Location = new System.Drawing.Point(0, 117);
+            this.btnExercises.Location = new System.Drawing.Point(0, 219);
             this.btnExercises.Name = "btnExercises";
             this.btnExercises.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnExercises.Size = new System.Drawing.Size(261, 45);
+            this.btnExercises.Size = new System.Drawing.Size(303, 45);
             this.btnExercises.TabIndex = 1;
             this.btnExercises.Text = "Exercises";
             this.btnExercises.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -768,30 +773,66 @@ namespace FormsUI.Forms.MainMenu
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.btnUserDetail);
+            this.panelLogo.Controls.Add(this.lblName);
+            this.panelLogo.Controls.Add(this.lblUserName);
             this.panelLogo.Controls.Add(this.btnHome);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(261, 117);
+            this.panelLogo.Size = new System.Drawing.Size(303, 219);
             this.panelLogo.TabIndex = 0;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblName.Location = new System.Drawing.Point(158, 159);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(53, 20);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblUserName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblUserName.Location = new System.Drawing.Point(158, 127);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(86, 20);
+            this.lblUserName.TabIndex = 1;
+            this.lblUserName.Text = "Username";
             // 
             // btnHome
             // 
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(39, 18);
+            this.btnHome.Location = new System.Drawing.Point(74, 0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(146, 81);
+            this.btnHome.Size = new System.Drawing.Size(146, 98);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHome.TabIndex = 1;
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // btnUserDetail
+            // 
+            this.btnUserDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnUserDetail.Image")));
+            this.btnUserDetail.Location = new System.Drawing.Point(12, 104);
+            this.btnUserDetail.Name = "btnUserDetail";
+            this.btnUserDetail.Size = new System.Drawing.Size(128, 95);
+            this.btnUserDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnUserDetail.TabIndex = 1;
+            this.btnUserDetail.TabStop = false;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 939);
+            this.ClientSize = new System.Drawing.Size(1130, 1044);
             this.Controls.Add(this.panelBase);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -800,6 +841,7 @@ namespace FormsUI.Forms.MainMenu
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BaseForm";
+            this.Load += new System.EventHandler(this.BaseForm_Load);
             this.panelBase.ResumeLayout(false);
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
@@ -811,11 +853,13 @@ namespace FormsUI.Forms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).EndInit();
             this.panelSidebar.ResumeLayout(false);
             this.panelUserManagement.ResumeLayout(false);
-            this.panelClaimsSubMenu.ResumeLayout(false);
+            this.panelClaimsSubmenu.ResumeLayout(false);
             this.panelITaskSubMenu.ResumeLayout(false);
             this.panelStudentSubMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUserDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -853,10 +897,13 @@ namespace FormsUI.Forms.MainMenu
         private FontAwesome.Sharp.IconButton btnUserClaims;
         private FontAwesome.Sharp.IconButton btnUsers;
         private FontAwesome.Sharp.IconButton btnUserManagement;
-        private System.Windows.Forms.Panel panelClaimsSubMenu;
+        private System.Windows.Forms.Panel panelClaimsSubmenu;
         private FontAwesome.Sharp.IconButton btnBaseClaims;
         private FontAwesome.Sharp.IconButton btnSubsidiaryClaims;
         private FontAwesome.Sharp.IconButton btnMainClaims;
         private FontAwesome.Sharp.IconButton btnProjectObjectClaims;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.PictureBox btnUserDetail;
     }
 }
