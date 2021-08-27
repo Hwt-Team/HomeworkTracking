@@ -7,6 +7,7 @@ using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.ExerciseForms
 {
@@ -24,6 +25,8 @@ namespace FormsUI.Forms.ExerciseForms
         {
             LoadExercises();
             DesignDataGridView(dgwExercises);
+            //MainHelper.HideColumnsOfDgw(dgwExercises,"Id","Title");
+            //MainHelper.SortColumnsOfDgw(dgwExercises,"Deadline","Title","Id");
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
