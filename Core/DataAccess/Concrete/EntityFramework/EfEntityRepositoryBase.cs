@@ -50,6 +50,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
             using (TContext context = new TContext())
             {
                 context.Set<TEntity>().Clear();
+                context.SaveChanges();
             }
         }
 

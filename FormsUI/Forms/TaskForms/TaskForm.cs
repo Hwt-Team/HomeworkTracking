@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.TaskForms
 {
@@ -53,26 +55,34 @@ namespace FormsUI.Forms.TaskForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwTasks.CurrentRow?.Cells;
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.Title = cells[1].Value.ToString();
-            updateForm.Detail = cells[2].Value.ToString();
-            updateForm.Deadline = (DateTime) cells[3].Value;
-            updateForm.StateId = (int) cells[4].Value;
-            updateForm.Show();
-            LoadTasks();
+            MainHelper.GetExistenceCurrentRow(dgwTasks, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                var cells = this.dgwTasks.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.Title = cells[1].Value.ToString();
+                updateForm.Detail = cells[2].Value.ToString();
+                updateForm.Deadline = (DateTime)cells[3].Value;
+                updateForm.StateId = (int)cells[4].Value;
+                updateForm.Show();
+                LoadTasks();
+            },Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwTasks, () =>
             {
-                Caption = "System",
-                Title = "Selected task will be deleted.",
-                Ok = DeleteTask,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected task will be deleted.",
+                    Ok = DeleteTask,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteTask()
@@ -88,14 +98,18 @@ namespace FormsUI.Forms.TaskForms
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwTasks, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
-            LoadTasks();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+                LoadTasks();
+            }, Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()

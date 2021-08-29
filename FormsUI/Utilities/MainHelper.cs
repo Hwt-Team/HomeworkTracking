@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FormsUI.Forms.MessageBox;
 
 namespace FormsUI.Utilities
 {
-    public  class MainHelper
+    public class MainHelper
     {
         public static void SetHelperFormName(Panel panel, Label lbl)
         {
@@ -37,7 +38,24 @@ namespace FormsUI.Utilities
             {
                 dgw.Columns[columnNames[i]].Visible = false;
             }
-            
+
         }
+
+        public static void GetExistenceCurrentRow(DataGridView dgw, Action action, string message)
+        {
+
+            if (dgw.CurrentRow==null )
+            {
+                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                {
+                    Caption = "System",
+                    Title = message
+
+                });
+                return;
+            }
+            action.Invoke();
+        }
+       
     }
 }

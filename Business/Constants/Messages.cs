@@ -10,6 +10,14 @@ namespace Business.Constants
     {
         public static string Exit = "Want to close the program ?";
 
+        #region CheckCurrentRow
+        public static string CheckRowSelectedOrExists = "Any line did not selected or no line";
+        public static string CheckRowExists = "No line to delete";
+        public static string CheckRowExistsForSearch="No line to search";
+        #endregion
+
+
+
         #region Exercise
         public static string ExerciseAdd = "A new exercise will be added.";
         public static string ExerciseDelete = "Selected exercise will be deleted.";

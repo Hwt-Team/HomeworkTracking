@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.UserClaims
 {
@@ -79,25 +81,33 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var cells = this.dgwUserClaims.CurrentRow?.Cells;
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.UserId = (int)cells[1].Value;
-            updateForm.ClaimId = (int)cells[2].Value;
-            updateForm.Show();
-            this.CheckDataSourceForLoad();
+            MainHelper.GetExistenceCurrentRow(dgwUserClaims, () =>
+            {
+                var cells = this.dgwUserClaims.CurrentRow?.Cells;
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.UserId = (int)cells[1].Value;
+                updateForm.ClaimId = (int)cells[2].Value;
+                updateForm.Show();
+                this.CheckDataSourceForLoad();
+            }, Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwUserClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.UserClaimAdd,
-                Ok = this.DeleteUserClaim,
-                Cancel = this.Cancel
-            });
-            this.CheckDataSourceForLoad();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.UserClaimAdd,
+                    Ok = this.DeleteUserClaim,
+                    Cancel = this.Cancel
+                });
+                this.CheckDataSourceForLoad();
+            }, Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void DeleteUserClaim()
@@ -112,14 +122,18 @@ namespace FormsUI.Forms.UserForms.UserClaims
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwUserClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.UserClaimDeleteAll,
-                Ok = this.DeleteAll,
-                Cancel = this.Cancel
-            });
-            this.CheckDataSourceForLoad();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.UserClaimDeleteAll,
+                    Ok = this.DeleteAll,
+                    Cancel = this.Cancel
+                });
+                this.CheckDataSourceForLoad();
+            }, Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()
