@@ -8,6 +8,8 @@ using Ninject.Modules;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.ProjectObjectClaims
 {
@@ -79,14 +81,18 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwProjectObjectClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.ProjectObjectClaimDelete,
-                Ok = this.DeleteProjectObjectClaim,
-                Cancel = this.Cancel
-            });
-            this.CheckDataSourceForLoad();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.ProjectObjectClaimDelete,
+                    Ok = this.DeleteProjectObjectClaim,
+                    Cancel = this.Cancel
+                });
+                this.CheckDataSourceForLoad();
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteProjectObjectClaim()
@@ -101,14 +107,18 @@ namespace FormsUI.Forms.UserForms.ProjectObjectClaims
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwProjectObjectClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.ProjectObjectClaimDeleteAll,
-                Ok = this.DeleteAll,
-                Cancel = this.Cancel
-            });
-            this.CheckDataSourceForLoad();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.ProjectObjectClaimDeleteAll,
+                    Ok = this.DeleteAll,
+                    Cancel = this.Cancel
+                });
+                this.CheckDataSourceForLoad();
+            },Messages.CheckRowExists);
+            
         }
 
         private void DeleteAll()

@@ -9,6 +9,8 @@ using Ninject.Modules;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.Claims.Main
 {
@@ -57,23 +59,31 @@ namespace FormsUI.Forms.UserForms.Claims.Main
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwMainClaims.CurrentRow?.Cells;
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.Name = cells[1].Value.ToString();
-            updateForm.Show();
-            this.LoadMainClaims();
+            MainHelper.GetExistenceCurrentRow(dgwMainClaims, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                var cells = dgwMainClaims.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.Name = cells[1].Value.ToString();
+                updateForm.Show();
+                this.LoadMainClaims();
+            },Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwMainClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.MainClaimDelete,
-                Ok = this.DeleteMainClaim,
-                Cancel = this.Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.MainClaimDelete,
+                    Ok = DeleteMainClaim,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteMainClaim()
@@ -88,13 +98,17 @@ namespace FormsUI.Forms.UserForms.Claims.Main
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwMainClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.MainClaimDeleteAll,
-                Ok = this.DeleteAll,
-                Cancel = this.Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.MainClaimDeleteAll,
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowExists);
+          
         }
 
         private void DeleteAll()

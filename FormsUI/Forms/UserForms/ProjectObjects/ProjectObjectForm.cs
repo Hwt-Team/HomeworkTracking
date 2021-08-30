@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.ProjectObjects
 {
@@ -61,43 +63,33 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!this.GetExistenceCurrentRow())
-            {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
-                {
-                    Caption = "System",
-                    Title = "Any line did not selected or no line."
-                });
-                return;
-            }
+           MainHelper.GetExistenceCurrentRow(dgwProjectObjects, () =>
+           {
+               var cells = this.dgwProjectObjects.CurrentRow?.Cells;
+               var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+               updateForm.Id = (int)cells[0].Value;
+               updateForm.Namespace = cells[1].Value.ToString();
+               updateForm.ClassName = cells[2].Value.ToString();
+               updateForm.ObjectName = cells[3].Value.ToString();
+           },Messages.CheckRowSelectedOrExists);
 
-            var cells = this.dgwProjectObjects.CurrentRow?.Cells;
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.Namespace = cells[1].Value.ToString();
-            updateForm.ClassName = cells[2].Value.ToString();
-            updateForm.ObjectName = cells[3].Value.ToString();
+          
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!this.GetExistenceCurrentRow())
+            MainHelper.GetExistenceCurrentRow(dgwProjectObjects, () =>
             {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
                 {
                     Caption = "System",
-                    Title = "Any line did not selected or no line."
+                    Title = "Selected project object will be deleted",
+                    Ok = DeleteProjectObject,
+                    Cancel = Cancel
                 });
-                return;
-            }
+            }, Messages.CheckRowSelectedOrExists);
 
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
-            {
-                Caption = "System",
-                Title = "Selected project object will be deleted",
-                Ok = DeleteProjectObject,
-                Cancel = Cancel
-            });
+          
         }
 
         private void DeleteProjectObject()
@@ -112,23 +104,17 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            if (!this.GetExistenceCurrentRow())
+            MainHelper.GetExistenceCurrentRow(dgwProjectObjects, () =>
             {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
                 {
                     Caption = "System",
-                    Title = "No line to delete."
+                    Title = "All data will be deleted",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
                 });
-                return;
-            }
+            }, Messages.CheckRowExists);
 
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
-            {
-                Caption = "System",
-                Title = "All data will be deleted",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
         }
 
         private void DeleteAll()
@@ -141,9 +127,6 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
             this.LoadProjectObjects();
         }
 
-        private bool GetExistenceCurrentRow()
-        {
-            return this.dgwProjectObjects.CurrentRow != null;
-        }
+        
     }
 }

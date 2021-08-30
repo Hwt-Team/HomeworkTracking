@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StudentExerciseForms
 {
@@ -74,26 +76,34 @@ namespace FormsUI.Forms.StudentExerciseForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var cells = dgwStudentExercises.CurrentRow?.Cells;
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.StudentId = (int)cells[1].Value;
-            updateForm.ExerciseId = (int)cells[2].Value;
-            updateForm.Active = (bool)cells[3].Value;
-            updateForm.Show();
-            CheckDataSourceForLoad();
+            MainHelper.GetExistenceCurrentRow(dgwStudentExercises, () =>
+            {
+                var cells = dgwStudentExercises.CurrentRow?.Cells;
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.StudentId = (int)cells[1].Value;
+                updateForm.ExerciseId = (int)cells[2].Value;
+                updateForm.Active = (bool)cells[3].Value;
+                updateForm.Show();
+                CheckDataSourceForLoad();
+            },Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwStudentExercises, () =>
             {
-                Caption = "System",
-                Title = "Selected student&exercise will be deleted.",
-                Ok = DeleteStudentExercise,
-                Cancel = Cancel
-            });
-            CheckDataSourceForLoad();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected student&exercise will be deleted.",
+                    Ok = DeleteStudentExercise,
+                    Cancel = Cancel
+                });
+                CheckDataSourceForLoad();
+            }, Messages.CheckRowSelectedOrExists);
+          
         }
 
         private void DeleteStudentExercise()
@@ -108,18 +118,37 @@ namespace FormsUI.Forms.StudentExerciseForms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var searchForm = InstanceFactory.GetInstance<Search>(new FormModule());
-            searchForm.Form = this;
-            searchForm.IsUser = this._isUser;
-            searchForm.LoadStudentExercises = this.CheckDataSourceForLoad;
-            searchForm.DgwStudentExercises = this.dgwStudentExercises;
-            searchForm.Show();
+            MainHelper.GetExistenceCurrentRow(dgwStudentExercises, () =>
+            {
+                var searchForm = InstanceFactory.GetInstance<Search>(new FormModule());
+                searchForm.Form = this;
+                searchForm.IsUser = this._isUser;
+                searchForm.LoadStudentExercises = this.CheckDataSourceForLoad;
+                searchForm.DgwStudentExercises = this.dgwStudentExercises;
+                searchForm.Show();
+            }, Messages.CheckRowExistsForSearch);
+           
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
+            MainHelper.GetExistenceCurrentRow(dgwStudentExercises, () =>
+            {
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected student&exercise will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+                CheckDataSourceForLoad();
+            }, Messages.CheckRowExists);
+
+        }
+
+        private void DeleteAll()
+        {
             this._studentExercisesService.DeleteAll();
-            CheckDataSourceForLoad();
         }
 
         private void btnChangeDgw_Click(object sender, EventArgs e)

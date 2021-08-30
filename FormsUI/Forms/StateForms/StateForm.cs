@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StateForms
 {
@@ -56,23 +58,31 @@ namespace FormsUI.Forms.StateForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var cells = this.dgwStates.CurrentRow?.Cells;
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.StateName = cells[1].Value.ToString();
-            updateForm.Show();
-            LoadStates();
+            MainHelper.GetExistenceCurrentRow(dgwStates, () =>
+            {
+                var cells = this.dgwStates.CurrentRow?.Cells;
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.StateName = cells[1].Value.ToString();
+                updateForm.Show();
+                LoadStates();
+            },Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwStates, () =>
             {
-                Caption = "System",
-                Title = "Selected state will be deleted.",
-                Ok = DeleteState,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected state will be deleted.",
+                    Ok = DeleteState,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteState()
@@ -87,14 +97,18 @@ namespace FormsUI.Forms.StateForms
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwStates, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
-            LoadStates();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+                LoadStates();
+            }, Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()
