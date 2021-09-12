@@ -121,7 +121,7 @@
     <Compile Include="Entities\Concrete\MainClaim.cs" />
     <Compile Include="Entities\Concrete\ProjectObject.cs" />
     <Compile Include="Entities\Concrete\ProjectObjectClaim.cs" />
-    <Compile Include="Entities\Concrete\ProjectObjectTypes.cs" />
+    <Compile Include="Entities\Concrete\ProjectObjectType.cs" />
     <Compile Include="Entities\Concrete\SubsidiaryClaim.cs" />
     <Compile Include="Entities\Concrete\User.cs" />
     <Compile Include="Entities\Concrete\UserClaim.cs" />

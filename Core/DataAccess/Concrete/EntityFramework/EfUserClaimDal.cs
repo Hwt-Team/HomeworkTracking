@@ -35,7 +35,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
 
         public List<UserClaimNamesDto> GetUserBaseClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null)
         {
-            using (CoreContext context = new CoreContext)
+            using (CoreContext context = new CoreContext())
             {
                 var result = from uc in filter == null
                              ? context.UserClaims
@@ -53,7 +53,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
         
         public List<UserClaimNamesDto> GetUserSubsidiaryClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null)
         {
-            using (CoreContext context = new CoreContext)
+            using (CoreContext context = new CoreContext())
             {
                 var result = from uc in filter == null
                              ? context.UserClaims
