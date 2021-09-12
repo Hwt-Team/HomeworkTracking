@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\PostSharp.6.9.6\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.6\build\PostSharp.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\PostSharp.6.9.6\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.6\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -91,6 +91,7 @@
     <Compile Include="DataAccess\Abstract\IMainClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IProjectObjectClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IProjectObjectDal.cs" />
+    <Compile Include="DataAccess\Abstract\IProjectObjectTypesDal.cs" />
     <Compile Include="DataAccess\Abstract\ISubsidiaryClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IUserClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IUserDal.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\EfMainClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectDal.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectTypesDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfSubsidiaryClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfUserClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfUserDal.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\MainClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectMap.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectTypeMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\SubsidiaryClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserMap.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="Entities\Concrete\MainClaim.cs" />
     <Compile Include="Entities\Concrete\ProjectObject.cs" />
     <Compile Include="Entities\Concrete\ProjectObjectClaim.cs" />
+    <Compile Include="Entities\Concrete\ProjectObjectTypes.cs" />
     <Compile Include="Entities\Concrete\SubsidiaryClaim.cs" />
     <Compile Include="Entities\Concrete\User.cs" />
     <Compile Include="Entities\Concrete\UserClaim.cs" />
@@ -144,11 +148,11 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.9.6\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.6\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.9.6\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.6\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\PostSharp.6.9.6\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.6\build\PostSharp.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

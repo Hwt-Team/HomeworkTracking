@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StudentForms.Studies
 {
@@ -54,25 +56,33 @@ namespace FormsUI.Forms.StudentForms.Studies
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwStudies.CurrentRow?.Cells;
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.FirstName = cells[1].Value.ToString();
-            updateForm.LastName = cells[2].Value.ToString();
-            updateForm.GroupId = (int) cells[3].Value;
-            updateForm.Show();
-            LoadStudies();
+            MainHelper.GetExistenceCurrentRow(dgwStudies, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                var cells = this.dgwStudies.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.FirstName = cells[1].Value.ToString();
+                updateForm.LastName = cells[2].Value.ToString();
+                updateForm.GroupId = (int)cells[3].Value;
+                updateForm.Show();
+                LoadStudies();
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwStudies, () =>
             {
-                Caption = "System",
-                Title = "Selected graduate will be deleted.",
-                Ok = DeleteStudying,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected graduate will be deleted.",
+                    Ok = DeleteStudying,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteStudying()
@@ -87,13 +97,17 @@ namespace FormsUI.Forms.StudentForms.Studies
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwStudies, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()

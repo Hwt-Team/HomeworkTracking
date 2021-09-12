@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.GroupForms
 {
@@ -54,22 +56,29 @@ namespace FormsUI.Forms.GroupForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.GroupName=this.dgwGroups.CurrentRow?.Cells[1].Value.ToString();
-            updateForm.Id = (int) this.dgwGroups.CurrentRow?.Cells[0].Value;
-            updateForm.Show();
-            LoadGroups();
+           MainHelper.GetExistenceCurrentRow(dgwGroups, () =>
+           {
+               var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+               updateForm.GroupName = this.dgwGroups.CurrentRow?.Cells[1].Value.ToString();
+               updateForm.Id = (int)this.dgwGroups.CurrentRow?.Cells[0].Value;
+               updateForm.Show();
+               LoadGroups();
+           },Messages.CheckRowSelectedOrExists);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwGroups, () =>
             {
-                Caption = "System",
-                Title = "Selected group will be deleted.",
-                Ok = DeleteGroup,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected group will be deleted.",
+                    Ok = DeleteGroup,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void DeleteGroup()
@@ -88,14 +97,18 @@ namespace FormsUI.Forms.GroupForms
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwGroups, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
-            LoadGroups();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+                LoadGroups();
+            }, Messages.CheckRowExists);
+            
         }
 
         private void DeleteAll()

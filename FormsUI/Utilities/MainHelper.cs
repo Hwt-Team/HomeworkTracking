@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using FormsUI.Forms.MessageBox;
 
 namespace FormsUI.Utilities
 {
@@ -21,5 +23,39 @@ namespace FormsUI.Utilities
 
             lbl.Text = result;
         }
+
+        public static void SortColumnsOfDgw(DataGridView dgw, params string[] columnNames)
+        {
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                dgw.Columns[columnNames[i]].DisplayIndex = i;
+            }
+        }
+
+        public static void HideColumnsOfDgw(DataGridView dgw, params string[] columnNames)
+        {
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                dgw.Columns[columnNames[i]].Visible = false;
+            }
+
+        }
+
+        public static void GetExistenceCurrentRow(DataGridView dgw, Action action, string message)
+        {
+
+            if (dgw.CurrentRow==null )
+            {
+                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                {
+                    Caption = "System",
+                    Title = message
+
+                });
+                return;
+            }
+            action.Invoke();
+        }
+       
     }
 }

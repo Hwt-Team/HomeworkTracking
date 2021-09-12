@@ -2,11 +2,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Forms.StudentExerciseForms;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.StudentForms.Graduates
 {
@@ -54,26 +57,34 @@ namespace FormsUI.Forms.StudentForms.Graduates
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwGraduates.CurrentRow?.Cells;
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.FirstName = cells[1].Value.ToString();
-            updateForm.LastName = cells[2].Value.ToString();
-            updateForm.GroupId = (int) cells[3].Value;
-            updateForm.GraduateDate = (DateTime) cells[4].Value;
-            updateForm.Show();
-            LoadGraduates();
+            MainHelper.GetExistenceCurrentRow(dgwGraduates, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                var cells = this.dgwGraduates.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.FirstName = cells[1].Value.ToString();
+                updateForm.LastName = cells[2].Value.ToString();
+                updateForm.GroupId = (int)cells[3].Value;
+                updateForm.GraduateDate = (DateTime)cells[4].Value;
+                updateForm.Show();
+                LoadGraduates();
+            }, Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwGraduates, () =>
             {
-                Caption = "System",
-                Title = "Selected graduate will be deleted.",
-                Ok = DeleteGraduate,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "Selected graduate will be deleted.",
+                    Ok = DeleteGraduate,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void DeleteGraduate()
@@ -88,13 +99,17 @@ namespace FormsUI.Forms.StudentForms.Graduates
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwGraduates, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()

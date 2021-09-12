@@ -9,6 +9,8 @@ using Ninject.Modules;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.Claims.Subsidiaries
 {
@@ -57,23 +59,31 @@ namespace FormsUI.Forms.UserForms.Claims.Subsidiaries
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            var cells = this.dgwSubsidiaryClaims.CurrentRow?.Cells;
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.Name = cells[1].Value.ToString();
-            updateForm.Show();
-            this.LoadSubsidiaryClaims();
+            MainHelper.GetExistenceCurrentRow(dgwSubsidiaryClaims, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+                var cells = this.dgwSubsidiaryClaims.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.Name = cells[1].Value.ToString();
+                updateForm.Show();
+                this.LoadSubsidiaryClaims();
+            },Messages.CheckRowSelectedOrExists);
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwSubsidiaryClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.SubsidiaryClaimDelete,
-                Ok = this.DeleteSubsidiaryClaim,
-                Cancel = this.Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.SubsidiaryClaimDelete,
+                    Ok = this.DeleteSubsidiaryClaim,
+                    Cancel = this.Cancel
+                });
+            }, Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteSubsidiaryClaim()
@@ -88,13 +98,17 @@ namespace FormsUI.Forms.UserForms.Claims.Subsidiaries
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwSubsidiaryClaims, () =>
             {
-                Caption = CoreMessages.Caption,
-                Title = CoreMessages.SubsidiaryClaimDeleteAll,
-                Ok = this.DeleteAll,
-                Cancel = this.Cancel
-            });
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = CoreMessages.SubsidiaryClaimDeleteAll,
+                    Ok = this.DeleteAll,
+                    Cancel = this.Cancel
+                });
+            }, Messages.CheckRowExists);
+          
         }
 
         private void DeleteAll()

@@ -2,11 +2,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Business.Abstract;
+using Business.Constants;
 using Business.DependencyResolvers.Ninject;
 using Core.DependencyResolvers.Ninject;
 using Entities.Concrete;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.ExerciseForms
 {
@@ -24,6 +26,8 @@ namespace FormsUI.Forms.ExerciseForms
         {
             LoadExercises();
             DesignDataGridView(dgwExercises);
+            //MainHelper.HideColumnsOfDgw(dgwExercises,"Id","Title");
+            //MainHelper.SortColumnsOfDgw(dgwExercises,"Deadline","Title","Id");
         }
 
         private void DesignDataGridView(DataGridView dataGridView)
@@ -54,24 +58,30 @@ namespace FormsUI.Forms.ExerciseForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var updateForm = InstanceFactory.GetInstance<TaskForms.Update>(new FormModule());
-            var cells = this.dgwExercises.CurrentRow?.Cells;
-            updateForm.Id = (int) cells[0].Value;
-            updateForm.Title = cells[1].Value.ToString();
-            updateForm.Deadline = (DateTime) cells[2].Value;
-            updateForm.Show();
-            LoadExercises();
+            MainHelper.GetExistenceCurrentRow(dgwExercises, () =>
+            {
+                var updateForm = InstanceFactory.GetInstance<TaskForms.Update>(new FormModule());
+                var cells = this.dgwExercises.CurrentRow?.Cells;
+                updateForm.Id = (int)cells[0].Value;
+                updateForm.Title = cells[1].Value.ToString();
+                updateForm.Deadline = (DateTime)cells[2].Value;
+                updateForm.Show();
+                LoadExercises();
+            },Messages.CheckRowSelectedOrExists);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
-            {
-                Caption = "System",
-                Title = "Selected exercise will be deleted.",
-                Ok = DeleteExercise,
-                Cancel = Cancel
-            });
+           MainHelper.GetExistenceCurrentRow(dgwExercises, () =>
+           {
+               WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+               {
+                   Caption = "System",
+                   Title = "Selected exercise will be deleted.",
+                   Ok = DeleteExercise,
+                   Cancel = Cancel
+               });
+           },Messages.CheckRowSelectedOrExists);
         }
 
         private void DeleteExercise()
@@ -94,14 +104,18 @@ namespace FormsUI.Forms.ExerciseForms
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+            MainHelper.GetExistenceCurrentRow(dgwExercises, () =>
             {
-                Caption = "System",
-                Title = "All data will be deleted.",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
-            LoadExercises();
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = "System",
+                    Title = "All data will be deleted.",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
+                });
+                LoadExercises();
+            },Messages.CheckRowExists);
+            
         }
 
         private void DeleteAll()

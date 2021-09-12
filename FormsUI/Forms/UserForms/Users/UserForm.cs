@@ -8,6 +8,8 @@ using Ninject.Modules;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Business.Constants;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.UserForms.Users
 {
@@ -55,48 +57,37 @@ namespace FormsUI.Forms.UserForms.Users
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!this.GetExistenceCurrentRow())
-            {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
-                {
-                    Caption = "System",
-                    Title = "Any line did not selected or no line."
-                });
-                return;
-            }
-
+           //MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
+           //{
             var cells = this.dgwUsers.CurrentRow?.Cells;
-            var passDetails = this._userService.GetPassDetailsById((int)cells[0].Value);
-            var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
-            updateForm.Id = (int)cells[0].Value;
-            updateForm.FirstName = cells[1].Value.ToString();
-            updateForm.LastName = cells[2].Value.ToString();
-            updateForm.Email = cells[3].Value.ToString();
-            updateForm.PasswordHash = passDetails.PasswordHash;
-            updateForm.UserName = cells[5].Value.ToString();
-            updateForm.Status = (bool) cells[6].Value;
-            updateForm.PasswordSalt = passDetails.PasswordSalt;
+               var passDetails = this._userService.GetPassDetailsById((int)cells[0].Value);
+               var updateForm = InstanceFactory.GetInstance<Update>(new FormModule());
+               updateForm.Id = (int)cells[0].Value;
+               updateForm.FirstName = cells[2].Value.ToString();
+               updateForm.LastName = cells[3].Value.ToString();
+               updateForm.Email = cells[4].Value.ToString();
+               updateForm.PasswordHash = passDetails.PasswordHash;
+               updateForm.UserName = cells[1].Value.ToString();
+               updateForm.Status = (bool)cells[7].Value;
+               updateForm.PasswordSalt = passDetails.PasswordSalt;
+           //},Messages.CheckRowSelectedOrExists);
+
+          
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!this.GetExistenceCurrentRow())
+            MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
             {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
                 {
                     Caption = "System",
-                    Title = "Any line did not selected or no line."
+                    Title = "Selected user will be deleted",
+                    Ok = DeleteUser,
+                    Cancel = Cancel
                 });
-                return;
-            }
-
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
-            {
-                Caption = "System",
-                Title = "Selected user will be deleted",
-                Ok = DeleteUser,
-                Cancel = Cancel
-            });
+            },Messages.CheckRowSelectedOrExists);
+           
         }
 
         private void DeleteUser()
@@ -112,23 +103,17 @@ namespace FormsUI.Forms.UserForms.Users
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
 
-            if (!this.GetExistenceCurrentRow())
+            MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
             {
-                WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
                 {
                     Caption = "System",
-                    Title = "No line to delete."
+                    Title = "All data will be deleted",
+                    Ok = DeleteAll,
+                    Cancel = Cancel
                 });
-                return;
-            }
-
-            WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
-            {
-                Caption = "System",
-                Title = "All data will be deleted",
-                Ok = DeleteAll,
-                Cancel = Cancel
-            });
+            },Messages.CheckRowExists);
+           
         }
 
         private void DeleteAll()
@@ -141,9 +126,6 @@ namespace FormsUI.Forms.UserForms.Users
             this.LoadUsers();
         }
 
-        private bool GetExistenceCurrentRow()
-        {
-            return this.dgwUsers.CurrentRow != null;
-        }
+       
     }
 }
