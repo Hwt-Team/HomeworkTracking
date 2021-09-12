@@ -8,5 +8,6 @@ namespace Core.Entities.Concrete
         public string NameSpace { get; set; }
         public string ClassName { get; set; }
         public string ObjectName { get; set; }
+        public int ObjectTypeId { get; set; }
     }
 }

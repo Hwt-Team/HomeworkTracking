@@ -91,6 +91,7 @@
     <Compile Include="DataAccess\Abstract\IMainClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IProjectObjectClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IProjectObjectDal.cs" />
+    <Compile Include="DataAccess\Abstract\IProjectObjectTypesDal.cs" />
     <Compile Include="DataAccess\Abstract\ISubsidiaryClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IUserClaimDal.cs" />
     <Compile Include="DataAccess\Abstract\IUserDal.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\EfMainClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectDal.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfProjectObjectTypesDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfSubsidiaryClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfUserClaimDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\EfUserDal.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\MainClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectMap.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\ProjectObjectTypeMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\SubsidiaryClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserClaimMap.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mappings\UserMap.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="Entities\Concrete\MainClaim.cs" />
     <Compile Include="Entities\Concrete\ProjectObject.cs" />
     <Compile Include="Entities\Concrete\ProjectObjectClaim.cs" />
+    <Compile Include="Entities\Concrete\ProjectObjectTypes.cs" />
     <Compile Include="Entities\Concrete\SubsidiaryClaim.cs" />
     <Compile Include="Entities\Concrete\User.cs" />
     <Compile Include="Entities\Concrete\UserClaim.cs" />
