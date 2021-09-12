@@ -14,6 +14,7 @@ namespace Core.DataAccess.Concrete.EntityFramework.Mappings
 
             Property(m => m.Id).HasColumnName("Id");
             Property(m => m.Name).HasColumnName("Name");
+            Property(m => m.Priority).HasColumnName("Priority");
         }
     }
 }

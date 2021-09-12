@@ -102,12 +102,12 @@ namespace FormsUI.Forms.MessageBox
 
         public void ExecuteOptionAsDialog(MessageBoxOptionParameter parameter)
         {
+            _ok = parameter.Ok;
+            _cancel = parameter.Cancel;
             this.SetVisibility(true);
             this.SetCaption(parameter.Caption);
             this.SetTitle(parameter.Title);
             this.ShowDialog();
-            _ok = parameter.Ok;
-            _cancel = parameter.Cancel;
         }
 
     }

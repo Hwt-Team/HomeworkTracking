@@ -65,5 +65,6 @@ namespace Business.Concrete
         {
             return this._projectObjectClaimDal.GetNextId();
         }
+
     }
 }

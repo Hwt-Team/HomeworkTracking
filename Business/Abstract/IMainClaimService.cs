@@ -12,5 +12,6 @@ namespace Business.Abstract
         List<MainClaim> GetAll();
         MainClaim GetById(int id);
         int GetNextId();
+        List<MainClaim> GetOrderedMainClaims();
     }
 }

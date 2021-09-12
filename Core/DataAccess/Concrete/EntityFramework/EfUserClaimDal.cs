@@ -32,5 +32,41 @@ namespace Core.DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }       
         }
+
+        public List<UserClaimNamesDto> GetUserBaseClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null)
+        {
+            using (CoreContext context = new CoreContext)
+            {
+                var result = from uc in filter == null
+                             ? context.UserClaims
+                             : context.UserClaims.Where(filter)
+                             join c in context.MainClaims on uc.ClaimId equals c.Id
+                             join u in context.Users on uc.UserId equals u.Id
+                             select new UserClaimNamesDto
+                             {
+                                 UserClaimId = uc.Id,
+                                 ClaimName = c.Name
+                             };
+                return result.ToList();
+            }
+        }
+        
+        public List<UserClaimNamesDto> GetUserSubsidiaryClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null)
+        {
+            using (CoreContext context = new CoreContext)
+            {
+                var result = from uc in filter == null
+                             ? context.UserClaims
+                             : context.UserClaims.Where(filter)
+                             join c in context.SubsidiaryClaims on uc.ClaimId equals c.Id
+                             join u in context.Users on uc.ClaimId equals u.Id
+                             select new UserClaimNamesDto
+                             {
+                                 UserClaimId = uc.Id,
+                                 ClaimName = c.Name
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

@@ -3,9 +3,11 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business.Constants;
+using Core.DependencyResolvers.Ninject;
 using Core.Entities.Concrete;
 using Core.Utilities.Constants;
 using FontAwesome.Sharp;
+using FormsUI.DependencyResolvers;
 using FormsUI.Forms.ExerciseForms;
 using FormsUI.Forms.GroupForms;
 using FormsUI.Forms.MessageBox;
@@ -18,10 +20,12 @@ using FormsUI.Forms.TaskForms;
 using FormsUI.Forms.UserForms.Claims.Both;
 using FormsUI.Forms.UserForms.Claims.Main;
 using FormsUI.Forms.UserForms.Claims.Subsidiaries;
+using FormsUI.Forms.UserForms.Divisions;
 using FormsUI.Forms.UserForms.ProjectObjectClaims;
 using FormsUI.Forms.UserForms.ProjectObjects;
 using FormsUI.Forms.UserForms.UserClaims;
 using FormsUI.Forms.UserForms.Users;
+using FormsUI.Utilities;
 
 namespace FormsUI.Forms.MainMenu
 {
@@ -49,6 +53,7 @@ namespace FormsUI.Forms.MainMenu
             CustomizeDesign();
             this.SetHeightToUserManagement(200);
 
+            this.Authorize(this.User, this.Controls);
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
@@ -56,6 +61,17 @@ namespace FormsUI.Forms.MainMenu
             this.lblUserName.Text = this.User?.UserName;
             this.lblName.Text = this.User?.FirstName + " " + this.User?.LastName;
         }
+
+ 
+
+        #region Authorization
+
+        private void Authorize(User user, ControlCollection collection)
+        {
+            AuthorizationHelper.Authorize(user, collection);
+        }
+
+        #endregion
 
         #region Colors
         private struct RGBColors
@@ -531,5 +547,12 @@ namespace FormsUI.Forms.MainMenu
 
         #endregion
 
+        private void btnUserDetail_Click(object sender, EventArgs e)
+        {
+            var form = InstanceFactory.GetInstance<ContinueAsForm>(new FormModule());
+            form.User = this.User;
+            form.ShowDialog();
+
+        }
     }
 }

@@ -57,5 +57,10 @@ namespace Business.Concrete
             return this._projectObjectDal.GetNextId();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<ProjectObject> GetByUserId(int userId)
+        {
+            return this._projectObjectDal.GetProjectObjectsByUser(userId);
+        }
     }
 }

@@ -67,6 +67,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities\ConfigurationHelper.cs" />
     <Compile Include="Forms\LoginForms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +285,12 @@
     <Compile Include="Forms\UserForms\Claims\Subsidiaries\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForms\Divisions\ContinueAsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\Divisions\ContinueAsForm.Designer.cs">
+      <DependentUpon>ContinueAsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForms\ProjectObjectClaims\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +380,7 @@
     <Compile Include="UserControls\HwtComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Utilities\AuthorizationHelper.cs" />
     <Compile Include="Utilities\ExceptionHandler.cs" />
     <Compile Include="Utilities\MainHelper.cs" />
     <EmbeddedResource Include="Forms\LoginForms\Login.resx">
@@ -472,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\Claims\Subsidiaries\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\Divisions\ContinueAsForm.resx">
+      <DependentUpon>ContinueAsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForms\ProjectObjectClaims\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>

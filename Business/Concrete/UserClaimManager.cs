@@ -75,5 +75,17 @@ namespace Business.Concrete
         {
             return this._userClaimDal.GetAllUserClaimDetails();
         }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<UserClaimNamesDto> GetUserSubsidiaryClaimNames(int userId)
+        {
+            return this._userClaimDal.GetUserSubsidiaryClaimNameDetails(c => c.UserId == userId);
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<UserClaimNamesDto> GetUserMainClaimNames(int userId)
+        {
+            return this._userClaimDal.GetUserBaseClaimNameDetails(c => c.UserId == userId);
+        }
     }
 }

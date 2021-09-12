@@ -12,5 +12,6 @@ namespace Business.Abstract
         void DeleteAll();
         List<ProjectObject> GetAll();
         int GetNextId();
+        List<ProjectObject> GetByUserId(int userId);
     }
 }

@@ -8,6 +8,8 @@ namespace Core.DataAccess.Abstract
 {
     public interface IUserClaimDal : IEntityRepository<UserClaim>
     {
-        List<UserClaimDto> GetAllUserClaimDetails(Expression<Func<UserClaim,bool>> filter=null );
+        List<UserClaimDto> GetAllUserClaimDetails(Expression<Func<UserClaim, bool>> filter = null);
+        List<UserClaimNamesDto> GetUserBaseClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null);
+        List<UserClaimNamesDto> GetUserSubsidiaryClaimNameDetails(Expression<Func<UserClaim, bool>> filter = null);
     }
 }

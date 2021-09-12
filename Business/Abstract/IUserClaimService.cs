@@ -15,5 +15,7 @@ namespace Business.Abstract
         int GetNextId();
         List<UserClaim> GetUserClaims(int userId);
         List<UserClaimDto> GetUserClaimDto();
+        List<UserClaimNamesDto> GetUserMainClaimNames(int userId);
+        List<UserClaimNamesDto> GetUserSubsidiaryClaimNames(int userId);
     }
 }
