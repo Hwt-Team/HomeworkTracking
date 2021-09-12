@@ -557,7 +557,9 @@
   <ItemGroup>
     <None Include="Resources\reza-namdari-ZgZsKFnSbEA-unsplash.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\ObjectTypeForms\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="core.ico" />
   </ItemGroup>

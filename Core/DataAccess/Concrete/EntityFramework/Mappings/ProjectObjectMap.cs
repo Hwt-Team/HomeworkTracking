@@ -16,6 +16,7 @@ namespace Core.DataAccess.Concrete.EntityFramework.Mappings
             Property(p => p.NameSpace).HasColumnName("NameSpace");
             Property(p => p.ClassName).HasColumnName("ClassName");
             Property(p => p.ObjectName).HasColumnName("ObjectName");
+            Property(p => p.ObjectTypeId).HasColumnName("ObjectTypeId");
         }
     }
 }

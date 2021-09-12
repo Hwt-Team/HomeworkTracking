@@ -22,7 +22,7 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IStateDal>().To<EfStateDal>().InSingletonScope();
             Bind<IStudyingStudentDal>().To<EfStudyingStudentDal>().InSingletonScope();
             Bind<IGraduateStudentDal>().To<EfGraduateStudentDal>().InSingletonScope();
-
+            Bind<IProjectObjectTypeDal>().To<EfProjectObjectTypeDal>().InSingletonScope();
             #endregion
 
             #region Business
@@ -42,7 +42,7 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IProjectObjectClaimService>().To<ProjectObjectClaimManager>().InSingletonScope();
             Bind<IMainClaimService>().To<MainClaimManager>().InSingletonScope();
             Bind<ISubsidiaryClaimService>().To<SubsidiaryClaimManager>().InSingletonScope();
-
+            Bind<IProjectObjectTypeService>().To<ProjectObjectTypeManager>().InSingletonScope();
             #endregion
             
             Bind<NinjectModule>().To<BusinessModule>().InSingletonScope();

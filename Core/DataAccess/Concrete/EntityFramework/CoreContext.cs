@@ -15,6 +15,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
         public DbSet<ProjectObjectClaim> ProjectObjectClaims { get; set; }
         public DbSet<ProjectObject> ProjectObjects { get; set; }
         public DbSet<SubsidiaryClaim> SubsidiaryClaims { get; set; }
+        public DbSet<ProjectObjectType> ProjectObjectTypes { get; set; }
 
         #endregion
 
@@ -47,6 +48,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
             modelBuilder.Configurations.Add(new ProjectObjectClaimMap());
             modelBuilder.Configurations.Add(new ProjectObjectMap()); 
             modelBuilder.Configurations.Add(new SubsidiaryClaimMap());
+            modelBuilder.Configurations.Add(new ProjectObjectTypeMap());
 
             #endregion
 
