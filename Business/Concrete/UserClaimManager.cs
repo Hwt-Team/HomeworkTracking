@@ -7,7 +7,6 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
 using Core.Entities.Dtos;
-using DataAccess.Abstract;
 
 namespace Business.Concrete
 {

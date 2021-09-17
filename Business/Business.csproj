@@ -92,6 +92,7 @@
     <Compile Include="CrossCuttingConcerns\Validation\GroupValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\MainClaimValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\ProjectObjectClaimValidator.cs" />
+    <Compile Include="CrossCuttingConcerns\Validation\ProjectObjectTypeValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\ProjectObjectValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\StudentExercisesValidator.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\StudentValidator.cs" />

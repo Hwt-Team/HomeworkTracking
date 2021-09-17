@@ -1,11 +1,9 @@
 ﻿using Business.Abstract;
+using Business.CrossCuttingConcerns.Validation;
+using Core.Aspects.Postsharp.Validation;
 using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -18,6 +16,7 @@ namespace Business.Concrete
             _projectObjectType = projectObjectType;
         }
 
+        [ValidationAspect(typeof(ProjectObjectTypeValidator))]
         public void Add(ProjectObjectType objectType)
         {
             _projectObjectType.Add(objectType);
@@ -42,6 +41,7 @@ namespace Business.Concrete
             return _projectObjectType.GetNextId();
         }
 
+        [ValidationAspect(typeof(ProjectObjectTypeValidator))]
         public void Update(ProjectObjectType objectType)
         {       
             _projectObjectType.Update(objectType);

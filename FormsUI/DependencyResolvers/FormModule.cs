@@ -2,6 +2,7 @@
 using FormsUI.Forms.GroupForms;
 using FormsUI.Forms.MainMenu;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Forms.ObjectTypeForms;
 using FormsUI.Forms.StateForms;
 using FormsUI.Forms.StudentExerciseForms;
 using FormsUI.Forms.StudentForms.Both;
@@ -27,7 +28,7 @@ namespace FormsUI.DependencyResolvers
             Bind<StudiesForm>().To<StudiesForm>();
             Bind<GraduateForm>().To<GraduateForm>();
             Bind<TaskForm>().To<TaskForm>();
-
+            Bind<ProjectObjectTypeForm>().To<ProjectObjectTypeForm>();
             #endregion
 
             #region Add & Update
@@ -43,7 +44,8 @@ namespace FormsUI.DependencyResolvers
             Bind<Forms.StudentExerciseForms.Search>().To<Forms.StudentExerciseForms.Search>();
             Bind<Forms.TaskForms.Add>().To<Forms.TaskForms.Add>();
             Bind<Forms.TaskForms.Update>().To<Forms.TaskForms.Update>();
-
+            Bind<Forms.ObjectTypeForms.Add>().To<Forms.ObjectTypeForms.Add>();
+            Bind<Forms.ObjectTypeForms.Update>().To<Forms.ObjectTypeForms.Update>();
             #endregion
 
             Bind<WarnMessageBox>().To<WarnMessageBox>().InSingletonScope();
