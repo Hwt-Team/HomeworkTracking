@@ -74,6 +74,7 @@ namespace FormsUI.Forms.MessageBox
             this.lblTitle.Size = new System.Drawing.Size(281, 73);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Message";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WarnMessageBox
             // 
@@ -90,6 +91,7 @@ namespace FormsUI.Forms.MessageBox
             this.Name = "WarnMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WarnMessageBox";
+            this.Load += new System.EventHandler(this.WarnMessageBox_Load);
             this.ResumeLayout(false);
 
         }

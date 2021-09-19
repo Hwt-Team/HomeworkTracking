@@ -36,6 +36,8 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this.lblName = new System.Windows.Forms.Label();
             this.panelMainClaimUpdate = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
+            this.tbxPriority = new System.Windows.Forms.TextBox();
+            this.lblPriority = new System.Windows.Forms.Label();
             this.panelMainClaimUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.Location = new System.Drawing.Point(305, 196);
+            this.btnCancel.Location = new System.Drawing.Point(305, 208);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 47);
             this.btnCancel.TabIndex = 20;
@@ -63,7 +65,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOk.Location = new System.Drawing.Point(166, 196);
+            this.btnOk.Location = new System.Drawing.Point(166, 208);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(108, 47);
             this.btnOk.TabIndex = 19;
@@ -74,7 +76,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxName.Location = new System.Drawing.Point(195, 99);
+            this.tbxName.Location = new System.Drawing.Point(197, 86);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(196, 32);
             this.tbxName.TabIndex = 18;
@@ -84,7 +86,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblName.Location = new System.Drawing.Point(48, 102);
+            this.lblName.Location = new System.Drawing.Point(50, 89);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(71, 26);
             this.lblName.TabIndex = 17;
@@ -112,12 +114,33 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this.label.TabIndex = 16;
             this.label.Text = "label";
             // 
+            // tbxPriority
+            // 
+            this.tbxPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxPriority.Location = new System.Drawing.Point(197, 133);
+            this.tbxPriority.Name = "tbxPriority";
+            this.tbxPriority.Size = new System.Drawing.Size(196, 32);
+            this.tbxPriority.TabIndex = 22;
+            // 
+            // lblPriority
+            // 
+            this.lblPriority.AutoSize = true;
+            this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPriority.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblPriority.Location = new System.Drawing.Point(50, 136);
+            this.lblPriority.Name = "lblPriority";
+            this.lblPriority.Size = new System.Drawing.Size(80, 26);
+            this.lblPriority.TabIndex = 21;
+            this.lblPriority.Text = "Priority";
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(435, 276);
+            this.ClientSize = new System.Drawing.Size(435, 288);
+            this.Controls.Add(this.tbxPriority);
+            this.Controls.Add(this.lblPriority);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tbxName);
@@ -144,5 +167,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panelMainClaimUpdate;
         private System.Windows.Forms.Label label;
+        private System.Windows.Forms.TextBox tbxPriority;
+        private System.Windows.Forms.Label lblPriority;
     }
 }

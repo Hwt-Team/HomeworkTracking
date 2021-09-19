@@ -17,6 +17,8 @@ namespace FormsUI.Forms.UserForms.Claims.Main
 
         public int Id { get; set; }
         public string ClaimName { get; set; }
+        public int Priority { get; set; }
+
 
         public Update()
         {
@@ -28,6 +30,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
         private void Update_Load(object sender, EventArgs e)
         {
             this.tbxName.Text = this.ClaimName;
+            this.tbxPriority.Text = this.Priority.ToString();
         }
 
         #region Dll import
@@ -56,7 +59,8 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this._mainClaimService.Update(new MainClaim
             {
                 Id = this.Id,
-                Name = this.tbxName.Text
+                Name = this.tbxName.Text,
+                Priority = int.Parse(this.tbxPriority.Text)
             });
         }
 

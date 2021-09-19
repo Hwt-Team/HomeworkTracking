@@ -4,6 +4,7 @@ using Business.CrossCuttingConcerns.Validation;
 using Core.Aspects.Postsharp.Caching;
 using Core.Aspects.Postsharp.Validation;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -11,17 +12,32 @@ namespace Business.Concrete
 {
     public class StudentManager : IStudentService
     {
-        private IStudentDal _studentDal;
+        private readonly IStudentDal _studentDal;
+        private readonly IUserService _userService;
 
-        public StudentManager(IStudentDal studentDal)
+        public StudentManager(IStudentDal studentDal, IUserService userService)
         {
             _studentDal = studentDal;
+            _userService = userService;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [ValidationAspect(typeof(StudentValidator))]
         public void Add(Student student)
         {
+            this._userService.Add(new User
+            {
+                Id = student.Id,
+                Email = student.Email,
+                UserName = student.UserName,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                GenderId = student.GenderId,
+                PasswordHash = student.PasswordHash,
+                PasswordSalt = student.PasswordSalt,
+                Status = student.Status
+            });
+
             _studentDal.Add(student);
         }
 
@@ -76,7 +92,7 @@ namespace Business.Concrete
 
         public int GetNextId()
         {
-            return this._studentDal.GetNextId();
+            return this._userService.GetNextId();
         }
     }
 }

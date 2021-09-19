@@ -19,6 +19,8 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
         public string Namespace { get; set; }
         public string ClassName { get; set; }
         public string ObjectName { get; set; }
+        public int ObjectTypeId { get; set; }
+
         #region Dll import
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -42,6 +44,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
             this.tbxNamespace.Text = this.Namespace;
             this.tbxClassName.Text = this.ClassName;
             this.tbxObjectName.Text = this.ObjectName;
+            this.tbxObjectTypeId.Text = this.ObjectTypeId.ToString();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -62,7 +65,8 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
                 Id = this.Id,
                 NameSpace = this.tbxNamespace.Text,
                 ClassName = this.tbxClassName.Text,
-                ObjectName = this.tbxObjectName.Text
+                ObjectName = this.tbxObjectName.Text,
+                ObjectTypeId = int.Parse(this.tbxObjectTypeId.Text)
             });
         }
 

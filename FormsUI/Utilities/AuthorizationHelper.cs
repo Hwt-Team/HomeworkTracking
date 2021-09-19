@@ -37,7 +37,7 @@ namespace FormsUI.Utilities
 
         private static List<string> GetCurrentUserMainRoles(User user) => _userClaimService.GetUserMainClaimNames(user.Id).Select(c => c.ClaimName).ToList();
 
-        private static void AuthorizeSpeciality(User user, System.Windows.Forms.Form.ControlCollection collection)
+        private static void AuthorizeSpeciality(User user, System.Windows.Forms.Control.ControlCollection collection)
         {
             var roles = GetAllProjectObjectsOfUser(user);
 
@@ -67,26 +67,26 @@ namespace FormsUI.Utilities
 
         private static string GetPermissionLevel(string[] keys, List<string> claims, int n = 0)
         {
-            var key = keys[n];
+            var key = keys.Length == 0 ? "" : keys[n];
             if (claims.Contains(key))
                 return key;
-            else if (n + 1 == keys.Length)
+            else if (n + 1 == keys.Length | key.Length == 0)
                 return "";
             else GetPermissionLevel(keys, claims, n + 1);
 
             return "default";
         }
 
-        private static List<Control> GetControlFromControlCollection(System.Windows.Forms.Form.ControlCollection collection) => new List<Control>(collection.OfType<Control>());
+        private static List<Control> GetControlFromControlCollection(System.Windows.Forms.Control.ControlCollection collection) => new List<Control>(collection.OfType<Control>());
 
 
-        private static Control GetControlByFullName(string fullName, System.Windows.Forms.Form.ControlCollection collection)
+        private static Control GetControlByFullName(string fullName, System.Windows.Forms.Control.ControlCollection collection)
         {
             var parameter = fullName.Split('.');
             return collection.Find(parameter[parameter.Length - 1], true).FirstOrDefault();
         }
 
-        public static void Authorize(User user, System.Windows.Forms.Form.ControlCollection collection)
+        public static void Authorize(User user, System.Windows.Forms.Control.ControlCollection collection)
         {
             var commonality = AuthorizeCommonality(user);
             if (AuthorizeBigPermission(commonality))
@@ -109,7 +109,11 @@ namespace FormsUI.Utilities
             }
             else if (commonality == "StandardUser")
             {
-
+                namesCollection.ForEach(n =>
+                {
+                    if (!_projectObjectService.IsAdministrativeProjectObject(n))
+                        GetControlByFullName(n, collection).Visible = false;
+                });
             }
 
             AuthorizeSpeciality(user, collection);

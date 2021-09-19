@@ -16,13 +16,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
                              join sc in context.SubsidiaryClaims on poc.SubsidiaryClaimId equals sc.Id
                              join uc in context.UserClaims on sc.Id equals uc.ClaimId
                              where uc.UserId == userId
-                             select new ProjectObject
-                             {
-                                 Id = po.Id,
-                                 ObjectName = po.ObjectName,
-                                 ClassName = po.ClassName,
-                                 NameSpace = po.NameSpace
-                             };
+                             select po;
 
                 return result.ToList();
             }

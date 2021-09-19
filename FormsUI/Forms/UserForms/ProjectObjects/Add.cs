@@ -55,7 +55,8 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
                 Id = this._projectObjectService.GetNextId(),
                 NameSpace = this.tbxNamespace.Text,
                 ClassName = this.tbxClassName.Text,
-                ObjectName = this.tbxObjectName.Text
+                ObjectName = this.tbxObjectName.Text,
+                ObjectTypeId = int.Parse(this.tbxObjectTypeId.Text)
             });
         }
 

@@ -10,7 +10,7 @@ using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MessageBox;
 using FormsUI.Utilities;
 
-namespace FormsUI.Forms.ObjectTypeForms
+namespace FormsUI.Forms.UserForms.ObjectTypeForms
 {
     public partial class ProjectObjectTypeForm : Form
     {

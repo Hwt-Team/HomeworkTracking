@@ -71,14 +71,16 @@ namespace FormsUI.Forms.MessageBox
         private void SetVisibility(bool value)
         {
             btnOk.Visible = value;
-            btnCancel.Visible = value;
+            //btnCancel.Visible = value;
         }
 
         public void Execute(MessageBoxParameter parameter)
         {
+            this.btnCancel.Text = "Close";
             this.SetVisibility(false);
             this.SetCaption(parameter.Caption);
             this.SetTitle(parameter.Title);
+            this._cancel = this.Cancel;
             this.Show();
         }
 
@@ -94,9 +96,11 @@ namespace FormsUI.Forms.MessageBox
 
         public void ExecuteAsDialog(MessageBoxParameter parameter)
         {
+            this.btnCancel.Text = "Close";
             this.SetVisibility(false);
             this.SetCaption(parameter.Caption);
             this.SetTitle(parameter.Title);
+            this._cancel = this.Cancel;
             this.ShowDialog();
         }
 
@@ -110,5 +114,9 @@ namespace FormsUI.Forms.MessageBox
             this.ShowDialog();
         }
 
+        private void WarnMessageBox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

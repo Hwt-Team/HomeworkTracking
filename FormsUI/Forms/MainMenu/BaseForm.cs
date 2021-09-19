@@ -21,6 +21,7 @@ using FormsUI.Forms.UserForms.Claims.Both;
 using FormsUI.Forms.UserForms.Claims.Main;
 using FormsUI.Forms.UserForms.Claims.Subsidiaries;
 using FormsUI.Forms.UserForms.Divisions;
+using FormsUI.Forms.UserForms.ObjectTypeForms;
 using FormsUI.Forms.UserForms.ProjectObjectClaims;
 using FormsUI.Forms.UserForms.ProjectObjects;
 using FormsUI.Forms.UserForms.UserClaims;
@@ -53,20 +54,22 @@ namespace FormsUI.Forms.MainMenu
             CustomizeDesign();
             this.SetHeightToUserManagement(200);
 
-            this.Authorize(this.User, this.Controls);
+
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
         {
             this.lblUserName.Text = this.User?.UserName;
             this.lblName.Text = this.User?.FirstName + " " + this.User?.LastName;
+
+            this.Authorize(this.User, this.panelSidebar.Controls);
         }
 
  
 
         #region Authorization
 
-        private void Authorize(User user, ControlCollection collection)
+        private void Authorize(User user, System.Windows.Forms.Control.ControlCollection collection)
         {
             AuthorizationHelper.Authorize(user, collection);
         }
@@ -286,13 +289,19 @@ namespace FormsUI.Forms.MainMenu
             OpenChildForm(new ProjectObjectForm());
         }
 
+        private void btnProjectObjectType_Click(object sender, EventArgs e)
+        {
+            ActivateSubMenuButton(sender, RGBColors.color4);
+            OpenChildForm(new ProjectObjectTypeForm());
+        }
+
         #region Claims
 
         private void btnClaims_Click(object sender, EventArgs e)
         {
             ShowSubMenu(this.panelClaimsSubmenu);
             ActivateSubMenuButton(sender, RGBColors.color4);
-            if (this.CheckClaimsSubMenuVisibility()) this.SetHeightToUserManagement(305);
+            if (this.CheckClaimsSubMenuVisibility()) this.SetHeightToUserManagement(345);
             else this.SetHeightToUserManagement(200);
         }
 
@@ -554,5 +563,6 @@ namespace FormsUI.Forms.MainMenu
             form.ShowDialog();
 
         }
+
     }
 }

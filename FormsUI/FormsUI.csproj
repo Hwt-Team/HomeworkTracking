@@ -80,22 +80,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\ObjectTypeForms\Add.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ObjectTypeForms\Add.Designer.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ObjectTypeForms\ProjectObjectTypeForm.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\ProjectObjectTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ObjectTypeForms\ProjectObjectTypeForm.Designer.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\ProjectObjectTypeForm.Designer.cs">
       <DependentUpon>ProjectObjectTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ObjectTypeForms\Update.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ObjectTypeForms\Update.Designer.cs">
+    <Compile Include="Forms\UserForms\ObjectTypeForms\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ConfigurationHelper.cs" />
@@ -413,13 +413,13 @@
     <EmbeddedResource Include="Forms\ExerciseForms\ExerciseForm.resx">
       <DependentUpon>ExerciseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ObjectTypeForms\Add.resx">
+    <EmbeddedResource Include="Forms\UserForms\ObjectTypeForms\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ObjectTypeForms\ProjectObjectTypeForm.resx">
+    <EmbeddedResource Include="Forms\UserForms\ObjectTypeForms\ProjectObjectTypeForm.resx">
       <DependentUpon>ProjectObjectTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ObjectTypeForms\Update.resx">
+    <EmbeddedResource Include="Forms\UserForms\ObjectTypeForms\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StateForms\Add.resx">

@@ -12,16 +12,32 @@ namespace Business.Concrete
     public class GraduateStudentManager : IGraduateStudentService
     {
         private readonly IGraduateStudentDal _graduateStudentDal;
+        private readonly IStudentService _studentService;
 
-        public GraduateStudentManager(IGraduateStudentDal graduateStudentDal)
+        public GraduateStudentManager(IGraduateStudentDal graduateStudentDal, IStudentService studentService)
         {
             _graduateStudentDal = graduateStudentDal;
+            _studentService = studentService;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [ValidationAspect(typeof(GraduateStudentValidator))]
         public void Add(GraduateStudent graduateStudent)
         {
+            this._studentService.Add(new Student
+            {
+                Id = graduateStudent.Id,
+                Email = graduateStudent.Email,
+                UserName = graduateStudent.UserName,
+                FirstName = graduateStudent.FirstName,
+                LastName = graduateStudent.LastName,
+                GenderId = graduateStudent.GenderId,
+                GroupId = graduateStudent.GroupId,
+                PasswordHash = graduateStudent.PasswordHash,
+                PasswordSalt = graduateStudent.PasswordSalt,
+                Status = graduateStudent.Status
+            });
+
             this._graduateStudentDal.Add(graduateStudent);
         }
 
@@ -59,7 +75,7 @@ namespace Business.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public int GetNextId()
         {
-            return this._graduateStudentDal.GetNextId();
+            return this._studentService.GetNextId();
         }
     }
 }

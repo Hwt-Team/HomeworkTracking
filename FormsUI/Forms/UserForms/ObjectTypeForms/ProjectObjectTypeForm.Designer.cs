@@ -1,5 +1,5 @@
 ﻿
-namespace FormsUI.Forms.ObjectTypeForms
+namespace FormsUI.Forms.UserForms.ObjectTypeForms
 {
     partial class ProjectObjectTypeForm
     {

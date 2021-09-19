@@ -13,16 +13,24 @@ namespace Business.Concrete
     public class MainClaimManager : IMainClaimService
     {
         private readonly IMainClaimDal _mainClaimDal;
+        private readonly IClaimService _claimService;
 
-        public MainClaimManager(IMainClaimDal mainClaimDal)
+        public MainClaimManager(IMainClaimDal mainClaimDal, IClaimService claimService)
         {
             _mainClaimDal = mainClaimDal;
+            _claimService = claimService;
         }
 
         [ValidationAspect(typeof(MainClaimValidator))]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(MainClaim mainClaim)
         {
+            this._claimService.Add(new Claim
+            {
+                Id = mainClaim.Id,
+                Name = mainClaim.Name
+            });
+
             this._mainClaimDal.Add(mainClaim);
         }
 
@@ -60,7 +68,7 @@ namespace Business.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public int GetNextId()
         {
-            return this._mainClaimDal.GetNextId();
+            return this._claimService.GetNextId();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]

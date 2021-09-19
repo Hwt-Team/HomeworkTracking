@@ -10,16 +10,23 @@ using Core.Entities.Concrete;
 using Core.Entities.Dtos;
 using Core.Utilities.Security;
 using DataAccess.Abstract;
+using Entities.Concrete;
 
 namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
         private readonly IUserDal _userDal;
+        private readonly IStudentDal _studentDal;
+        private readonly IGraduateStudentDal _graduateStudentDal;
+        private readonly IStudyingStudentDal _studyingStudentDal;
 
-        public UserManager(IUserDal userDal)
+        public UserManager(IUserDal userDal, IStudentDal studentDal, IGraduateStudentDal graduateStudentDal, IStudyingStudentDal studyingStudentDal)
         {
             _userDal = userDal;
+            _studentDal = studentDal;
+            _graduateStudentDal = graduateStudentDal;
+            _studyingStudentDal = studyingStudentDal;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -40,6 +47,26 @@ namespace Business.Concrete
         public void Delete(User user)
         {
             this._userDal.Delete(user);
+
+            if (!(this._studentDal.Get(s => s.Id == user.Id) is null))
+            {
+                this._studentDal.Delete(new Student
+                {
+                    Id = user.Id
+                });
+
+                if (!(this._graduateStudentDal.Get(s => s.Id == user.Id) is null))
+                    this._graduateStudentDal.Delete(new GraduateStudent
+                    {
+                        Id = user.Id
+                    });
+
+                if (!(this._studyingStudentDal.Get(s => s.Id == user.Id) is null))
+                    this._studyingStudentDal.Delete(new StudyingStudent
+                    {
+                        Id = user.Id
+                    });
+            }
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

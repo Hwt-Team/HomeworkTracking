@@ -56,7 +56,8 @@ namespace FormsUI.Forms.UserForms.Claims.Main
             this._mainClaimService.Add(new MainClaim
             {
                 Id = this._mainClaimService.GetNextId(),
-                Name = this.tbxName.Text
+                Name = this.tbxName.Text,
+                Priority = int.Parse(this.tbxPriority.Text)
             });
         }
 

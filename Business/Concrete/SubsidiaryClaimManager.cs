@@ -12,16 +12,24 @@ namespace Business.Concrete
     public class SubsidiaryClaimManager : ISubsidiaryClaimService
     {
         private readonly ISubsidiaryClaimDal _subsidiaryClaimDal;
+        private readonly IClaimService _claimService;
 
-        public SubsidiaryClaimManager(ISubsidiaryClaimDal subsidiaryClaimDal)
+        public SubsidiaryClaimManager(ISubsidiaryClaimDal subsidiaryClaimDal, IClaimService claimService)
         {
             _subsidiaryClaimDal = subsidiaryClaimDal;
+            _claimService = claimService;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [ValidationAspect(typeof(SubsidiaryClaimValidator))]
         public void Add(SubsidiaryClaim subsidiaryClaim)
         {
+            this._claimService.Add(new Claim
+            {
+                Id = subsidiaryClaim.Id,
+                Name = subsidiaryClaim.Name
+            });
+
             this._subsidiaryClaimDal.Add(subsidiaryClaim);
         }
 
@@ -59,7 +67,7 @@ namespace Business.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public int GetNextId()
         {
-            return this._subsidiaryClaimDal.GetNextId();
+            return this._claimService.GetNextId();
         }
 
     }

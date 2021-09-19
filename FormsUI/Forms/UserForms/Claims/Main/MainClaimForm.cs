@@ -65,6 +65,7 @@ namespace FormsUI.Forms.UserForms.Claims.Main
                 var cells = dgwMainClaims.CurrentRow?.Cells;
                 updateForm.Id = (int)cells[0].Value;
                 updateForm.Name = cells[1].Value.ToString();
+                updateForm.Priority = (int)cells[2].Value;
                 updateForm.Show();
                 this.LoadMainClaims();
             },Messages.CheckRowSelectedOrExists);

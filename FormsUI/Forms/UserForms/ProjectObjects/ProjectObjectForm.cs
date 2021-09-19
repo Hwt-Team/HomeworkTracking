@@ -71,6 +71,7 @@ namespace FormsUI.Forms.UserForms.ProjectObjects
                updateForm.Namespace = cells[1].Value.ToString();
                updateForm.ClassName = cells[2].Value.ToString();
                updateForm.ObjectName = cells[3].Value.ToString();
+               updateForm.ObjectTypeId = (int)cells[4].Value;
            },Messages.CheckRowSelectedOrExists);
 
           

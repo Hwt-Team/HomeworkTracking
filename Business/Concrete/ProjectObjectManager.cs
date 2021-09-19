@@ -13,10 +13,12 @@ namespace Business.Concrete
     public class ProjectObjectManager : IProjectObjectService
     {
         private readonly IProjectObjectDal _projectObjectDal;
+        private readonly IProjectObjectTypeDal _projectObjectTypeDal;
 
-        public ProjectObjectManager(IProjectObjectDal projectObjectDal)
+        public ProjectObjectManager(IProjectObjectDal projectObjectDal, IProjectObjectTypeDal projectObjectTypeDal)
         {
             _projectObjectDal = projectObjectDal;
+            _projectObjectTypeDal = projectObjectTypeDal;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -62,5 +64,17 @@ namespace Business.Concrete
         {
             return this._projectObjectDal.GetProjectObjectsByUser(userId);
         }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public ProjectObject GetByObjectType(string objectType)
+        {
+            return this._projectObjectDal
+                .Get(p => string.Join(".", new string[] { p.NameSpace, p.ClassName, p.ObjectName }) == this._projectObjectTypeDal.Get(t => t.Name == objectType).Name);
+        }
+
+        public bool IsAdministrativeProjectObject(string fullName) => this._projectObjectTypeDal
+            .Get(t => t.Id == this._projectObjectDal
+                .Get(p => string.Join(".", new string[] { p.NameSpace, p.ClassName, p.ObjectName }) == fullName).ObjectTypeId).Name == "Administrative";
+        
     }
 }

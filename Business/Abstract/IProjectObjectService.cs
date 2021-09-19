@@ -13,5 +13,7 @@ namespace Business.Abstract
         List<ProjectObject> GetAll();
         int GetNextId();
         List<ProjectObject> GetByUserId(int userId);
+        ProjectObject GetByObjectType(string objectType);
+        bool IsAdministrativeProjectObject(string fullName);
     }
 }

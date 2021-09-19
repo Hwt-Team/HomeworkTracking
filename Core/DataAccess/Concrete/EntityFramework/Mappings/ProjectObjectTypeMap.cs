@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Core.DataAccess.Concrete.EntityFramework.Mappings
@@ -9,6 +10,7 @@ namespace Core.DataAccess.Concrete.EntityFramework.Mappings
         {
             ToTable("ProjectObjectTypes");
             HasKey(p => p.Id);
+            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             Property(p => p.Name).HasColumnName("Name");
         }
