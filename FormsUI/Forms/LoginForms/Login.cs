@@ -12,6 +12,7 @@ using FontAwesome.Sharp;
 using FormsUI.DependencyResolvers;
 using FormsUI.Forms.MainMenu;
 using FormsUI.Forms.MessageBox;
+using FormsUI.Forms.UserForms.Users;
 using FormsUI.Utilities;
 using Ninject.Modules;
 
@@ -160,7 +161,7 @@ namespace FormsUI.Forms.LoginForms
                         Title = CoreMessages.LoginSuccess
                     });
 
-                    this.OpenBaseForm(this.tbxUserName.Text);
+                    this.OpenBaseForm(this.tbxUserName.Text);                 
                 });
             }
         }
@@ -172,7 +173,7 @@ namespace FormsUI.Forms.LoginForms
             form.User = this._userService.GetByEmailOrUserName(email);
             form.Show();
         }
-
+       
         private void linkLblCreateAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var signUpForm = InstanceFactory.GetInstance<SignUp>(new FormModule());

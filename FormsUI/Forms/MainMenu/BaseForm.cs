@@ -263,8 +263,7 @@ namespace FormsUI.Forms.MainMenu
             //OpenChildForm(new CalendarForm());
         }
 
-        #region User management
-
+        #region User management      
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
             ShowSubMenu(this.panelUserManagement);
@@ -273,8 +272,10 @@ namespace FormsUI.Forms.MainMenu
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
+            var userForm = InstanceFactory.GetInstance<UserForm>(new FormModule());
+            userForm.CurrentUser = this.User;
             ActivateSubMenuButton(sender, RGBColors.color1);
-            OpenChildForm(new UserForm());
+            OpenChildForm(userForm);
         }
 
         private void btnUserClaims_Click(object sender, EventArgs e)

@@ -20,14 +20,16 @@ namespace Business.Concrete
         private readonly IStudentDal _studentDal;
         private readonly IGraduateStudentDal _graduateStudentDal;
         private readonly IStudyingStudentDal _studyingStudentDal;
-
-        public UserManager(IUserDal userDal, IStudentDal studentDal, IGraduateStudentDal graduateStudentDal, IStudyingStudentDal studyingStudentDal)
+        private readonly IMainClaimDal _mainClaimDal;
+        public UserManager(IUserDal userDal, IStudentDal studentDal, IGraduateStudentDal graduateStudentDal, IStudyingStudentDal studyingStudentDal, IMainClaimDal mainClaimDal)
         {
             _userDal = userDal;
             _studentDal = studentDal;
             _graduateStudentDal = graduateStudentDal;
             _studyingStudentDal = studyingStudentDal;
+            _mainClaimDal = mainClaimDal;
         }
+
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [ValidationAspect(typeof(UserValidator))]
@@ -203,6 +205,34 @@ namespace Business.Concrete
                 PasswordHash = user.PasswordHash,
                 PasswordSalt = user.PasswordSalt
             };
+        }
+
+        public bool BanUser(User currentUser, User userToBan)
+        {
+            var currentUserClaims = _mainClaimDal.GetMainClaimsByUserId(currentUser.Id);
+            var userToBanClaims = _mainClaimDal.GetMainClaimsByUserId(userToBan.Id);
+            if (currentUserClaims.Count == 0 ) return false;
+            if (userToBanClaims.Count == 0)
+            {
+                _userDal.Update(userToBan);
+                return true;
+            }
+            for (int i = 0; i < currentUserClaims.Count; i++)
+            {                              
+                if (currentUserClaims[i].Priority <= userToBanClaims[i].Priority 
+                    && currentUserClaims[i].Name.ToLower()== userToBanClaims[i].Name.ToLower()
+                    && currentUserClaims[i].Name.ToLower() == "admin")
+                {
+                    _userDal.Update(userToBan);                    
+                    return true;
+                }
+                else if(currentUserClaims[i].Priority < userToBanClaims[i].Priority)
+                {
+                    _userDal.Update(userToBan);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
