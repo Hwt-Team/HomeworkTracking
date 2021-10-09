@@ -39,6 +39,7 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnBan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,13 +70,14 @@ namespace FormsUI.Forms.UserForms.Users
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgwUsers.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgwUsers.Location = new System.Drawing.Point(16, 12);
+            this.dgwUsers.Location = new System.Drawing.Point(12, 10);
+            this.dgwUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgwUsers.Name = "dgwUsers";
             this.dgwUsers.RowHeadersWidth = 51;
             this.dgwUsers.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.dgwUsers.RowTemplate.Height = 40;
             this.dgwUsers.RowTemplate.ReadOnly = true;
-            this.dgwUsers.Size = new System.Drawing.Size(470, 512);
+            this.dgwUsers.Size = new System.Drawing.Size(352, 416);
             this.dgwUsers.TabIndex = 0;
             // 
             // btnReload
@@ -91,10 +93,11 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnReload.IconColor = System.Drawing.Color.Gainsboro;
             this.btnReload.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReload.IconSize = 32;
-            this.btnReload.Location = new System.Drawing.Point(497, 476);
-            this.btnReload.MinimumSize = new System.Drawing.Size(97, 48);
+            this.btnReload.Location = new System.Drawing.Point(373, 387);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReload.MinimumSize = new System.Drawing.Size(73, 39);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(133, 48);
+            this.btnReload.Size = new System.Drawing.Size(100, 39);
             this.btnReload.TabIndex = 22;
             this.btnReload.Text = "Reload";
             this.btnReload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,9 +113,10 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnDeleteAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAll.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDeleteAll.Location = new System.Drawing.Point(533, 153);
+            this.btnDeleteAll.Location = new System.Drawing.Point(400, 124);
+            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(124, 37);
+            this.btnDeleteAll.Size = new System.Drawing.Size(93, 30);
             this.btnDeleteAll.TabIndex = 20;
             this.btnDeleteAll.Text = "Delete All";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,9 +132,10 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdate.Location = new System.Drawing.Point(533, 59);
+            this.btnUpdate.Location = new System.Drawing.Point(400, 48);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(73, 31);
             this.btnUpdate.TabIndex = 21;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,9 +151,10 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.Location = new System.Drawing.Point(534, 106);
+            this.btnDelete.Location = new System.Drawing.Point(400, 86);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(96, 38);
+            this.btnDelete.Size = new System.Drawing.Size(72, 31);
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,21 +170,42 @@ namespace FormsUI.Forms.UserForms.Users
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAdd.Location = new System.Drawing.Point(533, 12);
+            this.btnAdd.Location = new System.Drawing.Point(400, 10);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(97, 38);
+            this.btnAdd.Size = new System.Drawing.Size(73, 31);
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnBan
+            // 
+            this.btnBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBan.FlatAppearance.BorderSize = 0;
+            this.btnBan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.btnBan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBan.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBan.Location = new System.Drawing.Point(400, 158);
+            this.btnBan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBan.Name = "btnBan";
+            this.btnBan.Size = new System.Drawing.Size(73, 30);
+            this.btnBan.TabIndex = 23;
+            this.btnBan.Text = "Ban";
+            this.btnBan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBan.UseVisualStyleBackColor = true;
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
+            // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(669, 536);
+            this.ClientSize = new System.Drawing.Size(502, 436);
+            this.Controls.Add(this.btnBan);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnDeleteAll);
             this.Controls.Add(this.btnUpdate);
@@ -187,7 +214,8 @@ namespace FormsUI.Forms.UserForms.Users
             this.Controls.Add(this.dgwUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(669, 536);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(502, 436);
             this.Name = "UserForm";
             this.Text = "UserForm";
             this.Load += new System.EventHandler(this.UserForm_Load);
@@ -204,5 +232,6 @@ namespace FormsUI.Forms.UserForms.Users
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnBan;
     }
 }

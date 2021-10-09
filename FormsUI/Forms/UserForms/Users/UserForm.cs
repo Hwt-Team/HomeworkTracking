@@ -10,12 +10,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using Business.Constants;
 using FormsUI.Utilities;
+using Core.Utilities.Constants;
 
 namespace FormsUI.Forms.UserForms.Users
 {
     public partial class UserForm : Form
     {
-        private readonly IUserService _userService; 
+        private readonly IUserService _userService;
+        public User CurrentUser { get; set; }
         public UserForm()
         {
             InitializeComponent();
@@ -126,6 +128,57 @@ namespace FormsUI.Forms.UserForms.Users
             this.LoadUsers();
         }
 
-       
+        private void btnBan_Click(object sender, EventArgs e)
+        {
+            MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
+            {
+                WarnMessageBox.MessageBox.ExecuteOption(new MessageBoxOptionParameter
+                {
+                    Caption = CoreMessages.Caption,
+                    Title = "Do you want to ban the user?",
+                    Ok = BanUser,
+                    Cancel = Cancel
+                });
+            }, Messages.CheckRowExists);
+           
+        }
+
+        private void BanUser()
+        {
+            var userToBan=new User
+            {
+                Id = (int)dgwUsers.CurrentRow.Cells[0].Value,
+                Email = dgwUsers.CurrentRow.Cells[5].Value.ToString(),
+                FirstName = dgwUsers.CurrentRow.Cells[3].Value.ToString(),
+                LastName = dgwUsers.CurrentRow.Cells[4].Value.ToString(),
+                UserName = dgwUsers.CurrentRow.Cells[2].Value.ToString(),
+                PasswordHash = dgwUsers.CurrentRow.Cells[6].Value.ToString(),
+                PasswordSalt = dgwUsers.CurrentRow.Cells[7].Value.ToString(),
+                Status=false
+            };
+            var result = _userService.BanUser(CurrentUser, userToBan);
+            if (result)
+            {
+                MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
+                {
+                    WarnMessageBox.MessageBox.Execute( new MessageBoxParameter 
+                    { 
+                        Caption=CoreMessages.Caption,
+                        Title="Selected user banned successfully!"
+                    });
+                }, Messages.CheckRowExists);
+            }
+            else
+            {
+                MainHelper.GetExistenceCurrentRow(dgwUsers, () =>
+                {
+                    WarnMessageBox.MessageBox.Execute(new MessageBoxParameter
+                    {
+                        Caption = CoreMessages.Caption,
+                        Title = "Process failed!"
+                    });
+                }, Messages.CheckRowExists);
+            }
+        }
     }
 }

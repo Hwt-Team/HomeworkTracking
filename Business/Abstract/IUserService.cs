@@ -23,5 +23,6 @@ namespace Business.Abstract
         void Register(UserRegisterDto userRegisterDto);
         PasswordDetails HashPassword(string pass);
         PasswordDetails GetPassDetailsById(int userId);
+        bool BanUser(User currentUser, User userToBan);
     }
 }

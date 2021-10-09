@@ -19,9 +19,8 @@ namespace FormsUI.Utilities
         private static ISubsidiaryClaimService _subsidiaryClaimService = InstanceFactory.GetInstance<ISubsidiaryClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         private static IProjectObjectClaimService _projectObjectClaimService = InstanceFactory.GetInstance<IProjectObjectClaimService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
         private static IProjectObjectService _projectObjectService = InstanceFactory.GetInstance<IProjectObjectService>(new INinjectModule[] { new CoreModule(), new BusinessModule() });
-
-        public static bool BigPermission { get; set; }
-
+        
+        public static bool BigPermission { get; set; }       
         static AuthorizationHelper()
         {
             BigPermission = false;
@@ -120,8 +119,8 @@ namespace FormsUI.Utilities
         }
 
         private static bool AuthorizeBigPermission(string permissionLevel) => permissionLevel == "Admin";
-
-
-
+        
+       
+        
     }
 }
